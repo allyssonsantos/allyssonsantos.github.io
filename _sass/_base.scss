@@ -1,5 +1,26 @@
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+//FONTS
+$font-base: 'Open Sans', sans-serif;
+
+//COLORS
+$color-link: #3498db;
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+	-webkit-box-shadow: $x $y $blur $color;
+     -moz-box-shadow: $x $y $blur $color;
+      -ms-box-shadow: $x $y $blur $color;
+          box-shadow: $x $y $blur $color;
+}
+
+//FUNCTIONS
+//PXTOEM
+$browser-context: 16; // Default
+@function pxToEm($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
 }

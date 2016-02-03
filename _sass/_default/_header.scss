@@ -1,0 +1,53 @@
+.blog-header {
+	padding: 10px 20px;
+	@include box-shadow(0px, 0px, 10px, #000);
+	position: fixed;
+	width: 100%;
+}
+
+.blog-title {
+	font-size: pxToEm(28);
+	color: #000;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.job {
+	font-size: pxToEm(8);
+}
+
+.blog-navigator {
+	display: inline-block;
+	float: right;
+	font-size: pxToEm(30);
+}
+
+.blog-menu-button {
+	cursor: pointer;
+	position: relative;
+	top: 10px;
+}
+
+.blog-links {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 30%;
+	@include box-shadow(0px, 0px, 10px, #000);
+	background-color: #7f8c8d;
+	list-style: none;
+	text-align: right;
+	display: none;
+}
+
+.blog-links-item {
+	text-decoration: none;
+	border-bottom: 1px solid #fff;
+	font-size: pxToEm(12);
+}
+.page-link {
+	color: #fff;
+	display: block;
+	padding: 20px;
+}

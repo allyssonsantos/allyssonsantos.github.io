@@ -1,0 +1,30 @@
+.content {
+	padding: pxToEm(100) pxToEm(20) 0;
+	max-width: 1030px;
+	margin: 0 auto;
+}
+
+.blog-posts {
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.blog-posts-title {
+	font-size: pxToEm(28);
+	text-align: center;
+}
+
+.blog-posts-post {
+	display: inline-block;
+	width: 310px;
+	min-height: 200px;
+	vertical-align: top;
+	text-align: left;
+	padding: pxToEm(20);
+	margin: 40px 10px 0;
+	border: 1px solid #ccc;
+	@include border-radius(5px);
+	flex-basis: 310px;
+	flex-grow: 1;
+}

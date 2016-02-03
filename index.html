@@ -2,17 +2,21 @@
 layout: default
 ---
 <section class="home">
-  <h1 class="blog-title">Posts</h1>
-  <ul class="blog-posts">
+  <p>Olá, sou <em>Allysson dos Santos</em> e atuo como <strong>Desenvolvedor Front End</strong></p>
+  <p>Atualmente estou trabalhando na <a href="http://www.catho.com.br" title="Catho Online">Catho Online</a> onde também desenvolvo para <a href="http://www.manager.com.br" title="Manager Online">Manager Online</a>. Também trabalhei por um ano e meio na empresa Encontra Brasil atuando como <strong>Web Designer</strong>.</p>
+  <p>Criei este site para postar meus estudos sobre <em>Front-end</em> e quem sabe poder ajudar alguem com as informações colocadas aqui <i class="fa fa-smile-o"></i></p>
+  <h2 class="blog-posts-title">Posts recentes:</h2>
+  <section class="blog-posts">
     {% for post in site.posts %}
-      <li class="blog-posts-post">
+      <article class="blog-posts-post">
+        <time class="blog-posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
         <h2>
           <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
         </h2>
-        <span class="blog-posts-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         <p class="blog-posts-description">{{ post.meta }}</p>
         <span class="blog-posts-category"><a href="/{{ post.category }}/" title="{{ post.category }}">{{ post.category }}</a></span>
-      </li>
+        <span class="blog-posts-category"><a href="/{{ post.tags }}/" title="{{ post.tags }}">{{ post.tags }}</a></span>
+      </article>
     {% endfor %}
-  </ul>
+  </section>
 </section>
