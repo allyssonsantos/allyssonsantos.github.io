@@ -1,12 +1,12 @@
 .blog-header {
 	padding: 10px 20px;
-	@include box-shadow(0px, 0px, 10px, #000);
-	position: fixed;
 	width: 100%;
+	background-color: #fff;
+	text-align: center;
 }
 
 .blog-title {
-	font-size: pxToEm(28);
+	font-size: pxToEm(22);
 	color: #000;
 	text-decoration: none;
 	display: inline-block;
@@ -18,36 +18,64 @@
 
 .blog-navigator {
 	display: inline-block;
-	float: right;
 	font-size: pxToEm(30);
+	position: fixed;
+	left: 20px;
+	top: 0;
 }
 
 .blog-menu-button {
 	cursor: pointer;
 	position: relative;
-	top: 10px;
+	top: 3px;
+	left: 0;
+	transition: 0.4s ease-out;
+}
+
+#blog-menu-controller {
+	display: none;
+}
+
+#blog-menu-controller:checked + .blog-navigator .blog-links {
+	left: 0px;
+	transition: 0.4s ease-out;
+}
+
+#blog-menu-controller:checked + .blog-navigator .blog-menu-button {
+	left: 115px;
+	transition: 0.4s ease-out;
 }
 
 .blog-links {
 	position: fixed;
 	top: 0;
-	right: 0;
+	left: -115px;
 	height: 100%;
-	width: 30%;
-	@include box-shadow(0px, 0px, 10px, #000);
-	background-color: #7f8c8d;
+	background-color: #333;
 	list-style: none;
 	text-align: right;
-	display: none;
+	transition: 0.4s ease-out;
 }
 
 .blog-links-item {
 	text-decoration: none;
-	border-bottom: 1px solid #fff;
-	font-size: pxToEm(12);
+	font-size: pxToEm(10);
 }
+
 .page-link {
+	text-decoration: none;
 	color: #fff;
 	display: block;
-	padding: 20px;
+	padding: 30px;
+}
+
+.social-item {
+	list-style: none;
+	display: inline-block;
+	font-size: 22px;
+	margin-right: 10px;
+}
+
+.social-item a {
+	color: #000;
 }

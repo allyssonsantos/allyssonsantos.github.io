@@ -2,11 +2,20 @@
 	<a href="{{ site.url }}" title="{{ site.title }}" class="blog-title">
 		<h1>Allysson dos Santos</h1>
 		<h2 class="job">Desenvolvedor front-end</h2>
+		<ul class="social">
+		    <li class="social-item"><a href="https://github.com/allyssonsantos" title="GitHub"><i class="fa fa-github"></i>
+		</a></li>
+		    <li class="social-item"><a href="https://br.linkedin.com/in/allyssonsantos
+		" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></li>
+		    <li class="social-item"><a href="https://www.facebook.com/allysson.dossantos.7" title="Facebook"><i class="fa fa-facebook-square"></i></a></li>
+		    <li class="social-item"><a href="mailto:aallysson0@gmail.com" title="E-mail"><i class="fa fa-envelope-square"></i></a></li>
+	  </ul>
 	</a>
+	<input type="checkbox" id="blog-menu-controller">
 	<nav class="blog-navigator">
-		<span class="blog-menu-button">
+		<label for="blog-menu-controller" class="blog-menu-button">
 			<i class="fa fa-bars"></i>
-		</span>
+		</label>
 		<ul class="blog-links">
 			{% for paginas in site.pages %}
 				{% if paginas.title %}

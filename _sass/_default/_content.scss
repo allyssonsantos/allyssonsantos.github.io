@@ -1,5 +1,5 @@
 .content {
-	padding: pxToEm(100) pxToEm(20) 0;
+	padding: pxToEm(10) pxToEm(20) 0;
 	max-width: 1030px;
 	margin: 0 auto;
 }
@@ -12,7 +12,8 @@
 
 .blog-posts-title {
 	font-size: pxToEm(28);
-	text-align: center;
+	text-align: left;
+	margin-top: 15px;
 }
 
 .blog-posts-post {
