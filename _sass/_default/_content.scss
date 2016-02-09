@@ -1,5 +1,5 @@
 .content {
-	padding: pxToEm(10) pxToEm(20) 0;
+	padding: pxToEm(90) pxToEm(20) 0;
 	max-width: 1030px;
 	margin: 0 auto;
 }
@@ -11,21 +11,75 @@
 }
 
 .blog-posts-title {
-	font-size: pxToEm(28);
+	font-size: pxToEm(22);
 	text-align: left;
-	margin-top: 15px;
+	margin: 30px 0 20px 0;
 }
 
 .blog-posts-post {
+	position: relative;
 	display: inline-block;
 	width: 310px;
 	min-height: 200px;
 	vertical-align: top;
 	text-align: left;
 	padding: pxToEm(20);
-	margin: 40px 10px 0;
+	margin: 0px 10px 20px;
 	border: 1px solid #ccc;
 	@include border-radius(5px);
 	flex-basis: 310px;
 	flex-grow: 1;
+}
+
+.blog-posts-date {
+	color: #AAA;
+	font-weight: 300;
+	font-size: pxToEm(12);
+}
+
+.blog-posts-heading {
+	font-weight: 700;
+	font-size: pxToEm(18);
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.blog-posts-description {
+	font-size: pxToEm(14);
+}
+
+.blog-posts-category {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	@include border-radius(5px);
+	cursor: pointer;
+	font-size: pxToEm(12);
+	font-weight: 300;
+	transition: 0.3s;
+
+	.blog-posts-category-link {
+		color: #333;
+		text-decoration: none;
+	}
+}
+
+.blog-posts-category:hover {
+	background-color: #333;
+	transition: 0.3s;
+}
+
+.blog-posts-category:hover .blog-posts-category-link {
+	color: #fff;
+	transition: 0.3s;
+}
+
+.blog-view-more { 
+	display: block;
+	width: 100%;
+	text-align: right;
+	font-size: pxToEm(14);
 }

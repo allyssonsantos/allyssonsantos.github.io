@@ -2,28 +2,38 @@
 	<a href="{{ site.url }}" title="{{ site.title }}" class="blog-title">
 		<h1>Allysson dos Santos</h1>
 		<h2 class="job">Desenvolvedor front-end</h2>
-		<ul class="social">
-		    <li class="social-item"><a href="https://github.com/allyssonsantos" title="GitHub"><i class="fa fa-github"></i>
-		</a></li>
-		    <li class="social-item"><a href="https://br.linkedin.com/in/allyssonsantos
-		" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a></li>
-		    <li class="social-item"><a href="https://www.facebook.com/allysson.dossantos.7" title="Facebook"><i class="fa fa-facebook-square"></i></a></li>
-		    <li class="social-item"><a href="mailto:aallysson0@gmail.com" title="E-mail"><i class="fa fa-envelope-square"></i></a></li>
-	  </ul>
 	</a>
 	<input type="checkbox" id="blog-menu-controller">
 	<nav class="blog-navigator">
+  		<div class="mask"></div>
 		<label for="blog-menu-controller" class="blog-menu-button">
 			<i class="fa fa-bars"></i>
 		</label>
 		<ul class="blog-links">
+			<li class="blog-links-item">
+				<a href="/" title="{{ site.title }}" class="page-link">Home</a>
+			</li>
 			{% for paginas in site.pages %}
 				{% if paginas.title %}
 					<li class="blog-links-item">
-						<a class="page-link" href="{{ paginas.url | prepend: site.baseurl }}">{{ paginas.title }}</a>
+						<a class="page-link" href="{{ paginas.url | prepend: site.baseurl }}" title="{{ paginas.title }}">{{ paginas.title }}</a>
 					</li>
 				{% endif %}
 			{% endfor %}
+			<li class="social-item">
+				<a href="https://github.com/allyssonsantos" title="GitHub" class="social-link">
+					<i class="fa fa-github"></i>
+				</a>
+				<a href="https://br.linkedin.com/in/allyssonsantos" title="LinkedIn" class="social-link">
+					<i class="fa fa-linkedin-square"></i>
+				</a>
+				<a href="https://www.facebook.com/allysson.dossantos.7" title="Facebook" class="social-link">
+					<i class="fa fa-facebook-square"></i>
+				</a>
+				<a href="mailto:aallysson0@gmail.com" title="E-mail" class="social-link">
+					<i class="fa fa-envelope-square"></i>
+				</a>
+			</li>
 		</ul>
 	</nav>
 </header>

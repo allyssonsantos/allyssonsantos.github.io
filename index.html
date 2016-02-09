@@ -2,22 +2,22 @@
 layout: default
 ---
 <section class="home">
-  <p>Olá, sou <em>Allysson dos Santos</em> <strong>Desenvolvedor Front End</strong>.
-  Atualmente estou trabalhando na <a href="http://www.catho.com.br" title="Catho Online">Catho Online</a> onde também desenvolvo para <a href="http://www.manager.com.br" title="Manager Online">Manager Online</a>. Também trabalhei por um ano e meio na empresa Encontra Brasil atuando como <strong>Web Designer</strong>.</p>
-  <p>Criei este site para compartilhar estudos sobre <em>Front-end</em>, desde o mais básico ao mais avançado, conforme eu for evoluindo.</p>
-  <p>Quem sabe isso possa ajudar alguem né?</p>
+  <p>Olá, sou <em>Allysson dos Santos</em> trabalho como <strong>Desenvolvedor Front End</strong>.
+  Atualmente estou trabalhando na <a href="http://www.catho.com.br" title="Catho Online">Catho Online</a> onde também desenvolvo para <a href="http://www.manager.com.br" title="Manager Online">Manager Online</a>. Também trabalhei por um ano e meio na empresa Encontra Brasil como <strong>Web Designer</strong>.</p>
+  <p>Sou guitarrista da <a href="https://pt-br.facebook.com/affectingminds" title="Affecting Minds">Affecting Minds</a> nas horas vagas! <i class="fa fa-music"></i></p>
+  <p>Criei este site para compartilhar estudos sobre <em>Front-end</em>, desde o básico do básico ao mais avançado <s class="strike">(quando eu aprender)</s>. Você pode encontrar o código deste blog no <a href="https://github.com/allyssonsantos/blog">GitHub</a>!</p>
   <h2 class="blog-posts-title">Posts recentes:</h2>
   <section class="blog-posts">
-    {% for post in site.posts %}
+    {% for post in site.posts limit:5 %}
       <article class="blog-posts-post">
         <time class="blog-posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
         <h2>
-          <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
+          <a class="blog-posts-heading" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
         </h2>
         <p class="blog-posts-description">{{ post.meta }}</p>
-        <span class="blog-posts-category"><a href="/{{ post.category }}/" title="{{ post.category }}">{{ post.category }}</a></span>
-        <span class="blog-posts-category"><a href="/{{ post.tags }}/" title="{{ post.tags }}">{{ post.tags }}</a></span>
+        <span class="blog-posts-category"><a href="/{{ post.category }}/" title="{{ post.category }}" class="blog-posts-category-link">{{ post.category }}</a></span>
       </article>
     {% endfor %}
+    <a href="{{ site.baseurl }}/posts" title="Veja todos os posts!" class="blog-view-more">Veja todos os posts!</a>
   </section>
 </section>

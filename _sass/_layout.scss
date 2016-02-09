@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-  font-family: $font-base;
+	font-family: $font-base;
 }
 
 //RESET
@@ -13,4 +13,19 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
 	color: $color-link;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+.strike {
+	font-size: pxToEm(14);
+}
+
+hr {
+	max-width: 1030px;
+	width: 50%;
+	margin: 15px auto 0;
+	border: 1px solid #CCC;
 }
