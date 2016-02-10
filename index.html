@@ -10,11 +10,14 @@ layout: default
   <section class="blog-posts">
     {% for post in site.posts limit:5 %}
       <article class="blog-posts-post">
+       <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+       {% if post.preview-img %}<img src="{{ post.preview-img }}" alt="{{ post.title }}" title="{{ post.title }}">{% endif %}
         <time class="blog-posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
         <h2>
-          <a class="blog-posts-heading" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
+          {{ post.title }}
         </h2>
         <p class="blog-posts-description">{{ post.meta }}</p>
+        </a>
         <span class="blog-posts-category"><a href="/{{ post.category }}/" title="{{ post.category }}" class="blog-posts-category-link">{{ post.category }}</a></span>
       </article>
     {% endfor %}

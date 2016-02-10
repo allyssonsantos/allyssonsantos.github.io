@@ -1,0 +1,17 @@
+.post-title {
+	font-weight: 700;
+	font-size: pxToEm(28);
+}
+
+.post-content {
+	font-size: pxToEm(16);
+}
+
+.post-description {
+	font-size: pxToEm(18);
+	margin-top: 15px;
+}
+
+.post-category, .post-date {
+	padding: 10px 10px 10px 0;
+}
