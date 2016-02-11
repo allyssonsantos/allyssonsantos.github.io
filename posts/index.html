@@ -1,0 +1,39 @@
+---
+title: Lista de posts
+layout: default
+---
+<h2 class="post-title">Posts</h2>
+<p class="post-description post-description--no-margin">Navegue pelos posts através das categorias.</p>
+{% for category in site.categories %}
+<a href="/posts/#{{ category | first }}" title="{{ category | first }}" class="post-category">{{ category | first }}</a>
+{% endfor %}
+<section class="blog-posts posts-list">
+<h3 id="post1" class="post-category-name">post1</h3>
+{% for post in site.categories.post1 %}
+<article class="blog-posts-post">
+   <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+   {% if post.preview-img %}<img src="{{ post.preview-img }}" alt="{{ post.title }}" title="{{ post.title }}">{% endif %}
+    <time class="blog-posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
+    <h2>
+      {{ post.title }}
+    </h2>
+    <p class="blog-posts-description">{{ post.meta }}</p>
+    </a>
+    <span class="blog-posts-category"><a href="/{{ post.category }}/" title="{{ post.category }}" class="blog-posts-category-link">{{ post.category }}</a></span>
+</article>
+{% endfor %}
+<h3 id="post2" class="post-category-name">post2</h3>
+{% for post in site.categories.post2 %}
+  <article class="blog-posts-post">
+   <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+   {% if post.preview-img %}<img src="{{ post.preview-img }}" alt="{{ post.title }}" title="{{ post.title }}">{% endif %}
+    <time class="blog-posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
+    <h2>
+      {{ post.title }}
+    </h2>
+    <p class="blog-posts-description">{{ post.meta }}</p>
+    </a>
+    <span class="blog-posts-category"><a href="/{{ post.category }}/" title="{{ post.category }}" class="blog-posts-category-link">{{ post.category }}</a></span>
+  </article>
+{% endfor %}
+</section>

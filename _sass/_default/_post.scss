@@ -1,6 +1,21 @@
+.posts-list {
+	margin-top: 20px;
+}
+
 .post-title {
 	font-weight: 700;
 	font-size: pxToEm(28);
+}
+
+.post-title--center {
+	text-align: center;
+}
+
+.post-category-name {
+	text-align: left;
+	font-size: pxToEm(22);
+	padding-top: 70px;
+	width: 100%;
 }
 
 .post-content {
@@ -11,7 +26,29 @@
 	font-size: pxToEm(18);
 	margin-top: 15px;
 }
+.post-description--no-margin {
+	margin: 0;
+}
 
 .post-category, .post-date {
 	padding: 10px 10px 10px 0;
+}
+
+.post-category {
+	padding: 5px;
+	border: 1px solid #ccc;
+	@include border-radius(5px);
+	cursor: pointer;
+	font-size: pxToEm(12);
+	font-weight: 300;
+	transition: 0.3s;
+	color: #333;
+	margin-top: 10px;
+	display: inline-block;
+}
+
+.post-category:hover {
+	background-color: #333;
+	color: #fff;
+	transition: 0.3s;
 }

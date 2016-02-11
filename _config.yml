@@ -7,6 +7,7 @@
 
 # Site settings
 title: allysson.me | desenvolvedor front end
+name: allysson.me
 email: allysson@allysson.me
 description: > # this means to ignore newlines until "baseurl:"
   Desenvolvedor Front End na Catho Online, guitarrista na banda Affecting Minds e eterno aprendiz no mundo da tecnologia.

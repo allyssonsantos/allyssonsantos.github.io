@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Testando postdsadasd
-category: front-end
+category: post1
 meta: testando pra ver se é o description
 source: http://jekyllrb.com
 ---
