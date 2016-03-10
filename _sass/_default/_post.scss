@@ -1,5 +1,23 @@
 .posts-list {
 	margin-top: 20px;
+	text-align: center;
+}
+
+.posts-post {
+	display: block;
+	width: 100%;
+	vertical-align: top;
+	text-align: left;
+	padding: pxToEm(20);
+	margin-top:20px;
+	border: 1px solid #ccc;
+	@include border-radius(5px);
+}
+
+.posts-date {
+	color: #AAA;
+	font-weight: 300;
+	font-size: pxToEm(12);
 }
 
 .post-title {
@@ -13,9 +31,17 @@
 
 .post-category-name {
 	text-align: left;
-	font-size: pxToEm(22);
+	font-size: pxToEm(34);
+	margin-top: 30px;
 	padding-top: 70px;
+	padding-bottom: 20px;
 	width: 100%;
+	text-align: center;
+}
+
+.posts-link {
+	text-decoration: none;
+	color: #333;
 }
 
 .post-content {

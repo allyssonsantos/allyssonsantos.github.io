@@ -1,7 +1,7 @@
 .blog-header {
 	padding: 10px 20px;
 	width: 100%;
-	background-color: #fff;
+	background-color: #201A1A;
 	text-align: left;
 	position: fixed;
 	z-index: 100;
@@ -10,9 +10,12 @@
 
 .blog-title {
 	font-size: pxToEm(20);
-	color: #333;
 	text-decoration: none;
 	display: inline-block;
+}
+
+.blog-title, .blog-menu-button {
+	color: #fff;
 }
 
 .job {
@@ -29,7 +32,6 @@
 	top: 10px;
 	right: 15px;
 	z-index: 15;
-	color: #333;
 }
 
 #blog-menu-controller {
@@ -37,13 +39,13 @@
 }
 
 #blog-menu-controller:checked + .blog-navigator .blog-links {
-	height: 125px;
+	height: 175px;
 	transition: height 0.4s ease-out;
 }
 
 .blog-links {
 	width: 100%;
-	background-color: #fff;
+	background-color: #201A1A;
 	list-style: none;
 	text-align: left;
 	height: 0;
@@ -59,7 +61,7 @@
 
 .page-link {
 	text-decoration: none;
-	color: #333;
+	color: #fff;
 	display: block;
 	padding: 10px 0 0 0;
 	border-top: 1px solid #ddd;
@@ -81,4 +83,3 @@
 	text-decoration: none;
 	margin-right: 10px;
 }
-

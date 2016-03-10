@@ -1,13 +1,12 @@
 ---
 layout: page
-title: About
+title: Sobre o autor - Allysson dos Santos
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Olá, sou *Allysson dos Santos* trabalho como **Desenvolvedor Front End**.
+Atualmente estou trabalhando na [Catho Online](http://www.catho.com.br "Catho Online") onde também desenvolvo para [Manager Online](http://www.manager.com.br "Manager Online"). Também trabalhei por um ano e meio na empresa Encontra Brasil como **Web Designer**.
 
-You can find the source code for the Jekyll new theme at:
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+Sou guitarrista da [Affecting Minds](https://pt-br.facebook.com/affectingminds "Affecting Minds") nas horas vagas!
 
-You can find the source code for Jekyll at /
-[jekyll](https://github.com/jekyll/jekyll)
+Criei este site para compartilhar estudos sobre *Front-end*, desde o básico do básico ao mais avançado <del>quando eu aprender</del>. Você pode encontrar o código deste blog no [GitHub](https://github.com/allyssonsantos/blog "GitHub")
