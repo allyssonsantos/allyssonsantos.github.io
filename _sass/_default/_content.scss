@@ -28,12 +28,15 @@
 	min-height: 200px;
 	vertical-align: top;
 	text-align: left;
-	padding: pxToEm(20);
 	margin: 0px 10px 20px;
 	border: 1px solid #ccc;
 	@include border-radius(5px);
 	flex-basis: 310px;
 	flex-grow: 1;
+}
+
+.blog-posts-info {
+	padding: 10px 10px 55px 10px;
 }
 
 .blog-posts-date, .post-date {
@@ -82,7 +85,7 @@
 	transition: 0.3s;
 }
 
-.blog-view-more { 
+.blog-view-more {
 	display: block;
 	width: 100%;
 	text-align: right;

@@ -34,6 +34,12 @@
 	z-index: 15;
 }
 
+.blog-menu {
+	width: 32px;
+	height: 32px;
+	margin-top: 5px;
+}
+
 #blog-menu-controller {
 	display: none;
 }
@@ -82,4 +88,10 @@
 	color: #333;
 	text-decoration: none;
 	margin-right: 10px;
+}
+
+.svg-social {
+	width: 25px;
+	height: 25px;
+	margin-top: 8px;
 }
