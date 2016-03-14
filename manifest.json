@@ -1,0 +1,16 @@
+{
+  "short_name": "allysson.me",
+  "name": "allysson.me | Desenvolvedor front-end",
+  "icons": [
+    {
+      "src": "imgs/icon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#232526",
+  "background_color": "#414345"
+}
