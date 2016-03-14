@@ -1,7 +1,8 @@
 .blog-header {
 	padding: 10px 20px;
 	width: 100%;
-	background-color: #201A1A;
+	background-color: #232526;
+	@include gradient(#232526, #414345);
 	text-align: left;
 	position: fixed;
 	z-index: 100;
@@ -51,7 +52,7 @@
 
 .blog-links {
 	width: 100%;
-	background-color: #201A1A;
+	background-color: transparent;
 	list-style: none;
 	text-align: left;
 	height: 0;

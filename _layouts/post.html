@@ -13,10 +13,8 @@ layout: default
     		</span>
     	{% endif %}
     </span>
-    <span class="post-category"><a href="{{ site.url }}/posts/#{{ page.category }}" title="Veja todos os posts da categoria {{ page.category }}">{{ page.category }}</a></span>
-    <p class="post-description">
-    	{{ page.meta }}
-    </p>
+    <a class="post-category" href="{{ site.url }}/posts/#{{ page.category }}" title="Veja todos os posts da categoria {{ page.category }}">{{ page.category }}</a>
+    <p class="post-description">{{ page.meta }}</p>
 
     {% if page.preview-img %}
     	<img src="{{ page.preview-img }}" alt="{{ page.title }}" title="{{ page.title }}">

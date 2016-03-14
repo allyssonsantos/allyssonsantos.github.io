@@ -2,7 +2,7 @@
 $font-base: 'Open Sans', sans-serif;
 
 //COLORS
-$color-link: #6C7A89;
+$color-link: #333;
 
 @mixin border-radius($radius) {
 	-webkit-border-radius: $radius;
@@ -16,6 +16,10 @@ $color-link: #6C7A89;
      -moz-box-shadow: $x $y $blur $color;
       -ms-box-shadow: $x $y $blur $color;
           box-shadow: $x $y $blur $color;
+}
+
+@mixin gradient($color1, $color2) {
+	background: linear-gradient(to right, $color1, $color2);
 }
 
 //FUNCTIONS

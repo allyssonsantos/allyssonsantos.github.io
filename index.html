@@ -3,25 +3,23 @@ layout: default
 ---
 <section class="home">
   <p>Blog de <strong>Front-End</strong>, artigos, tutoriais, dicas e experimentos sobre front end e <em>web design</em>.</p>
-  <h2 class="blog-posts-title">Posts recentes:</h2>
+
+  <p class="blog-categories">Navegue pelas categorias: </p>
+  {% for category in site.categories %}
+    <a href="/posts/#{{ category.first }}" title="{{ category.first }}" class="blog-posts-category-link">{{ category.first }}</a>
+  {% endfor %}
+  <input type="text" id="blog-busca" placeholder="Procure um post aqui:" name="Busca de posts">
+  <h2 class="blog-posts-title">Todos os posts:</h2>
   <section class="blog-posts">
-    {% for post in site.posts limit:5 %}
+    {% for post in site.posts %}
+    <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" {% if post.preview-img %} style="background-image: url('{{ post.preview-img }}')" {% endif %}>
       <article class="blog-posts-post">
-
-         <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-         {% if post.preview-img %}<img src="{{ post.preview-img }}" alt="{{ post.title }}" title="{{ post.title }}">{% endif %}
-        <div class="blog-posts-info">
           <time class="blog-posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
-          <h2>
-            {{ post.title }}
-          </h2>
+          <h2 class="blog-posts-heading">{{ post.title }}</h2>
           <p class="blog-posts-description">{{ post.meta }}</p>
-        </div>
-
-          </a>
-          <span class="blog-posts-category"><a href="/posts/#{{ post.category }}" title="{{ post.category }}" class="blog-posts-category-link">{{ post.category }}</a></span>
       </article>
+      </a>
+
     {% endfor %}
-    <a href="{{ site.baseurl }}/posts" title="Veja todos os posts!" class="blog-view-more">Veja todos os posts!</a>
   </section>
 </section>

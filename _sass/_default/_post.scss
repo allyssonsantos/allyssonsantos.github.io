@@ -46,18 +46,20 @@
 
 .post-content {
 	font-size: pxToEm(16);
+	margin-top: 10px;
 }
 
 .post-description {
 	font-size: pxToEm(18);
-	margin-top: 15px;
+	margin-top: 10px;
 }
 .post-description--no-margin {
 	margin: 0;
 }
 
-.post-category, .post-date {
-	padding: 10px 10px 10px 0;
+.posts-date {
+	display: block;
+	margin-bottom: 10px;
 }
 
 .post-category {

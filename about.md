@@ -1,12 +1,14 @@
 ---
 layout: page
-title: Sobre o autor - Allysson dos Santos
+title: Sobre o autor
 permalink: /about/
 ---
 
-Olá, sou *Allysson dos Santos* trabalho como **Desenvolvedor Front End**.
+Olá, sou *Allysson dos Santos* e trabalho como **Desenvolvedor Front End**.
 Atualmente estou trabalhando na [Catho Online](http://www.catho.com.br "Catho Online") onde também desenvolvo para [Manager Online](http://www.manager.com.br "Manager Online"). Também trabalhei por um ano e meio na empresa Encontra Brasil como **Web Designer**.
 
 Sou guitarrista da [Affecting Minds](https://pt-br.facebook.com/affectingminds "Affecting Minds") nas horas vagas!
 
-Criei este site para compartilhar estudos sobre *Front-end*, desde o básico do básico ao mais avançado <del>quando eu aprender</del>. Você pode encontrar o código deste blog no [GitHub](https://github.com/allyssonsantos/blog "GitHub")
+Criei este site para compartilhar estudos sobre *Front-end*, desde o básico do básico ao mais avançado <del>quando eu aprender</del>.
+
+Você pode encontrar o código deste blog no [GitHub](https://github.com/allyssonsantos/blog "GitHub")
