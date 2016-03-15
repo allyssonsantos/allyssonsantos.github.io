@@ -1,12 +1,40 @@
+.unloading {
+	background-color:#f2f2f2;
+	position:fixed;
+	z-index:7;
+	top:0;
+	width:100vw;
+	height:100vh;
+	overflow:hidden;
+	opacity:0;
+	-webkit-transform:scale(0);
+	-ms-transform:scale(0);transform:scale(0);
+	-webkit-transition:opacity .6s,-webkit-transform .5s ease-out;
+	transition:opacity .6s,-webkit-transform .5s ease-out;
+	transition:transform .5s ease-out,opacity .6s;
+	transition:transform .5s ease-out,opacity .6s,-webkit-transform .5s ease-out;
+}
 .blog-header {
-	padding: 10px 20px;
+	padding: 20px 20px 10px 20px;
 	width: 100%;
 	background-color: #232526;
 	@include gradient(#232526, #414345);
-	text-align: left;
+	text-align: center;
 	position: fixed;
 	z-index: 100;
 	@include box-shadow(0, 0, 5px, #000);
+}
+
+.blog-back {
+	width: 32px;
+	height: 32px;
+	position: relative;
+	top: 5px;
+	cursor: pointer;
+}
+
+.blog-title-wrap {
+	width: 100%;
 }
 
 .blog-title {
@@ -25,12 +53,13 @@
 
 .blog-navigator {
 	font-size: pxToEm(30);
+	width: 100%;
 }
 
 .blog-menu-button {
 	cursor: pointer;
 	position: absolute;
-	top: 10px;
+	top: 20px;
 	right: 15px;
 	z-index: 15;
 }

@@ -1,13 +1,16 @@
 <header class="blog-header">
-	<a href="{{ site.url }}" title="{{ site.title }}" class="blog-title">
-		<h1>Allysson dos Santos</h1>
-		<h2 class="job">Desenvolvedor front-end</h2>
-	</a>
-	<input tabindex="0" type="checkbox" id="blog-menu-controller">
+	<div style="float: left;"><img class="blog-back" src="{{site.baseurl}}/imgs/svgs/arrows.svg" alt="Voltar para página anterior"></div>
+		<div class="blog-title-wrap">
+			<a href="{{ site.url }}" title="{{ site.title }}" class="blog-title">
+				<h1>Allysson dos Santos</h1>
+				<h2 class="job">Desenvolvedor front-end</h2>
+			</a>
+		</div>
+		<input tabindex="0" type="checkbox" id="blog-menu-controller">
 	<nav class="blog-navigator">
   		<div class="mask"></div>
 		<label tabindex="0" for="blog-menu-controller" class="blog-menu-button">
-			<img class="blog-menu" src="/imgs/svgs/menu.svg" alt="Menu do Blog">
+			<img class="blog-menu" src="{{site.baseurl}}/imgs/svgs/menu.svg" alt="Menu do Blog">
 		</label>
 		<ul class="blog-links">
 			<li class="blog-links-item">
@@ -22,16 +25,16 @@
 			{% endfor %}
 			<li class="social-item">
 				<a href="https://github.com/allyssonsantos" title="GitHub" class="social-link">
-					<img src="/imgs/svgs/github.svg" class="svg-social" alt="GitHub">
+					<img src="{{site.baseurl}}/imgs/svgs/github.svg" class="svg-social" alt="GitHub">
 				</a>
 				<a href="https://br.linkedin.com/in/allyssonsantos" title="LinkedIn" class="social-link">
-					<img src="/imgs/svgs/linkedin.svg" class="svg-social" alt="LinkedIn">
+					<img src="{{site.baseurl}}/imgs/svgs/linkedin.svg" class="svg-social" alt="LinkedIn">
 				</a>
 				<a href="https://www.facebook.com/allysson.dossantos.7" title="Facebook" class="social-link">
-					<img src="/imgs/svgs/facebook.svg" class="svg-social" alt="Facebook">
+					<img src="{{site.baseurl}}/imgs/svgs/facebook.svg" class="svg-social" alt="Facebook">
 				</a>
 				<a href="mailto:aallysson0@gmail.com" title="E-mail" class="social-link">
-					<img src="/imgs/svgs/email.svg" class="svg-social" alt="E-mail">
+					<img src="{{site.baseurl}}/imgs/svgs/email.svg" class="svg-social" alt="E-mail">
 				</a>
 			</li>
 		</ul>

@@ -6,15 +6,15 @@
   <link rel="manifest" href="manifest.json">
 
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="256x256" href="imgs/icon.png">
+  <link rel="icon" sizes="256x256" href="{{ "imgs/icon.png" | prepend: site.baseurl }}">
   <meta name="theme-color" content="#232526">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="allysson.me">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon-precomposed" href="imgs/icon.png">
+  <link rel="apple-touch-icon-precomposed" href="{{ "imgs/icon.png" | prepend: site.baseurl }}">
 
-  <meta name="msapplication-TileImage" content="imgs/icon.png">
+  <meta name="msapplication-TileImage" content="{{ "imgs/icon.png" | prepend: site.baseurl }}">
   <meta name="msapplication-TileColor" content="#F77F00">
 
   <title>{% if page.title %}{{ page.title | escape }} - {{ site.name }}{% else %}{{ site.title | escape }}{% endif %}</title>
@@ -24,4 +24,7 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'> -->
+
+  <script>navigator.serviceWorker.register("{{site.baseurl}}/worker.js")</script>
+
 </head>
