@@ -2,19 +2,15 @@
 layout: default
 ---
 <section class="home">
-  <p>Blog de <strong>Front-End</strong>, artigos, tutoriais, dicas e experimentos sobre front end e <em>web design</em>.</p>
+  <p>Blog de <strong>Front-End</strong>, artigos, tutoriais, dicas e experimentos sobre front end, responsivo, mobile, <em>web design</em>, etc.</p>
 
-  <p class="blog-categories">Navegue pelas categorias: </p>
-  {% for category in site.categories %}
-    <a href="/posts/#{{ category.first }}" title="{{ category.first }}" class="blog-posts-category-link">{{ category.first }}</a>
-  {% endfor %}
   <input type="text" id="blog-busca" placeholder="Procure um post aqui:" name="Busca de posts">
   <h2 class="blog-posts-title">Todos os posts:</h2>
   <section class="blog-posts">
     {% for post in site.posts %}
     <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" {% if post.preview-img %} style="background-image: url('{{ post.preview-img }}')" {% endif %}>
       <article class="blog-posts-post">
-          <time class="blog-posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <time class="blog-posts-date muted">{{ post.date | date: "%b %-d, %Y" }}</time>
           <h2 class="blog-posts-heading">{{ post.title }}</h2>
           <p class="blog-posts-description">{{ post.meta }}</p>
       </article>

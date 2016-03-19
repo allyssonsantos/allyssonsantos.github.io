@@ -12,6 +12,7 @@ CACHE:
 ./imgs/svgs/linkedin.svg
 ./imgs/svgs/facebook.svg
 ./imgs/svgs/email.svg
+./javascripts/jquery-git.min.js
 ./javascripts/spa.js
 ./javascripts/busca.js
 

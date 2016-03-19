@@ -6,15 +6,15 @@
   <link rel="manifest" href="manifest.json">
 
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="256x256" href="{{ "imgs/icon.png" | prepend: site.baseurl }}">
+  <link rel="icon" sizes="256x256" href="{{ "/imgs/icon.png" | prepend: site.baseurl | prepend: site.url }}">
   <meta name="theme-color" content="#232526">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="allysson.me">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon-precomposed" href="{{ "imgs/icon.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon-precomposed" href="{{ "/imgs/icon.png" | prepend: site.baseurl | prepend: site.url }}">
 
-  <meta name="msapplication-TileImage" content="{{ "imgs/icon.png" | prepend: site.baseurl }}">
+  <meta name="msapplication-TileImage" content="{{ "/imgs/icon.png" | prepend: site.baseurl | prepend: site.url }}">
   <meta name="msapplication-TileColor" content="#F77F00">
 
   <title>{% if page.title %}{{ page.title | escape }} - {{ site.name }}{% else %}{{ site.title | escape }}{% endif %}</title>

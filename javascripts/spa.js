@@ -4,7 +4,8 @@ void function(){
 	if (!('pushState' in window.history)) return;
 
 	var $body = $('body'),
-		  $page = $('.current-page');
+		$page = $('.current-page'),
+		$blogLinksItem = $(".blog-links-item");
 
 	function load(url) {
 		console.log('Load', url);
@@ -16,7 +17,6 @@ void function(){
 
 		$page.load(url + ' main', function() {
 			$(document).trigger('pageload', this.href);
-			$body.scrollTop(0);
 		});
 	}
 
@@ -43,11 +43,19 @@ void function(){
 
 	window.history.replaceState({push:true}, '', location.href);
 
-  $(".blog-back").on("click", function() {
-    window.history.back();
-  });
+	$(".blog-back").on("click", function() {
+		window.history.back();
+	});
 
-  var title = 'Testando';
+	$blogLinksItem.on("click", function() {
+		$("#blog-menu-controller").prop("checked", false);
+	});
+
+	$(".blog-posts-category-link").on("click", function(e) {
+		e.preventDefault();
+	})
+
+	var title = 'Testando';
 	var options = {
 		icon: 'imgs/icon.png',
 		body: 'Testando notificações no load'

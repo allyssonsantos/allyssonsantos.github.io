@@ -2,11 +2,12 @@
 title: Lista de posts
 layout: default
 ---
-<h2 class="post-title">Posts</h2>
-<p class="post-description post-description--no-margin">Navegue pelos posts através das categorias.</p>
+<h2 class="post-title">Todas as categorias:</h2>
+
 {% for category in site.categories %}
-<a href="/posts/#{{ category | first }}" title="{{ category | first }}" class="post-category">{{ category | first }}</a>
+    <button title="{{ category.first }}" class="blog-posts-category-link" onclick="location.href='/posts/#{{category.first}}';">{{ category.first }}</button>
 {% endfor %}
+
 <section class="posts-list">
   <h3 id="HTML5" class="post-category-name">HTML5</h3>
   {% for post in site.categories.HTML5 %}

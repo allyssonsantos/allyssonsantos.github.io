@@ -11,16 +11,16 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1em;
 }
 
+h1 a, h2 a {
+	text-decoration: none;
+}
+
 a {
 	color: $color-link;
 }
 
 p {
 	margin-bottom: 10px;
-}
-
-.strike {
-	font-size: pxToEm(14);
 }
 
 hr {
@@ -33,4 +33,15 @@ hr {
 img {
 	max-width: 100%;
 	width: 100%;
+}
+.muted {
+	color: #AAA;
+	font-weight: 300;
+	font-size: pxToEm(12);
+}
+
+.comments {
+	max-width: 1030px;
+	margin: 0 auto;
+	padding: 0 pxToEm(20);
 }
