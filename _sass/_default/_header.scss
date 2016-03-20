@@ -8,8 +8,7 @@
 	overflow:hidden;
 	opacity:0;
 	transform: translate3d(-100%, 0, 0);
-  	opacity: 0;
-  	transition: transform 1s, opacity 1s;
+  transition: transform 1s, opacity 1s;
 }
 
 .blog-header {
@@ -75,6 +74,7 @@
 #blog-menu-controller:checked + .blog-navigator .blog-links {
 	height: 175px;
 	opacity: 1;
+	transition: height 0.6s ease-in, opacity 0.7s linear;
 }
 
 .blog-links {
