@@ -6,6 +6,7 @@ CACHE:
 ./index.html
 ./imgs/icon.png
 ./css/main.css
+./imgs/teste.png
 ./imgs/svgs/menu.svg
 ./imgs/svgs/arrows.svg
 ./imgs/svgs/github.svg

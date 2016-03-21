@@ -43,6 +43,8 @@ void function(){
 		window.history.pushState({push:true}, '', href);
 
 		load(href);
+
+		setTimeout(function() {
 		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 		var disqus_developer = 1;
 		var disqus_shortname = 'allyssonme'; // required: replace example with your forum shortname
@@ -55,6 +57,7 @@ void function(){
 				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 		})();
+	} ,2000);
 
 		event.preventDefault();
 	});
