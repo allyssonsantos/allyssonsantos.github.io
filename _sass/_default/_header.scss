@@ -22,6 +22,11 @@
 	@include box-shadow(0, 0, 5px, #000);
 }
 
+.blog-back-button {
+	float: left;
+	display: none;
+}
+
 .blog-back {
 	width: 22px;
 	height: 22px;
@@ -57,7 +62,6 @@
 	cursor: pointer;
 	position: absolute;
 	top: 20px;
-	right: 15px;
 	z-index: 15;
 }
 
@@ -74,7 +78,7 @@
 #blog-menu-controller:checked + .blog-navigator .blog-links {
 	height: 175px;
 	opacity: 1;
-	transition: height 0.6s ease-in, opacity 0.7s linear;
+	transition: height 0.4s ease-in, opacity 0.7s linear;
 }
 
 .blog-links {

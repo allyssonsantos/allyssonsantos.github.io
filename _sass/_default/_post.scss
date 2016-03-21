@@ -78,13 +78,20 @@
 }
 
 .post-author {
-	background-color: #eee;
+	background-color: #232526;
+	background: linear-gradient(to right, #232526, #414345);
+	border-radius: 5px;
 }
 
 .post-author-details {
 	max-width: 1030px;
 	margin: 50px auto;
 	padding: 20px;
+	color: #fff;
+}
+
+.post-author-details a {
+	color: #fff;
 }
 
 .post-author-img {
@@ -100,4 +107,5 @@
 .post-author-description {
 	display: inline-block;
 	vertical-align: top;
+	padding-top: 20px;
 }
