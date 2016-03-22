@@ -11,5 +11,7 @@
   "start_url": "index.html",
   "display": "standalone",
   "theme_color": "#232526",
-  "background_color": "#414345"
+  "background_color": "#414345",
+  "gcm_sender_id": "622356752605",
+  "gcm_user_visible_only": true
 }
