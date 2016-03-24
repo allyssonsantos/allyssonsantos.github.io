@@ -8,8 +8,6 @@ var files = [
   "css/main.css",
   "imgs/teste.png",
   "imgs/allysson.jpg",
-  "//allyssonme.disqus.com/embed.js",
-  "//a.disquscdn.com/next/embed/alfie.f51946af45e0b561c60f768335c9eb79.js",
   "html5/2016/02/02/teste-post-77777.html",
   "imgs/svgs/menu.svg",
   "imgs/svgs/arrows.svg",
