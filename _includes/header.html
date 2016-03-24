@@ -13,9 +13,6 @@
 			<img class="blog-menu" src="{{site.baseurl}}/imgs/svgs/menu.svg" alt="Menu do Blog">
 		</label>
 		<ul class="blog-links">
-			<li class="blog-links-item">
-				<a href="/" title="{{ site.title }}" class="page-link">Home</a>
-			</li>
 			{% for paginas in site.pages %}
 				{% if paginas.title %}
 					<li class="blog-links-item">
