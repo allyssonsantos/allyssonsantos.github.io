@@ -67,21 +67,21 @@ self.addEventListener('notificationclick', function(event) {
   );
 });
 
-self.addEventListener('activate', function(event) {
-  console.log('[SW] Activate');
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (CACHE_NAME.indexOf(cacheName) == -1) {
-            console.log('[SW] Delete cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
-});
+// self.addEventListener('activate', function(event) {
+//   console.log('[SW] Activate');
+//   event.waitUntil(
+//     caches.keys().then(function(cacheNames) {
+//       return Promise.all(
+//         cacheNames.map(function(cacheName) {
+//           if (CACHE_NAME.indexOf(cacheName) == -1) {
+//             console.log('[SW] Delete cache:', cacheName);
+//             return caches.delete(cacheName);
+//           }
+//         })
+//       );
+//     })
+//   );
+// });
 
 self.addEventListener('install', function(event) {
   self.skipWaiting();
