@@ -27,7 +27,15 @@ void function(){
     then(function(pushSubscription){
       sub = pushSubscription;
       console.log('Subscribed! Endpoint:', sub.endpoint);
+      const id = pushSubscription.endpoint.slice(pushSubscription.endpoint.lastIndexOf('/')+1);
+      console.log("ID:" + id);
       subscribeButton.textContent = 'Unsubscribe';
+      $.ajax({
+        method: "get",
+        url: "http://allysson.me/push/index.php",
+        data: "id=" + id,
+        success: console.log("Foi!")
+      });
       isSubscribed = true;
     });
   }
