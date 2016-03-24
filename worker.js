@@ -7,8 +7,8 @@ void function(){
     console.log('Service Worker is supported');
     navigator.serviceWorker.register('service-worker.js').then(function() {
       return navigator.serviceWorker.ready;
-    }).then(function(serviceWorkerRegistration) {
-      reg = serviceWorkerRegistration;
+    }).then(function(ServiceWorkerRegistration) {
+      reg = ServiceWorkerRegistration;
       subscribeButton.disabled = false;
       console.log('Service Worker is ready :^)', reg);
     }).catch(function(error) {
