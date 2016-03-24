@@ -1,31 +1,31 @@
-var files = [
-  "index.html",
-  "javascripts/jquery-git.min.js",
-  "worker.js",
-  "javascripts/spa.js",
-  "javascripts/busca.js",
-  "imgs/icon.png",
-  "css/main.css",
-  "imgs/teste.png",
-  "imgs/allysson.jpg",
-  "html5/2016/02/02/teste-post-77777.html",
-  "imgs/svgs/menu.svg",
-  "imgs/svgs/arrows.svg",
-  "imgs/svgs/github.svg",
-  "imgs/svgs/linkedin.svg",
-  "imgs/svgs/facebook.svg",
-  "imgs/svgs/email.svg",
-  "html5/2016/02/02/teste-post-55555.html",
-  "css/2016/02/01/post-de-teste.html"
-];
-// dev only
-if (typeof files == 'undefined') {
-  var files = [];
-} else {
-  files.push('./');
-}
+// var files = [
+//   "index.html",
+//   "javascripts/jquery-git.min.js",
+//   "worker.js",
+//   "javascripts/spa.js",
+//   "javascripts/busca.js",
+//   "imgs/icon.png",
+//   "css/main.css",
+//   "imgs/teste.png",
+//   "imgs/allysson.jpg",
+//   "html5/2016/02/02/teste-post-77777.html",
+//   "imgs/svgs/menu.svg",
+//   "imgs/svgs/arrows.svg",
+//   "imgs/svgs/github.svg",
+//   "imgs/svgs/linkedin.svg",
+//   "imgs/svgs/facebook.svg",
+//   "imgs/svgs/email.svg",
+//   "html5/2016/02/02/teste-post-55555.html",
+//   "css/2016/02/01/post-de-teste.html"
+// ];
+// // dev only
+// if (typeof files == 'undefined') {
+//   var files = [];
+// } else {
+//   files.push('./');
+// }
 
-var CACHE_NAME = 'allysson';
+// var CACHE_NAME = 'allysson';
 
 self.addEventListener('activate', function(event) {
   console.log('Activated', event);
@@ -86,22 +86,13 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('install', function(event) {
   self.skipWaiting();
   console.log('Installed', event);
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return Promise.all(
-        files.map(function(file) {
-          return cache.add(file);
-        })
-      );
-    })
-  );
 });
 
-self.addEventListener('fetch', function(event) {
-  console.log('[SW] fetch ' + event.request.url)
-  event.respondWith(
-    caches.match(event.request).then(function(response){
-      return response || fetch(event.request.clone());
-    })
-  );
-});
+// self.addEventListener('fetch', function(event) {
+//   console.log('[SW] fetch ' + event.request.url)
+//   event.respondWith(
+//     caches.match(event.request).then(function(response){
+//       return response || fetch(event.request.clone());
+//     })
+//   );
+// });
