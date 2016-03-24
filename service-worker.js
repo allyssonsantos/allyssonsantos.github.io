@@ -10,11 +10,11 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('push', function(event) {
   console.log('Push message', event);
 
-  var title = 'Push message';
+  var title = 'Testando Push';
 
   event.waitUntil(
     self.registration.showNotification(title, {
-      'body': 'The Messadasdsa',
+      'body': 'Descrição da bagaça',
       'icon': 'imgs/icon.png'
     }));
 });
