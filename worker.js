@@ -23,12 +23,14 @@ void function(){
     }
   });
   function subscribe() {
+    var $chave = document.querySelector("#chave");
     reg.pushManager.subscribe({userVisibleOnly: true}).
     then(function(pushSubscription){
       sub = pushSubscription;
       console.log('Subscribed! Endpoint:', sub.endpoint);
       const id = pushSubscription.endpoint.slice(pushSubscription.endpoint.lastIndexOf('/')+1);
       console.log("ID:" + id);
+      $chave.innerHTML = id;
       subscribeButton.textContent = 'Unsubscribe';
       $.ajax({
         method: "get",
