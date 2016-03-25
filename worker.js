@@ -34,7 +34,7 @@ void function(){
       subscribeButton.textContent = 'Unsubscribe';
       $.ajax({
         method: "get",
-        url: "http://allysson.me/push/index.php",
+        url: "https://allysson.herokuapp.com/index.php",
         data: "id=" + id,
         success: console.log("Foi!")
       });
