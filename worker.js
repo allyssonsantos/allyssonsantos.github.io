@@ -40,10 +40,12 @@ void function(){
         method: "get",
         url: "https://allysson.byethost4.com/index.php",
         data: "id=" + id,
+        dataType: "html",
+        contentType: "text/html",
         headers:{
                          'Access-Control-Allow-Origin'   : '*',
-                         'Accept'                        : 'application/json',
-                         'Content-Type'                  : 'application/json',
+                         'Accept'                        : 'text/html',
+                         'Content-Type'                  : 'text/html',
                      },
                      beforeSend: function(xhrObj){
                          xhrObj.setRequestHeader("Access-Control-Allow-Origin","*");
