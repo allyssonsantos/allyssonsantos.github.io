@@ -71,9 +71,9 @@ void function(){
 
 	window.history.replaceState({push:true}, '', location.href);
 
-	$(".blog-back").on("click", function() {
-		window.history.back();
-	});
+	// $(".blog-back").on("click", function() {
+	// 	window.history.back();
+	// });
 
 	$blogLinksItem.on("click", function() {
 		$("#blog-menu-controller").prop("checked", false);
@@ -81,5 +81,5 @@ void function(){
 
 	$(".blog-posts-category-link").on("click", function(e) {
 		e.preventDefault();
-	});	
+	});
 }();

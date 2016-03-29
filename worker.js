@@ -5,7 +5,7 @@ void function(){
   var subscribeButton = document.querySelector('button');
   if ('serviceWorker' in navigator) {
     console.log('Service Worker is supported');
-    navigator.serviceWorker.register('service-worker.js').then(function() {
+    navigator.serviceWorker.register('/service-worker.js').then(function() {
       return navigator.serviceWorker.ready;
     }).then(function(ServiceWorkerRegistration) {
       reg = ServiceWorkerRegistration;
@@ -15,13 +15,15 @@ void function(){
       console.log('Service Worker Error :^(', error);
     });
   }
-  subscribeButton.addEventListener('click', function() {
-    if (isSubscribed) {
-      unsubscribe();
-    } else {
-      subscribe();
-    }
-  });
+  if(subscribeButton) {
+    subscribeButton.addEventListener('click', function() {
+      if (isSubscribed) {
+        unsubscribe();
+      } else {
+        subscribe();
+      }
+    });
+  }
   function subscribe() {
     var $chave = document.querySelector("#chave");
     reg.pushManager.subscribe({userVisibleOnly: true}).
@@ -32,10 +34,24 @@ void function(){
       console.log("ID:" + id);
       $chave.innerHTML = id;
       subscribeButton.textContent = 'Unsubscribe';
+      jQuery.support.cors = true;
       $.ajax({
+        crossDomain: true,
         method: "get",
-        url: "https://allysson.herokuapp.com/index.php",
+        url: "https://allysson.byethost4.com/index.php",
         data: "id=" + id,
+        headers:{
+                         'Access-Control-Allow-Origin'   : '*',
+                         'Accept'                        : 'application/json',
+                         'Content-Type'                  : 'application/json',
+                     },
+                     beforeSend: function(xhrObj){
+                         xhrObj.setRequestHeader("Access-Control-Allow-Origin","*");
+                         xhrObj.setRequestHeader("Access-Control-Allow-Methods","GET,POST,PUT,DELETE,OPTIONS");
+                         xhrObj.setRequestHeader("Access-Control-Allow-Headers","Content-Type");
+                         xhrObj.setRequestHeader("Content-Type","application/json");
+                         xhrObj.setRequestHeader("Accept","application/json");
+                     },
         success: console.log("Foi!")
       });
       isSubscribed = true;
