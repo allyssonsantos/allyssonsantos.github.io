@@ -1,3 +1,8 @@
+.post-header, .post-author, .post-comments, .posts-all {
+	max-width: 1030px;
+	margin: 0 auto;
+}
+
 .posts-list {
 	margin-top: 20px;
 	text-align: center;
@@ -43,11 +48,32 @@
 .post-content {
 	font-size: pxToEm(16);
 	margin-top: 10px;
+	max-width: 1030px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.post-image {
+	position: relative;
+	height: 50vh;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 .post-description {
-	font-size: pxToEm(18);
-	margin-top: 10px;
+	max-width: 1000px;
+
+	color: #fff;
+	font-size: pxToEm(22);
+	font-weight: bold;
+	text-align: center;
+
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 }
 .post-description--no-margin {
 	margin: 0;
@@ -109,3 +135,4 @@
 	vertical-align: top;
 	padding-top: 20px;
 }
+

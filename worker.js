@@ -34,26 +34,10 @@ void function(){
       console.log("ID:" + id);
       $chave.innerHTML = id;
       subscribeButton.textContent = 'Unsubscribe';
-      jQuery.support.cors = true;
       $.ajax({
-        crossDomain: true,
         method: "get",
-        url: "https://allysson.byethost4.com/index.php",
+        url: "https://allysson.herokuapp.com/index.php",
         data: "id=" + id,
-        dataType: "html",
-        contentType: "text/html",
-        headers:{
-                         'Access-Control-Allow-Origin'   : '*',
-                         'Accept'                        : 'text/html',
-                         'Content-Type'                  : 'text/html',
-                     },
-                     beforeSend: function(xhrObj){
-                         xhrObj.setRequestHeader("Access-Control-Allow-Origin","*");
-                         xhrObj.setRequestHeader("Access-Control-Allow-Methods","GET,POST,PUT,DELETE,OPTIONS");
-                         xhrObj.setRequestHeader("Access-Control-Allow-Headers","Content-Type");
-                         xhrObj.setRequestHeader("Content-Type","application/json");
-                         xhrObj.setRequestHeader("Accept","application/json");
-                     },
         success: console.log("Foi!")
       });
       isSubscribed = true;

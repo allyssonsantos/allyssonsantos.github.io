@@ -6,7 +6,6 @@ CACHE:
 ./index.html
 ./imgs/icon.png
 ./css/main.css
-./imgs/teste.png
 ./imgs/svgs/menu.svg
 ./imgs/svgs/arrows.svg
 ./imgs/svgs/github.svg
@@ -15,11 +14,9 @@ CACHE:
 ./imgs/svgs/email.svg
 ./javascripts/jquery-git.min.js
 ./javascripts/spa.js
-./javascripts/busca.js
 
 NETWORK:
 *
-
 
 SETTINGS:
 prefer-online

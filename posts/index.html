@@ -2,32 +2,35 @@
 title: Lista de posts
 layout: default
 ---
-<h2 class="post-title">Todas as categorias:</h2>
 
-{% for category in site.categories %}
-    <button title="{{ category.first }}" class="blog-posts-category-link" onclick="location.href='/posts/#{{category.first}}';">{{ category.first }}</button>
-{% endfor %}
+<div class="posts-all">
+  <h2 class="post-title">Todas as categorias:</h2>
 
-<section class="posts-list">
-  <h3 id="HTML5" class="post-category-name">HTML5</h3>
-  {% for post in site.categories.HTML5 %}
-  <a class="posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-    <article class="posts-post">
+  {% for category in site.categories %}
+      <button title="{{ category.first }}" class="blog-posts-category-link" onclick="location.href='/posts/#{{category.first}}';">{{ category.first }}</button>
+  {% endfor %}
+
+  <section class="posts-list">
+    <h3 id="HTML5" class="post-category-name">HTML5</h3>
+    {% for post in site.categories.HTML5 %}
+    <a class="posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+      <article class="posts-post">
+            <time class="posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <h2>{{ post.title }}</h2>
+            <p class="post-description">{{ post.meta }}</p>
+      </article>
+    </a>
+    {% endfor %}
+    <h3 id="CSS" class="post-category-name">CSS</h3>
+    {% for post in site.categories.CSS %}
+      <article class="posts-post">
+       <a class="posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+         {% if post.preview-img %}<img src="{{ post.preview-img }}" alt="{{ post.title }}" title="{{ post.title }}">{% endif %}
           <time class="posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
-          <h2>{{ post.title }}</h2>
-          <p class="post-description">{{ post.meta }}</p>
-    </article>
-  </a>
-  {% endfor %}
-  <h3 id="CSS" class="post-category-name">CSS</h3>
-  {% for post in site.categories.CSS %}
-    <article class="posts-post">
-     <a class="posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-       {% if post.preview-img %}<img src="{{ post.preview-img }}" alt="{{ post.title }}" title="{{ post.title }}">{% endif %}
-        <time class="posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
-        <h2 class="blog-posts-heading">{{ post.title }}</h2>
-        <p class="posts-description">{{ post.meta }}</p>
-      </a>
-    </article>
-  {% endfor %}
-</section>
+          <h2 class="blog-posts-heading">{{ post.title }}</h2>
+          <p class="posts-description">{{ post.meta }}</p>
+        </a>
+      </article>
+    {% endfor %}
+  </section>
+</div>
