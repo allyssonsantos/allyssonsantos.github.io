@@ -24,10 +24,10 @@ permalink: css/transform-do-css3.html
 
 <h3>O método translate</h3>
 
-<p>O translate permite que você <strong>desloque um elemento</strong> para qualquer lado de sua posição inicial, de acordo com os parâmetros passados para o eixo X e o eixo Y</p>
+<p>O translate permite que você <strong>desloque um elemento</strong> para qualquer lado de sua posição inicial, de acordo com os parâmetros passados para o eixo X e o eixo Y. Ex: transform: translate(x,y);</p>
 <p>No exemplo abaixo, movemos o elemento para 50px a direita e 50px para baixo, (coloque o cursor em cima para ver o efeito!)</p>
 
-<div class="translate">Coloque o mouse aqui!</div>
+<div class="transform translate">Coloque o mouse aqui!</div>
 
 {% highlight css linenos %}
 .translate {
@@ -54,8 +54,8 @@ permalink: css/transform-do-css3.html
 <p>Para rotacionar no <strong>sentido anti-horario</strong>, basta passar um valor <strong>negativo</strong>, ex <em>(-20deg)</em>.</p>
 
 <p>No exemplo abaixo, rotacionaremos o primeiro elemento em 25 graus no <strong>sentido horário</strong> e o segundo elemento 25 graus no <strong>sentido anti-horário</strong>.</p>
-<div class="rotate">Sentido horário</div>
-<div class="rotate-anti-horario">Sentido anti-horário</div>
+<div class="transform rotate">Sentido horário</div>
+<div class="transform rotate-anti-horario">Sentido anti-horário</div>
 
 {% highlight css linenos %}
 .rotate, .rotate-anti-horario {
@@ -80,11 +80,14 @@ permalink: css/transform-do-css3.html
 
 <h3>O método scale</h3>
 
-<p>O <strong>scale</strong> serve justamente para alterar a escala do elemento, você pode <strong>aumentar</strong> ou <strong>diminuir</strong> o tamanho do elemento selecionado, como se estivesse alterando o <em>width</em> e o <em>height</em> do mesmo, por exemplo:</p>
+<p>O <strong>scale</strong> serve justamente para alterar a escala do elemento, você pode <strong>aumentar</strong> ou <strong>diminuir</strong> o tamanho do elemento selecionado, como se estivesse alterando o <em>width</em> e o <em>height</em> do mesmo, utilizando transform: scale(width, height), por exemplo:</p>
 
 {% highlight css linenos %}
 .scale {
-	transform: scale(2); // aumenta o elemento em 2x
+	transform: scale(2); // aumenta 2x o width e 2x o height do elemento
+}
+.scale {
+	transform: scale(2, 5); // aumenta o width em 2x e o height em 5x;
 }
 {% endhighlight %}
 
@@ -98,11 +101,12 @@ permalink: css/transform-do-css3.html
 }
 {% endhighlight %}
 
-<p>No exemplo abaixo, deixaremos um elemento com o dobro de seu tamanho e o outro que está com o valor negativo, adivinha? de <strong>cabeça para baixo!</strong>.</p>
-<div class="scale">Coloque o mouse aqui!</div>
-<div class="scale-negativo">Coloque o mouse aqui!</div>
+<p>No exemplo abaixo, deixaremos um elemento com o dobro de seu tamanho, outro com o 2x o tamanho de seu width e 4x o tamanho de seu height e o outro que está com o valor negativo, adivinha? de <strong>cabeça para baixo!</strong>.</p>
+<div class="transform scale">Coloque o mouse aqui!</div>
+<div class="transform scale-torto">Coloque o mouse aqui!</div>
+<div class="transform scale-negativo">Coloque o mouse aqui!</div>
 {% highlight css linenos %}
-.scale, .scale-negativo {
+.scale, .scale-negativo, scale-torto {
 	width: 100px;
 	height: 100px;
 	transition: transform 1s;
@@ -111,9 +115,38 @@ permalink: css/transform-do-css3.html
 	transform: scale(2); // aumenta o elemento em 2x
 }
 
+.scale-torto:hover {
+	transform: scale(2, 4); // aumenta o width em 2x e o height em 4x
+}
+
 .scale-negativo:hover {
 	transform: scale(-2); // aumenta o elemento em 2x, mas deixa ele de ponta cabeça!
 }
 {% endhighlight %}
 
 <p>O scale(-1) é bom caso você queira inverter um elemento, deixar ele de cabeça para baixo, basta colocar o -1 no scale do elemento.</p>
+
+<hr>
+
+<h3>O método skew</h3>
+
+<p>O skew serve para <del>entortar</del> <strong>distorcer um elemento</strong> no eixo X ou no eixo Y, dependendo do parâmetro passado, transform: skew(x,y), também como o rotate, os valores são passados em <em>degrees</em>.;</p>
+<p>No exemplo abaixo distorceremos um elemento 10 graus no eixo X e 5 graus no eixo Y.</p>
+
+<div class="transform skew">Coloque o mouse aqui!</div>
+{% highlight css linenos %}
+.skew {
+	transform: skew(10deg, 5deg);
+}
+{% endhighlight %}
+
+<p>Caso você passe <strong>apenas um parâmetro</strong>, como por exemplo: transform: skew(20deg); o elemento será distorcido apenas no eixo X.</p>
+
+<div class="transform skew-um-parametro">Coloque o mouse aqui!</div>
+{% highlight css linenos %}
+.skew {
+	transform: skew(20deg);
+}
+{% endhighlight %}
+
+<p>Podemos também distorcer apenas um dos eixos separadamente, para isso, existem o <strong>skewX</strong> e o <strong>skewY</strong>.</p>

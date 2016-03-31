@@ -154,11 +154,7 @@
 	margin: 50px auto;
 }
 
-.post-content .translate,
-.post-content .rotate,
-.post-content .rotate-anti-horario,
-.post-content .scale,
-.post-content .scale-negativo {
+.post-content .transform {
 	width: 100px;
 	height: 100px;
 	display: inline-block;
@@ -187,6 +183,14 @@
 	transform: scale(2);
 }
 
+.post-content .scale-torto:hover {
+	transform: scale(2, 4);
+}
+
 .post-content .scale-negativo:hover, .post-content .scale-negativo:focus {
 	transform: scale(-2);
+}
+
+.post-content .skew:hover {
+	transform: skew(10deg, 5deg);
 }
