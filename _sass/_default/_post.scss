@@ -154,7 +154,7 @@
 	margin: 50px auto;
 }
 
-.post-content .transform {
+.transform {
 	width: 100px;
 	height: 100px;
 	display: inline-block;
@@ -167,30 +167,42 @@
 	vertical-align: top;
 }
 
-.post-content .translate:hover, .post-content .translate:focus {
+.transform.translate:hover, .transform.translate:focus {
 	transform: translate(50px, 50px);
 }
 
-.post-content .rotate:hover, .post-content .rotate:focus {
+.transform.rotate:hover, .transform.rotate:focus {
 	transform: rotate(25deg);
 }
 
-.post-content .rotate-anti-horario:hover, .post-content .rotate-anti-horario:focus {
+.transform.rotate-anti-horario:hover, .transform.rotate-anti-horario:focus {
 	transform: rotate(-25deg);
 }
 
-.post-content .scale:hover, .post-content .scale:focus {
+.transform.scale:hover, .transform.scale:focus {
 	transform: scale(2);
 }
 
-.post-content .scale-torto:hover {
+.transform.scale-torto:hover {
 	transform: scale(2, 4);
 }
 
-.post-content .scale-negativo:hover, .post-content .scale-negativo:focus {
+.transform.scale-negativo:hover, .transform.scale-negativo:focus {
 	transform: scale(-2);
 }
 
-.post-content .skew:hover {
+.transform.skew:hover {
 	transform: skew(10deg, 5deg);
+}
+
+.transform.skew-um-parametro:hover {
+	transform: skew(20deg);
+}
+
+.transform.skewX:hover {
+	transform: skewX(15deg);
+}
+
+.transform.skewY:hover {
+	transform: skewY(15deg);
 }

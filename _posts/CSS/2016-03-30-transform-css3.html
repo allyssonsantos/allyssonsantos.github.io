@@ -2,7 +2,7 @@
 layout: post
 title: Transform do CSS3 - O que é possivel fazer?
 category: CSS
-meta: O que é possivel fazer com o transform do css3 hoje em dia? existem vários valores que aplicam transformações 2D e 3D a algum elemento, e nesse post, veremos todas elas!
+meta: O que é possivel fazer com o transform do css3 hoje em dia? existem vários valores que aplicam transformações 2D e 3D a algum elemento, e nesse artigo, veremos os efeitos 2D!
 source: http://www.w3schools.com/cssref/css3_pr_transform.asp
 preview-img: /imgs/transforms-css3.jpg
 comments: true
@@ -24,7 +24,7 @@ permalink: css/transform-do-css3.html
 
 <h3>O método translate</h3>
 
-<p>O translate permite que você <strong>desloque um elemento</strong> para qualquer lado de sua posição inicial, de acordo com os parâmetros passados para o eixo X e o eixo Y. Ex: transform: translate(x,y);</p>
+<p>O translate permite que você <strong>desloque um elemento</strong> para qualquer lado de sua posição inicial, de acordo com os parâmetros passados para o eixo X e o eixo Y. Ex: <code class="code-piece">transform: translate(x,y);</code></p>
 <p>No exemplo abaixo, movemos o elemento para 50px a direita e 50px para baixo, (coloque o cursor em cima para ver o efeito!)</p>
 
 <div class="transform translate">Coloque o mouse aqui!</div>
@@ -44,14 +44,16 @@ permalink: css/transform-do-css3.html
 }
 {% endhighlight %}
 
+<p>Também existem os métodos <strong>translateX</strong> e <strong>translateY</strong>, que recebem apenas um parâmetro, o do seu respectivo eixo. em: <code class="code-piece">transform: translateX(10px);</code> irá mover o elemento 10px para direita, <code class="code-piece">transform: translateY(10px);</code> irá mover o 10px para baixo.</p>
+
 <hr>
 
 <h3>O método rotate</h3>
 
 <p>Como o próprio nome diz, o método rotate serve para você rotacionar um objeto em X graus, no sentido horário ou anti-horário.</p>
 
-<p>Para rotacionar no <strong>sentido horário</strong>, basta passar o parâmetro com um numero <strong>positivo</strong>, ex: <em>transform: rotate(20deg);</em> o "deg" é de <em>degree</em> que significa "grau" em português.</p>
-<p>Para rotacionar no <strong>sentido anti-horario</strong>, basta passar um valor <strong>negativo</strong>, ex <em>(-20deg)</em>.</p>
+<p>Para rotacionar no <strong>sentido horário</strong>, basta passar o parâmetro com um numero <strong>positivo</strong>, ex: <code class="code-piece">transform: rotate(20deg);</code> o "deg" é de <em>degree</em> que significa "grau" em português.</p>
+<p>Para rotacionar no <strong>sentido anti-horario</strong>, basta passar um valor <strong>negativo</strong>, ex <code class="code-piece">(-20deg)</code>.</p>
 
 <p>No exemplo abaixo, rotacionaremos o primeiro elemento em 25 graus no <strong>sentido horário</strong> e o segundo elemento 25 graus no <strong>sentido anti-horário</strong>.</p>
 <div class="transform rotate">Sentido horário</div>
@@ -80,7 +82,7 @@ permalink: css/transform-do-css3.html
 
 <h3>O método scale</h3>
 
-<p>O <strong>scale</strong> serve justamente para alterar a escala do elemento, você pode <strong>aumentar</strong> ou <strong>diminuir</strong> o tamanho do elemento selecionado, como se estivesse alterando o <em>width</em> e o <em>height</em> do mesmo, utilizando transform: scale(width, height), por exemplo:</p>
+<p>O <strong>scale</strong> serve justamente para alterar a escala do elemento, você pode <strong>aumentar</strong> ou <strong>diminuir</strong> o tamanho do elemento selecionado, como se estivesse alterando o <em>width</em> e o <em>height</em> do mesmo, utilizando <code class="code-piece">transform: scale(width, height)</code>, por exemplo:</p>
 
 {% highlight css linenos %}
 .scale {
@@ -92,7 +94,7 @@ permalink: css/transform-do-css3.html
 {% endhighlight %}
 
 
-<p>Porém, se você declarar um scale(1) elemento não sofrerá <strong>nenhuma alteração</strong>, pois esse é o valor padrão que o <em>scale</em> possui, caso você declare transform: scale(2), o elemento ficará com o <strong>dobro de seu tamanho</strong>, scale(1.5), ele aumentará 50%, e assim por diante, exeto o scale(0) pois faz com que o elemento <strong>não fique visível</strong>...</p>
+<p>Porém, se você declarar um <code class="code-piece">scale(1)</code> elemento não sofrerá <strong>nenhuma alteração</strong>, pois esse é o valor padrão que o <em>scale</em> possui, caso você declare <code class="code-piece">transform: scale(2)</code>, o elemento ficará com o <strong>dobro de seu tamanho</strong>, <code class="code-piece">scale(1.5)</code>, ele aumentará 50%, e assim por diante, exeto o <code class="code-piece">scale(0)</code> pois faz com que o elemento <strong>não fique visível</strong>...</p>
 <p>Caso você utilize um valor negativo, o elemento diminui e <del>estranhamente</del> também aumenta de tamanho, porém ele ficará de <strong>cabeça para baixo!</strong> por exemplo:</p>
 
 {% highlight css linenos %}
@@ -124,13 +126,15 @@ permalink: css/transform-do-css3.html
 }
 {% endhighlight %}
 
-<p>O scale(-1) é bom caso você queira inverter um elemento, deixar ele de cabeça para baixo, basta colocar o -1 no scale do elemento.</p>
+<p>O <code class="code-piece">scale(-1)</code> é bom caso você queira inverter um elemento, deixar ele de cabeça para baixo, basta colocar o -1 no scale do elemento.</p>
+
+<p>Como o translate, o scale também possui os seus métodos para alterar apenas um eixo, o <strong>scaleX</strong> e <strong>scaleY</strong>.</p>
 
 <hr>
 
 <h3>O método skew</h3>
 
-<p>O skew serve para <del>entortar</del> <strong>distorcer um elemento</strong> no eixo X ou no eixo Y, dependendo do parâmetro passado, transform: skew(x,y), também como o rotate, os valores são passados em <em>degrees</em>.;</p>
+<p>O skew serve para <del>entortar</del> <strong>distorcer um elemento</strong> no eixo X ou no eixo Y, dependendo do parâmetro passado, <code class="code-piece">transform: skew(x,y)</code>, também como o rotate, os valores são passados em <em>degrees</em>.;</p>
 <p>No exemplo abaixo distorceremos um elemento 10 graus no eixo X e 5 graus no eixo Y.</p>
 
 <div class="transform skew">Coloque o mouse aqui!</div>
@@ -140,7 +144,7 @@ permalink: css/transform-do-css3.html
 }
 {% endhighlight %}
 
-<p>Caso você passe <strong>apenas um parâmetro</strong>, como por exemplo: transform: skew(20deg); o elemento será distorcido apenas no eixo X.</p>
+<p>Caso você passe <strong>apenas um parâmetro</strong>, como por exemplo: <code class="code-piece">transform: skew(20deg);</code> o elemento será distorcido apenas no eixo X.</p>
 
 <div class="transform skew-um-parametro">Coloque o mouse aqui!</div>
 {% highlight css linenos %}
@@ -150,3 +154,31 @@ permalink: css/transform-do-css3.html
 {% endhighlight %}
 
 <p>Podemos também distorcer apenas um dos eixos separadamente, para isso, existem o <strong>skewX</strong> e o <strong>skewY</strong>.</p>
+
+<h4>SkewX</h4>
+
+<p>Serve para distorcer apenas o eixo X, <code class="code-piece">transform: skewX(15deg)</code>, irá distorcer 15 graus no eixo X.</p>
+<div class="transform skewX">Coloque o mouse aqui!</div>
+{% highlight css linenos %}
+.skewX {
+	transform: skewX(15deg);
+}
+{% endhighlight %}
+
+<h4>SkewY</h4>
+
+<p>Serve para distorcer apenas o eixo Y, <code class="code-piece">transform: skewY(15deg)</code>, irá distorcer 15 graus no eixo Y.</p>
+<div class="transform skewY">Coloque o mouse aqui!</div>
+{% highlight css linenos %}
+.skewY {
+	transform: skewY(15deg);
+}
+{% endhighlight %}
+
+<hr>
+
+<h3>O método matrix</h3>
+<p>Calma, calma, esse método não irá fazer chover caracteres verdes num fundo preto...</p>
+<p>O <strong>matrix</strong> é a junção de todos os métodos 2D do transform, ele é meio complicado de se entender, você precisa passar 6 parâmetros que são todos os outros anteriores, fica mais ou menos assim: <code class="code-piece">transform: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())</code>.</p>
+<p>Para entender melhor como funciona o matrix, que envolve <del>calculos malucos</del> matemática, sugiro esse artigo <strong><a href="http://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/" target="_blank" rel="nofollow">aqui</a></strong></p>
+<p>E também tem esse matrix generator que você pode dar uma brincada: <a href="http://ds-overdesign.com/transform/matrix3d.html" target="_blank" rel="nofollow">matrix3d</a></p>
