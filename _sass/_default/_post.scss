@@ -193,7 +193,7 @@
 	transform: scale(2);
 }
 
-.transform.scale-torto:hover, .transform.scale-torto:focus, .transform.scale-torto:.active {
+.transform.scale-torto:hover, .transform.scale-torto:focus, .transform.scale-torto:active {
 	transform: scale(2, 4);
 }
 

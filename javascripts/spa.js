@@ -3,7 +3,7 @@ void function(){
 	function buttonBack() {
 		if (window.location.pathname.length > 2) {
 			$(".blog-back-button").css("display", "inline-block");
-			$(".blog-menu-button").css("right", "15px");
+			$(".blog-menu-button").css("right", "25px");
 			$(".blog-menu-button").css("left", "");
 		} else {
 			$(".blog-back-button").css("display", "none");
