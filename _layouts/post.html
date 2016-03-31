@@ -3,33 +3,33 @@ layout: default
 ---
 <article class="post">
 
-    <div class="post-image" {% if page.preview-img %} style="background-image: url('{{ page.preview-img }}')" {% endif %}>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name"><a href="" title="{{ page.title }}">{{ page.title }}</a></h1>
+    <span class="post-date muted">
+    	<time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+    </span>
+    <a class="post-category" href="{{ site.url }}/posts/" title="Veja todos os posts da categoria {{ page.category }}">{{ page.category }}</a>
+    <p class="post-description" itemprop="description">{{ page.meta }}</p>
 
-      <header class="post-header">
-        <h1 class="post-title"><a href="" title="{{ page.title }}">{{ page.title }}</a></h1>
-        <span class="post-date muted">
-          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
-        </span>
-        <a class="post-category" href="{{ site.url }}/posts/" title="Veja todos os posts da categoria {{ page.category }}">{{ page.category }}</a>
-      </header>
+    {% if page.preview-img %}
+    	<img src="{{ page.preview-img }}" alt="{{ page.title }}" title="{{ page.title }}">
+  	{% endif %}
+  </header>
 
-      <p class="post-description">{{ page.meta }}</p>
-    </div>
-
-  <div class="post-content">
+  <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
 
 </article>
 {% if page.author %}
-  <section class="post-author">
+  <section class="post-author" itemprop="author">
     <div class="post-author-details">
-    <img class="post-author-img" src={{ "/imgs/allysson.jpg" | prepend: site.baseurl | prepend: site.url }} alt="Allysson dos Santos">
+    <img class="post-author-img" src={{ "/imgs/allysson.jpg" | prepend: site.baseurl | prepend: site.url }} alt="Allysson dos Santos" itemprop="image">
         <div class="post-author-description" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <span class="muted">Autor:</span>
           <h2 class="post-author-name" itemprop="name">{{ page.author }}</h2>
-          <p>Desenvolvedor Front end e <a href="https://www.facebook.com/affectingminds/?fref=ts" target="_blank">guitarrista</a> quando dá tempo!</p>
-          <a href="https://github.com/allyssonsantos" target="_blank">github.com/allyssonsantos</a>
+          <p><span itemprop="jobTitle">Desenvolvedor Front end</span> e <a href="https://www.facebook.com/affectingminds/?fref=ts" target="_blank">guitarrista</a> quando dá tempo!</p>
+          <a itemprop="name" href="https://github.com/allyssonsantos" target="_blank">github.com/allyssonsantos</a>
         </div>
     </div>
   </section>

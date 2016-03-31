@@ -1,0 +1,119 @@
+---
+layout: post
+title: Transform do CSS3 - O que é possivel fazer?
+category: CSS
+meta: O que é possivel fazer com o transform do css3 hoje em dia? existem vários valores que aplicam transformações 2D e 3D a algum elemento, e nesse post, veremos todas elas!
+source: http://www.w3schools.com/cssref/css3_pr_transform.asp
+preview-img: /imgs/transforms-css3.jpg
+comments: true
+author: Allysson dos Santos
+permalink: css/transform-do-css3
+---
+
+<p>O <strong>transform</strong> é uma propriedade do <em>CSS3</em> que permite adicionar efeitos 2D e 3D em algum elemento, desde que o mesmo tenha um display <strong>diferente</strong> de "inline"</p>
+
+<p>Existem diversos métodos do transform para aplicar efeitos 2D, que são os: </p>
+<h2>Transforms 2D</h2>
+<ul class="post-list">
+	<li class="post-list-item">translate</li>
+	<li class="post-list-item">rotate</li>
+	<li class="post-list-item">scale</li>
+	<li class="post-list-item">skew</li>
+	<li class="post-list-item">matrix</li>
+</ul>
+
+<h3>O método translate</h3>
+
+<p>O translate permite que você <strong>desloque um elemento</strong> para qualquer lado de sua posição inicial, de acordo com os parâmetros passados para o eixo X e o eixo Y</p>
+<p>No exemplo abaixo, movemos o elemento para 50px a direita e 50px para baixo, (coloque o cursor em cima para ver o efeito!)</p>
+
+<div class="translate">Coloque o mouse aqui!</div>
+
+{% highlight css linenos %}
+.translate {
+	width: 100px;
+	height: 100px;
+	background-color: yellow;
+	border: 1px solid #ccc;
+	text-align: center;
+	padding: 10px;
+	transition: transform 1s;
+}
+.translate:hover {
+	transform: translate(50px, 50px); // arrasta o elemento 50px para direita e 50px para baixo
+}
+{% endhighlight %}
+
+<hr>
+
+<h3>O método rotate</h3>
+
+<p>Como o próprio nome diz, o método rotate serve para você rotacionar um objeto em X graus, no sentido horário ou anti-horário.</p>
+
+<p>Para rotacionar no <strong>sentido horário</strong>, basta passar o parâmetro com um numero <strong>positivo</strong>, ex: <em>transform: rotate(20deg);</em> o "deg" é de <em>degree</em> que significa "grau" em português.</p>
+<p>Para rotacionar no <strong>sentido anti-horario</strong>, basta passar um valor <strong>negativo</strong>, ex <em>(-20deg)</em>.</p>
+
+<p>No exemplo abaixo, rotacionaremos o primeiro elemento em 25 graus no <strong>sentido horário</strong> e o segundo elemento 25 graus no <strong>sentido anti-horário</strong>.</p>
+<div class="rotate">Sentido horário</div>
+<div class="rotate-anti-horario">Sentido anti-horário</div>
+
+{% highlight css linenos %}
+.rotate, .rotate-anti-horario {
+	width: 100px;
+	height: 100px;
+	background-color: yellow;
+	border: 1px solid #ccc;
+	text-align: center;
+	padding: 10px;
+	transition: transform 1s;
+}
+.rotate:hover {
+	transform: rotate(25deg); // rotaciona o elemento em 25 graus no sentido horário
+}
+
+.rotate-anti-horario:hover {
+	transform: rotate(-25deg); // rotaciona o elemento em 25 graus no sentido anti-horário
+}
+{% endhighlight %}
+
+<hr>
+
+<h3>O método scale</h3>
+
+<p>O <strong>scale</strong> serve justamente para alterar a escala do elemento, você pode <strong>aumentar</strong> ou <strong>diminuir</strong> o tamanho do elemento selecionado, como se estivesse alterando o <em>width</em> e o <em>height</em> do mesmo, por exemplo:</p>
+
+{% highlight css linenos %}
+.scale {
+	transform: scale(2); // aumenta o elemento em 2x
+}
+{% endhighlight %}
+
+
+<p>Porém, se você declarar um scale(1) elemento não sofrerá <strong>nenhuma alteração</strong>, pois esse é o valor padrão que o <em>scale</em> possui, caso você declare transform: scale(2), o elemento ficará com o <strong>dobro de seu tamanho</strong>, scale(1.5), ele aumentará 50%, e assim por diante, exeto o scale(0) pois faz com que o elemento <strong>não fique visível</strong>...</p>
+<p>Caso você utilize um valor negativo, o elemento diminui e <del>estranhamente</del> também aumenta de tamanho, porém ele ficará de <strong>cabeça para baixo!</strong> por exemplo:</p>
+
+{% highlight css linenos %}
+.scale {
+	transform: scale(-1); // O elemento continuará com o mesmo tamanho, mas ficará de cabeça para baixo.
+}
+{% endhighlight %}
+
+<p>No exemplo abaixo, deixaremos um elemento com o dobro de seu tamanho e o outro que está com o valor negativo, adivinha? de <strong>cabeça para baixo!</strong>.</p>
+<div class="scale">Coloque o mouse aqui!</div>
+<div class="scale-negativo">Coloque o mouse aqui!</div>
+{% highlight css linenos %}
+.scale, .scale-negativo {
+	width: 100px;
+	height: 100px;
+	transition: transform 1s;
+}
+.scale:hover {
+	transform: scale(2); // aumenta o elemento em 2x
+}
+
+.scale-negativo:hover {
+	transform: scale(-2); // aumenta o elemento em 2x, mas deixa ele de ponta cabeça!
+}
+{% endhighlight %}
+
+<p>O scale(-1) é bom caso você queira inverter um elemento, deixar ele de cabeça para baixo, basta colocar o -1 no scale do elemento.</p>
