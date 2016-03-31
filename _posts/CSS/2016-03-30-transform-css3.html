@@ -178,7 +178,26 @@ permalink: css/transform-do-css3.html
 <hr>
 
 <h3>O método matrix</h3>
+
 <p>Calma, calma, esse método não irá fazer chover caracteres verdes num fundo preto...</p>
-<p>O <strong>matrix</strong> é a junção de todos os métodos 2D do transform, ele é meio complicado de se entender, você precisa passar 6 parâmetros que são todos os outros anteriores, fica mais ou menos assim: <code class="code-piece">transform: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())</code>.</p>
+
+<p>O <strong>matrix</strong> é a junção de métodos 2D do transform, ele é bem complexo em relação aos outros, você precisa passar 6 parâmetros que são métodos anteriores, um exemplo seria esse: <code class="code-piece">transform: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())</code>.</p>
+
+<p>Se quiser ter um exemplo de uso do matrix no mundo real, de uma olhada nesse site: <a href="https://onlycoin.com/" target="_blank" rel="nofollow" title="OnlyCoin">Coin</a> (no computador, não em mobile) Todo o efeito dos cartões são gerados através do matrix.</p>
+
 <p>Para entender melhor como funciona o matrix, que envolve <del>calculos malucos</del> matemática, sugiro esse artigo <strong><a href="http://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/" target="_blank" rel="nofollow">aqui</a></strong></p>
+
 <p>E também tem esse matrix generator que você pode dar uma brincada: <a href="http://ds-overdesign.com/transform/matrix3d.html" target="_blank" rel="nofollow">matrix3d</a></p>
+
+<p>Aqui temos um exemplo utilizando o matrix:</p>
+
+<div class="transform matrix">Coloque o mouse aqui!</div>
+
+{% highlight css linenos %}
+.matrix {
+	transform: matrix(2, 1, 1, 2, 200, 200)
+}
+{% endhighlight %}
+
+<p>O matrix vai se comportar da seguinte maneira, irá aumentar o scale no eixo X em 2x, vai distorcer o eixo Y e o eixo X em 1 grau, vai aumentar o scale no eixo Y em 2x, irá mover o elemento 200px para a direita e 200px para baixo.</p>
+<p>Traduzindo os parâmetros do matrix para os outros métodos, ficaria assim: <code class="code-piece">transform: matrix(scaleX(2), skewY(1), skewX(1), scaleY(2), translateX(200), translateY(200));</code></p>

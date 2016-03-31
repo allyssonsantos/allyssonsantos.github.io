@@ -150,6 +150,10 @@
 	margin: 20px 0px 20px 40px;
 }
 
+.post-content a {
+	color: #03C;
+}
+
 .post-content hr {
 	margin: 50px auto;
 }
@@ -205,4 +209,8 @@
 
 .transform.skewY:hover {
 	transform: skewY(15deg);
+}
+
+.transform.matrix:hover {
+	transform: matrix(2, 1, 1, 2, 200, 200)
 }
