@@ -177,46 +177,46 @@
 	cursor: pointer;
 }
 
-.transform.translate:hover, .transform.translate:focus {
+.transform.translate:hover, .transform.translate:focus, .transform.translate:active {
 	transform: translate(50px, 50px);
 }
 
-.transform.rotate:hover, .transform.rotate:focus {
+.transform.rotate:hover, .transform.rotate:focus, .transform.rotate:active {
 	transform: rotate(25deg);
 }
 
-.transform.rotate-anti-horario:hover, .transform.rotate-anti-horario:focus {
+.transform.rotate-anti-horario:hover, .transform.rotate-anti-horario:focus, .transform.rotate-anti-horario:active {
 	transform: rotate(-25deg);
 }
 
-.transform.scale:hover, .transform.scale:focus {
+.transform.scale:hover, .transform.scale:focus, .transform.scale:active {
 	transform: scale(2);
 }
 
-.transform.scale-torto:hover {
+.transform.scale-torto:hover, .transform.scale-torto:focus, .transform.scale-torto:.active {
 	transform: scale(2, 4);
 }
 
-.transform.scale-negativo:hover, .transform.scale-negativo:focus {
+.transform.scale-negativo:hover, .transform.scale-negativo:focus, .transform.scale-negativo:active {
 	transform: scale(-2);
 }
 
-.transform.skew:hover {
+.transform.skew:hover, .transform.skew:active, .transform.skew:focus {
 	transform: skew(10deg, 5deg);
 }
 
-.transform.skew-um-parametro:hover {
+.transform.skew-um-parametro:hover, .transform.skew-um-parametro:focus, .transform.skew-um-parametro:active {
 	transform: skew(20deg);
 }
 
-.transform.skewX:hover {
+.transform.skewX:hover, .transform.skewX:focus, .transform.skewX:active {
 	transform: skewX(15deg);
 }
 
-.transform.skewY:hover {
+.transform.skewY:hover, .transform.skewY:focus, .transform.skewY:active {
 	transform: skewY(15deg);
 }
 
-.transform.matrix:hover {
+.transform.matrix:hover, .transform.matrix:focus, .transform.matrix:active {
 	transform: matrix(2, 1, 1, 2, 200, 200)
 }
