@@ -201,3 +201,26 @@ permalink: css/transform-do-css3.html
 
 <p>O matrix vai se comportar da seguinte maneira, irá aumentar o scale no eixo X em 2x, vai distorcer o eixo Y e o eixo X em 1 grau, vai aumentar o scale no eixo Y em 2x, irá mover o elemento 200px para a direita e 200px para baixo.</p>
 <p>Traduzindo os parâmetros do matrix para os outros métodos, ficaria assim: <code class="code-piece">transform: matrix(scaleX(2), skewY(1), skewX(1), scaleY(2), translateX(200), translateY(200));</code></p>
+
+<h2 class="post-subtitle">E o suporte dos navegadores?</h2>
+<p>Os navegadores atuais não possuem problema algum em renderizar o transform, mas é aconselhavel utilizar os prefixos -webkit-, -moz- e -ms-, caso você queira dar suporte a versões realmente antigas do Chrome e do Firefox, o IE suporta apenas a partir do 9 (com o prefixo) o 10 pra cima já não precisa de prefixo.</p>
+
+<p>Existe esse site bem bacaninha para você checar o suporte do transform e de qualquer outra regra, <a href="http://caniuse.com/#search=transform" rel="nofollow" target="_blank">CanIUse?</a>.</p>
+
+<h2 class="post-subtitle">Conclusão:</h2>
+
+<p>O transform do CSS3 juntamente com o transition permite criar animações muito bem elaboradas, basta usar sua criatividade, o translate também é muito usado para centralizar objetos na tela, como um modal, por exemplo. Uma técnica muito usada é a seguinte:</p>
+
+{% highlight css linenos %}
+.modal {
+	width: 100px;
+	height: 100px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+{% endhighlight %}
+
+<p>Onde você coloca 50% de distância do topo e da esqueda da janela do navegador, e acerta a centralização com o translate. Mas isso é assunto pra um próximo artigo.</p>
+<p>Também existem os efeitos 3D que logo, logo também estarei criando um artigo sobre eles.</p>

@@ -9,6 +9,7 @@ layout: default
     	<time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
     </span>
     <a class="post-category" href="{{ site.url }}/posts/" title="Veja todos os posts da categoria {{ page.category }}">{{ page.category }}</a>
+    <h2 class="post-subtitle">Descrição:</h2>
     <p class="post-description" itemprop="description">{{ page.meta }}</p>
 
     {% if page.preview-img %}

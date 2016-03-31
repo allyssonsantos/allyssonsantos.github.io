@@ -47,6 +47,11 @@
 	text-align: center;
 }
 
+.post-subtitle {
+	font-size: pxToEm(22);
+	margin-top: 20px;
+}
+
 .post-category-name {
 	text-align: left;
 	font-size: pxToEm(34);
@@ -71,7 +76,7 @@
 }
 
 .post-description {
-	margin: 10px 0;
+	margin: 10px 0 20px 0;
 	font-size: pxToEm(20);
 }
 .post-description--no-margin {
