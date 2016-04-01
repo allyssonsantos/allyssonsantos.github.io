@@ -11,16 +11,6 @@ layout: default
   {% endfor %}
 
   <section class="posts-list">
-    <h3 id="HTML5" class="post-category-name">HTML5</h3>
-    {% for post in site.categories.HTML5 %}
-    <a class="posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-      <article class="posts-post">
-            <time class="posts-date">{{ post.date | date: "%b %-d, %Y" }}</time>
-            <h2>{{ post.title }}</h2>
-            <p class="post-description">{{ post.meta }}</p>
-      </article>
-    </a>
-    {% endfor %}
     <h3 id="CSS" class="post-category-name">CSS</h3>
     {% for post in site.categories.CSS %}
       <article class="posts-post">
