@@ -51,31 +51,34 @@ permalink: css/transform-do-css3.html
 
 <h3>O método rotate</h3>
 
-<p>Como o próprio nome diz, o método rotate serve para você rotacionar um objeto em X graus, no sentido horário ou anti-horário.</p>
+<p>Como o próprio nome diz, o método rotate serve para você rotacionar um objeto em X graus, no eixo X você pode rotacionar no sentido horário ou anti-horário, no eixo Y você pode rotacionar e virar o elemento do lado ao contrário.</p>
 
-<p>Para rotacionar no <strong>sentido horário</strong>, basta passar o parâmetro com um numero <strong>positivo</strong>, ex: <code class="code-piece">transform: rotate(20deg);</code> o "deg" é de <em>degree</em> que significa "grau" em português.</p>
+<p>Para rotacionar no <strong>sentido horário</strong>, basta passar o parâmetro com um numero <strong>positivo</strong>, ex: <code class="code-piece">transform: rotateX(20deg);</code> o "deg" é de <em>degree</em> que significa "grau" em português.</p>
 <p>Para rotacionar no <strong>sentido anti-horario</strong>, basta passar um valor <strong>negativo</strong>, ex <code class="code-piece">(-20deg)</code>.</p>
 
-<p>No exemplo abaixo, rotacionaremos o primeiro elemento em 25 graus no <strong>sentido horário</strong> e o segundo elemento 25 graus no <strong>sentido anti-horário</strong>.</p>
+<p>Se você declarar apenas um parâmetro <code class="code-piece">transform: rotate(25deg);</code> o efeito será aplicado apenas no eixo X, caso queira aplicar o efeito no eixo Y é necessário passar: <code class="code-piece">transform: rotateY(25deg);</code>.</p>
+
+<p>No exemplo abaixo, rotacionaremos o primeiro elemento em 25 graus no <strong>sentido horário</strong> e o segundo elemento 25 graus no <strong>sentido anti-horário</strong>, os dois ultimos elementos são rotações no eixo Y.</p>
 <div class="transform rotate">Sentido horário</div>
 <div class="transform rotate-anti-horario">Sentido anti-horário</div>
+<div class="transform rotateY">Eixo Y</div>
+<div class="transform rotateY-negativo">Eixo Y com valor negativo</div>
 
 {% highlight css linenos %}
-.rotate, .rotate-anti-horario {
-	width: 100px;
-	height: 100px;
-	background-color: yellow;
-	border: 1px solid #ccc;
-	text-align: center;
-	padding: 10px;
-	transition: transform 1s;
-}
 .rotate:hover {
-	transform: rotate(25deg); // rotaciona o elemento em 25 graus no sentido horário
+	transform: rotateX(25deg); // rotaciona o elemento em 25 graus no sentido horário
 }
 
 .rotate-anti-horario:hover {
-	transform: rotate(-25deg); // rotaciona o elemento em 25 graus no sentido anti-horário
+	transform: rotateX(-25deg); // rotaciona o elemento em 25 graus no sentido anti-horário
+}
+
+.rotateY:hover {
+	transform: rotateY(180deg); // rotaciona o elemento 180 graus no eixo Y;
+}
+
+.rotateY-negativo:hover {
+	transform: rotateY(-160deg); // rotaciona o elemento 160 graus no eixo Y no sentido contrário;
 }
 {% endhighlight %}
 

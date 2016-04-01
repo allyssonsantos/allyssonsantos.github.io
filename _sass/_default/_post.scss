@@ -145,6 +145,14 @@
 	transform: rotate(25deg);
 }
 
+.transform.rotateY:hover, .transform.rotateY:focus, .transform.rotateY:active {
+	transform: rotateY(180deg);
+}
+
+.transform.rotateY-negativo:hover, .transform.rotateY-negativo:focus, .transform.rotateY-negativo:active {
+	transform: rotateY(-160deg);
+}
+
 .transform.rotate-anti-horario:hover, .transform.rotate-anti-horario:focus, .transform.rotate-anti-horario:active {
 	transform: rotate(-25deg);
 }
