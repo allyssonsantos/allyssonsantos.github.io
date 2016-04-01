@@ -43,7 +43,4 @@ void function(){
 		$("#blog-menu-controller").prop("checked", false);
 	});
 
-	$(".blog-posts-category-link").on("click", function(e) {
-		e.preventDefault();
-	});
 }();

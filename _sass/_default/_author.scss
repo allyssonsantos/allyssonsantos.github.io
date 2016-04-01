@@ -1,0 +1,32 @@
+.author {
+	background-color: #232526;
+	background: linear-gradient(to right, #232526, #414345);
+}
+
+.author-details {
+	max-width: 1030px;
+	margin: 50px auto;
+	padding: 20px;
+	color: #fff;
+
+}
+
+.author-details a {
+	color: #fff;
+}
+
+.author-img {
+	border-radius: 50%;
+	max-width: 150px;
+	margin-right: 20px;
+}
+
+.author-name {
+	font-size: pxToEm(28);
+}
+
+.author-description {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 20px;
+}

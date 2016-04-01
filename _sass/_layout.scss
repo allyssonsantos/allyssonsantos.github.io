@@ -53,3 +53,10 @@ img {
     font-size: 0.8em;
     display: inline-block;
 }
+
+.author, .post-comments, .posts-all, .page-content {
+	max-width: 1030px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 0 auto;
+}

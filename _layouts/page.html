@@ -1,14 +1,14 @@
 ---
 layout: default
 ---
-<article>
+<article class="page-content">
 
   <header>
     <h1 class="page-title">{{ page.title }}</h1>
   </header>
 
-  <div>
+  <section>
     {{ content }}
-  </div>
-
+  </section>
+    {% include author.html %}
 </article>
