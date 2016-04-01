@@ -3,11 +3,11 @@ void function(){
 	function buttonBack() {
 		if (window.location.pathname.length > 2) {
 			$(".blog-back-button").css("display", "inline-block");
-			$(".blog-menu-button").css("right", "25px");
+			$(".blog-menu-button").css("right", "0");
 			$(".blog-menu-button").css("left", "");
 		} else {
 			$(".blog-back-button").css("display", "none");
-			$(".blog-menu-button").css("left", "22px");
+			$(".blog-menu-button").css("left", "0");
 			$(".blog-menu-button").css("right", "");
 		}
 	}
