@@ -6,7 +6,6 @@ permalink: /draft-post/
 
 Descrição:
 
-
 Existem vários seletores no css, hoje veremos alguns que não são tão fáceis de ler e entender o que fazem, porém, muito úteis em algumas situações específicas.
 
 O seletor "~"
@@ -96,15 +95,38 @@ Lembre-se, o "+" pega o elemento IMEDIATAMENTE após, então ele não funcionari
 
 O seletor ">"
 
-
+Esse seletor nos permite selecionar elementos PAI e FILHOS, não seleciona elementos que estejam mais pra dentro da marcação, por exemplo, temos o seguinte HTML:
 
 {% highlight html linenos %}
 
 <div>
-	<p>Lorem ipsum.</p>
+	<p>Lorem ipsum.</p> <!-- filho de div -->
 	<blockquote>
-		<p>Lorem ipsum.</p>
+		<p>Lorem ipsum.</p> <!-- neto de div -->
 	</blockquote>
-	<p>Lorem ipsum.</p>
+	<p>Lorem ipsum.</p> <!-- filho de div -->
 </div>
 {% endhighlight %}
+
+
+Queremos pegar os <p> que são filhos da <div> e não netos, como é o caso do <p> que está dentro do <blockquote>. Para pegar esses paragrafos que são filhos da <div> e aplicarmos um estilo de text-decoration: underline; podemos selecioná-los da seguinte forma:
+
+{% highlight css linenos %}
+div > p {
+	text-decoration: underline;
+}
+{% endhighlight %}
+
+Dessa maneira, todos os <p> que são filhos da <div> receberão o estilo.
+
+Conclusão
+
+Os seletores de elementos que vimos hoje nos dão bastante poder, pois podemos combiná-los para pegar elementos específicos, como por exemplo, .noticias > h1 + p esse seletor seleciona exatamente todos os paragrafos que estão imediatamente depois de todos os <h1> que são filho de .noticias.
+
+Bastante útil quando não podemos alterar nada no HTML ou temos acesso apenas aos arquivos de CSS.
+
+Porém, sua compreensão é bastante difícil, não conseguimos bater o olho nesse seletor e já saber o que ele está selecionando. Outro ponto negativo é a sua performance, o navegador lê os atributos da direita para esquerda, então ele teria um trabalho relativamente grande para capturar esses elementos, pois teria que achar todos os <p> da página, depois selecionar apenas os que estão imediatamente depois de um <h1> e depois ainda selecionar todos os <h1> mas pegar apenas os que são filhos de .noticias, ou seja, muito custoso para o navegador.
+
+Mas o ponto que mais me incomoda, é que caso esse <h1> venha a ser <h2> nosso código CSS não funcionará mais. Nosso CSS é dependente da estrutura atual do HTML, caso ela mude, nosso CSS quebra.
+
+Então, use com cuidado!
