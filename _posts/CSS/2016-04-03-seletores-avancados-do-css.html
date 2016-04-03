@@ -100,7 +100,7 @@ img + p {
 
 <h2 class="post-subtitle">O seletor ">"</h2>
 
-<p>Esse seletor nos permite selecionar elementos <strong>PAI e FILHOS</strong>, não seleciona elementos que estejam mais pra dentro da marcação, por exemplo, temos o seguinte HTML:</p>
+<p>Esse seletor nos permite selecionar elementos <strong>PAI e FILHOS</strong>, não seleciona elementos netos, apenas elementos filhos, por exemplo, temos o seguinte HTML:</p>
 
 {% highlight html linenos %}
 
@@ -128,7 +128,7 @@ div > p {
 
 <p>Os seletores de elementos que vimos hoje nos dão bastante poder, pois podemos <strong>combiná-los</strong> para pegar elementos específicos, como por exemplo, <code class="code-piece">.noticias > h1 + p</code> esse seletor seleciona exatamente todos os paragrafos que estão imediatamente depois de todos os <code class="code-piece">h1</code> que são filhos de <code class="code-piece">.noticias</code>. Bastante útil quando não podemos <em>alterar nada no HTML</em> ou temos acesso apenas aos arquivos de CSS.</p>
 
-<p>Porém, sua <strong>compreensão é bastante difícil</strong>, não conseguimos bater o olho nesse seletor e já saber o que ele está selecionando. Outro ponto negativo é a sua <strong>performance</strong>, o navegador lê os atributos da <em>direita para esquerda</em>, então ele teria um trabalho relativamente grande para capturar esses elementos, pois teria que achar todos os <code class="code-piece">p</code> da página, depois selecionar apenas os que estão imediatamente depois de um <code class="code-piece">h1</code> e depois ainda selecionar todos os <code class="code-piece">h1</code> mas pegar apenas os que são filhos de <code class="code-piece">.noticias</code>, ou seja, muito custoso para o navegador.</p>
+<p>Porém, sua <strong>compreensão é bastante difícil</strong>, não conseguimos bater o olho nesse seletor e já saber o que ele está selecionando. Outro ponto negativo é a sua <strong>performance</strong>, o navegador lê os elementos selecionados da <em>direita para esquerda</em>, então ele teria um trabalho relativamente grande para capturar esses elementos, pois teria que achar todos os <code class="code-piece">p</code> da página, depois selecionar apenas os que estão imediatamente depois de um <code class="code-piece">h1</code> e depois ainda selecionar todos os <code class="code-piece">h1</code> mas pegar apenas os que são filhos de <code class="code-piece">.noticias</code>, ou seja, muito custoso para o navegador.</p>
 
 <p>Mas o ponto que mais me incomoda, é que caso esse <code class="code-piece">h1</code> venha a ser <code class="code-piece">h2</code> nosso código CSS não funcionará mais. Nosso CSS é <strong>dependente da estrutura atual do HTML</strong>, caso ela mude, nosso CSS quebra.</p>
 
