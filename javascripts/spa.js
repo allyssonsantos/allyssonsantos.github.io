@@ -8,6 +8,9 @@ void function(){
 		if (posicaoAtual > ultimoScroll) {
 			header.removeClass("blog-header--show");
 			header.addClass("blog-header--hide");
+		} else if (posicaoAtual == 0) {
+			header.removeClass("blog-header--hide");
+			header.addClass("blog-header--show");
 		} else {
 			header.removeClass("blog-header--hide");
 			header.addClass("blog-header--show");
