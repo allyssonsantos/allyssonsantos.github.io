@@ -1,22 +1,24 @@
 void function(){
 
 	//Mostrar e esconder o header
-	var ultimoScroll = 0,
-		header = $(".blog-header");
-	$(window).scroll(function () {
-		var posicaoAtual = $(this).scrollTop();
-		if (posicaoAtual > ultimoScroll && posicaoAtual > 100) {
-			header.removeClass("blog-header--show");
-			header.addClass("blog-header--hide");
-		} else if (posicaoAtual == 0) {
-			header.removeClass("blog-header--hide");
-			header.addClass("blog-header--show");
-		} else {
-			header.removeClass("blog-header--hide");
-			header.addClass("blog-header--show");
-		}
-		ultimoScroll = posicaoAtual;
-	});
+	if ($(window).width() < 768) {
+		var ultimoScroll = 0,
+			header = $(".blog-header");
+		$(window).scroll(function () {
+			var posicaoAtual = $(this).scrollTop();
+			if (posicaoAtual > ultimoScroll && posicaoAtual > 100) {
+				header.removeClass("blog-header--show");
+				header.addClass("blog-header--hide");
+			} else if (posicaoAtual == 0) {
+				header.removeClass("blog-header--hide");
+				header.addClass("blog-header--show");
+			} else {
+				header.removeClass("blog-header--hide");
+				header.addClass("blog-header--show");
+			}
+			ultimoScroll = posicaoAtual;
+		});
+	}
 
 	//Adicionar botão de voltar e alterar posicao do menu
 	if (window.location.pathname.length > 2) {
