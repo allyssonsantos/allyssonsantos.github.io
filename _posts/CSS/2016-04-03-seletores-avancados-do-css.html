@@ -11,11 +11,9 @@ author: Allysson dos Santos
 permalink: css/seletores-avancados-css.html
 ---
 
-<p>Veja com detalhes o funcionamento dos seletores "~", "+" e ">", quando aplicar e seus pontos negativos e positivos.</p>
-
 <h2 class="post-subtitle">O seletor "~"</h2>
 
-<p><strong>O seletor "~"</strong> no css serve para selecionar elementos depois de outros elementos, podemos traduzir o "~" para: <em>"quero pegar todos elementos depois desse elemento"</em> por exemplo, temos a seguinte marcação HTML:</p>
+<p><strong>O seletor "~"</strong>, no css, serve para selecionar elementos depois de outros elementos, podemos traduzir o "~" para: <em>"quero pegar todos elementos depois desse elemento"</em> por exemplo, temos a seguinte marcação HTML:</p>
 
 {% highlight html linenos %}
 
@@ -28,7 +26,7 @@ permalink: css/seletores-avancados-css.html
 
 {% endhighlight %}
 
-<p>Queremos que a partir do segundo item, ele e todos os outros <code class="code-piece">li's</code> tenham uma <code class="code-piece">margin-top</code> de 10px. poderiamos fazer da seguinte maneira:</li>
+<p>Queremos que a partir do segundo item, ele e todos os outros <code class="code-piece">li's</code> tenham uma <code class="code-piece">margin-top</code> de 10px. Poderiamos fazer da seguinte maneira:</li>
 
 {% highlight css linenos %}
 li ~ li {
@@ -67,7 +65,7 @@ img ~ p
 
 <h2 class="post-subtitle">O seletor "+"</h2>
 
-<p>No css, temos o <strong>seletor "+"</strong> nos permite selecionar um elemento <strong>IMEDIATAMENTE</strong> depois de outro elemento, por exemplo, temos o seguinte HTML:</p>
+<p>No css, temos o <strong>seletor "+"</strong> que nos permite selecionar um elemento <strong>IMEDIATAMENTE</strong> depois de outro elemento, por exemplo, temos o seguinte HTML:</p>
 
 {% highlight html linenos %}
 
@@ -86,7 +84,7 @@ img + p {
 }
 {% endhighlight %}
 
-<p>Lembre-se, o "+" pega o elemento <strong>IMEDIATAMENTE</strong> após, então ele não funcionaria em um caso como esse, onde queremos selecionar o primeiro paragrafo após a imagem:</p>
+<p>Lembre-se, o "+" pega o elemento <strong>IMEDIATAMENTE</strong> após, então, ele não funcionaria em um caso como esse, onde queremos selecionar o primeiro paragrafo após a imagem:</p>
 
 {% highlight html linenos %}
 <img src="imagem.jpg">
@@ -114,7 +112,7 @@ img + p {
 {% endhighlight %}
 
 
-<p>Queremos pegar os <code class="code-piece">p</code> que são filhos da <code class="code-piece">div</code> e não netos, como é o caso do <code class="code-piece">p</code> que está dentro do <code class="code-piece">blockquote</code>. Para pegar esses paragrafos que são filhos da <code class="code-piece">div</code> e aplicarmos um estilo de <code class="code-piece">text-decoration: underline;</code> podemos selecioná-los da seguinte forma:</p>
+<p>Queremos pegar os <code class="code-piece">p</code> que são filhos da <code class="code-piece">div</code>, e não netos, como é o caso do <code class="code-piece">p</code> que está dentro do <code class="code-piece">blockquote</code>. Para pegar esses paragrafos que são filhos da <code class="code-piece">div</code> e aplicarmos um estilo de <code class="code-piece">text-decoration: underline;</code>, podemos selecioná-los da seguinte forma:</p>
 
 {% highlight css linenos %}
 div > p {
@@ -128,7 +126,7 @@ div > p {
 
 <p>Os seletores de elementos que vimos hoje nos dão bastante poder, pois podemos <strong>combiná-los</strong> para pegar elementos específicos, como por exemplo, <code class="code-piece">.noticias > h1 + p</code> esse seletor seleciona exatamente todos os paragrafos que estão imediatamente depois de todos os <code class="code-piece">h1</code>, que são filhos de <code class="code-piece">.noticias</code>. Bastante útil quando não podemos <em>alterar nada no HTML</em> ou temos acesso apenas aos arquivos de CSS.</p>
 
-<p>Porém, sua <strong>compreensão é bastante difícil</strong>, não conseguimos bater o olho nesse seletor e já saber o que ele está selecionando. Outro ponto negativo é a sua <strong>performance</strong>, o navegador lê os elementos selecionados da <em>direita para esquerda</em>, então ele teria um trabalho relativamente grande para capturar esses elementos, pois teria que achar todos os <code class="code-piece">p</code> da página, depois selecionar apenas os que estão imediatamente depois de um <code class="code-piece">h1</code> e ainda selecionar todos os <code class="code-piece">h1</code>, mas pegar apenas os que são filhos de <code class="code-piece">.noticias</code>, ou seja, muito custoso para o navegador.</p>
+<p>Porém, sua <strong>compreensão é bastante difícil</strong>, não conseguimos bater o olho nesse seletor e já saber o que ele está selecionando. Outro ponto negativo é a sua <strong>performance</strong>, o navegador lê os elementos selecionados da <em>direita para esquerda</em>, então ele teria um trabalho relativamente grande para capturar esses elementos, pois teria que achar todos os <code class="code-piece">p</code> da página, depois selecionar apenas os que estão imediatamente depois de um <code class="code-piece">h1</code> e ainda selecionar todos os <code class="code-piece">h1</code>, mas, pegar apenas os que são filhos de <code class="code-piece">.noticias</code>, ou seja, muito custoso para o navegador.</p>
 
 <p>Mas o ponto que mais me incomoda, é que caso esse <code class="code-piece">h1</code> venha a ser <code class="code-piece">h2</code>, nosso código CSS não funcionará mais. Nosso CSS é <strong>dependente da estrutura atual do HTML</strong>, caso ela mude, nosso CSS quebra.</p>
 

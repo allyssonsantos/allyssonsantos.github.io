@@ -7,6 +7,24 @@
 	position: fixed;
 	z-index: 100;
 	@include box-shadow(0, 0, 5px, #000);
+	-webkit-transition: transform 0.4s;
+	-moz-transition: transform 0.4s;
+	-o-transition: transform 0.4s;
+	transition: transform 0.4s;
+}
+
+.blog-header--show {
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	-o-transform: translateY(0%);
+	transform: translateY(0%);
+}
+
+.blog-header--hide {
+	-webkit-transform: translateY(-105%);
+	-moz-transform: translateY(-105%);
+	-o-transform: translateY(-105%);
+	transform: translateY(-105%);
 }
 
 .blog-back-button {
@@ -61,6 +79,9 @@
 #blog-menu-controller:checked + .blog-navigator .blog-links {
 	height: 175px;
 	opacity: 1;
+	-webkit-transition: height 0.4s ease-in, opacity 0.7s linear;
+	-moz-transition: height 0.4s ease-in, opacity 0.7s linear;
+	-o-transition: height 0.4s ease-in, opacity 0.7s linear;
 	transition: height 0.4s ease-in, opacity 0.7s linear;
 }
 
@@ -72,6 +93,9 @@
 	height: 0;
 	opacity: 0;
 	overflow: hidden;
+	-webkit-transition: height 0.4s ease-out, opacity 0.8s ease-out;
+	-moz-transition: height 0.4s ease-out, opacity 0.8s ease-out;
+	-o-transition: height 0.4s ease-out, opacity 0.8s ease-out;
 	transition: height 0.4s ease-out, opacity 0.8s ease-out;
 }
 

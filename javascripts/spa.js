@@ -1,5 +1,21 @@
 void function(){
 
+	//Mostrar e esconder o header
+	var ultimoScroll = 0,
+		header = $(".blog-header");
+	$(window).scroll(function () {
+		var posicaoAtual = $(this).scrollTop();
+		if (posicaoAtual > ultimoScroll) {
+			header.removeClass("blog-header--show");
+			header.addClass("blog-header--hide");
+		} else {
+			header.removeClass("blog-header--hide");
+			header.addClass("blog-header--show");
+		}
+		ultimoScroll = posicaoAtual;
+	});
+
+	//Adicionar botão de voltar e alterar posicao do menu
 	if (window.location.pathname.length > 2) {
 		$(".blog-back-button").css("display", "inline-block");
 		$(".blog-menu-button").css("right", "0");
@@ -10,9 +26,11 @@ void function(){
 		$(".blog-menu-button").css("right", "");
 	}
 
-	var $body = $('body'),
-		$page = $('.current-page'),
-		$blogLinksItem = $(".blog-links-item");
+	//Mostrar e esconder links do menu
+	var $blogLinksItem = $(".blog-links-item");
+	$blogLinksItem.click(function() {
+		$("#blog-menu-controller").prop("checked", false);
+	});
 
 		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 		var disqus_developer = 1;
@@ -38,9 +56,5 @@ void function(){
 		    	});
 		    }
 		})();
-
-	$blogLinksItem.on("click", function() {
-		$("#blog-menu-controller").prop("checked", false);
-	});
 
 }();
