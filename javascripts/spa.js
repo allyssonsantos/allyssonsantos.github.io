@@ -5,7 +5,7 @@ void function(){
 		header = $(".blog-header");
 	$(window).scroll(function () {
 		var posicaoAtual = $(this).scrollTop();
-		if (posicaoAtual > ultimoScroll) {
+		if (posicaoAtual > ultimoScroll && posicaoAtual > 100) {
 			header.removeClass("blog-header--show");
 			header.addClass("blog-header--hide");
 		} else if (posicaoAtual == 0) {
