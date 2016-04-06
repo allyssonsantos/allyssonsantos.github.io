@@ -3,17 +3,19 @@ layout: default
 title: Desenvolvedor Front-End - Allysson dos Santos
 ---
 <section class="blog-home" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
-  <p>Blog de <strong>Front-End</strong>, artigos, tutoriais, dicas e experimentos sobre front end, HTML5, CSS3, javascript, jquery, responsivo, mobile, webapps, <em>web design</em> e muito mais!.</p>
-
-  <h2 class="blog-posts-title">Todos os posts:</h2>
+  <p>Blog de <strong itemprop="mainEntityOfPage">Front-End</strong>, artigos, tutoriais, dicas e experimentos sobre front end, HTML5, CSS3, javascript, jquery, responsivo, mobile, webapps, <em>web design</em> e muito mais!.</p>
+  <meta itemprop="publisher" content="Allysson dos Santos">
+  <h2 class="blog-posts-title" itemprop="name">Todos os posts:</h2>
   <section class="blog-posts">
     {% for post in site.posts %}
     <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" {% if post.preview-img %} style="background-image: url('{{ post.preview-img }}')" {% endif %}>
       <article class="blog-posts-post" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-          <time class="blog-posts-date muted" itemprop="datePublished" itemprop="dateModified">{{ post.date | date: "%b %-d, %Y" }}</time>
-          <span class="blog-posts-author muted" itemprop="author" itemprop="publisher">Allysson</span>
-          <h2 class="blog-posts-heading" itemprop="name" itemprop="headline">{{ post.title }}</h2>
-          <p class="blog-posts-description" itemprop="description" itemprop="mainEntityOfPage">{{ post.meta }}</p>
+          <time class="blog-posts-date muted" itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <span class="blog-posts-author muted" itemprop="author">Allysson</span>
+          <h2 class="blog-posts-heading" itemprop="headline">{{ post.title }}</h2>
+          <p class="blog-posts-description" itemprop="description">{{ post.meta }}</p>
+          <meta itemprop="dateModified" content="{{ post.date | date_to_xmlschema }}">
+          <meta itemprop="image" content="{{ post.preview-img }}">
       </article>
       </a>
 
