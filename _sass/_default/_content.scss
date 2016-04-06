@@ -84,8 +84,16 @@
 }
 
 .blog-posts-date {
-	display: block;
+	display: inline-block;
 	margin-bottom: 10px;
+}
+
+.blog-posts-author {
+	float: right;
+}
+
+.blog-posts-author::before {
+	content: "Autor: "
 }
 
 .blog-posts-heading {
