@@ -2,20 +2,24 @@
 layout: default
 ---
 <article class="post" itemscope="itemscope" itemtype="http://schema.org/Article">
-<span class="hide" itemprop="mainEntityOfPage">{{ page.title }}</span>
+<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ page.url }}">
   <header class="post-header">
     <h1 class="post-title" itemprop="headline"><a href="" title="{{ page.title }}">{{ page.title }}</a></h1>
     <span class="post-date muted">
       <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
     	<time class="hide" itemprop="dateModified" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
-      <span class="blog-posts-author muted" itemprop="name">Allysson</span>
     </span>
     <a class="post-category" href="{{ site.url }}/posts/" title="Veja todos os posts da categoria {{ page.category }}">{{ page.category }}</a>
     <h2 class="post-subtitle">Introdução:</h2>
     <p class="post-description" itemprop="description">{{ page.meta }}</p>
 
     {% if page.preview-img %}
+    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
     	<img src="{{ page.preview-img }}" alt="{{ page.title }}" title="{{ page.title }}" itemtype="image">
+      <meta itemprop="url" content="{{ page.preview-img | prepend: site.url }}">
+      <meta itemprop="width" content="800">
+      <meta itemprop="height" content="800">
+    </div>
     {% endif %}
   </header>
 
@@ -23,18 +27,21 @@ layout: default
     {{ content }}
   </div>
 
-</article>
 {% if page.author %}
-  <section class="author">
-  <div class="author-details">
-  <img class="author-img" src={{ "/imgs/allysson.jpg" | prepend: site.baseurl | prepend: site.url }} alt="Allysson dos Santos" itemprop="image">
+  <section class="author" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+  <div class="author-details" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+    <img class="author-img" src={{ "/imgs/allysson.jpg" | prepend: site.baseurl | prepend: site.url }} alt="Allysson dos Santos">
+    <meta itemprop="url" content="http://allysson.me/imgs/allysson.jpg">
+    <meta itemprop="width" content="150">
+    <meta itemprop="height" content="150">
       <div class="author-description">
         <span class="muted">Autor:</span>
-        <h2 class="author-name" itemprop="author">Allysson dos Santos</h2>
-        <p><span itemprop="jobTitle">Desenvolvedor Front end</span> e <a href="https://www.facebook.com/affectingminds/?fref=ts" target="_blank">guitarrista</a> quando dá tempo!</p>
-        <a href="https://github.com/allyssonsantos" target="_blank" itemprop="publisher">github.com/allyssonsantos</a>
+        <h2 class="author-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Allysson dos Santos</span></h2>
+        <p>Desenvolvedor Front end e <a href="https://www.facebook.com/affectingminds/?fref=ts" target="_blank">guitarrista</a> quando dá tempo!</p>
+        <a href="https://github.com/allyssonsantos" target="_blank">github.com/allyssonsantos</a>
       </div>
   </div>
+  <meta itemprop="name" content="Allysson">
 </section>
 {% endif %}
 {% if page.comments %}
@@ -58,3 +65,4 @@ layout: default
   <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
 {% endif %}
+</article>
