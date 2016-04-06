@@ -2,12 +2,12 @@
 layout: default
 title: Desenvolvedor Front-End - Allysson dos Santos
 ---
-<section class="blog-home" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
-  <p>Blog de <strong itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="http://allysson.me">Front-End</strong>, artigos, tutoriais, dicas e experimentos sobre front end, HTML5, CSS3, javascript, jquery, responsivo, mobile, webapps, <em>web design</em> e muito mais!.</p>
+<section class="blog-home" role="main">
+  <p>Blog de <strong>Front-End</strong>, artigos, tutoriais, dicas e experimentos sobre front end, HTML5, CSS3, javascript, jquery, responsivo, mobile, webapps, <em>web design</em> e muito mais!.</p>
   <h2 class="blog-posts-title">Todos os posts:</h2>
   <section class="blog-posts">
     {% for post in site.posts %}
-    <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" {% if post.preview-img %} style="background-image: url('{{ post.preview-img }}')" {% endif %}>
+    <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" {% if post.preview-img %} style="background-image: url('{{ post.preview-img }}')" {% endif %} itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
       <article class="blog-posts-post" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
           <time class="blog-posts-date muted" itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
           <span class="blog-posts-author muted" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name">Allysson</span></span>
@@ -15,8 +15,8 @@ title: Desenvolvedor Front-End - Allysson dos Santos
           <p class="blog-posts-description" itemprop="description">{{ post.meta }}</p>
           <meta itemprop="dateModified" content="{{ post.date | date_to_xmlschema }}">
           <div class="hide" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-            <img src="http://allysson.me/imgs/icon.png"/>
-            <meta itemprop="url" content="http://allysson.me/imgs/icon.png">
+            <img src="{{ post.preview-img | prepend: site.url }}"/>
+            <meta itemprop="url" content="{{ post.preview-img | prepend: site.url }}">
             <meta itemprop="width" content="325">
             <meta itemprop="height" content="260">
           </div>
