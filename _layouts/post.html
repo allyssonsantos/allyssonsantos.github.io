@@ -2,18 +2,20 @@
 layout: default
 ---
 <article class="post" itemscope="itemscope" itemtype="http://schema.org/Article">
-
+<span class="hide" itemprop="mainEntityOfPage">{{ page.title }}</span>
   <header class="post-header">
-    <h1 class="post-title" itemprop="name"><a href="" title="{{ page.title }}">{{ page.title }}</a></h1>
+    <h1 class="post-title" itemprop="headline"><a href="" title="{{ page.title }}">{{ page.title }}</a></h1>
     <span class="post-date muted">
-    	<time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+    	<time class="hide" itemprop="dateModified" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      <span class="blog-posts-author muted" itemprop="name">Allysson</span>
     </span>
     <a class="post-category" href="{{ site.url }}/posts/" title="Veja todos os posts da categoria {{ page.category }}">{{ page.category }}</a>
     <h2 class="post-subtitle">Introdução:</h2>
     <p class="post-description" itemprop="description">{{ page.meta }}</p>
 
     {% if page.preview-img %}
-    	<img src="{{ page.preview-img }}" alt="{{ page.title }}" title="{{ page.title }}" itemprop="image">
+    	<img src="{{ page.preview-img }}" alt="{{ page.title }}" title="{{ page.title }}" itemtype="image">
     {% endif %}
   </header>
 
@@ -23,14 +25,14 @@ layout: default
 
 </article>
 {% if page.author %}
-  <section class="author" itemprop="author">
+  <section class="author">
   <div class="author-details">
   <img class="author-img" src={{ "/imgs/allysson.jpg" | prepend: site.baseurl | prepend: site.url }} alt="Allysson dos Santos" itemprop="image">
-      <div class="author-description" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <div class="author-description">
         <span class="muted">Autor:</span>
-        <h2 class="author-name" itemprop="name">Allysson dos Santos</h2>
+        <h2 class="author-name" itemprop="author">Allysson dos Santos</h2>
         <p><span itemprop="jobTitle">Desenvolvedor Front end</span> e <a href="https://www.facebook.com/affectingminds/?fref=ts" target="_blank">guitarrista</a> quando dá tempo!</p>
-        <a href="https://github.com/allyssonsantos" target="_blank">github.com/allyssonsantos</a>
+        <a href="https://github.com/allyssonsantos" target="_blank" itemprop="publisher">github.com/allyssonsantos</a>
       </div>
   </div>
 </section>
