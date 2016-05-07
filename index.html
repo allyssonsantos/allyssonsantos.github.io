@@ -15,8 +15,8 @@ title: Desenvolvedor Front-End - Allysson dos Santos
           <p class="blog-posts-description" itemprop="description">{{ post.meta }}</p>
           <meta itemprop="dateModified" content="{{ post.date | date_to_xmlschema }}">
           <div class="hide" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-            <img src="{{ post.preview-img | prepend: site.url }}"/>
-            <meta itemprop="url" content="{{ post.preview-img | prepend: site.url }}">
+            <img src="{{ post.preview-img | prepend: site.baseurl }}"/>
+            <meta itemprop="url" content="{{ post.preview-img | prepend: site.baseurl }}">
             <meta itemprop="width" content="325">
             <meta itemprop="height" content="260">
           </div>
