@@ -21,5 +21,15 @@ layout: default
         </a>
       </article>
     {% endfor %}
+    <h3 id="Javascript" class="post-category-name">Javascript</h3>
+    {% for post in site.categories.Javascript %}
+      <article class="posts-post">
+       <a class="posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+          <time class="posts-date muted">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <h2 class="blog-posts-heading">{{ post.title }}</h2>
+          <p class="posts-description">{{ post.meta }}</p>
+        </a>
+      </article>
+    {% endfor %}
   </section>
 </div>
