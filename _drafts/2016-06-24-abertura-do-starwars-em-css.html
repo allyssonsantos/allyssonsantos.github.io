@@ -30,7 +30,7 @@ permalink: css/abertura-starwars-em-css.html
 </ul>
 <p>Se você quiser saber mais sobre o transform, tem um post explicando algumas coisas sobre ele aqui: <a href="{% post_url 2016-04-01-transform-css3 %}" title="Transform do CSS3 - O que é possivel fazer?">Transform do CSS3 - O que é possivel fazer?</a></p>
 <h2>Começando com o HTML</h2>
-<p>A estrutura do nosso HTML será bem básica, vamos começar com uma <code class="code-piece">div</code> vazia que será a base para uma sombra no topo de nossa pagina, para quando o texto atingir o topo de nossa página, ele não desapareça bruscamente. Vamos aproveitar e já linkar nosso futuro CSS com a tag <code class="code-piece">link</code>, vamos importar nosso logo, criar uma <code class="code-piece">div</code> que será nosso container, uma <code class="code-piece">div</code> que conterá todos nossos títulos e parágrafos e por fim, nossa tag <code class="code-piece">audio</code> que importaremos nossa música. </p>
+<p>A estrutura do nosso HTML será bem básica, vamos começar com uma <code class="code-piece">div</code> vazia que será a base para uma sombra no topo de nossa pagina, para quando o texto atingir o topo de nossa página, ele não desapareça bruscamente. Vamos aproveitar e já linkar nosso futuro CSS com a tag <code class="code-piece">link</code>, vamos importar nosso logo, criar uma <code class="code-piece">div</code> que será nosso container, uma <code class="code-piece">div</code> que conterá todos nossos títulos e parágrafos e por fim, nossa tag <code class="code-piece">audio</code> que importaremos nossa música.</p>
 <p>Nosso HTML fica assim:</p>
 
 {% highlight html linenos %}
@@ -47,7 +47,7 @@ permalink: css/abertura-starwars-em-css.html
 	<div class="container">
 		<div class="texto">
 			<h1 class="titulo">Episode VII</h1>
-			<h2 class="titulo subtitulo">The force awakens</h2>
+			<h2 class="subtitulo">The force awakens</h2>
 			<p>It is a time of hope for the restored Republic. The last Imperial loyalists have been pushed back to the Outer Rim Territories.</p>
 			<p>Chased across the galaxy by the Republic, the last remnants of the Galactic Empire have started raiding outposts in the outlying systems, desperate to replenish their dwindling supplies.</p>
 			<p>With a large Republic fleet closing in on their position, the Imperials gather above the Outer Rim world of Tatooine, ready to make their last stand...</p>
@@ -60,8 +60,8 @@ permalink: css/abertura-starwars-em-css.html
 </html>
 {% endhighlight %}
 
-<h3>Começando com o CSS!</h3>
-<p>Vamos começar estilizando nosso <code class="code-piece">.container</code>, dando a ele uma largura de 1000px, centralizando na página e um <code class="code-piece">position: relative</code> que servirá para alinharmos nosso logo futuramente.</p>
+<h2>Começando com o CSS!</h2>
+<p>Vamos começar estilizando nosso <code class="code-piece">.container</code>, dando a ele uma largura máxima de 1000px, centralizando na página e um <code class="code-piece">position: relative</code> que servirá para alinharmos nosso logo futuramente.</p>
 <p>Agora vamos estilizar o <code class="code-piece">body</code> adicionando a cor preta ao fundo, colocar um <code class="code-piece">overflow: hidden</code> para sumir com as scrollbars e no meu caso, vou utilizar a fonte Helvetica em todos os textos e com a cor amarela (#F2CB06). Até agora, nosso css está assim:</p>
 
 {% highlight css linenos %}
@@ -72,7 +72,7 @@ body {
 	overflow: hidden;
 }
 .container {
-	width: 1000px;
+	max-width: 1000px;
 	margin: 0 auto;
 	position: relative;
 }
@@ -95,13 +95,15 @@ body {
 	<figcaption>Exemplo da sombra sendo aplicada, e nosso texto sumindo suavemente.</figcaption>
 </figure>
 
-<h2>Animando o logo!</h2>
-<p>Agora sim começa a mágica, vamos adicionar nossas animações. Primeiro precisamos adicionar o estilo do nosso logo, precisamos definir um <code class="code-piece">transform: scale(0)</code> para que quando a animação termine, ele continue com o tamanho 0, e assim, não ficar visível. E também um <code class="code-piece">position: absolute;</code> para que na animação seja possivel alinhar o logo no centro da página.</p>
+<h3>Animando o logo!</h3>
+<p>Agora sim começa a mágica, vamos adicionar nossas animações. Primeiro precisamos adicionar o estilo do nosso logo, precisamos definir um <code class="code-piece">transform: scale(0)</code> para que quando a animação termine, ele continue com o tamanho 0, e assim, não ficar visível. E também o <code class="code-piece">translate(-50%, -50%)</code> e um <code class="code-piece">position: absolute;</code> para alinhar-mos o logo no centro da página.</p>
 
 {% highlight css linenos %}
 .logo {
 	position: absolute;
-	transform: scale(0);
+	top: 50%;
+	left: 50%;
+	transform: scale(0) translate(-50%, -50%);
 }
 {% endhighlight %}
 <p>Agora vamos dar um nome para a nossa animação do logo utilizando a propriedade <code class="code-piece">animation-name: logo;</code> vamos determinar a duração da nossa animação, ela terá 15 segundos <code class="code-piece">animation-duration: 15s;</code> e determinar que ela será <strong>linear</strong>, ou seja, terá a mesma velocidade do começo ao fim. <code class="code-piece">animation-timing-function: linear;</code></p>
@@ -110,9 +112,11 @@ body {
 {% highlight css linenos %}
 .logo {
 	position: absolute;
-	-webkit-transform: scale(0);
-	-moz-transform: scale(0);
-	transform: scale(0);
+	top: 50%;
+	left: 50%;
+	-webkit-transform: scale(0) translate(-50%, -50%);
+	-moz-transform: scale(0) translate(-50%, -50%);
+	transform: scale(0) translate(-50%, -50%);
 	-webkit-animation-name: logo;
 	-webkit-animation-duration: 15s;
 	-webkit-animation-timing-function: linear;
@@ -126,48 +130,24 @@ body {
 {% endhighlight %}
 <p>Até agora, nada acontece, precisamos adicionar nossos <strong>keyframes!</strong> a sintaxe é a seguinte, <code class="code-piece">@keyframes nome da animação</code> que foi definido no <code class="code-piece">animation-name</code></p>
 <p>Vamos utilizar as propriedades <code class="code-piece">from</code> e <code class="code-piece">to</code> que serão declaradas dentro de nosso keyframe, onde determinamos quais propriedades e valores que começam no segundo 0 (from) de nossa animação, e como essas propriedades e valores irão estar no término da nossa animação, no caso, no segundo 15 (to).</p>
-<p>Vamos estilizar dentro do nosso <code class="code-piece">from {</code>, ou seja, as propriedades definidas dentro dele, serão as propriedades iniciais de nossa animação. Vamos começar com nosso logo tendo 2x o seu tamanho original, ou seja, um <code class="code-piece">sacle(2)</code>, e vamos adicionar: <code class="code-piece">top: 50%;</code>, <code class="code-piece">left: 50%;</code> para deslocar 50% do topo e 50% da esquerda, e o <code class="code-piece">transform: translate: (-50%, -50%);</code> para deslocar metade da altura e largura do elemento para trás e assim, fazer com que ele fique no centro.</p>
-<p>Agora o estilo dentro do <code class="code-piece">to {</code> que serão as propriedades finais de nossa animação, ou seja, como nosso logo estará no final. precisamos repitir nosso CSS, para que ele continue no centro, mas a diferença é que o tamanho dele será 0, ou seja, ele vai diminuir até sumir! <code class="code-piece">scale(0);</code>.</p>
-<p>Adicionando nosso keyframe no CSS, fica assim (utilizando os prefixos para compatibilidade):</p>
+<p>Vamos estilizar dentro do nosso <code class="code-piece">from {</code>, ou seja, as propriedades definidas dentro dele, serão as propriedades iniciais de nossa animação. Vamos começar com nosso logo tendo 2x o seu tamanho original, ou seja, um <code class="code-piece">sacle(2)</code>.</p>
+<p>Agora o estilo dentro do <code class="code-piece">to {</code> que serão as propriedades finais de nossa animação, ou seja, como nosso logo estará no final. O tamanho dele será 0, ou seja, ele vai diminuir até sumir! <code class="code-piece">scale(0);</code>.</p>
+<p>Nosso keyframe no CSS, ficará assim (utilize os prefixos para compatibilidade, não utilizarei para poupar código):</p>
 
 {% highlight css linenos %}
 @keyframes logo {
 	from {
-		top: 50%;
-		left: 50%;
 		transform: translate(-50%, -50%) scale(2);
+		/* Precisamos repetir o translate, pois o keyframe subscreve os valores da propriedade */
 	}
 	to {
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%) scale(0);
-	}
-}
 
-@-webkit-keyframes logo {
-	from {
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%) scale(2);
-	}
-	to {
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%) scale(0);
-	}
-}
-@-moz-keyframes logo {
-	from {
-		top: 50%;
-		left: 50%;
-		-moz-transform: translate(-50%, -50%) scale(2);
-	}
-	to {
-		top: 50%;
-		left: 50%;
-		-moz-transform: translate(-50%, -50%) scale(0);
+		transform: translate(-50%, -50%) scale(0);
 	}
 }
 {% endhighlight %}
 
 <p>Veja um exemplo de como está nossa animação até agora: <a href="{{ baseurl.url }}/starwars/starwars-exemplo1.html" title="Exemplo da animação do logo">Exemplo</a></p>
+
+<h3>Animando o texto</h3>
+<p>Primeiramente precisamos dar o estilo para o nosso texto, começamos adicionando </p>

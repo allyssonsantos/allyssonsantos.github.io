@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Starwars Intro</title>
 	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
 		body {
 			background: #000;
 			color: #F2CB06;
@@ -11,7 +15,7 @@
 			overflow: hidden;
 		}
 		.container {
-			width: 1000px;
+			max-width: 1000px;
 			margin: 0 auto;
 			position: relative;
 		}
@@ -24,7 +28,9 @@
 		}
 		.logo {
 			position: absolute;
-			transform: scale(0);
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%); scale(0);
 			-webkit-animation-name: logo;
 			-webkit-animation-duration: 15s;
 			-webkit-animation-timing-function: linear;
@@ -36,40 +42,58 @@
 			animation-timing-function: linear;
 		}
 
+		.texto {
+			transform: perspective(800px) rotateX(16deg) translateY(30%);
+			text-align: center;
+			-webkit-animation-name: subir;
+			-webkit-animation-duration: 80s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: infinite;
+			-moz-animation-name: subir;
+			-moz-animation-duration: 80s;
+			-moz-animation-timing-function: linear;
+			-moz-animation-iteration-count: infinite;
+		}
+
+		.texto p {
+			font-size: 	70px;
+			font-weight: bold;
+			text-shadow: 0px 0px 10px #000;
+			margin-top: 70px;
+			line-height: 1.4;
+		}
+
+		.titulo {
+			font-size: 85px;
+		}
+
+		.subtitulo {
+			font-weight: normal;
+			text-transform: uppercase;
+		}
+
 		@keyframes logo {
 			from {
-				top: 50%;
-				left: 50%;
 				transform: translate(-50%, -50%) scale(2);
 			}
 			to {
-				top: 50%;
-				left: 50%;
 				transform: translate(-50%, -50%) scale(0);
 			}
 		}
 
 		@-webkit-keyframes logo {
 			from {
-				top: 50%;
-				left: 50%;
 				-webkit-transform: translate(-50%, -50%) scale(2);
 			}
 			to {
-				top: 50%;
-				left: 50%;
 				-webkit-transform: translate(-50%, -50%) scale(0);
 			}
 		}
 		@-moz-keyframes logo {
 			from {
-				top: 50%;
-				left: 50%;
 				-moz-transform: translate(-50%, -50%) scale(2);
 			}
 			to {
-				top: 50%;
-				left: 50%;
 				-moz-transform: translate(-50%, -50%) scale(0);
 			}
 		}

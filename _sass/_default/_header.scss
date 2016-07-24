@@ -28,8 +28,11 @@
 }
 
 .blog-back-button {
-	float: left;
 	display: none;
+}
+
+.blog-back-button--show {
+	display: block;
 }
 
 .blog-back {
@@ -37,6 +40,7 @@
 	height: 22px;
 	position: absolute;
 	top: 0;
+	left: 0;
 	cursor: pointer;
 }
 
@@ -67,7 +71,8 @@
 .blog-menu-button {
 	cursor: pointer;
 	position: absolute;
-	top: 0;
+	top: 3px;
+	right: 0;
 	z-index: 15;
 }
 
