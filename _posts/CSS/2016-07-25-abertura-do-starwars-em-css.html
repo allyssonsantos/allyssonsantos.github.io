@@ -1,0 +1,236 @@
+---
+layout: post
+title: Abertura do StarWars em CSS
+category: CSS
+meta: Nesse artigo veremos como fazer a abertura do StarWars utilizando apenas HTML e CSS!
+excerpt: Nesse artigo veremos como fazer a abertura do StarWars utilizando apenas HTML e CSS!
+preview-img: /a/starwars.svg
+comments: true
+author: Allysson dos Santos
+permalink: css/abertura-starwars-em-css.html
+---
+<span class="muted" itemscope="itemscope" itemtype="http://schema.org/TechArticle">Nível: <span itemprop="Beginner">Intermediário</span></span>
+
+<p>Hoje vamos aprender a fazer a <strong>introdução do Starwars</strong> (o logo diminuindo e as letrinhas amarelas subindo) <strong>utilizando apenas HTML e CSS</strong>, com direito a musiquinha!</p>
+<hr>
+<h2>O que vamos utilizar?</h2>
+<p>Vamos utilizar os seguintes arquivos: o <a href="/a/starwars.svg">logo do starwars</a> e a <a href="/starwars.mp3">trilha sonora</a> da nossa abertura. (para baixar o mp3, clique com o botão direito e selecione Salvar link como...).</p>
+<p>E também utilizaremos as <strong>seguintes técnicas</strong>:</p>
+<ul class="post-list">
+	<li class="post-list-item">box-shadow</li>
+	<li class="post-list-item">transform:
+		<ul class="post-list">
+			<li class="post-list-item">translate</li>
+			<li class="post-list-item">scale</li>
+			<li class="post-list-item">rotate</li>
+			<li class="post-list-item">perspective</li>
+		</ul>
+	</li>
+	<li class="post-list-item">animation</li>
+	<li class="post-list-item">keyframes</li>
+</ul>
+<p>Se você quiser saber mais sobre o transform, tem um post explicando algumas coisas sobre ele aqui: <strong><a href="{% post_url 2016-04-01-transform-css3 %}" title="Transform do CSS3 - O que é possivel fazer?">Transform do CSS3 - O que é possivel fazer?</a></strong></p>
+<hr>
+<h2>Começando com o HTML</h2>
+<p>A estrutura do nosso <strong>HTML</strong> será bem básica, vamos começar com uma <code class="code-piece">div</code> vazia que será a base para uma sombra no topo de nossa pagina, para quando o texto atingir o topo de nossa página, ele não desapareça bruscamente. Vamos aproveitar e já linkar nosso futuro CSS com a tag <code class="code-piece">link</code>, vamos importar nosso logo, criar uma <code class="code-piece">div</code> que será nosso container, uma <code class="code-piece">div</code> que conterá todos nossos títulos e parágrafos e por fim, nossa tag <code class="code-piece">audio</code> que importaremos nossa música.</p>
+<p>Nosso HTML fica assim:</p>
+
+{% highlight html linenos %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Starwars Intro</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="shadow"></div>
+	<img src="starwars.svg" class="logo">
+	<div class="container">
+		<div class="texto">
+			<h1 class="titulo">Episode VII</h1>
+			<h2 class="subtitulo">The force awakens</h2>
+			<p>It is a time of hope for the restored Republic. The last Imperial loyalists have been pushed back to the Outer Rim Territories.</p>
+			<p>Chased across the galaxy by the Republic, the last remnants of the Galactic Empire have started raiding outposts in the outlying systems, desperate to replenish their dwindling supplies.</p>
+			<p>With a large Republic fleet closing in on their position, the Imperials gather above the Outer Rim world of Tatooine, ready to make their last stand...</p>
+		</div>
+	</div>
+	<audio autoplay>
+		<source src="starwars.mp3" type="audio/mpeg">
+	</audio>
+</body>
+</html>
+{% endhighlight %}
+<hr>
+<h2>Começando com o CSS!</h2>
+<p>Vamos começar estilizando nosso <code class="code-piece">.container</code>, dando a ele uma <strong>largura máxima</strong> de 1000px, centralizando na página e um <code class="code-piece">position: relative</code> que servirá para alinharmos nosso logo futuramente.</p>
+<p>Agora vamos estilizar o <code class="code-piece">body</code> adicionando a cor preta ao fundo, colocar um <code class="code-piece">overflow: hidden</code> para sumir com as scrollbars e no meu caso, vou utilizar a fonte Helvetica em todos os textos e com a cor amarela (<abbr title="Hexadecimal de uma cor com tom amarelado">#F2CB06</abbr>). Até agora, nosso css está assim:</p>
+
+{% highlight css linenos %}
+* { /* Vamos fazer um reset do padding e margin. */
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #000;
+	color: #F2CB06;
+	font-family: 'Helvetica-neue', 'Helvetica', sans-serif;
+	overflow: hidden;
+}
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+{% endhighlight %}
+
+<p>Hora de estilizar a nossa <code class="code-piece">div</code> que será a base para nossa <strong>sombra</strong>. vamos dar uma altura de 100<abbr title="pixels">px</abbr>, a cor da div e da sombra será a mesma cor do fundo, vamos dar um position relative para poder setar um z-index maior para que todos os elementos passem por de baixo de nossa sombra.</p>
+
+{% highlight css linenos %}
+.shadow {
+	height: 100px;
+	background-color: #000;
+	box-shadow: 0px 10px 20px #000;
+	position: relative;
+	z-index: 100;
+}
+{% endhighlight %}
+<p>O motivo de colocarmos essa sombra, é pra dar um efeito legal, veja o exemplo: </p>
+<figure>
+	<img src="/a/exemplo.png" alt="Exemplo da sombra">
+	<figcaption>1. Exemplo da sombra sendo aplicada, e nosso texto sumindo suavemente.</figcaption>
+</figure>
+
+<h3>Animando o logo!</h3>
+<p>Agora sim começa a mágica, vamos <strong>adicionar nossas animações</strong>. Primeiro precisamos adicionar o estilo do nosso logo, precisamos definir um <code class="code-piece">transform: scale(0)</code> para que quando a animação termine, ele continue com o tamanho 0, e assim, não fique visível. E também o <code class="code-piece">translate(-50%, -50%)</code> e um <code class="code-piece">position: absolute;</code> para alinhar-mos o logo no centro da página.</p>
+
+{% highlight css linenos %}
+.logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: scale(0) translate(-50%, -50%);
+}
+{% endhighlight %}
+<p>Agora vamos <strong>dar um nome para a nossa animação</strong> do logo utilizando a propriedade <code class="code-piece">animation-name: logo;</code> vamos determinar a duração da nossa animação, ela terá 15 segundos <code class="code-piece">animation-duration: 15s;</code> e determinar que ela será <strong>linear</strong>, ou seja, terá a mesma velocidade do começo ao fim. <code class="code-piece">animation-timing-function: linear;</code></p>
+<p>Podemos adicionar os prefixos <code class="code-piece">-webkit-</code> e <code class="code-piece">-moz-</code> por questões de compatibilidade entre os navegadores.</p>
+<p>Nosso css está assim:</p>
+{% highlight css linenos %}
+.logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: scale(0) translate(-50%, -50%);
+	-moz-transform: scale(0) translate(-50%, -50%);
+	transform: scale(0) translate(-50%, -50%);
+	-webkit-animation-name: logo;
+	-webkit-animation-duration: 15s;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: logo;
+	-moz-animation-duration: 15s;
+	-moz-animation-timing-function: linear;
+	animation-name: logo;
+	animation-duration: 15s;
+	animation-timing-function: linear;
+}
+{% endhighlight %}
+<p>Até agora, nada acontece, precisamos adicionar nossos <strong>keyframes!</strong> a sintaxe é a seguinte, <code class="code-piece">@keyframes nome_da_animação</code> que foi definido no <code class="code-piece">animation-name</code></p>
+<p>Vamos utilizar as <strong>propriedades <code class="code-piece">from</code> e <code class="code-piece">to</code></strong> que serão declaradas dentro de nosso keyframe, onde <strong>determinamos quais propriedades e valores que começam no segundo 0</strong> (from) de nossa animação, e como essas propriedades e valores <strong>irão estar no término da nossa animação</strong>, no caso, no segundo 15 (to).</p>
+<p>Vamos estilizar dentro do nosso <code class="code-piece">from {</code>, ou seja, as propriedades definidas dentro dele, serão as propriedades iniciais de nossa animação. Vamos começar com nosso logo tendo 2x o seu tamanho original, ou seja, um <code class="code-piece">sacle(2)</code>.</p>
+<p>Agora o estilo dentro do <code class="code-piece">to {</code> que serão as propriedades finais de nossa animação, ou seja, como nosso logo estará no final. O tamanho dele será 0, ou seja, ele vai diminuir até sumir! <code class="code-piece">scale(0);</code>.</p>
+<p>Nosso keyframe no CSS, ficará assim (utilize os prefixos para compatibilidade, não utilizarei para poupar código):</p>
+
+{% highlight css linenos %}
+@keyframes logo {
+	from {
+		transform: translate(-50%, -50%) scale(2);
+		/* Precisamos repetir o translate, pois o keyframe subscreve os valores da propriedade */
+	}
+	to {
+		transform: translate(-50%, -50%) scale(0);
+	}
+}
+{% endhighlight %}
+
+<p>Veja um exemplo de como está nossa animação até agora: <a href="{{ baseurl.url }}/starwars/starwars-exemplo1.html" title="Exemplo da animação do logo">Exemplo</a></p>
+
+<h3>Animando o texto</h3>
+<p>Primeiramente precisamos dar <strong>estilo para o nosso texto</strong>, começamos adicionando o básico, alinhamos todo nosso texto ao centro, alteramos os nossos parágrafos para fonte de 70<abbr title="pixels">px</abbr>, negrito, e uma margin-top de 70<abbr title="pixels">px</abbr> para distanciar de nosso título. Para nosso título vamos apenas aumentar a fonte para 85<abbr title="pixels">px</abbr> e para nosso subtítulo vamos deixar ele com o peso da fonte "normal", alterar a altura das linhas e deixar tudo em caixa alta. </p>
+
+{% highlight css linenos %}
+.texto {
+	text-align: center;
+}
+
+.texto p {
+	font-size: 	70px;
+	font-weight: bold;
+	text-shadow: 0px 0px 10px #000;
+	margin-top: 70px;
+	line-height: 1.4;
+}
+
+.titulo {
+	font-size: 85px;
+}
+
+.subtitulo {
+	font-weight: normal;
+	text-transform: uppercase;
+}
+{% endhighlight %}
+
+<p>Agora começamos com a <strong>nossa animação</strong>, primeira novidade, vamos adicionar uma <strong>perspectiva</strong> ao nosso texto! ou seja, vamos "distanciar" nosso parágrafo 800<abbr title="pixels">px</abbr> da tela! assim podemos dar uma <strong>sensação de profundidade</strong> ao nosso elemento. Vamos também rotacionar nosso elemento no eixo X em 25 graus. O estilo do nosso texto fica assim:</p>
+
+{% highlight css linenos %}
+	.texto {
+		text-align: center;
+		transform: perspective(800px) rotateX(25deg);
+	}
+{% endhighlight %}
+
+<figure>
+	<img src="/a/exemplo2.png" alt="Exemplo de texto rotacionado">
+	<figcaption>2. Exemplo do texto com profundidade e rotacionado 25 graus no eixo X.</figcaption>
+</figure>
+
+<p>Porém, no começo da nossa animação <strong>apenas o logo deve estar visível</strong>, nosso texto só começará a ser exibido quando o logo estiver quase sumido completamente, para isso, temos que <strong>esconder nosso texto</strong>, podemos desloca-lo utilizando o <strong>translateY()</strong>, isso fará nosso texto deslocar para baixo e ficar fora da página, para depois subir dando aquele efeito legal!</p>
+
+{% highlight css linenos %}
+	.texto {
+		text-align: center;
+		transform: perspective(800px) rotateX(25deg) translateY(40%);
+	}
+{% endhighlight %}
+
+<p>Vamos começar com nossas animações, começamos adicionando nosso <code class="code-piece">animation-name: subir;</code>, <code class="code-piece">animation-duration: 60s;</code>, <code class="code-piece">animation-timing-function: linear;</code>, até aqui, nada de novo, nossa animação se chama "subir" (vamos utilizar esse nome no keyframe), terá 60 segundos de duração e sua velocidade será linear, ou seja, a mesma velocidade durante a animação inteira. (Adicione os prefixos para compatibilidade nos browsers).</p>
+
+{% highlight css linenos %}
+.texto {
+	text-align: center;
+	transform: perspective(800px) rotateX(25deg) translateY(40%);
+	animation-name: subir;
+	animation-duration: 60s;
+	animation-timing-function: linear;
+}
+{% endhighlight %}
+
+<p>Agora vamos ao nosso <strong>keyframe</strong>, ao invés de utilizar o <code class="code-piece">from {</code> e o <code class="code-piece">to {</code>, vamos utilizar <strong>porcentagens</strong>, vamos iniciar nossa animação apenas quando a animação do logo estiver quase terminando, ou seja, vamos esperar um tempo para nossa animação do texto começar. Vamos iniciar em 15% e vamos até 100%, vamos esperar cerca de 9 segundos (15% de 60s) para iniciar a animação do texto. Nesse keyframe vamos alterar apenas o translateY(), passando um valor negativo para nosso texto subir!</p>
+
+{% highlight css linenos %}
+@keyframes subir {
+	15% {
+		transform: perspective(800px) rotateX(25deg) translateY(40%);
+		/* Precisamos repertir a perspective e o rotate para manter a perspectiva e rotação. */
+	}
+
+	100% {
+		transform: perspective(800px) rotateX(25deg) translateY(-220%);
+		/* O translate -220% serve para deslocar o texto para cima! dando a sensação de que o texto está subindo. */
+	}
+}
+{% endhighlight %}
+
+<p>E está pronto nosso starwars! <a href="{{ baseurl.url }}/starwars/starwars-exemplo2.html" title="Exemplo da animação final">Exemplo da animação final</a>. Caso você queira colocar um outro texto, alterar tamanho da fonte, é bem provável que você tenha que fazer alterações no rotate ou na perspectiva, fique atento!</p>
+<p>E segue o desafio de alguém adaptar para funcionar bacana no mobile!</p>

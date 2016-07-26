@@ -42,6 +42,37 @@
 			animation-timing-function: linear;
 		}
 
+		.texto {
+			transform: perspective(800px) rotateX(25deg) translateY(40%);
+			text-align: center;
+			-webkit-animation-name: subir;
+			-webkit-animation-duration: 60s;
+			-webkit-animation-timing-function: linear;
+			-moz-animation-name: subir;
+			-moz-animation-duration: 60s;
+			-moz-animation-timing-function: linear;
+			animation-name: subir;
+			animation-duration: 60s;
+			animation-timing-function: linear;
+		}
+
+		.texto p {
+			font-size: 	70px;
+			font-weight: bold;
+			text-shadow: 0px 0px 10px #000;
+			margin-top: 70px;
+			line-height: 1.4;
+		}
+
+		.titulo {
+			font-size: 85px;
+		}
+
+		.subtitulo {
+			font-weight: normal;
+			text-transform: uppercase;
+		}
+
 		@keyframes logo {
 			from {
 				transform: translate(-50%, -50%) scale(2);
@@ -67,6 +98,16 @@
 				-moz-transform: translate(-50%, -50%) scale(0);
 			}
 		}
+
+		@keyframes subir {
+			15% {
+				transform: perspective(800px) rotateX(25deg) translateY(40%);
+			}
+
+			100% {
+				transform: perspective(800px) rotateX(25deg) translateY(-220%);
+			}
+		}
 	</style>
 </head>
 <body>
@@ -80,6 +121,9 @@
 			<p>Chased across the galaxy by the Republic, the last remnants of the Galactic Empire have started raiding outposts in the outlying systems, desperate to replenish their dwindling supplies.</p>
 			<p>With a large Republic fleet closing in on their position, the Imperials gather above the Outer Rim world of Tatooine, ready to make their last stand...</p>
 		</div>
+		<audio autoplay>
+			<source src="starwars.mp3" type="audio/mpeg">
+		</audio>
 	</div>
 
 </body>
