@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {% include head.html %}
+  <body>
+    <main class="container" aria-label="Content">
+      <header class="masthead">
+        <h1 class="masthead-title">
+          <a href="/">{{ site.title }}<span>&#39;s blog</span></a>
+        </h1>
+        <nav class="masthead-nav">
+        {% for page in site.pages %}
+          <a href="{{ page.url | prepend: site.baseurl }}" title="page.title">{{ page.title }}</a>
+        {% endfor %}
+        </nav>
+      </header>
+      {{ content }}
+    </main>
+  </body>
+</html>
