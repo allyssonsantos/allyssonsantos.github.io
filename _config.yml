@@ -15,6 +15,13 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://allysson.me" # the base hostname & protocol for your site
 github_username:  allyssonsantos
 
+gems:
+  - jekyll-feed
+  - jekyll-admin
+exclude:
+  - Gemfile
+  - Gemfile.lock
+permalink: /:title
 # Build settings
 markdown: kramdown
 highlighter: rouge

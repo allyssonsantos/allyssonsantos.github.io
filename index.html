@@ -7,7 +7,7 @@ title: Desenvolvedor Front-End - Allysson dos Santos
   <h2 class="blog-posts-title">Todos os posts:</h2>
   <section class="blog-posts">
     {% for post in site.posts %}
-    <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" {% if post.preview-img %} style="background-image: url('http://a.allysson.me/{{ post.preview-img }}')" {% endif %} itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+    <a class="blog-posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" {% if post.preview-img %} style="background-image: url('http://allysson.me/img/{{ post.preview-img }}')" {% endif %} itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
       <article class="blog-posts-post" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
           <time class="blog-posts-date muted" itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
           <span class="blog-posts-author muted" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Allysson</span></span>
@@ -15,15 +15,15 @@ title: Desenvolvedor Front-End - Allysson dos Santos
           <p class="blog-posts-description" itemprop="description">{{ post.meta }}</p>
           <meta itemprop="dateModified" content="{{ post.date | date_to_xmlschema }}">
           <div class="hide" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-            <img src="http://a.allysson.me/{{ post.preview-img }}"/>
-            <meta itemprop="url" content="http://a.allysson.me/{{ post.preview-img }}">
+            <img src="http://allysson.me/img/{{ post.preview-img }}"/>
+            <meta itemprop="url" content="http://allysson.me/img/{{ post.preview-img }}">
             <meta itemprop="width" content="325">
             <meta itemprop="height" content="260">
           </div>
           <div class="hide" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
             <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-              <img src="http://a.allysson.me/icon.png"/>
-              <meta itemprop="url" content="http://a.allysson.me/icon.png">
+              <img src="http://allysson.me/img/icon.png"/>
+              <meta itemprop="url" content="http://allysson.me/img/icon.png">
               <meta itemprop="width" content="325">
               <meta itemprop="height" content="260">
             </div>
