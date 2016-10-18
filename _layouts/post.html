@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="post" itemscope="itemscope" itemtype="http://schema.org/Article">
+<article class="post" itemscope="itemscope" itemtype="https://schema.org/Article">
 <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ page.url }}">
   <header class="post-header">
     <h1 class="post-title" itemprop="headline"><a href="" title="{{ page.title }}">{{ page.title }}</a></h1>
@@ -15,8 +15,8 @@ layout: default
 
     {% if page.preview-img %}
     <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-    	<img src="http://allysson.me/img/{{ page.preview-img }}" alt="{{ page.title }}" title="{{ page.title }}" itemtype="image">
-      <meta itemprop="url" content="http://allysson.me/img/{{ page.preview-img }}">
+    	<img src="https://allysson.me/img/{{ page.preview-img }}" alt="{{ page.title }}" title="{{ page.title }}" itemtype="image">
+      <meta itemprop="url" content="https://allysson.me/img/{{ page.preview-img }}">
       <meta itemprop="width" content="800">
       <meta itemprop="height" content="800">
     </div>
@@ -30,8 +30,8 @@ layout: default
 {% if page.author %}
   <section class="author" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
   <div class="author-details" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-    <img class="author-img" src="http://allysson.me/img/allysson.jpg" alt="Allysson dos Santos">
-    <meta itemprop="url" content="http://allysson.me/img/allysson.jpg">
+    <img class="author-img" src="https://allysson.me/img/allysson.jpg" alt="Allysson dos Santos">
+    <meta itemprop="url" content="https://allysson.me/img/allysson.jpg">
     <meta itemprop="width" content="150">
     <meta itemprop="height" content="150">
       <div class="author-description">
@@ -45,7 +45,7 @@ layout: default
 </section>
 {% endif %}
 {% if page.comments %}
-  <section class="post-comments" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
+  <section class="post-comments" itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
   <div id="disqus_thread" itemprop="comment"></div>
   <script>
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -61,8 +61,8 @@ layout: default
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
 {% endif %}
 </article>

@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 Olá, sou *Allysson dos Santos* e trabalho como **Desenvolvedor Front End**.
-Atualmente estou trabalhando na [Catho Online](http://www.catho.com.br "Catho Online") onde também desenvolvo para [Manager Online](http://www.manager.com.br "Manager Online"). Também trabalhei por um ano e meio na empresa Encontra Brasil como **Web Designer**.
+Atualmente estou trabalhando na [Catho Online](https://www.catho.com.br "Catho Online") onde também desenvolvo para [Manager Online](https://www.manager.com.br "Manager Online"). Também trabalhei por um ano e meio na empresa Encontra Brasil como **Web Designer**.
 
 Sou guitarrista da [Affecting Minds](https://pt-br.facebook.com/affectingminds "Affecting Minds") nas horas vagas!
 
