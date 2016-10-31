@@ -1,4 +1,11 @@
 (function () {
+    if (!navigator.serviceWorkder) return;
+    navigator.serviceWorker.register('../service-worker.js').then(function() {
+        console.log('Registered!');
+    }).catch(function() {
+        console.log('Register failed!');
+    });
+
     'use strict';
 
     var toggleHeader,
