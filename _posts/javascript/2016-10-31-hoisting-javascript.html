@@ -1,0 +1,58 @@
+---
+layout: post
+title: Javascript Basics 2 - Hoisting.
+category: Javascript
+meta: Entenda como funciona o Hoisting no Javascript o que é, e porque é importante entender.
+excerpt: Entenda como funciona o Hoisting no Javascript o que é, e o porque é importante entender.
+preview-img: javascript2.jpg
+comments: true
+author: Allysson dos Santos
+---
+<span class="muted" itemscope="itemscope" itemtype="https://schema.org/TechArticle">Nível: <span itemprop="Beginner">iniciante</span></span>
+
+<h2>O que é o hoisting no javascript?</h2>
+<p><strong>Hoisting</strong> é um comportamento da linguagem javascript, um exemplo muito clássico que evidência o que é o hoisting é esse:</p>
+
+{% highlight js linenos %}
+var allysson = "allysson";
+
+console.log(teste);
+console.log(allysson);
+
+var teste = "testando";
+{% endhighlight %}
+
+<p>Nesse exemplo, podemos pensar que a linha 3 resultaria um erro, pois ainda não declaramos a variável <code class="code-piece">teste</code>, porém, receberemos como saída no console, o seguinte retorno:</p>
+
+{% highlight js linenos %}
+Undefined
+allysson
+{% endhighlight %}
+
+<p>Porque isso acontece? É aí que iremos entender o que é o <em>hoisting</em>, começando pela sua tradução:</p>
+<blockquote><em><strong>Hoisting</strong>: verbo ~ içar, levantar</em></blockquote>
+<p>Quando o javascript parseia nosso código, ele percorre todo o conteúdo do seu arquivo js e quando existem variáveis, no nosso caso, <code class="code-piece">var allysson</code> e <code class="code-piece">var teste</code>, automaticamente ele pega essas variáveis e joga em memória, ou seja, ele já declara essas variáveis para nós, <strong>a atribuição de seu valor irá acontecer depois</strong>, sendo assim, nosso código anterior será visto pelo interpretador da seguinte forma:</p>
+
+{% highlight js linenos %}
+var allysson, teste;
+allysson = "allysson";
+
+console.log(teste);
+console.log(allysson);
+
+teste = "testando";
+{% endhighlight %}
+<p>Por isso recebemos <code class="code-piece">undefined</code> e não um erro. <strong>Ele primeiro declara a variável para depois fazer a atribuição de seu valor</strong>.</p>
+<h2>Hoisting em funções</h2>
+<p>Dado que temos esse código js:</p>
+
+{% highlight js linenos %}
+var allysson = {nome: 'Allysson'};
+ola(allysson);
+function ola(pessoa) {
+	console.log(pessoa.nome);
+}
+{% endhighlight %}
+<p>Nesse caso, a chamada da função <code class="code-piece">ola();</code> na linha 2, não teria problema algum, ela não retornaria <code class="code-piece">undefined</code> como no caso de uma variável, pois uma funcão só cria um novo <a href="/javascript-basics-escopos-parte-1" title="Javascript Basics 1 - Escopo de variáveis">escopo</a>, elas não possuem valores, apenas criam escopos, o interpretador do javascript quando encontra uma função, também aplica o hoisting, joga a função lá pra cima! portanto, não há efeito colateral nenhum!</p>
+
+<p>Lembre-se: <strong>O interpretador do javascript primeiro parseia</strong> (lê nosso código para checar a sintaxe) para depois executá-lo, e é <strong>no momento do parseamento que ele realiza o comportamento do hoisting</strong>.</p>
