@@ -1,16 +1,16 @@
 {
   "short_name": "allysson.me",
   "gcm_sender_id": "589415715394",
-  "name": "allysson.me | Desenvolvedor front-end",
+  "name": "allysson.me",
   "icons": [
     {
       "src": "img/icon.png",
-      "sizes": "256x256",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "index.html",
   "display": "standalone",
-  "theme_color": "#3f9fff",
+  "theme_color": "#232526",
   "background_color": "#fff"
 }

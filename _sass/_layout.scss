@@ -27,6 +27,10 @@ p {
 	margin-bottom: 10px;
 }
 
+body {
+	color: #3b3b3b;
+}
+
 blockquote {
 	font-size: 1.5em;
 	border-left: 5px solid #414345;
@@ -46,7 +50,7 @@ img {
 	width: 100%;
 }
 .muted {
-	color: #AAA;
+	opacity: 0.8;
 	font-weight: 300;
 	font-size: pxToEm(12);
 }
