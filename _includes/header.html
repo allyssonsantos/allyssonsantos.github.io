@@ -11,30 +11,4 @@
 			<h2 class="job">Desenvolvedor front-end</h2>
 		</a>
 	</div>
-	<input tabindex="0" type="checkbox" id="blog-menu-controller" hidden>
-	<nav class="blog-navigator">
-		<ul class="blog-links">
-			{% for paginas in site.pages %}
-				{% if paginas.title %}
-					<li class="blog-links-item">
-						<a class="page-link" href="{{ paginas.url | prepend: site.baseurl }}" title="{{ paginas.title }}">{{ paginas.title }}</a>
-					</li>
-				{% endif %}
-			{% endfor %}
-			<li class="social-item">
-				<a href="https://github.com/allyssonsantos" title="GitHub" class="social-link">
-					<svg class="svg-social"><use xlink:href="{{site.baseurl}}/img/svgs/icones.svg#github" /></svg>
-				</a>
-				<a href="https://br.linkedin.com/in/allyssonsantos" title="LinkedIn" class="social-link">
-					<svg class="svg-social"><use xlink:href="{{site.baseurl}}/img/svgs/icones.svg#linkedin" /></svg>
-				</a>
-				<a href="https://www.facebook.com/allysson.dossantos.7" title="Facebook" class="social-link">
-					<svg class="svg-social"><use xlink:href="{{site.baseurl}}/img/svgs/icones.svg#facebook" /></svg>
-				</a>
-				<a href="mailto:aallysson0@gmail.com" title="E-mail" class="social-link">
-					<svg class="svg-social"><use xlink:href="{{site.baseurl}}/img/svgs/icones.svg#email" /></svg>
-				</a>
-			</li>
-		</ul>
-	</nav>
 </header>

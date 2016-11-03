@@ -67,88 +67,10 @@
 	font-size: pxToEm(8);
 }
 
-.blog-navigator {
-	font-size: pxToEm(30);
-	width: 100%;
-}
-
 .blog-menu-button {
 	cursor: pointer;
 	position: absolute;
 	top: 3px;
 	right: 0;
 	z-index: 15;
-}
-
-.blog-title:hover,
-.blog-title:focus,
-.page-link:hover,
-.page-link:active {
-	color: #ccc;
-	transition: color 0.3s;
-}
-
-.blog-menu {
-	width: 22px;
-	height: 22px;
-}
-
-#blog-menu-controller:checked + .blog-navigator .blog-links {
-	height: 175px;
-	opacity: 1;
-	-webkit-transition: height 0.4s ease-in, opacity 0.7s linear;
-	-moz-transition: height 0.4s ease-in, opacity 0.7s linear;
-	-o-transition: height 0.4s ease-in, opacity 0.7s linear;
-	transition: height 0.4s ease-in, opacity 0.7s linear;
-}
-
-.blog-links {
-	width: 100%;
-	background-color: transparent;
-	list-style: none;
-	text-align: left;
-	height: 0;
-	opacity: 0;
-	overflow: hidden;
-	-webkit-transition: height 0.4s ease-out, opacity 0.8s ease-out;
-	-moz-transition: height 0.4s ease-out, opacity 0.8s ease-out;
-	-o-transition: height 0.4s ease-out, opacity 0.8s ease-out;
-	transition: height 0.4s ease-out, opacity 0.8s ease-out;
-}
-
-.blog-links-item {
-	text-decoration: none;
-	font-size: pxToEm(8);
-	padding-top: 10px;
-}
-
-.page-link {
-	text-decoration: none;
-	color: #fff;
-	display: block;
-	padding: 10px 0 0 0;
-	border-top: 1px solid #ddd;
-}
-
-.social-item {
-	width: 100%;
-	list-style: none;
-	display: inline-block;
-	font-size: 22px;
-	margin-right: 10px;
-	border-top: 1px solid #ddd;
-	margin-top: 10px;
-	padding-top: 5px;
-}
-
-.social-link {
-	color: #333;
-	text-decoration: none;
-	margin-right: 10px;
-}
-
-.svg-social {
-	width: 25px;
-	height: 25px;
-	margin-top: 8px;
 }
