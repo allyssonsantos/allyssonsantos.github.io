@@ -34,6 +34,9 @@
 
     if (window.location.pathname.length > 2) {
         btnBack.className = "blog-back-button--show";
+        btnBack.addEventListener('click', function() {
+            history.back();   
+        });
     }
 })();
 
