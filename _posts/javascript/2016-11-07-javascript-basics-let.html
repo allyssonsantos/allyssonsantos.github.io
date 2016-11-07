@@ -1,0 +1,41 @@
+---
+title: Javascript Basics 2 - Variável com Let.
+layout: post
+category: Javascript
+meta: Entenda como funcionam as variáveis através da palavra-chave let, incluida na nova especificação do JavaScript (ES6).
+excerpt: Entenda como funcionam as variáveis através da palavra-chave let, incluida na nova especificação do JavaScript (ES6).
+preview-img: let.png
+comments: true
+author: Allysson dos Santos
+---
+<span class="muted" itemscope="itemscope" itemtype="https://schema.org/TechArticle">Nível: <span itemprop="Beginner">iniciante</span></span>
+<h2>Variável let no JS</h2>
+<p>Na especificação do EcmaScript mais recente foi introduzido a nova palavra-chave <code class="code-piece">let</code>, que é uma nova maneira de se declarar variáveis.</p>
+<p>Declarando uma variável com <em>let</em>, temos alguns comportamentos diferentes de quando declaramos com a palavra-chave <code class="code-piece">var</code>, essas diferenças são:</p>
+<h3>Variável com o mesmo nome:</h3>
+<p>Com let, não podemos declarar uma váriavel com o mesmo nome de uma já definida dentro do escopo atual, veja o exemplo:</p>
+{% highlight js linenos %}
+var nome = 'allysson';
+let nome = 'santos';
+{% endhighlight %}
+<p>Caso a gente faça isso, receberemos um belo de um erro na cara:</p>
+<output class="error">Uncaught SyntaxError: Identifier 'nome' has already been declared</output>
+<p>Ou seja, <strong>se estivermos no mesmo escopo</strong>, nós não conseguiremos criar uma variável de mesmo nome, só podemos ter <strong>uma</strong> variável de mesmo nome.</p>
+<h3>Escopo em blocos</h3>
+<p>Vimos que não podemos ter duas variáveis com o mesmo nome usando <code class="code-piece">let</code>, <strong>MAS</strong> e se fizéssemos isso?</p>
+{% highlight js linenos %}
+let nome = 'allysson';
+console.log(nome);
+{
+	let nome = 'santos';
+	console.log(nome);
+}
+console.log(nome);
+{% endhighlight %}
+<p>Primeiro, não teriamos mais <strong>nenhum erro de declaração</strong> de variáveis, pois o <code class="code-piece">let</code> tem <strong>escopo delimitado por blocos</strong>. Mas, quais valores seriam imprimidos no console? A primeira variável nome, declarada na linha 1, não tem nenhuma ligação com a variável nome da linha 4, portanto, nossa saída do console seria a seguinte:</p>
+{% highlight js linenos %}
+allysson
+santos
+allysson
+{% endhighlight %}
+<p>Sendo assim, é muito útil quando queremos criar <strong>variáveis dentro de blocos de condições</strong>, como if, while, for, e não queremos correr o risco dessas variáveis serem sobrescritas em outros trechos de códigos, assim, garantimos que essa <strong>variável existirá uma única vez dentro desse escopo</strong> e que ela não será sobrescrita fora desse escopo.</p>

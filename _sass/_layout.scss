@@ -85,3 +85,12 @@ figcaption {
 .hide {
 	display: none;
 }
+
+.error {
+	background-color: #ffe0e0;
+	color: red;
+	padding: 3px;
+	border: 1px solid #eee;
+	display: block;
+	margin-bottom: 10px;
+}
