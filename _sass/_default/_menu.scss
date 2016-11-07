@@ -2,6 +2,7 @@
 	position: fixed;
 	font-size: pxToEm(30);
 	width: 90%;
+	max-width: 380px;
 	height: 100vh;
 	background-color: #232526;
 	background: linear-gradient(to right, #232526, #414345);
@@ -10,7 +11,7 @@
 	-moz-transition: transform 0.4s ease-out;
 	-o-transition: transform 0.4s ease-out;
 	transition: transform 0.4s ease-out;
-	z-index: 110;
+	z-index: 200;
 	box-shadow: 0 0 15px #000;
 	will-change: transform;
 }
@@ -30,10 +31,10 @@
 
 #blog-menu-controller:checked + .blog-navigator {
 	transform: translateX(0);
-	-webkit-transition: transform 0.6s ease-out;
-	-moz-transition: transform 0.6s ease-out;
-	-o-transition: transform 0.6s ease-out;
-	transition: transform 0.6s ease-out;
+	-webkit-transition: transform 0.4s ease-out;
+	-moz-transition: transform 0.4s ease-out;
+	-o-transition: transform 0.4s ease-out;
+	transition: transform 0.4s ease-out;
 	will-change: transform;
 }
 
@@ -48,8 +49,8 @@
 	position: fixed;
 	background: #000;
 	opacity: 0.8;
-	transition: opacity 0.7s linear;
-	z-index: 50;
+	transition: opacity 0.4s linear;
+	z-index: 150;
 	will-change: opacity;
 }
 
@@ -58,7 +59,7 @@
 	list-style: none;
 	text-align: left;
 	overflow: hidden;
-	padding-left: 20px;
+	padding: 0 20px;
 }
 
 .blog-links-item {
