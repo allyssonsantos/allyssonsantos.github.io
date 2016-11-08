@@ -1,0 +1,54 @@
+---
+title: Javascript Basics 3 - Variável com Const.
+layout: post
+category: Javascript
+meta: Veremos a palavra-chave const, declaração de variáveis na específição mais recente do EcmaScript (ES6).
+excerpt: Veremos a palavra-chave const, declaração de variáveis na específição mais recente do EcmaScript (ES6).
+preview-img: const.png
+comments: true
+author: Allysson dos Santos
+---
+<span class="muted" itemscope="itemscope" itemtype="https://schema.org/TechArticle">Nível: <span itemprop="Beginner">iniciante</span></span>
+<h2>Variável const no JS</h2>
+<p>Ao pé da letra, estamos atribuindo um valor constante, que nunca vai mudar, ou seja:</p>
+{% highlight js linenos %}
+const nome = 'allysson';
+nome = 'zézão';
+{% endhighlight %}
+<output class="error">Uncaught TypeError: Assignment to constant variable.</output>
+<p>Viu só né? não podemos mudar o valor de uma variável declarada com <code class="code-piece">const</code>.</p>
+<p><em>Só, que, entretudo, todavia</em>, dizem que const é uma <strong>variável imutável</strong>, ou seja, ela não pode mudar. Só que isso não é verdade, pois, podemos atribuir um objeto à uma variável declarada com const, e podemos manipular as propriedades e valores desse objeto, veja só:</p>
+{% highlight js linenos %}
+const eu = {
+	nome: 'Allysson',
+	idade: 22
+};
+
+console.log(eu);
+Object {nome: "Allysson", idade: 22}
+
+eu.nome = 'Outro nome';
+eu.idade = 55;
+
+console.log(eu);
+Object {nome: "Outro nome", idade: 55}
+{% endhighlight %}
+<p>Como demonstrado, <strong>podemos mudar os valores de um objeto declarado com const</strong>. No objeto acima, alterei sua propriedade nome e idade para outros valores sem problema algum.</p>
+<p>Reescrever o valor da variável declarada com const nós não iremos conseguir, porém, é possivel alterar as propriedades de um objeto declarado com const , ou seja, ele não é um objeto imutável.</p>
+<h3>Tornando um objeto imutável</h3>
+<p>Para tornar um objeto imutável, temos que utilizar o <code class="code-piece">Object.freeze(objeto);</code>. Utilizando o mesmo exemplo acima. Para tornar o objeto <code class="code-piece">eu</code> imutável, fariámos da seguinte maneira:</p>
+
+{% highlight js linenos %}
+const eu = {
+	nome: 'Allysson',
+	idade: 22
+};
+
+Object.freeze(eu);
+eu.nome = 'Zezinho';
+
+console.log(eu);
+Object {nome: "Allysson", idade: 22}
+{% endhighlight %}
+
+<p>Como podemos ver na linha 7, eu tentei alterar a propriedade <strong>nome</strong> do objeto <code class="code-piece">eu</code>, mas como eu 'freezei' meu objeto na linha 6 com o <code class="code-piece">Object.freeze(eu);</code> essa alteração não foi aplicada e também não gerou nenhum erro. Agora sim temos um objeto imutável.</p>
