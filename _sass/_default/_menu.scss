@@ -41,6 +41,7 @@
 .bg {
 	opacity: 0;
 	will-change: opacity;
+	cursor: pointer;
 }
 
 #blog-menu-controller:checked ~ .bg {

@@ -1,11 +1,15 @@
 (function () {
+    'use strict';
+
     if (!navigator.serviceWorker) return;
     navigator.serviceWorker.register('../service-worker.js').then(function() {
         console.log('Registered!');
     }).catch(function() {
         console.log('Register failed!');
     });
+})();
 
+(function() {
     'use strict';
 
     var toggleHeader,
@@ -35,7 +39,7 @@
     if (window.location.pathname.length > 2) {
         btnBack.className = "blog-back-button--show";
         btnBack.addEventListener('click', function() {
-            history.back();   
+            history.back();
         });
     }
 })();
