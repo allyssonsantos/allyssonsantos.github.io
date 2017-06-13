@@ -21,7 +21,7 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
-permalink: /:title
+permalink: /:title.html
 # Build settings
 markdown: kramdown
 highlighter: rouge
