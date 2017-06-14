@@ -21,21 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#232526",
-  "background_color": "#fafafa",
-}
-
-{
-  "short_name": "allysson.me",
-  "gcm_sender_id": "589415715394",
-  "icons": [
-    {
-      "src": "img/icon.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "start_url": "/",
-  "display": "standalone",
-  "theme_color": "#232526",
-  "background_color": "#fff"
+  "background_color": "#fafafa"
 }
