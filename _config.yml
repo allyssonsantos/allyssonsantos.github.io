@@ -21,6 +21,9 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Gulpfile.js
+  - package.json
+  - package-lock.json
 permalink: /:title.html
 # Build settings
 markdown: kramdown

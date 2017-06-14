@@ -1,4 +1,30 @@
 {
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "name": "Blog do Allysson",
+  "description": "Blog sobre front-end e coisas relacionadas.",
+  "short_name": "allysson.me",
+  "icons": [{
+    "src": "img/icon64.png",
+    "sizes": "64x64",
+    "type": "image/png"
+  },{
+    "src": "img/icon64.png",
+    "sizes": "64x64"
+  }, {
+    "src": "img/icon128.png",
+    "sizes": "128x128"
+  }, {
+    "src": "img/icon512.png",
+    "sizes": "512x512"
+  }],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#232526",
+  "background_color": "#fafafa",
+}
+
+{
   "short_name": "allysson.me",
   "gcm_sender_id": "589415715394",
   "icons": [
