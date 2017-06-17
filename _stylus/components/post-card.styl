@@ -1,7 +1,7 @@
 .post-card
   background-position center
   background-size cover
-  border 1px solid #ccc
+  border 1px solid $gray-300
   border-radius(5px)
   display inline-block
   flex-basis 310px
@@ -16,12 +16,12 @@
   width 310px
 
   &:hover, &:focus
-    box-shadow(0px, 0px, 5px, #666)
+    box-shadow(0px, 0px, 5px, $gray-400)
     transform(scale(1.01))
     transition(all 0.3s)
 
   > .post
-    background-color #fff
+    background-color $white
     border-radius(4px)
     bottom 0
     padding 10px 10px 0 10px
@@ -53,7 +53,7 @@
 
 
 .post-card-horizontal
-  border 1px solid #ccc
+  border 1px solid $gray-300
   border-radius(5px)
   display block
   margin-top 20px
@@ -64,7 +64,7 @@
   width: 100%
 
   &:hover, &:focus
-    box-shadow: 0px 0px 5px #000;
+    box-shadow: 0px 0px 5px $black;
 
   > .link
     color #333

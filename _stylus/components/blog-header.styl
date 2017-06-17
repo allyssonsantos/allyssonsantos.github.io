@@ -1,6 +1,6 @@
 .blog-header
   background $gray
-  box-shadow(0, 0, 5px, #000)
+  box-shadow(0, 0, 5px, $black)
   gradient($gray, lighten($gray, 20%))
   padding 15px 20px 10px 20px
   position fixed
@@ -26,13 +26,13 @@
     right 20px
 
   > .title
-    color #fff
+    color $white
     display inline-block
     text-decoration none
     transition(color 0.3s)
 
     &:hover, &:focus
-      color: #ccc;
+      color $gray-300
       transition(color 0.3s)
 
     > .name
