@@ -3,31 +3,31 @@ title: Lista de posts
 layout: default
 ---
 
-<div class="posts-all">
-  <h2 class="post-title">Todas as categorias:</h2>
+<div class="posts-page">
+  <h2 class="title">Todas as categorias:</h2>
 
   {% for category in site.categories %}
-      <a href="/posts/#{{category.first}}" title="{{ category.first }}" class="blog-posts-category-link">{{ category.first }}</a>
+      <a href="/posts/#{{category.first}}" title="{{ category.first }}" class="categorylink">{{ category.first }}</a>
   {% endfor %}
 
-  <section class="posts-list">
-    <h3 id="CSS" class="post-category-name">CSS</h3>
+  <section class="list">
+    <h3 id="CSS" class="categoryname">CSS</h3>
     {% for post in site.categories.CSS %}
-      <article class="posts-post">
-       <a class="posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-          <time class="posts-date muted">{{ post.date | date: "%b %-d, %Y" }}</time>
-          <h2 class="blog-posts-heading">{{ post.title }}</h2>
-          <p class="posts-description">{{ post.meta }}</p>
+      <article class="post-card-horizontal">
+       <a class="link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+          <time class="date muted">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <h2 class="heading">{{ post.title }}</h2>
+          <p class="description">{{ post.meta }}</p>
         </a>
       </article>
     {% endfor %}
-    <h3 id="Javascript" class="post-category-name">Javascript</h3>
+    <h3 id="Javascript" class="categoryname">Javascript</h3>
     {% for post in site.categories.Javascript %}
-      <article class="posts-post">
-       <a class="posts-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-          <time class="posts-date muted">{{ post.date | date: "%b %-d, %Y" }}</time>
-          <h2 class="blog-posts-heading">{{ post.title }}</h2>
-          <p class="posts-description">{{ post.meta }}</p>
+      <article class="post-card-horizontal">
+       <a class="link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+          <time class="date muted">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <h2 class="heading">{{ post.title }}</h2>
+          <p class="description">{{ post.meta }}</p>
         </a>
       </article>
     {% endfor %}

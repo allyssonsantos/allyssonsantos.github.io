@@ -1,14 +1,12 @@
 <header class="blog-header">
-	<div class="blog-title-wrap">
-		<label tabindex="0" for="blog-menu-controller" class="blog-menu-button">
-			<svg class="blog-menu"><use xlink:href="{{site.baseurl}}/svgs/icones.svg#menu" /></svg>
-		</label>
-		<a href="/" class="blog-back-button">
-			<svg class="blog-back"><use xlink:href="{{site.baseurl}}/svgs/icones.svg#arrows" /></svg>
-		</a>
-		<a href="{{ site.url }}" title="{{ site.title }}" class="blog-title">
-			<h1>Allysson dos Santos</h1>
-			<h2 class="job">Desenvolvedor front-end</h2>
-		</a>
-	</div>
+  <a href="/" class="back-button -hide">
+    <svg class="back-icon"><use xlink:href="{{site.baseurl}}/svgs/icones.svg#arrows" /></svg>
+  </a>
+  <a href="{{ site.url }}" title="{{ site.title }}" class="title">
+    <h1 class="name">Allysson dos Santos</h1>
+    <h2 class="job">Desenvolvedor front-end</h2>
+  </a>
+  <label tabindex="0" for="menu-controller" class="menu-button">
+    <svg class="menu-icon"><use xlink:href="{{site.baseurl}}/svgs/icones.svg#menu" /></svg>
+  </label>
 </header>

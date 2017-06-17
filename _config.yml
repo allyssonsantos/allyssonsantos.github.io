@@ -28,6 +28,9 @@ permalink: /:title.html
 # Build settings
 markdown: kramdown
 highlighter: rouge
+stylus:
+  compress: true
+  path: ./css
 ...
 defaults:
 	-
@@ -38,3 +41,4 @@ defaults:
 			layout: "default"
 			author: "Allysson dos Santos"
 ...
+

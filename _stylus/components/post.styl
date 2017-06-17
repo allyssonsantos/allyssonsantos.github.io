@@ -1,0 +1,103 @@
+.published-post
+
+  > .header
+    margin 20px auto 20px
+    max-width 1030px
+    padding-left 20px
+    padding-right 20px
+
+    > .title
+      font-size pxToEm(28)
+      font-weight 700
+
+    > .subtitle
+      font-size pxToEm(22)
+      margin-top 20px
+
+    > .description
+      font-size pxToEm(20)
+      margin 10px 0 20px 0
+
+  .post-content
+    font-size: pxToEm(18);
+    line-height: 1.4;
+    margin-top: 10px;
+    max-width: 1030px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+
+  .post-content h2
+    font-size pxToEm(28)
+
+  .post-content h3, .post-content h4
+    font-size pxToEm(22)
+    margin-bottom 10px
+
+  .post-content ul
+    margin 20px 0px 20px 40px
+
+  .post-content a
+    color #03C
+
+  .post-content hr
+    margin 50px auto
+
+.post-comments
+  max-width 1030px
+  padding-left 20px
+  padding-right 20px
+  margin 0 auto
+
+.transform
+  width 100px
+  height 100px
+  display inline-block
+  margin-right 20px
+  background-color yellow
+  border 1px solid #ccc
+  text-align center
+  padding 10px
+  transition transform 1s
+  vertical-align top
+  cursor pointer
+
+.transform.translate:hover, .transform.translate:focus, .transform.translate:active
+  transform(translate(50px, 50px))
+
+.transform.rotate:hover, .transform.rotate:focus, .transform.rotate:active
+  transform(rotate(25deg))
+
+.transform.rotateY:hover, .transform.rotateY:focus, .transform.rotateY:active
+  transform(rotateY(180deg))
+
+.transform.rotateY-negativo:hover, .transform.rotateY-negativo:focus, .transform.rotateY-negativo:active
+  transform(rotateY(-160deg))
+
+.transform.rotate-anti-horario:hover, .transform.rotate-anti-horario:focus, .transform.rotate-anti-horario:active
+  transform(rotate(-25deg))
+
+.transform.scale:hover, .transform.scale:focus, .transform.scale:active
+  transform(scale(2))
+
+.transform.scale-torto:hover, .transform.scale-torto:focus, .transform.scale-torto:active
+  transform(scale(2, 4))
+
+.transform.scale-negativo:hover, .transform.scale-negativo:focus, .transform.scale-negativo:active
+  transform(scale(-2))
+
+.transform.skew:hover, .transform.skew:active, .transform.skew:focus
+  transform(skew(10deg, 5deg))
+
+.transform.skew-um-parametro:hover, .transform.skew-um-parametro:focus, .transform.skew-um-parametro:active
+  transform(skew(20deg))
+
+.transform.skewX:hover, .transform.skewX:focus, .transform.skewX:active
+  transform(skewX(15deg))
+
+.transform.skewY:hover, .transform.skewY:focus, .transform.skewY:active
+  transform(skewY(15deg))
+
+.transform.matrix:hover, .transform.matrix:focus, .transform.matrix:active
+  transform(matrix(2, 1, 1, 2, 200, 200))

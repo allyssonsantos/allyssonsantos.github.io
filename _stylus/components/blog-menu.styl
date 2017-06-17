@@ -1,0 +1,65 @@
+.blog-navigator
+  background-color $gray
+  box-shadow(0 0 15px #000)
+  font-size pxToEm(30)
+  height 100vh
+  max-width 380px
+  position fixed
+  transform(translateX(-105%))
+  transition(transform 0.4s ease-out)
+  width 90%
+  will-change transform
+  z-index 200
+
+  > .links
+    list-style none
+    overflow hidden
+    padding 0 20px
+    text-align left
+    text-decoration: none;
+    width 100%
+
+    > .linksitem
+      color #fff
+      display block
+      font-size pxToEm(8);
+      padding-top 30px
+
+#menu-controller:checked + .blog-navigator
+  transform(translateX(0))
+  transition(transform 0.4s ease-out)
+  will-change transform
+
+.bg
+  cursor pointer
+  opacity 0
+  will-change opacity
+
+#menu-controller:checked ~ .bg
+  background #000
+  height 100%
+  opacity 0.8
+  position fixed
+  transition(opacity 0.4s linear)
+  width 100%
+  will-change opacity
+  z-index 150
+
+.social-links
+  border-top: 1px solid #ddd;
+  display: inline-block;
+  font-size: pxToEm(22);
+  list-style: none;
+  margin-top: 20px;
+  padding-top: 10px;
+  width: 100%;
+
+  > .link
+    color: #333;
+    text-decoration: none;
+    margin-right 10px;
+
+    > .icon
+      width 25px
+      height 25px
+      margin-top 8px

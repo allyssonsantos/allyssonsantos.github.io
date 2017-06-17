@@ -1,0 +1,43 @@
+.blog-header
+  background $gray
+  box-shadow(0, 0, 5px, #000)
+  gradient($gray, lighten($gray, 20%))
+  padding 15px 20px 10px 20px
+  position fixed
+  z-index 100
+  text-align center
+  transition(transform 0.4s)
+  width 100%
+
+  &.-show
+    transform(translateY(0%))
+
+  &.-hide
+    transform(translateY(-105%))
+
+  > .back-button, > .menu-button
+    position absolute
+    top 20px
+
+  > .back-button
+    left 20px
+
+  > .menu-button
+    right 20px
+
+  > .title
+    color #fff
+    display inline-block
+    text-decoration none
+    transition(color 0.3s)
+
+    &:hover, &:focus
+      color: #ccc;
+      transition(color 0.3s)
+
+    > .name
+      font-size pxToEm(20)
+      margin 0
+
+    > .job
+      font-size pxToEm(10)

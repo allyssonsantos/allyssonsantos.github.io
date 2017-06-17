@@ -16,18 +16,18 @@
         header,
         posicaoAtual,
         ultimoScroll = 0,
-        btnBack = document.querySelector(".blog-back-button");
+        btnBack = document.querySelector(".back-button");
 
     toggleHeader = function () {
         header = document.querySelector(".blog-header");
         posicaoAtual = window.scrollY;
 
         if (posicaoAtual > ultimoScroll && posicaoAtual > 100) {
-            header.classList.remove("blog-header--show");
-            header.classList.add("blog-header--hide");
+            header.classList.remove("-show");
+            header.classList.add("-hide");
         } else {
-            header.classList.remove("blog-header--hide");
-            header.classList.add("blog-header--show");
+            header.classList.remove("-hide");
+            header.classList.add("-show");
         }
         ultimoScroll = posicaoAtual;
     };
@@ -37,7 +37,7 @@
     }
 
     if (window.location.pathname.length > 2) {
-        btnBack.className = "blog-back-button--show";
+        btnBack.className = "back-button -show";
         btnBack.addEventListener('click', function() {
             history.back();
         });

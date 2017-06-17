@@ -1,10 +1,12 @@
+var version = 'v1::'
+
 this.addEventListener('install', function(event) {
     event.waitUntil(
-        caches.open('v1').then(function(cache) {
+        caches.open(version + 'allysson').then(function(cache) {
             return cache.addAll([
+                './index.html',
                 './abertura-do-starwars-em-css.html',
                 './arrow-functions.html',
-                './index.html',
                 './javascript-basics-const.html',
                 './javascript-basics-escopos.html',
                 './javascript-basics-hoisting.html',
@@ -44,7 +46,7 @@ this.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request).then(function(response) {
             return response || fetch(event.request).then(function(resp) {
-                return caches.open('v1').then(function(cache) {
+                return caches.open(version + 'allysson').then(function(cache) {
                     cache.put(event.request, resp.clone());
                 });
                 return response;
@@ -53,4 +55,24 @@ this.addEventListener('fetch', function(event) {
             return 'No internet!';
         })
     );
+});
+
+this.addEventListener('activate', function(event) {
+  caches.keys()
+    .then(function(keys) {
+      return Promise.all(
+        keys
+          .filter(function (key) {
+
+            return !key.startsWith(version);
+          })
+          .map(function(key) {
+
+            return caches.delete(key);
+          })
+      );
+    })
+    .then(function() {
+      console.log('WORKER: activate completed.');
+    })
 });

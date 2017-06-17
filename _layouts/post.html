@@ -1,17 +1,17 @@
 ---
 layout: default
 ---
-<article class="post" itemscope="itemscope" itemtype="https://schema.org/Article">
+<article class="published-post" itemscope="itemscope" itemtype="https://schema.org/Article">
 <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ page.url }}">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="headline"><a href="" title="{{ page.title }}">{{ page.title }}</a></h1>
-    <span class="post-date muted">
+  <header class="header">
+    <h1 class="title" itemprop="headline"><a href="" title="{{ page.title }}">{{ page.title }}</a></h1>
+    <span class="date muted">
       <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
     	<time class="hide" itemprop="dateModified" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
     </span>
-    <a class="post-category" href="{{ site.url }}/posts/" title="Veja todos os posts da categoria {{ page.category }}">{{ page.category }}</a>
-    <h2 class="post-subtitle">Introdução:</h2>
-    <p class="post-description" itemprop="description">{{ page.meta }}</p>
+    <a class="categorylink" href="{{ site.url }}/posts/" title="Veja todos os posts da categoria {{ page.category }}">{{ page.category }}</a>
+    <h2 class="subtitle">Introdução:</h2>
+    <p class="description" itemprop="description">{{ page.meta }}</p>
 
     {% if page.preview-img %}
     <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
@@ -28,21 +28,7 @@ layout: default
   </div>
 
 {% if page.author %}
-  <section class="author" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-  <div class="author-details" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-    <img class="author-img" src="https://allysson.me/img/allysson.jpg" alt="Allysson dos Santos">
-    <meta itemprop="url" content="https://allysson.me/img/allysson.jpg">
-    <meta itemprop="width" content="150">
-    <meta itemprop="height" content="150">
-      <div class="author-description">
-        <span class="muted">Autor:</span>
-        <h2 class="author-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Allysson dos Santos</span></h2>
-        <p>Desenvolvedor Front end e <a href="https://www.facebook.com/affectingminds/?fref=ts" target="_blank">guitarrista</a> quando dá tempo!</p>
-        <a href="https://github.com/allyssonsantos" target="_blank">github.com/allyssonsantos</a>
-      </div>
-  </div>
-  <meta itemprop="name" content="Allysson">
-</section>
+  {% include author.html %}
 {% endif %}
 {% if page.comments %}
   <section class="post-comments" itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
