@@ -1,4 +1,4 @@
-var version = 'v15::allysson';
+const version = 'v15::allysson';
 
 this.addEventListener('install', function(event) {
   event.waitUntil(
