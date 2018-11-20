@@ -1,0 +1,17 @@
+---
+title: Blog
+---
+<section class="posts">
+  {% for post in site.posts %}
+    <article class="item card">
+      <div class="content">
+        <a href="{{ post.url }}" title="{{ post.title }}">
+          <img src="/assets/images/{{ post.preview-img }}" />
+          <h3 class="title">{{ post.title }}</h3>
+          <p class="description">{{ post.meta }}</p>
+          <time class="date" pubdate datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        </a>
+      </div>
+    </article>
+  {% endfor %}
+</section>

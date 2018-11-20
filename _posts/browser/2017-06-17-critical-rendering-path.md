@@ -43,13 +43,13 @@ Após o browser receber o nosso html ele analisa a primeira **TAG** `<html>` e e
 
 Veja um esquema desse processo aplicado à uma página web simples:
 
-![Processo do Critical Rendering Path](img/processo-crp.png "Processo do Critical Rendering Path")
+![Processo do Critical Rendering Path](assets/images/processo-crp.png "Processo do Critical Rendering Path")
 
 Depois de consumido todos os tokens e todos os nodes criados, chegamos ao DOM, que é a estrutura em árvore que captura o conteúdo e propriedades do HTML e todas suas relações entre os nodes.
 
 No **DevTools** do navegador **Google Chrome** existe uma aba chamada **Performance** nela é possível consultar o tempo necessário que o browser levou para executar todo esse processo que vimos acima:
 
-![Timeline](img/timeline.png "Timeline do Google Chrome exibindo o tempo de parse do HTML")
+![Timeline](assets/images/timeline.png "Timeline do Google Chrome exibindo o tempo de parse do HTML")
 
 O browser constrói o DOM incrementalmente, e nós podemos tirar vantagem disso e aumentar a velocidade da renderização. Um exemplo é como a página de resultados do Google trabalha, assim que você está digitando o que quer procurar o servidor do google já entrega o header da página, que é igual para todos os usuários, assim, quando você terminar de escrever o que deseja buscar, o servidor envia os dados em HTML e o browser incrementa o DOM com os resultados. Como você pode notar, o servidor do google não precisa esperar que você envie o que deseja buscar para retornar o HTML completo para o browser processar tudo de uma vez, ele começa com o header da página, e incrementalmente devolve o resultado da sua busca. Portanto, entregar HTML em parcelas é algo muito bom!
 
@@ -69,11 +69,11 @@ img { float: right }
 
 Assim como o **HTML** o navegador precisa converter as regras **CSS** em algo que ele consiga entender e utilizar. Portanto, o processo feito no HTML é repetido, só que dessa vez, para o CSS.
 
-![CSSOM](img/construcao-cssom.png "Contrução do CSSOM")
+![CSSOM](assets/images/construcao-cssom.png "Contrução do CSSOM")
 
 Como vemos, segue o mesmo padrão utilizado no HTML, só que ao invés de criar a estrutura do DOM, é criada a estrutura do CSSOM.
 
-![Árvore CSSOM](img/arvore-cssom.png "Árvore CSSOM")
+![Árvore CSSOM](assets/images/arvore-cssom.png "Árvore CSSOM")
 
 Com o esquema acima, conseguimos entender o porque o CSS é aplicado em cascata. O estilo aplicado ao elemento `body` é herdado por todos os seus filhos, analisando a árvore CSS acima, todo texto dentro do elemento `span` terá fonte tamanho 16 pixels (estilo herdado do elemento `body`) e a cor vermelha (estilo específico para o elemento `span`).
 
@@ -81,7 +81,7 @@ Há um detalhe muito importante, todo navegador possui um conjunto de regras CSS
 
 Assim como é possível descobrir o tempo necessário para o *parse* do HTML, também é possível verificar o tempo necessário para o processamento do CSS através do DevTools:
 
-![Timeline do CSSOM](img/cssom-timeline.png "Timeline do CSSOM")
+![Timeline do CSSOM](assets/images/cssom-timeline.png "Timeline do CSSOM")
 
 É possível analisar o tempo decorrido e também quantos elementos foram afetados. Com isso, podemos concluir que escrever um **CSS de qualidade**, com **seletores específicos**, **evitar sobreescritas** e **evitar *!important*** é de grande importância, devemos afetar apenas os elementos corretos para diminuir o tempo necessário de processamento do CSSOM.
 
@@ -91,7 +91,7 @@ Até aqui vimos a construção dos modelos de objetos, criamos as árvores do DO
 
 A primeira tarefa que o browser efetua quando está nessa fase é a combinação do DOM e CSSOM em uma *árvore de renderização* que contém todo conteúdo **visível** do DOM e todas regras de **CSS** do **CSSOM** de cada nó.
 
-![Árvore de renderização](img/arvore-de-renderizacao.png "Árvore de renderização")
+![Árvore de renderização](assets/images/arvore-de-renderizacao.png "Árvore de renderização")
 *Exemlo de uma árvore de renderização*
 
 As demais tarefas são as seguintes:
@@ -128,7 +128,7 @@ Para calcular a posição e o tamanho exato de cada elemento, o browser analisa 
 
 O `HTML` acima possuí dois divs aninhados. O primeiro (pai) define o tamanho do elemento na tela como 50% da largura da janela do dispositivo (*viewport*). O segundo div (filho) define sua largura como 50% do seu pai, ou seja, 25% da largura do *viewport*.
 
-![Layout viewport](img/layout-viewport.png "Layout viewport")
+![Layout viewport](assets/images/layout-viewport.png "Layout viewport")
 
 O resultado da renderização é em modelo de caixa, ou seja, todos elementos são retângulos. Todas as medidas relativas, como porcentagens, *em's*, *rem's*, etc são convertidas em pixels absolutos na tela.
 
@@ -139,7 +139,7 @@ Agora que o browser possui todos os nós visíveis, seus estilos aplicados e sua
 O paint é o processo que o browser executa para aplicar cada nó da *árvore de renderização* em pixeis reais na tela do dispositivo do usuário.
 Assim como os outros processos, no *DevTools* do *Chrome*, também é possível examinar o tempo necessário para a fase de **Layout** e **Paint**.
 
-![Layout Timeline](img/paint-timeline.png "Layout Timeline")
+![Layout Timeline](assets/images/paint-timeline.png "Layout Timeline")
 
 - O evento **layout** captura exibe o tempo e a quantidade de nós que foram construídos, posicionados e tiveram seu tamanho calculado a partir da *árvore de renderização*.
 - Assim que o layout termina, o browser emite eventos de **Paint setup** e **Paint**, esses eventos convertem a árvore de renderização em pixeis na tela.

@@ -8,7 +8,7 @@ preview-img: arrows.jpg
 comments: true
 author: Allysson dos Santos
 ---
-<span class="muted" itemscope="itemscope" itemtype="https://schema.org/TechArticle">Nível: <span itemprop="Beginner">iniciante</span></span>
+<span class="small" itemscope="itemscope" itemtype="https://schema.org/TechArticle">Nível: <span itemprop="Beginner">iniciante</span></span>
 
 <h2>Introdução</h2>
 <p>Arrow function é uma nova forma de se escrever <strong>funções anonimas</strong>, vamos entender sua sintaxe e como funciona o seu valor de <code class="code-piece">this</code>.</p>
@@ -17,7 +17,7 @@ author: Allysson dos Santos
 {% highlight js linenos %}
 var paises = ['Alemanha', 'Estados Unidos'];
 var irei = paises.map(function(pais) {
-	return 'Um dia irei para ' + pais;
+  return 'Um dia irei para ' + pais;
 });
 console.log(irei);
 > ["Um dia irei para Alemanha", "Um dia irei para Estados Unidos"]
@@ -26,11 +26,11 @@ console.log(irei);
 {% highlight js linenos %}
 var paises = ['Alemanha', 'Estados Unidos'];
 const ireiSemFunction = paises.map((pais) => {
-	return 'Um dia irei para ' + pais;
+  return 'Um dia irei para ' + pais;
 }); // Podemos tirar a palavra function e adicionar uma => a frente dos () dos parametros.
 
 const ireiComUmParametro = paises.map(pais => {
-	return 'Um dia irei para ' + pais;
+  return 'Um dia irei para ' + pais;
 }); // Caso a função tenha apenas um parâmetro, podemos retirar o seus parênteses.
 
 const ireiEmUmaLinha = paises.map(pais => 'Um dia irei para ' + pais);
@@ -52,14 +52,14 @@ podemos escrever sem as chaves e sem a palavra return */
 {% highlight html linenos %}
 <html>
 <body>
-	<button id="btn">Click!</button>
+  <button id="btn">Click!</button>
 </body>
 <script>
-	var btn = document.getElementById('btn');
+  var btn = document.getElementById('btn');
 
-	btn.addEventListener('click', function () {
-	    console.log(this)
-	});
+  btn.addEventListener('click', function () {
+    console.log(this)
+  });
 </script>
 </html>
 {% endhighlight %}
@@ -72,14 +72,14 @@ podemos escrever sem as chaves e sem a palavra return */
 {% highlight html linenos %}
 <html>
 <body>
-	<button id="btn">Click!</button>
+  <button id="btn">Click!</button>
 </body>
 <script>
-	var btn = document.getElementById('btn');
+  var btn = document.getElementById('btn');
 
-	btn.addEventListener('click', () => { // <-- mudança aqui
-	    console.log(this)
-	});
+  btn.addEventListener('click', () => { // <-- mudança aqui
+    console.log(this)
+  });
 </script>
 </html>
 --------------------------
@@ -91,30 +91,30 @@ podemos escrever sem as chaves e sem a palavra return */
 {% highlight html linenos %}
 <html>
 <body>
-	<button id="btn">Click!</button>
+  <button id="btn">Click!</button>
 </body>
 <script>
-	var pessoa = {
-	    nome: 'Allysson',
-	    idade: '22',
+  var pessoa = {
+    nome: 'Allysson',
+    idade: '22',
 
-	    apresentar: function () {
-	        return `Meu nome e ${this.nome} e eu tenho ${this.idade} anos`;
-	    },
+    apresentar: function () {
+      return `Meu nome e ${this.nome} e eu tenho ${this.idade} anos`;
+    },
 
-	    falar: function () {
-	        var self = this;
-	        window.setTimeout(function() {
-	            console.log(self.apresentar());
-	        }, 500);
-	    }
-	};
+    falar: function () {
+      var self = this;
+      window.setTimeout(function() {
+        console.log(self.apresentar());
+      }, 500);
+    }
+  };
 
-	var btn = document.getElementById('btn');
+  var btn = document.getElementById('btn');
 
-	btn.addEventListener('click', function() {
-	    pessoa.falar();
-	});
+  btn.addEventListener('click', function() {
+    pessoa.falar();
+  });
 </script>
 </html>
 {% endhighlight %}
@@ -128,29 +128,29 @@ podemos escrever sem as chaves e sem a palavra return */
 {% highlight html linenos %}
 <html>
 <body>
-	<button id="btn">Click!</button>
+  <button id="btn">Click!</button>
 </body>
 <script>
-	var pessoa = {
-	    nome: 'Allysson',
-	    idade: '22',
+  var pessoa = {
+    nome: 'Allysson',
+    idade: '22',
 
-	    apresentar: function () {
-	        return `Meu nome e ${this.nome} e eu tenho ${this.idade} anos`;
-	    },
+    apresentar: function () {
+      return `Meu nome e ${this.nome} e eu tenho ${this.idade} anos`;
+    },
 
-	    falar: function () {
-	        window.setTimeout(() => {
-	            console.log(this.apresentar());
-	        }, 500);
-	    }
-	};
+    falar: function () {
+      window.setTimeout(() => {
+        console.log(this.apresentar());
+      }, 500);
+    }
+  };
 
-	var btn = document.getElementById('btn');
+  var btn = document.getElementById('btn');
 
-	btn.addEventListener('click', function() {
-	    pessoa.falar();
-	});
+  btn.addEventListener('click', function() {
+    pessoa.falar();
+  });
 </script>
 </html>
 {% endhighlight %}

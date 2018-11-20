@@ -1,0 +1,30 @@
+.header {
+  background-color: #232526;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+
+  .back-button {
+    display: none;
+    fill: #fff;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  .title {
+    font-size: 1.375rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}

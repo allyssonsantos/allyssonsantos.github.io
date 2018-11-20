@@ -1,23 +1,10 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-title: allysson.me | desenvolvedor front end
+title: allysson.me | front end developer
 name: allysson.me
-email: allysson@allysson.me
-description: > # this means to ignore newlines until "baseurl:"
-  Desenvolvedor Front End na Catho Online, guitarrista na banda Affecting Minds e eterno aprendiz no mundo da tecnologia.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://allysson.me" # the base hostname & protocol for your site
+description: Desenvolvedor Front End na Catho Online, guitarrista na banda Affecting Minds e eterno aprendiz no mundo da tecnologia.
+baseurl: ""
+url: "https://allysson.me"
 github_username:  allyssonsantos
 
-gems:
-  - jekyll-feed
-  - jekyll-admin
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -25,20 +12,23 @@ exclude:
   - package.json
   - package-lock.json
 permalink: /:title.html
-# Build settings
-markdown: kramdown
-highlighter: rouge
-stylus:
-  compress: true
-  path: ./css
-...
-defaults:
-	-
-		scope:
-			path: ""
-			type: "posts"
-		values:
-			layout: "default"
-			author: "Allysson dos Santos"
-...
 
+collections:
+  authors:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
