@@ -1,9 +1,8 @@
-var version = 'v15::';
-var name = 'allysson';
+var version = 'v15::allysson';
 
 this.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open(version + name).then(function(cache) {
+    caches.open(version).then(function(cache) {
       return cache.addAll([
         './index.html',
         './abertura-do-starwars-em-css.html',
@@ -49,7 +48,7 @@ this.addEventListener('install', function(event) {
 
 this.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.open(version + name).then(function(cache) {
+    caches.open(version).then(function(cache) {
       return cache.match(event.request).then(function(response) {
         var fetchPromise = fetch(event.request).then(function(networkResponse) {
           cache.put(event.request, networkResponse.clone());
@@ -66,8 +65,7 @@ this.addEventListener('activate', function(event) {
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.filter(function(cacheName) {
-          console.log(cacheName === version + name);
-          return cacheName !== version + name;
+          return cacheName !== version;
         }).map(function(cacheName) {
           return caches.delete(cacheName);
         })
