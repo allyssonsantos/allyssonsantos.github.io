@@ -1,6 +1,6 @@
-const version = 'v15::allysson';
+const version = 'v17::allysson';
 
-this.addEventListener('install', function(event) {
+self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(version).then(function(cache) {
       return cache.addAll([
@@ -46,21 +46,7 @@ this.addEventListener('install', function(event) {
   );
 });
 
-this.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.open(version).then(function(cache) {
-      return cache.match(event.request).then(function(response) {
-        var fetchPromise = fetch(event.request).then(function(networkResponse) {
-          cache.put(event.request, networkResponse.clone());
-          return networkResponse;
-        })
-        return response || fetchPromise;
-      })
-    })
-  );
-});
-
-this.addEventListener('activate', function(event) {
+self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
@@ -70,6 +56,16 @@ this.addEventListener('activate', function(event) {
           return caches.delete(cacheName);
         })
       );
+    })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.open(version)
+      .then(cache => cache.match(event.request, {ignoreSearch: true}))
+      .then(response => {
+      return response || fetch(event.request);
     })
   );
 });
