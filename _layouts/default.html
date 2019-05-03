@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 150 }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#232526">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="allysson.me">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="msapplication-TileImage" content="/assets/images/icon.png">
-  <meta name="msapplication-TileColor" content="#232526">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="{% if page.excerpt %}{{
+        page.excerpt | strip_html | strip_newlines | truncate: 150
+      }}{% else %}{{ site.description }}{% endif %}"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#232526" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="allysson.me" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="msapplication-TileImage" content="/assets/images/icon.png" />
+    <meta name="msapplication-TileColor" content="#232526" />
 
-  <title>{% if page.title %}{{ page.title | escape }} - {{ site.name }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <title>
+      {% if page.title %}{{ page.title | escape }} - {{ site.name }}{% else %}{{
+        site.title | escape
+      }}{% endif %}
+    </title>
 
-  <link rel="apple-touch-icon-precomposed" href="/assets/images/icon.png">
-  <link rel="icon" sizes="256x256" href="/assets/images/icon.png">
-  <link rel="manifest" href="/manifest.json">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl }}">
-</head>
-<body>
-  {% include header.html %}
-  <main>
-    {{ content }}
-  </main>
-  {% include footer.html %}
-</body>
-<script src="/assets/js/register.js"></script>
-<script src="/assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="/assets/js/backButton.js"></script>
-<script src="/assets/js/masonry.js"></script>
+    <link rel="apple-touch-icon-precomposed" href="/assets/images/icon.png" />
+    <link rel="icon" sizes="256x256" href="/assets/images/icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link
+      rel="canonical"
+      href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}"
+    />
+    <link rel="alternate" type="application/rss+xml" title="{{
+      site.title
+    }}" href="{{
+      '/feed.xml' | prepend: site.baseurl
+    }}">
+  </head>
+  <body>
+    {% include header.html %}
+    <main>
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </body>
+  <script src="/assets/js/register.js"></script>
+  <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+  <script src="/assets/js/backButton.js"></script>
+  <script src="/assets/js/masonry.js"></script>
 </html>
