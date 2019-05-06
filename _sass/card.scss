@@ -1,22 +1,21 @@
 .posts {
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: 20px;
   margin: 10px;
 
   .card {
-    border: 1px solid  $border;
+    border: 1px solid $border;
     border-radius: $radius;
+    margin: 20px 0;
 
     img {
       width: 100%;
+      border-top-left-radius: $radius;
+      border-top-right-radius: $radius;
     }
 
     .date {
       display: inline-block;
       font-size: 0.75rem;
-      padding: 0 $defaultSpacing;
+      padding: $defaultSpacing;
     }
 
     .title {
