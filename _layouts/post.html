@@ -14,11 +14,7 @@ layout: default
     <p class="description">{{ page.meta }}</p>
 
     {% if page.preview-img %}
-    <img
-      src="/assets/images/{{ page.preview - img }}"
-      alt="{{ page.title }}"
-      title="{{ page.title }}"
-    />
+    <img src="/assets/images/{{ page.preview-img }}" alt="{{ page.title }}" title="{{ page.title }}" />
     {% endif %}
   </header>
 
@@ -34,7 +30,7 @@ layout: default
       var disqus_shortname = 'allyssonme';
       var disqus_identifier = '{{ page.url }}';
 
-      (function() {
+      (function () {
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
@@ -45,15 +41,9 @@ layout: default
         ).appendChild(dsq);
       })();
     </script>
-    <noscript
-      >Please enable JavaScript to view the
-      <a href="https://disqus.com/?ref_noscript"
-        >comments powered by Disqus.</a
-      ></noscript
-    >
-    <a href="https://disqus.com" class="dsq-brlink"
-      >comments powered by <span class="logo-disqus">Disqus</span></a
-    >
+    <noscript>Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </section>
   {% endif %}
 </article>
