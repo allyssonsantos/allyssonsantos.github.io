@@ -28,3 +28,13 @@ img {
 ul {
   margin: 20px 0 20px 40px;
 }
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+
+  td, th {
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+}

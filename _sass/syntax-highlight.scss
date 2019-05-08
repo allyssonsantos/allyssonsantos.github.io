@@ -6,6 +6,16 @@ code {
   font-size: 0.8rem;
   margin: 20px 0;
   padding: 5px;
+  white-space: nowrap;
+
+  table {
+    border-collapse: initial;
+    margin-bottom: 0;
+
+    td, th {
+      border: initial;
+    }
+  }
 
   .highlighter-rouge & {
     background: #eef;
@@ -17,7 +27,7 @@ code {
   } // Comment
   .err {
     color: #a61717;
-    background-color: #e3d2d2;
+    background-color: #2e2323;
   } // Error
   .k {
     font-weight: bold;
