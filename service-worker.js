@@ -30,7 +30,6 @@ self.addEventListener('install', function(event) {
         './assets/images/transforms-css3.jpg',
         './assets/images/timeline.png',
         './assets/js/backButton.js',
-        './assets/js/masonry.js',
         './assets/sounds/starwars.mp3',
       ]);
     })
