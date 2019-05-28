@@ -2,9 +2,11 @@
 title: A evolução na escrita do CSS.
 layout: post
 category: Javascript
-meta: Veremos como a forma de escrever css evoluiu, desde a forma básica, metodologias
+meta:
+  Veremos como a forma de escrever css evoluiu, desde a forma básica, metodologias
   css, pré-processadores até CSS-in-JS .
-excerpt: Veremos o caminho que a escrita do CSS percorreu até os dias de hoje, metodologias
+excerpt:
+  Veremos o caminho que a escrita do CSS percorreu até os dias de hoje, metodologias
   de escrita, css-in-js, pré-processadores, etc.
 preview-img: css-in-js.png
 comments: true
@@ -238,15 +240,12 @@ Sites modernos são complexos, necessitam de vários desenvolvedores trabalhando
 Uma biblioteca que resolve esse problema é o _styled-components_, a abordagem que ele segue é de gerar um hash único para cada componente, um estilo nunca influenciará outro.
 
 {% highlight jsx linenos %}
-const Button = styled.button`
-  background-color: blue; 
-  padding: 10px;
-`;
+const Button = styled.button`background-color: blue; padding: 10px;`;
 
 // ...
 
 render() {
-  return <Button>Hello</Button>
+return <Button>Hello</Button>
 }
 {% endhighlight %}
 
@@ -293,34 +292,34 @@ Assim como a minificação o `autoprefixer` vem de graça na maioria das libs, o
 
 ### Estilo baseado em props
 
-Bom, eu não sou um conhecedor de todas as libs que aplicam _CSS-in-JS_, porém, no **styled-components** é possível adicionar estilos baseado nas `props` que o componente recebe. 
+Bom, eu não sou um conhecedor de todas as libs que aplicam _CSS-in-JS_, porém, no **styled-components** é possível adicionar estilos baseado nas `props` que o componente recebe.
 
 Por exemplo:
 
 {% highlight jsx linenos %}
 const Button = styled.button`
-  background: ${props => props.primary ? "palevioletred" : "white"};
+background: ${props => props.primary ? "palevioletred" : "white"};
     color: ${props => props.primary ? "white" : "palevioletred"};
 
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
+font-size: 1em;
+margin: 1em;
+padding: 0.25em 1em;
+border: 2px solid palevioletred;
+border-radius: 3px;
 `;
 
 render() {
-  return (
-    <div>
-      <Button>Normal</Button>
-      <Button primary>Primary</Button>
-    </div>
-  );
+return (
+<div>
+<Button>Normal</Button>
+<Button primary>Primary</Button>
+</div>
+);
 };
 
 {% endhighlight %}
 
-Essa forma aprimora muito a legibilidade do _JSX_. Batendo o olho você consegue ver que um botão é `normal` e o outro é `primary`, não precisamos de classes como `.btn .btn-primary` para estilizar nossos elementos. 
+Essa forma aprimora muito a legibilidade do _JSX_. Batendo o olho você consegue ver que um botão é `normal` e o outro é `primary`, não precisamos de classes como `.btn .btn-primary` para estilizar nossos elementos.
 
 ## Conclusão
 
@@ -330,4 +329,4 @@ Você pode atingir esse objetivo com qualquer uma das abordagens que vimos, as m
 
 Com o **CSS-in-JS** ficamos obrigados a utilizar alguma ferramenta específica, dependendo da ferramenta também ficaremos presos a um _framework_ específico, porém, temos alguns benefícios a mais do que com as metodologias, dead-code elemination, todas as _features_ do _javascript_ são aplicáveis no css, etc...
 
-No final das contas, todas essas abordagens que vimos até aqui visam solucionar algum tipo de problema, particularmente eu prefiro **CSS-in-JS**, ultimamente estou trabalhando com *React*, e essa abordagem nos permite utilizar todo o poder do _JavaScript_ na organização do _CSS_. Atualmente a grande maioria dos meus projetos estão utilizando **styled-components**.
+No final das contas, todas essas abordagens que vimos até aqui visam solucionar algum tipo de problema, particularmente eu prefiro **CSS-in-JS**, ultimamente estou trabalhando com _React_, e essa abordagem nos permite utilizar todo o poder do _JavaScript_ na organização do _CSS_. Atualmente a grande maioria dos meus projetos estão utilizando **styled-components**.
