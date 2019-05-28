@@ -1,4 +1,4 @@
-const version = 'v17::allysson';
+const version = 'v19::allysson';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -7,19 +7,15 @@ self.addEventListener('install', function(event) {
         './index.html',
         './abertura-do-starwars-em-css.html',
         './arrow-functions.html',
-        './javascript-basics-const.html',
-        './javascript-basics-escopos.html',
-        './javascript-basics-hoisting.html',
-        './javascript-basics-let.html',
         './seletores-avancados-do-css.html',
         './transform-css3.html',
+        './a-evolucao-na-escrita-do-css.html',
         './blog/index.html',
         './assets/css/styles.css',
         './assets/images/allysson.jpg',
         './assets/images/arrows.jpg',
         './assets/images/arvore-cssom.png',
         './assets/images/arvore-de-renderizacao.png',
-        './assets/images/const.png',
         './assets/images/construcao-cssom.png',
         './assets/images/crp.png',
         './assets/images/cssom-timeline.png',
@@ -27,20 +23,16 @@ self.addEventListener('install', function(event) {
         './assets/images/exemplo-logo.png',
         './assets/images/exemplo.png',
         './assets/images/icon.png',
-        './assets/images/javascript2.jpg',
-        './assets/images/javascript.png',
         './assets/images/layout-viewport.png',
-        './assets/images/let.png',
         './assets/images/paint-timeline.png',
         './assets/images/processo-crp.png',
         './assets/images/seletores-css.jpg',
         './assets/images/starwars.svg',
         './assets/images/transforms-css3.jpg',
         './assets/images/timeline.png',
+        './assets/images/css-in-js.png',
         './assets/js/backButton.js',
-        './assets/js/imagesloaded.pkgd.min.js',
-        './assets/js/masonry.js',
-        './assets/sounds/starwars.mp3',
+        './assets/sounds/starwars.mp3'
       ]);
     })
   );
@@ -50,11 +42,13 @@ self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
-        cacheNames.filter(function(cacheName) {
-          return cacheName !== version;
-        }).map(function(cacheName) {
-          return caches.delete(cacheName);
-        })
+        cacheNames
+          .filter(function(cacheName) {
+            return cacheName !== version;
+          })
+          .map(function(cacheName) {
+            return caches.delete(cacheName);
+          })
       );
     })
   );
@@ -62,10 +56,11 @@ self.addEventListener('activate', function(event) {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.open(version)
-      .then(cache => cache.match(event.request, {ignoreSearch: true}))
+    caches
+      .open(version)
+      .then(cache => cache.match(event.request, { ignoreSearch: true }))
       .then(response => {
-      return response || fetch(event.request);
-    })
+        return response || fetch(event.request);
+      })
   );
 });
