@@ -1,4 +1,4 @@
-const version = 'v18::allysson';
+const version = 'v19::allysson';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -9,6 +9,7 @@ self.addEventListener('install', function(event) {
         './arrow-functions.html',
         './seletores-avancados-do-css.html',
         './transform-css3.html',
+        './a-evolucao-na-escrita-do-css.html',
         './blog/index.html',
         './assets/css/styles.css',
         './assets/images/allysson.jpg',
@@ -29,8 +30,9 @@ self.addEventListener('install', function(event) {
         './assets/images/starwars.svg',
         './assets/images/transforms-css3.jpg',
         './assets/images/timeline.png',
+        './assets/images/css-in-js.png',
         './assets/js/backButton.js',
-        './assets/sounds/starwars.mp3',
+        './assets/sounds/starwars.mp3'
       ]);
     })
   );
