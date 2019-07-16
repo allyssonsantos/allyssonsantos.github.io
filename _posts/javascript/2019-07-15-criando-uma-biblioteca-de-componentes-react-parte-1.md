@@ -128,4 +128,37 @@ import { linkTo } from '@storybook/addon-links';
 import { Button, Welcome } from '@storybook/react/demo';
 {% endhighlight %}
 
-_storiesOf_: Função que inicia a criação da história, ela recebe dois parâmetros, o primeiro é o nome da história que será exibido no painel esquerdo. O segundo parâmetro é o `module`, o storybook precisa dessa variável global que o próprio storybook declara, ele usa essa variável para criar uma referência ao arquivo que sua história está, essa referência serve para habilitar o hot-module-replacement
+#### storiesOf
+
+Função que inicia a criação da história, ela recebe dois parâmetros, o primeiro é o nome do conjunto de histórias que será exibido no painel esquerdo, chamado de `kind`. O segundo parâmetro é o `module`, o storybook precisa dessa variável global que o próprio storybook declara, ele usa essa variável para criar uma referência ao arquivo que sua história está, essa referência serve para habilitar o hot-module-replacement, sem esse `module` você teria que dar um refresh na página toda vez que editasse sua história.
+
+#### storiesOf().add()
+
+O `add(name, functionalComponent)` recebe dois parâmetros também, o primeiro é o nome da história em questão, chamado de `story`, o segundo é uma função que retorne o componente _React_ que será exibido quando essa história for selecionada. Podem existir inúmeros `.add()` encadeados no mesmo `storiesOf`.
+
+#### action & linkTo
+Como você pode perceber, o `action` e o `linkTo` estão sendo importados de plugins, o storybook possui vários plugins para dar algumas funcionalidades a mais à sua história, você pode conferir alguns no [próprio site do storybook](https://storybook.js.org/addons/ "próprio site do storybook").
+
+#### Button & Welcome
+São componentes _React_ comuns, estão ali apenas para popular as histórias que vem por default.
+
+#### Estrutura de uma história
+Bom, para criar uma história basta seguir como no exemplo da história do `Button`. Vamos editar essa história e ver os efeitos que são aplicados no _storybook_:
+
+{% highlight jsx linenos %}
+storiesOf('História do Button', module)
+  .add('Com um texto de Hello Button', () => (
+    <Button onClick={action('HelloButton clicked')}>Hello Button</Button>
+  ))
+  .add('Com alguns emojis', () => (
+    <Button onClick={action('EmojiButton clicked')}>
+      <span role="img" aria-label="so cool">
+        😀 😎 👍 💯
+      </span>
+    </Button>
+  ));
+{% endhighlight %}
+
+Esse trecho de código irá adicionar duas _stories_ do _kind_ "História do Button" como podemos ver no gif a seguir:
+
+![Gif das histórias editadas](/assets/images/edited-stories.gif "Gif das histórias editadas")
