@@ -48,7 +48,7 @@ Após criado, clone seu projeto!
 
 ![Imagem do pop-over para clonar o projeto do github](/assets/images/clone-repository.png "Pop-over do github para clonar projeto")
 _Pop-over do github para clonar projeto_
-{% highlight shell linenos %}
+{% highlight shell %}
 git clone git@github.com:SEU-USUARIO/SEU-PROJETO.git
 {% endhighlight %}
 
@@ -100,3 +100,32 @@ E se tudo der certo vamos ver a mensagem para acessar nosso storybook local:
 Acessando https://localhost:6006/ veremos o nosso próprio storybook!
 
 ![Imagem do storybook local](/assets/images/storybook-installed.png "Imagem do storybook local")
+
+Perceba que o storybook criou alguns arquivos no root do projeto:
+
+{% highlight shell linenos %}
+├── .gitignore
+├── LICENSE
+├── package.json
+├── package-lock.json
+├── README.md
+├── stories
+│   └── index.stories.js
+└── .storybook
+    ├── addons.js
+    └── config.js
+{% endhighlight %}
+
+A pasta `stories` é a pasta _default_ onde o storybook procura suas histórias. Uma história geralmente é a representação de um estado de um componente, perceba também que já temos duas histórias no `index.stories.js`, vamos analisar o conteúdo do `index.stories.js`.
+
+Primeiramente vamos ver o que é importado no arquivo:
+
+{% highlight javascript linenos %}
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
+
+import { Button, Welcome } from '@storybook/react/demo';
+{% endhighlight %}
+
+_storiesOf_: Função que inicia a criação da história, ela recebe dois parâmetros, o primeiro é o nome da história que será exibido no painel esquerdo. O segundo parâmetro é o `module`, o storybook precisa dessa variável global que o próprio storybook declara, ele usa essa variável para criar uma referência ao arquivo que sua história está, essa referência serve para habilitar o hot-module-replacement
