@@ -15,7 +15,7 @@ const Post = ({
   },
   pageContext: { previous, next },
 }) => (
-  <Layout location={tlocation} title={siteTitle}>
+  <Layout location={location} title={siteTitle}>
     <SEO title={post.frontmatter.title} description={post.excerpt} />
     <h1>{post.frontmatter.title}</h1>
     <p>{post.frontmatter.date}</p>
