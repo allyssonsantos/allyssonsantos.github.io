@@ -21,9 +21,24 @@ const Layout = ({ children, title }) => (
       <Wrapper>
         {children}
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          © {new Date().getFullYear()} -{' '}
+          <a href="https://github.com/allyssonsantos" rel="noopener noreferrer">
+            github
+          </a>{' '}
+          •{' '}
+          <a
+            href="https://twitter.com/_allyssonsantos"
+            rel="noopener noreferrer"
+          >
+            twitter
+          </a>{' '}
+          •{' '}
+          <a
+            href="https://www.linkedin.com/in/allyssonsantos/"
+            rel="noopener noreferrer"
+          >
+            linkedin
+          </a>
         </footer>
       </Wrapper>
     </>

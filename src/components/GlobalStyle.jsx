@@ -41,6 +41,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  footer {
+    margin-top: 80px;
+  }
+
   * {
     box-sizing: border-box;
   }
