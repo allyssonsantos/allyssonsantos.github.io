@@ -10,6 +10,7 @@ const sharedTitleStyle = ({
   margin: 0;
   padding: 0;
 
+  font-family: 'Roboto', sans-serif;
   color: ${white};
   text-decoration: none;
 `;
@@ -37,7 +38,7 @@ const Title = styled.h2(
       colors: { white },
     },
   }) => css`
-    font-size: 1rem;
+    font-size: 1.1rem;
 
     ${sharedTitleStyle}
   `
@@ -55,10 +56,10 @@ const SubTitle = styled.span(
   `
 );
 
-const Header = () => (
+const Header = ({ title }) => (
   <Wrapper>
     <Link to="/">
-      <Title>Allysson Santos</Title>
+      <Title>{title}</Title>
       <SubTitle>Front-end Developer</SubTitle>
     </Link>
   </Wrapper>

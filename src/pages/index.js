@@ -1,8 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+
+const Post = styled.article`
+  margin-bottom: 40px;
+`;
+
+const Title = styled.h2`
+  font-size: 2rem;
+`;
 
 const Home = ({
   location,
@@ -28,13 +37,13 @@ const Home = ({
     {posts.map(({ node }) => {
       const title = node.frontmatter.title || node.fields.slug;
       return (
-        <div key={node.fields.slug}>
-          <h3>
+        <Post key={node.fields.slug}>
+          <Title>
             <Link to={node.fields.slug}>{title}</Link>
-          </h3>
-          <small>{node.frontmatter.date}</small>
+          </Title>
+          <time>{node.frontmatter.date}</time>
           <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-        </div>
+        </Post>
       );
     })}
   </Layout>
