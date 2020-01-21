@@ -17,6 +17,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-cname',
+    'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

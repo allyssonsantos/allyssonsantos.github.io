@@ -343,7 +343,7 @@ está subindo. */
 
 E está pronto nosso starwars!
 
-<a href="/starwars/starwars-exemplo-2.html" title="Exemplo da animação final">
+<a href="/starwars/starwars-exemplo-2" title="Exemplo da animação final">
 Exemplo da animação final</a>.
 
 Caso você queira colocar um outro texto, alterar tamanho da fonte, é bem
