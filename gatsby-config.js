@@ -16,6 +16,7 @@ module.exports = {
         name: `blog`,
       },
     },
+    'gatsby-plugin-cname',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
