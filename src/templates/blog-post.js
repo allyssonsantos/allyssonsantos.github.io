@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import { DiscussionEmbed } from 'disqus-react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+
+const disqusConfig = (slug, title) => ({
+  shortname: 'allyssonme',
+  config: { identifier: slug, title },
+});
 
 const Post = ({
   location,
@@ -21,6 +27,10 @@ const Post = ({
     <time>{post.frontmatter.date}</time>
     <MDXRenderer>{post.body}</MDXRenderer>
     <hr />
+
+    <DiscussionEmbed
+      {...disqusConfig(post.frontmatter.slug, post.frontmatter.title)}
+    />
 
     <ul
       style={{

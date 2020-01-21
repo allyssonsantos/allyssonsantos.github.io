@@ -11,6 +11,11 @@ const Wrapper = styled.main`
   margin-top: 80px;
   margin-right: auto;
   margin-left: auto;
+  padding: 10px;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
 `;
 
 const Layout = ({ children, title }) => (

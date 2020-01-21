@@ -1,5 +1,6 @@
 ---
 title: Transform do CSS3 - O que é possivel fazer?
+slug: /transform-css3
 date: '2016-04-01'
 ---
 

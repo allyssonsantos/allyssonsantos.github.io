@@ -52,10 +52,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    white-space: pre;
   }
 
   pre {
     padding: 28px;
+    overflow-x: auto;
   }
 
   img {
@@ -76,103 +78,124 @@ const GlobalStyle = createGlobalStyle`
 
   footer {
     margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  blockquote {
+    border-left: 4px solid #000;
+    margin-left: 0;
+    padding-left: 20px;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    word-break: normal;
+  }
+
+  table td, table th {
+    border: 1px solid #ccc;
+    padding: 10px;
+    line-height: 28px;
   }
 
   * {
     box-sizing: border-box;
   }
 
+  .transform {
+    display: inline-block;
+    margin-right: 20px;
+    background-color: yellow;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 20px;
+    transition: transform 1s;
+    vertical-align: top;
+    cursor: pointer;
+  }
 
+  .transform.translate:hover,
+  .transform.translate:focus,
+  .transform.translate:active {
+    ${transform('translate(50px, 50px)')}
+  }
 
-.transform {
-  display: inline-block;
-  margin-right: 20px;
-  background-color: yellow;
-  border: 1px solid #ccc;
-  text-align: center;
-  padding: 20px;
-  transition: transform 1s;
-  vertical-align: top;
-  cursor: pointer;
-}
+  .transform.rotate:hover,
+  .transform.rotate:focus,
+  .transform.rotate:active {
+    ${transform('rotate(25deg)')}
+  }
 
-.transform.translate:hover,
-.transform.translate:focus,
-.transform.translate:active {
-  ${transform('translate(50px, 50px)')}
-}
+  .transform.rotateY:hover,
+  .transform.rotateY:focus,
+  .transform.rotateY:active {
+    ${transform('rotateY(180deg)')}
+  }
 
-.transform.rotate:hover,
-.transform.rotate:focus,
-.transform.rotate:active {
-  ${transform('rotate(25deg)')}
-}
+  .transform.rotateY-negativo:hover,
+  .transform.rotateY-negativo:focus,
+  .transform.rotateY-negativo:active {
+    ${transform('rotateY(-160deg)')}
+  }
 
-.transform.rotateY:hover,
-.transform.rotateY:focus,
-.transform.rotateY:active {
-  ${transform('rotateY(180deg)')}
-}
+  .transform.rotate-anti-horario:hover,
+  .transform.rotate-anti-horario:focus,
+  .transform.rotate-anti-horario:active {
+    ${transform('rotate(-25deg)')}
+  }
 
-.transform.rotateY-negativo:hover,
-.transform.rotateY-negativo:focus,
-.transform.rotateY-negativo:active {
-  ${transform('rotateY(-160deg)')}
-}
+  .transform.scale:hover,
+  .transform.scale:focus,
+  .transform.scale:active {
+    ${transform('scale(2)')}
+  }
 
-.transform.rotate-anti-horario:hover,
-.transform.rotate-anti-horario:focus,
-.transform.rotate-anti-horario:active {
-  ${transform('rotate(-25deg)')}
-}
+  .transform.scale-torto:hover,
+  .transform.scale-torto:focus,
+  .transform.scale-torto:active {
+    ${transform('scale(2, 4)')}
+  }
 
-.transform.scale:hover,
-.transform.scale:focus,
-.transform.scale:active {
-  ${transform('scale(2)')}
-}
+  .transform.scale-negativo:hover,
+  .transform.scale-negativo:focus,
+  .transform.scale-negativo:active {
+    ${transform('scale(-2)')}
+  }
 
-.transform.scale-torto:hover,
-.transform.scale-torto:focus,
-.transform.scale-torto:active {
-  ${transform('scale(2, 4)')}
-}
+  .transform.skew:hover,
+  .transform.skew:active,
+  .transform.skew:focus {
+    ${transform('skew(10deg, 5deg)')}
+  }
 
-.transform.scale-negativo:hover,
-.transform.scale-negativo:focus,
-.transform.scale-negativo:active {
-  ${transform('scale(-2)')}
-}
+  .transform.skew-um-parametro:hover,
+  .transform.skew-um-parametro:focus,
+  .transform.skew-um-parametro:active {
+    ${transform('skew(20deg)')}
+  }
 
-.transform.skew:hover,
-.transform.skew:active,
-.transform.skew:focus {
-  ${transform('skew(10deg, 5deg)')}
-}
+  .transform.skewX:hover,
+  .transform.skewX:focus,
+  .transform.skewX:active {
+    ${transform('skewX(15deg)')}
+  }
 
-.transform.skew-um-parametro:hover,
-.transform.skew-um-parametro:focus,
-.transform.skew-um-parametro:active {
-  ${transform('skew(20deg)')}
-}
+  .transform.skewY:hover,
+  .transform.skewY:focus,
+  .transform.skewY:active {
+    ${transform('skewY(15deg)')}
+  }
 
-.transform.skewX:hover,
-.transform.skewX:focus,
-.transform.skewX:active {
-  ${transform('skewX(15deg)')}
-}
-
-.transform.skewY:hover,
-.transform.skewY:focus,
-.transform.skewY:active {
-  ${transform('skewY(15deg)')}
-}
-
-.transform.matrix:hover,
-.transform.matrix:focus,
-.transform.matrix:active {
-  ${transform('matrix(2, 1, 1, 2, 200, 200)')}
-}
+  .transform.matrix:hover,
+  .transform.matrix:focus,
+  .transform.matrix:active {
+    ${transform('matrix(2, 1, 1, 2, 200, 200)')}
+  }
 `;
 
 export default GlobalStyle;
