@@ -7,7 +7,7 @@ import Header from './Header';
 import theme from '../utils/theme';
 
 const Wrapper = styled.main`
-  max-width: 700px;
+  max-width: 740px;
   margin-top: 80px;
   margin-right: auto;
   margin-left: auto;

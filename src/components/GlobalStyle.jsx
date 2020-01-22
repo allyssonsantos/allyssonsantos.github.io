@@ -36,11 +36,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 28px;
   }
 
-  p {
-    line-height: 28px;
-    margin-bottom: 28px;
-  }
-
   ol > ol,
   ol > ul,
   ul > ol,
