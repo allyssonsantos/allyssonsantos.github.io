@@ -1,17 +1,16 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "allysson.me",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "My personal website/blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Allysson Santos <aallysson0@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/allyssonsantos/allyssonsantos.github.io/issues"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.4.0",
     "@mdx-js/react": "^1.4.0",
     "@mdx-js/tag": "^0.20.3",
-    "babel-plugin-styled-components": "^1.10.6",
     "disqus-react": "^1.0.7",
     "gatsby": "^2.14.4",
     "gatsby-image": "^2.0.22",
@@ -39,19 +38,15 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.0",
     "react-live": "^2.2.0",
-    "react-typography": "^0.16.13",
-    "styled-components": "^5.0.0",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75",
-    "typography": "^0.16.17",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
-    "eslint": "^6.2.2",
-    "eslint-plugin-react": "^7.11.1",
+    "babel-plugin-styled-components": "^1.10.6",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "3.0.2",
     "prettier": "^1.14.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/allyssonsantos/allyssonsantos.github.io-starter-blog#readme",
   "keywords": [
     "gatsby"
   ],
@@ -59,16 +54,17 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/allyssonsantos/allyssonsantos.github.io-starter-blog.git"
   },
   "scripts": {
     "dev": "gatsby develop",
-    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "develop": "gatsby develop",
-    "start": "yarn develop",
     "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "gatsby build && gh-pages -d public -b master",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
