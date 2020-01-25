@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Code, Paragraph, Ul, Ol, Li } from './src/components';
+import { Code, Paragraph, InlineCode, Ul, Ol, Li } from './src/components';
 import { preToCodeBlock } from 'mdx-utils';
 
 // components is its own object outside of render so that the references to
@@ -17,6 +17,7 @@ const components = {
     }
   },
   p: Paragraph,
+  inlineCode: InlineCode,
   ul: Ul,
   ol: Ol,
   li: Li,

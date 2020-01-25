@@ -31,13 +31,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 700;
   }
 
-  code {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    white-space: pre;
-  }
-
   pre {
     padding: 28px;
     overflow-x: auto;
