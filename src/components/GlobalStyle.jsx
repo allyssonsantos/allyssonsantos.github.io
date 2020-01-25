@@ -31,18 +31,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 700;
   }
 
-  li {
-    margin-bottom: 12px;
-    line-height: 28px;
-  }
-
-  ol > ol,
-  ol > ul,
-  ul > ol,
-  ul > ul {
-    margin-left: 40px;
-  }
-
   code {
     padding: 5px;
     border: 1px solid #ccc;
