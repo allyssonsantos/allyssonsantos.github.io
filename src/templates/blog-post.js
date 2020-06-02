@@ -1,10 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
 import { DiscussionEmbed } from 'disqus-react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+
+const Time = styled.time`
+  margin-bottom: 28px;
+`;
 
 const disqusConfig = (slug, title) => ({
   shortname: 'allyssonme',
@@ -24,7 +29,7 @@ const Post = ({
   <Layout location={location} title={siteTitle}>
     <SEO title={post.frontmatter.title} description={post.excerpt} />
     <h1>{post.frontmatter.title}</h1>
-    <time>{post.frontmatter.date}</time>
+    <Time>{post.frontmatter.date}</Time>
     <MDXRenderer>{post.body}</MDXRenderer>
     <hr />
 
@@ -74,7 +79,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM, YYYY", locale: "pt-BR")
       }
       body
     }

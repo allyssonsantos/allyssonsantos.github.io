@@ -1,12 +1,15 @@
 ---
 title: Seletores avançados do CSS
 slug: /seletores-avancados-do-css
+description: ~ + >
 date: '2016-04-03'
 ---
 
 ## O seletor "~"
 
-No css, serve para selecionar elementos depois de outros elementos, podemos traduzir o "~" para: **"quero pegar todos elementos depois desse elemento"** por exemplo, temos a seguinte marcação HTML:
+No css, serve para selecionar elementos depois de outros elementos, podemos
+traduzir o `~` para: **"quero pegar todos elementos depois desse elemento"** por
+exemplo, temos a seguinte marcação HTML:
 
 ```html
 <ul>
@@ -17,7 +20,8 @@ No css, serve para selecionar elementos depois de outros elementos, podemos trad
 </ul>
 ```
 
-Queremos que a partir do segundo item, ele e todos os outros `li's` tenham uma `margin-top` de 10px. Poderiamos fazer da seguinte maneira:
+Queremos que a partir do segundo item, ele e todos os outros `li's` tenham uma
+`margin-top` de 10px. Poderiamos fazer da seguinte maneira:
 
 ```css
 li ~ li {
@@ -25,9 +29,12 @@ li ~ li {
 }
 ```
 
-Dessa forma, o primeiro elemento não teria o `margin-top`, mas o segundo e todos os outros possuiriam essa propriedade.
+Dessa forma, o primeiro elemento não teria o `margin-top`, mas o segundo e todos
+os outros possuiriam essa propriedade.
 
-Outra forma de ler esse seletor: **"Quero pegar todos `li's` que tenha outro `li` antes dele"**, que no nosso caso, não pegaria o primeiro `li`, pois não há nenhum `li` que o precede.
+Outra forma de ler esse seletor: **"Quero pegar todos `li's` que tenha outro
+`li` antes dele"**, que no nosso caso, não pegaria o primeiro `li`, pois não há
+nenhum `li` que o precede.
 
 **Lembre-se bem**, o "~" seleciona **TODOS** os elementos depois de outro.
 
@@ -43,17 +50,22 @@ Agora, um outro caso, temos o seguinte HTML:
 </div>
 ```
 
-E queremos pegar todos os paragrafos depois da imagem. Poderíamos selecioná-lo da seguinte maneira?
+E queremos pegar todos os paragrafos depois da imagem. Poderíamos selecioná-lo
+da seguinte maneira?
 
 ```css
 img ~ p
 ```
 
-O nosso seletor de "~" iria funcionar nesse caso? A resposta é: **não**, esse seletor não iria funcionar, pois quem está depois da imagem é a `div` e dentro da `div` é que estão os paragrafos, nosso seletor "~" funciona apenas para **selecionar elementos irmãos**, e não elementos filhos...
+O nosso seletor de "~" iria funcionar nesse caso? A resposta é: **não**, esse
+seletor não iria funcionar, pois quem está depois da imagem é a `div` e dentro
+da `div` é que estão os paragrafos, nosso seletor "~" funciona apenas para
+**selecionar elementos irmãos**, e não elementos filhos...
 
 ## O seletor "+"
 
-No css, temos o **seletor "+"** que nos permite selecionar um elemento **IMEDIATAMENTE** depois de outro elemento, por exemplo, temos o seguinte HTML:
+No css, temos o **seletor "+"** que nos permite selecionar um elemento
+**IMEDIATAMENTE** depois de outro elemento, por exemplo, temos o seguinte HTML:
 
 ```html
 <img src="imagem.jpg" />
@@ -69,7 +81,8 @@ No css, temos o **seletor "+"** que nos permite selecionar um elemento **IMEDIAT
 <p>Fugiat, pariatur?</p>
 ```
 
-Queremos que **apenas o primeiro paragrafo** seja em negrito. Podemos então selecioná-lo da seguinte maneira:
+Queremos que **apenas o primeiro paragrafo** seja em negrito. Podemos então
+selecioná-lo da seguinte maneira:
 
 ```css
 img + p {
@@ -77,7 +90,9 @@ img + p {
 }
 ```
 
-Lembre-se, o "+" pega o elemento **IMEDIATAMENTE** após, então, ele não funcionaria em um caso como esse, onde queremos selecionar o primeiro paragrafo após a imagem:
+Lembre-se, o "+" pega o elemento **IMEDIATAMENTE** após, então, ele não
+funcionaria em um caso como esse, onde queremos selecionar o primeiro paragrafo
+após a imagem:
 
 ```html
 <img sc="imagem.jpg" />
@@ -91,7 +106,8 @@ Lembre-se, o "+" pega o elemento **IMEDIATAMENTE** após, então, ele não funci
 
 ## O seletor ">"
 
-Esse seletor nos permite selecionar elementos **PAI e FILHOS**, não seleciona elementos netos, apenas elementos filhos, por exemplo, temos o seguinte HTML:
+Esse seletor nos permite selecionar elementos **PAI e FILHOS**, não seleciona
+elementos netos, apenas elementos filhos, por exemplo, temos o seguinte HTML:
 
 ```html
 <div>
@@ -108,7 +124,10 @@ Esse seletor nos permite selecionar elementos **PAI e FILHOS**, não seleciona e
 </div>
 ```
 
-Queremos pegar os `p` que são filhos da `div`, e não netos, como é o caso do `p` que está dentro do `blockquote`. Para pegar esses paragrafos que são filhos da `div` e aplicarmos um estilo de `text-decoration: underline;`, podemos selecioná-los da seguinte forma:
+Queremos pegar os `p` que são filhos da `div`, e não netos, como é o caso do `p`
+que está dentro do `blockquote`. Para pegar esses paragrafos que são filhos da
+`div` e aplicarmos um estilo de `text-decoration: underline;`, podemos
+selecioná-los da seguinte forma:
 
 ```css
 div > p {
@@ -120,10 +139,24 @@ Dessa maneira, todos os `p` que são filhos da `div` receberão o estilo.
 
 ## Conclusão
 
-Os seletores de elementos que vimos hoje nos dão bastante poder, pois podemos **combiná-los** para pegar elementos específicos, como por exemplo, `.noticias > h1 + p` esse seletor seleciona exatamente todos os paragrafos que estão imediatamente depois de todos os `h1`, que são filhos de `.noticias`. Bastante útil quando não podemos **alterar nada no HTML** ou temos acesso apenas aos arquivos de CSS.
+Os seletores de elementos que vimos hoje nos dão bastante poder, pois podemos
+**combiná-los** para pegar elementos específicos, como por exemplo,
+`.noticias > h1 + p` esse seletor seleciona exatamente todos os paragrafos que
+estão imediatamente depois de todos os `h1`, que são filhos de `.noticias`.
+Bastante útil quando não podemos **alterar nada no HTML** ou temos acesso apenas
+aos arquivos de CSS.
 
-Porém, sua **compreensão é bastante difícil**, não conseguimos bater o olho nesse seletor e já saber o que ele está selecionando. Outro ponto negativo é a sua **performance**, o navegador lê os elementos selecionados da **direita para esquerda**, então ele teria um trabalho relativamente grande para capturar esses elementos, pois teria que achar todos os `p` da página, depois selecionar apenas os que estão imediatamente depois de um `h1` e ainda selecionar todos os `h1`, mas, pegar apenas os que são filhos de `.noticias`, ou seja, muito custoso para o navegador.
+Porém, sua **compreensão é bastante difícil**, não conseguimos bater o olho
+nesse seletor e já saber o que ele está selecionando. Outro ponto negativo é a
+sua **performance**, o navegador lê os elementos selecionados da
+**direita para esquerda**, então ele teria um trabalho relativamente grande para
+capturar esses elementos, pois teria que achar todos os `p` da página, depois
+selecionar apenas os que estão imediatamente depois de um `h1` e ainda
+selecionar todos os `h1`, mas, pegar apenas os que são filhos de `.noticias`,
+ou seja, muito custoso para o navegador.
 
-Mas o ponto que mais me incomoda, é que caso esse `h1` venha a ser `h2`, nosso código CSS não funcionará mais. Nosso CSS é **dependente da estrutura atual do HTML**, caso ela mude, nosso CSS quebra.
+Mas o ponto que mais me incomoda, é que caso esse `h1` venha a ser `h2`, nosso
+código CSS não funcionará mais. Nosso CSS é
+**dependente da estrutura atual do HTML**, caso ela mude, nosso CSS quebra.
 
 Então, **use com cuidado!**

@@ -1,6 +1,7 @@
 ---
 title: Abertura do StarWars em CSS.
 slug: /abertura-do-starwars-em-css
+description: I'm your father
 date: '2016-07-25'
 ---
 
@@ -10,10 +11,8 @@ diminuindo e as letrinhas amarelas subindo)
 
 ## O que vamos utilizar?
 
-Vamos utilizar os seguintes arquivos: o <a href="/starwars.svg">
-logo do starwars</a> e a <a href="/starwars.mp3">trilha sonora</a> da nossa
-abertura. (para baixar o mp3, clique com o botão direito e selecione Salvar
-link como...).
+Vamos utilizar os seguintes arquivos: o [logo do starwars](/starwars.svg) e a
+[trilha sonora](/starwars.mp3) da nossa abertura.
 
 E também utilizaremos as **seguintes técnicas**:
 
@@ -28,8 +27,7 @@ E também utilizaremos as **seguintes técnicas**:
 
 Se você quiser saber mais sobre o transform, tem um post explicando algumas
 coisas sobre ele aqui:
-<a href="/transform-css3" title="Transform do CSS3 - O que é possivel fazer?">
-Transform do CSS3 - O que é possivel fazer?</a>
+[Transform do CSS3 - O que é possivel fazer?](/transform-css3)
 
 ## Começando com o HTML
 
@@ -222,8 +220,8 @@ não utilizarei para poupar código):
 ```css
 @keyframes logo {
   from {
-    transform: translate(-50%, -50%) scale(2); /* Precisamos repetir o
-    translate, pois o keyframe subscreve os valores da propriedade */
+    transform: translate(-50%, -50%) scale(2);
+    /* Precisamos repetir o translate, pois o keyframe sobescreve os valores da propriedade */
   }
   to {
     transform: translate(-50%, -50%) scale(0);
@@ -232,16 +230,19 @@ não utilizarei para poupar código):
 ```
 
 Veja um exemplo de como está nossa animação até agora:
-<a href="/starwars/starwars-exemplo-1" title="Exemplo da animação do logo" >Exemplo</a>
+[Exemplo](/starwars/starwars-exemplo-1)
 
 ### Animando o texto
 
 Primeiramente precisamos dar **estilo para o nosso texto**,
 começamos adicionando o básico, alinhamos todo nosso texto ao centro,
 alteramos os nossos parágrafos para fonte de 70<abbr title="pixels">px</abbr>,
-negrito, e uma margin-top de 70<abbr title="pixels">px</abbr> para distanciar
-de nosso título. Para nosso título vamos apenas aumentar a fonte para 85<abbr title="pixels">px</abbr>
-e para nosso subtítulo vamos deixar ele com o peso da fonte "normal", alterar a altura das linhas e deixar tudo em caixa alta.
+negrito, e uma `margin-top` de 70<abbr title="pixels">px</abbr> para distanciar
+de nosso título.
+
+Para o título vamos apenas aumentar a fonte para
+85<abbr title="pixels">px</abbr> e para nosso subtítulo vamos deixar ele com o
+peso da fonte "normal", alterar a altura das linhas e deixar tudo em caixa alta.
 
 ```css
 .texto {
@@ -330,13 +331,12 @@ negativo para nosso texto subir!
 ```css
 @keyframes subir {
   15% {
-    transform: perspective(800px) rotateX(25deg) translateY(40%); /* Precisamos repertir a
-perspective e o rotate para manter a perspectiva e rotação. */
+    transform: perspective(800px) rotateX(25deg) translateY(40%);
+    /* Precisamos repertir a perspective e o rotate para manter a perspectiva e rotação. */
   }
   100% {
-    transform: perspective(800px) rotateX(25deg) translateY(-220%); /* O translate
--220% serve para deslocar o texto para cima! dando a sensação de que o texto
-está subindo. */
+    transform: perspective(800px) rotateX(25deg) translateY(-220%);
+    /* O translate -220% serve para deslocar o texto para cima! dando a sensação de que o texto está subindo. */
   }
 }
 ```

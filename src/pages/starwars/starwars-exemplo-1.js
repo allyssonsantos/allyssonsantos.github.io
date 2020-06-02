@@ -71,7 +71,7 @@ const Starwars = () => (
   <>
     <GlobalStyle />
     <div className="shadow"></div>
-    <img src="/starwars.svg" className="logo" />
+    <img src="/starwars.svg" className="logo" alt="starwars logo" />
     <div className="container">
       <div className="texto">
         <h1 className="titulo">Episode VII</h1>

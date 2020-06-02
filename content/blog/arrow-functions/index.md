@@ -1,6 +1,7 @@
 ---
 title: Arrow Functions
 slug: /arrow-functions
+description: () => {}
 date: '2016-12-18'
 ---
 
@@ -106,7 +107,7 @@ Ao clicar no botão com uma **arrow function**, teremos o seguinte retorno:
     const btn = document.getElementById('btn');
 
     btn.addEventListener('click', () => {
-      // <-- mudança aqui
+      // mudança aqui /\
       console.log(this);
     });
   </script>

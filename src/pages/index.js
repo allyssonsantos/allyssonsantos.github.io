@@ -2,15 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/Layout';
+import { Layout, Paragraph } from '../components';
 import SEO from '../components/seo';
 
 const Post = styled.article`
+  padding-bottom: 40px;
   margin-bottom: 40px;
+  border-bottom: 1px dashed ${({ theme }) => theme.colors.gray};
 `;
 
 const Title = styled.h2`
   font-size: 2rem;
+  margin-bottom: 8px;
+  font-weight: 900;
+`;
+
+const Description = styled(Paragraph)`
+  margin: 20px 0 0;
 `;
 
 const Home = ({
@@ -24,7 +32,7 @@ const Home = ({
 }) => (
   <Layout location={location} title={siteTitle}>
     <SEO
-      title="All posts"
+      title="Todos os posts"
       keywords={[
         'blog',
         'gatsby',
@@ -32,6 +40,7 @@ const Home = ({
         'react',
         'styled-components',
         'design-system',
+        'components',
       ]}
     />
     {posts.map(({ node }) => {
@@ -42,7 +51,7 @@ const Home = ({
             <Link to={node.fields.slug}>{title}</Link>
           </Title>
           <time>{node.frontmatter.date}</time>
-          <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          <Description>{node.frontmatter.description}</Description>
         </Post>
       );
     })}
@@ -66,8 +75,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "DD MMMM, YYYY", locale: "pt-BR")
             title
+            description
           }
         }
       }

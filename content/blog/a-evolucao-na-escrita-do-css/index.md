@@ -1,6 +1,7 @@
 ---
 title: A evolução na escrita do CSS.
 slug: /a-evolucao-na-escrita-do-css
+description: style > BEM/SMACSS/ITCSS > sass/less/stylus > postcss > css-in-js
 date: '2019-05-28'
 ---
 
