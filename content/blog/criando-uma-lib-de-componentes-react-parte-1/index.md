@@ -1,7 +1,8 @@
 ---
-title: Criando uma lib de componentes React - Parte 1
+title: 'Criando uma lib de componentes React, Parte 1: Introdução, github, storybook'
 slug: /criando-uma-lib-de-componentes-react-parte-1
-date: '2019-07-15'
+description: Como começar?
+date: '2020-06-02'
 ---
 
 Nessa série de posts iremos criar uma biblioteca de componentes bem completa!
@@ -112,7 +113,7 @@ npx -p @storybook/cli sb init
 ```
 
 A instalação do _**Storybook**_ vai detectar que estamos utilizando _**React**_
-e vai instalar a versão pro _framework_ correto. Após o término da instalação
+e vai instalar a versão pro _framework/lib_ correto. Após o término da instalação
 vamos rodar:
 
 ```shell
@@ -136,79 +137,145 @@ Perceba que o _storybook_ criou alguns arquivos no _root_ do projeto:
 ├── package-lock.json
 ├── README.md
 ├── stories /* Essa*/
-│   └── index.stories.js
+│   ├── 0-Welcome.stories.js
+│   └── 1-Button.stories.js
 └── .storybook /* E essa */
-    ├── addons.js
-    └── config.js
+    └── main.js
 ```
 
 A pasta `stories` é a pasta _default_ onde o storybook procura suas histórias.
 Uma história geralmente é a representação de um estado de um componente, perceba
-também que já temos duas histórias no `index.stories.js`, vamos analisar o
-conteúdo do `index.stories.js`.
+também que já temos duas histórias nesta pasta, vamos analisar o
+conteúdo do `0-Welcome.stories.js`.
 
 Vamos dar uma olhada no que é importado dentro do arquivo:
 
 ```js
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+/* 0-Welcome.stories.js */
+import React from 'react';
 import { linkTo } from '@storybook/addon-links';
-
-import { Button, Welcome } from '@storybook/react/demo';
+import { Welcome } from '@storybook/react/demo';
 ```
 
-#### storiesOf
+#### linkTo
 
-Função que inicia a criação da história, ela recebe dois parâmetros, o primeiro
-é o nome do conjunto de histórias que será exibido no painel esquerdo, chamado
-de `kind`. O segundo parâmetro é o `module`, uma variável global declarada pelo
-próprio _storybook_ que é necessária para criar uma referência ao arquivo que
-sua história está. Essa referência serve para habilitar o
-_[hot-module-replacement](https://webpack.js.org/concepts/hot-module-replacement/ 'hot module replacement')_.
-Sem ela você teria que dar um refresh na página toda vez que editasse sua
-história.
-
-#### storiesOf().add()
-
-O `add(name, functionalComponent)` recebe dois parâmetros também, o primeiro é o
-nome da história em questão, chamado de `story`, o segundo é uma função que
-retorna o componente _React_ que será exibido quando essa história for
-selecionada. Podem existir inúmeros `.add()` encadeados no mesmo `storiesOf`.
-
-#### action & linkTo
-
-Como você pode perceber, o `action` e o `linkTo` estão sendo importados como
-plugins, o storybook possui vários plugins para dar algumas funcionalidades a
+Como você pode perceber, o `linkTo` está sendo importado como
+addon, o storybook possui vários addons para dar algumas funcionalidades a
 mais à sua história, você pode conferir alguns no [próprio site do storybook](https://storybook.js.org/addons/ 'próprio site do storybook').
 
-#### Button & Welcome
+#### Welcome
 
-São componentes _React_ comuns, estão ali apenas para popular as histórias que vem por padrão.
+É um componente _React_ comum, está ali apenas para popular a história que vem
+por padrão.
+
+Agora vamos analisar o código que está gerando o que vemos na tela:
+
+```jsx
+export default {
+  title: 'Welcome',
+  component: Welcome,
+};
+
+export const ToStorybook = () => <Welcome showApp={linkTo('Button')} />;
+
+ToStorybook.story = {
+  name: 'to Storybook',
+};
+```
+
+Essa é a forma que se escreve as histórias do storybook, o nome desse formato se
+chama _Component Story Format (CSF)_ é a forma recomendada pelo storybook de
+se escrever _stories_.
+
+No _CSF_ as _stories_ e os componentes são definidos como _ES Modules_, cada
+arquivo de _story_ necessita ter um `export default` e um ou mais
+_named exports_, no caso acima, nosso _named export_ é a `const` `ToStorybook`
+que estamos exportando.
+
+#### Export default
+
+O `export default` define dados sobre o seu componente, incluindo o componente
+em sí, e também o título do grupo das histórias que será exibido no menu lateral do
+storybook.
+
+Não é obrigatório definir o componente, porém, é recomendado que faça. Essa
+propriedade `component` do `export default` pode ser usada em addons para exibir
+informações do componente, como por exemplo, uma tabela de props.
+
+O título é exibido no grupo de histórias na barra lateral do storybook. Ele deve
+ser único. Esse grupo de histórias também é comumente chamado de _kind_.
+
+Repare também que estamos adicionando uma propriedade que é um objeto chamado
+`story` ao nosso `ToStorybook`. Essa propriedade é um objeto que contém `name`.
+Esse nome é o nome da história do componente `ToStorybook`.
+
+Não necessáriamente precisamos dessa propriedade `name`. Por padrão o storybook
+nomeia suas histórias baseadas no `named export`, ou seja, se retirarmos o
+`name` do `ToStorybook.story`, por exemplo:
+
+```jsx
+export default {
+  title: 'Welcome',
+  component: Welcome,
+};
+
+export const ToStorybook = () => <Welcome showApp={linkTo('Button')} />;
+
+// ToStorybook.story = {
+//   name: 'to Storybook',
+// };
+```
+
+O nome de nossa história será "To Storybook" (pois está pegando o nome do
+_export_) e não mais "to Storybook" (com "t" minúsculo), como quando utilizavamos a propriedade
+`name`.
+
+![Imagem da história com titulo alterado](/ToStorybook.png 'Imagem da história com titulo alterado')
+
+Como você pode perceber, a nossa váriavel esta em
+[PascalCase](https://wiki.c2.com/?PascalCase) mas no storybook há um espaço
+separando as palavras, isso ocorre porque o `storybook` altera o nome antes de
+enviar para o menu, veja alguns exemplos:
+
+```
+name -> 'Name'
+someName -> 'Some Name'
+someNAME -> 'Some NAME'
+some_custom_NAME -> 'Some Custom NAME'
+someName1234 -> 'Some Name 1234'
+someName1_2_3_4 -> 'Some Name 1 2 3 4'
+```
+
+Você pode utilizar o `story.name` quando quiser que o título contenha alguma
+palavra reservada do javascript, como por exemplo `default`, ou se quiser
+utilizar emojis.
 
 #### Estrutura de uma história
 
 Bom, para criar uma história basta seguir como no exemplo da história do
-`Button`. Edite a história que vem por _default_ para ver os efeitos que são
+`Welcome`. Edite a história que vem por _default_ para ver os efeitos que são
 aplicados no _storybook_. O código editado deve ficar assim:
 
 ```jsx
-storiesOf('História do Button', module) /*  alterado para "História do Button"*/
-  .add('Com um texto de Hello Button', () => (
-    /*  alterado para "Com um texto de Hello Button"*/
-    <Button onClick={action('HelloButton clicked')}>Hello Button</Button>
-  ))
-  .add('Com alguns emojis', () => (
-    /*  alterado para "Com alguns emojis"*/
-    <Button onClick={action('EmojiButton clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ));
+import React from 'react';
+import { linkTo } from '@storybook/addon-links';
+import { Welcome } from '@storybook/react/demo';
+
+export default {
+  title: 'Bem vindo',
+  component: Welcome,
+};
+
+export const ToStorybook = () => <Welcome showApp={linkTo('Button')} />;
+
+ToStorybook.story = {
+  name: 'ao Storybook',
+};
 ```
 
-Esse trecho de código editou as duas _stories_ do _kind_ "História do Button"
-como podemos ver no gif a seguir:
+Esse trecho de código editou o título do grupo de histórias do componente
+_Welcome_ e o titulo da história _ToStorybook_, como podemos ver no gif a
+seguir:
 
 ![Gif das histórias editadas](/edited-stories.gif 'Gif das histórias editadas')
 
@@ -217,93 +284,78 @@ como podemos ver no gif a seguir:
 Você também deve ter percebido que surgiu uma pasta _.storybook_ no seu projeto.
 As configurações de carregamento das _stories_, _addons_ e _webpack_ ficam aqui.
 O _storybook_ possuí um _webpack_ por baixo dos panos, caso você queira editar
-alguma configuração, basta criar um arquivo `webpack.config.js` nessa pasta e
-sobrescrever o que necessita ser alterado. Você pode ver melhor aqui: https://storybook.js.org/docs/configurations/custom-webpack-config/.
+alguma configuração, basta editar o arquivo `main.js` dessa pasta e sobrescrever
+o que necessita ser alterado. Você pode ver melhor aqui:
+https://storybook.js.org/docs/configurations/custom-webpack-config/.
 
-O arquivo `config.js` está basicamente importando todos os arquivos que terminam
-com `.stories.js` do diretório `/stories/` e carregando todas as _stories_ que
-esses arquivos contêm.
-
-Atualmente o arquivo `addons.js` está registrando dois _addons_, o _actions_ e
+Atualmente a propriedade _addons_ está registrando dois _addons_, o _actions_ e
 _links_, vamos ver o que esses _addons_ fazem.
 
 #### actions
 
-O _addon actions_ está sendo usado na _story_ que vem por _default_, do _kind_
-`Button` na _story_ _"Com um texto de Hello Button"_. No caso, ele está sendo
-usado no _onClick_ do `Button`, como você pode ver a seguir:
+O _addon actions_ está sendo usado nas _stories_ do `Button`, ele está sendo
+usado no `onClick` do componente `Button`.
 
-![Addon action](/addon_action.png 'Addon action')
+Ao abrir a _story_ _Button > Text_ perceba que há um painel chamado **Actions**
+na parte inferior da página, ao clicar no botão que está sendo exibido na
+_story_, serão logados as informações do evento de _click_ na aba de
+**Actions**:
 
-Ao abrir a _story "Com um texto de Hello Button"_ perceba que há um painel
-chamado **Actions** na parte inferior da página, ao clicar no botão que está
-sendo exibido na _story_, serão logados as informações do evento de _click_ na
-aba de **Actions**:
+![Addon action](/addon_action.gif 'Addon action')
 
-![Actions onClick log](/actions-log.png 'Actions onClick log')
+O _addon_ **actions** pode ser usado para exibir os dados recebidos por
+_event-handlers_ no _storybook_, como `onClick`, `onKeyDown`, etc. Ou qualquer
+outro tipo de dado que você queira logar no painel de _Actions_.
 
-O _addon_ **actions** deve ser usado para exibir os dados recebidos por
-_event-handlers_ no _storybook_, como `onClick`, `onKeyDown`, etc. Se você
-quiser saber mais sobre o funcionamento desse addon, [veja o github do projeto](https://github.com/storybookjs/storybook/tree/next/addons/actions 'veja o github do projeto').
+Se você quiser saber mais sobre o funcionamento desse addon,
+[veja o github do projeto](https://github.com/storybookjs/storybook/tree/next/addons/actions 'veja o github do projeto').
 
 #### links
 
 Como o próprio nome diz, o _addon links_ serve para linkar _stories_ entre sí.
-Na _story_ do componente `<Welcome />` que vem por _default_, há um link que
-deveria linkar para a `story` chamada _"Button"_. Porém, se a gente clicar nesse
-link veremos que vai dar pau. Se liga:
+Na _story_ do componente `<Welcome />` que vem por _default_, há um link para a
+`story` chamada _"Button"_.
 
-![Problema na história do Button](/button-story-problem.png 'Problema na história do Button')
+![Button link](/link-button.png 'Link para story button')
 
-Ao clicar no link _stories_, vemos essa mensagem meio bugada _"**No Preview**"_.
-Isso acontece porque o _addon link_ recebe como primeiro parâmetro o nome do
-_kind_ e a _story_ como segundo parâmetro. Como mudamos o nome do _kind_ para
-_"História do Button"_, esse link não irá mais funcionar.
-
-Vamos renomear o _kind_ de `História do Button` para apenas _"Botao"_ e alterar
-o parâmetro da função `linkTo` da prop `showApp` do componente `<Welcome />`
-para também ficar _"Botao"_, assim:
-
-##### index.stories.js
+Esse link é feito através do `linkTo` que está sendo usado na prop `showApp` do
+componente `Welcome`.
 
 ```jsx
-storiesOf('Welcome', module).add('to Storybook', () => (
-  <Welcome showApp={linkTo('Botao')} /> /* alteramos aqui */
-));
-
-storiesOf('Botao', module) /* alteramos aqui */
-  .add('Com um texto de Hello Button', () => (
-    <Button onClick={action('HelloButton clicked')}>Hello Button</Button>
-  ))
-  .add('Com alguns emojis', () => (
-    <Button onClick={action('EmojiButton clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ));
+export const ToStorybook = () => <Welcome showApp={linkTo('Button')} />;
 ```
 
-Agora, ao clicar no link `stories` do _kind_ **"Welcome"** da _story_
-**"to Storybook"** veremos que irá linkar para a primeira _story_ do _kind_
-**Botão**:
+Ao clicar no link _stories_, vamos parar na primeira história do _kind_
+Button.
 
-![Gif do link stories funcionando](/stories-to.gif 'Gif do link stories funcionando')
+Se você quiser ir para uma _story_ específica (não mais a primeira), você pode
+passar um segundo parâmetro, que é o nome da _story_.
 
-O segundo parâmetro da função `linkTo` não é obrigatório, porém, se presente,
-deve ser o nome de algum _story_ do _kind_ especificado. Caso a gente edite
-novamente a prop `showApp` do componente _Welcome_ passando um segundo parâmetro
-para função `linkTo` como _"Com alguns emojis"_ veremos que ao clicar no link
-`stories` ele nos levará à segunda _story_, e não mais a primeira:
+Vamos alterar o `linkTo` para linkar para _story_ _Emoji_:
+
+##### 0-Welcome.stories.js
 
 ```jsx
-storiesOf('Welcome', module).add('to Storybook', () => (
-  <Welcome
-    showApp={linkTo('Botao', 'Com alguns emojis')}
-  /> /* adicionamos
-  segundo parâmetro */
-));
+import React from 'react';
+import { linkTo } from '@storybook/addon-links';
+import { Welcome } from '@storybook/react/demo';
+
+export default {
+  title: 'Bem vindo',
+  component: Welcome,
+};
+
+export const ToStorybook = () => (
+  <Welcome showApp={linkTo('Button', 'Emoji')} />
+);
+
+ToStorybook.story = {
+  name: 'ao Storybook',
+};
 ```
+
+Agora ao clicar no link _stories_ estamos indo para _story_ _Emoji_ e não mais a
+_Text_.
 
 ![Gif do link stories funcionando com segundo parâmetro](/stories-to-second.gif 'Gif do link stories funcionando com segundo parâmetro')
 
@@ -315,5 +367,5 @@ Até agora nós criamos o repositório no github, instalamos o **React** e o
 Vimos todos os arquivos que a instalação do _storybook_ criou e também vimos as
 funções e plugins desses arquivos.
 
-No próximo post vamos começar a desenvolver alguns componentes, configurar e
-adicionar testes unitários e criar novas _stories_ no _storybook_.
+No próximo post vamos começar a configurar ferramentas, como o
+`commitizen`, `eslint` e algumas outras.
