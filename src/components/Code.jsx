@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from 'react-dom';
 import Highlight, { defaultProps } from 'prism-react-renderer';
+import github from 'prism-react-renderer/themes/github';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
 const Code = ({ codeString, language, ...props }) => {
@@ -14,7 +14,12 @@ const Code = ({ codeString, language, ...props }) => {
     );
   } else {
     return (
-      <Highlight {...defaultProps} code={codeString} language={language}>
+      <Highlight
+        {...defaultProps}
+        theme={github}
+        code={codeString}
+        language={language}
+      >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className} style={style}>
             {tokens.map((line, i) => (
