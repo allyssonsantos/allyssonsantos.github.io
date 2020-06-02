@@ -11,16 +11,22 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Lora', serif;
+    font-family: 'Merriweather', serif;
   }
 
   h1, article > h2 {
-    font-family: 'Roboto', sans-serif;
+    margin-bottom: 8px;
     font-weight: 900;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    margin: 3rem 0 1.5rem;
+    margin-top: 2rem;
+    
+    ${({
+      theme: {
+        colors: { primary },
+      },
+    }) => `color: ${primary};`}
   }
 
   h3 {
@@ -32,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   pre {
-    padding: 28px;
+    padding: 12px;
     overflow-x: auto;
   }
 
@@ -42,6 +48,13 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+    ${({
+      theme: {
+        colors: { primary, light },
+      },
+    }) => `
+      color: ${primary};
+    `}
 
     :hover {
       text-decoration: underline;
@@ -57,7 +70,7 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 80px;
   }
 
-  figure {
+  p, figure {
     margin: 0;
   }
 
