@@ -1,68 +1,39 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
+import { withFade } from '@frigobar/animation';
 
-const sharedTitleStyle = ({
-  theme: {
-    colors: { white },
-  },
-}) => css`
-  margin: 0;
-  padding: 0;
-
-  font-family: 'Roboto', sans-serif;
-  color: ${white};
-  text-decoration: none;
+const Wrapper = styled.header`
+  max-width: 740px;
+  margin: 0 auto;
 `;
 
-const Wrapper = styled.header(
-  ({
+const Title = styled.h2`
+  display: inline-block;
+
+  margin: 20px 10px 0;
+  padding: 10px 0;
+
+  font-size: 1.1rem;
+  font-family: 'Roboto', sans-serif;
+
+  text-decoration: none;
+
+  ${({
     theme: {
       colors: { primary },
     },
-  }) => css`
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 5px;
-
-    background-color: ${primary};
-
-    text-align: center;
-  `
-);
-
-const Title = styled.h2(
-  ({
-    theme: {
-      colors: { white },
-    },
-  }) => css`
-    font-size: 1.1rem;
-
-    ${sharedTitleStyle}
-  `
-);
-
-const SubTitle = styled.span(
-  ({
-    theme: {
-      colors: { white },
-    },
-  }) => css`
-    font-size: 0.8rem;
-
-    ${sharedTitleStyle}
-  `
-);
+  }) => `
+    color: ${primary};
+  `}
+`;
 
 const Header = ({ title }) => (
   <Wrapper>
     <Link to="/">
       <Title>{title}</Title>
-      <SubTitle>Front-end Developer</SubTitle>
     </Link>
   </Wrapper>
 );
 
-export default Header;
+export default withFade(Header);

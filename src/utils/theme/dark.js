@@ -1,11 +1,10 @@
-const theme = {
+const dark = {
   colors: {
     primary: '#232526',
     white: '#fff',
-    black: '#000',
     gray: '#ccc',
     text: '#3e3e3e',
   },
 };
 
-export default theme;
+export default dark;

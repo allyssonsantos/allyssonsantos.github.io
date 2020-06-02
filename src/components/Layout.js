@@ -1,14 +1,15 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { Link } from 'gatsby';
+
+import { withFade } from '@frigobar/animation';
 
 import GlobalStyle from './GlobalStyle';
 import Header from './Header';
-import theme from '../utils/theme';
+import { light, dark } from '../utils/theme';
 
-const Wrapper = styled.main`
+const Wrapper = withFade(styled.main`
   max-width: 740px;
-  margin-top: 80px;
+  margin-top: 40px;
   margin-right: auto;
   margin-left: auto;
   padding: 10px;
@@ -16,14 +17,14 @@ const Wrapper = styled.main`
   @media (max-width: 768px) {
     margin-top: 20px;
   }
-`;
+`);
 
 const Layout = ({ children, title }) => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={light}>
     <>
       <GlobalStyle />
-      <Header title={title} />
-      <Wrapper>
+      <Header show title={title} />
+      <Wrapper show>
         {children}
         <footer>
           © {new Date().getFullYear()} -{' '}

@@ -10,6 +10,7 @@ const InlineCode = styled.code(
     border: 1px solid ${gray};
     border-radius: 4px;
     white-space: pre;
+    color: mediumvioletred;
   `
 );
 
