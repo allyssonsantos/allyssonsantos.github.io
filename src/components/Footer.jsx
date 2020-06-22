@@ -39,9 +39,15 @@ const Footer = ({ theme }) => (
         © Feito por Allysson
       </Box>
       <div>
-        <Link to="https://www.linkedin.com/in/allyssonsantos/">LinkedIn</Link>
-        <Link to="https://twitter.com/_allyssonsantos">Twitter</Link>
-        <Link to="https://github.com/allyssonsantos">Github</Link>
+        <Link as="a" href="https://www.linkedin.com/in/allyssonsantos/">
+          LinkedIn
+        </Link>
+        <Link as="a" href="https://twitter.com/_allyssonsantos">
+          Twitter
+        </Link>
+        <Link as="a" href="https://github.com/allyssonsantos">
+          Github
+        </Link>
       </div>
     </Center>
   </Wrapper>
