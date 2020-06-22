@@ -11,7 +11,11 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Merriweather', serif;
+    font-family: 'Roboto', serif;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   h1, article > h2 {
@@ -44,25 +48,6 @@ const GlobalStyle = createGlobalStyle`
 
   img {
     width: 100%;
-  }
-
-  a {
-    text-decoration: none;
-    ${({
-      theme: {
-        colors: { primary, light },
-      },
-    }) => `
-      color: ${primary};
-    `}
-
-    :hover {
-      text-decoration: underline;
-    }
-
-    :active {
-      color: inherit;
-    }
   }
 
   footer {
