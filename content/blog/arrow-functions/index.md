@@ -3,6 +3,8 @@ title: Arrow Functions
 slug: /arrow-functions
 description: () => {}
 date: '2016-12-18'
+tags:
+  - Javascript
 ---
 
 ## Introdução

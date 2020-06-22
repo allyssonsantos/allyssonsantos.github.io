@@ -3,6 +3,10 @@ title: 'Criando uma lib de componentes React, Parte 1: Introdução, github, sto
 slug: /criando-uma-lib-de-componentes-react-parte-1
 description: Como começar?
 date: '2020-06-02'
+tags:
+  - React
+  - Design System
+  - styled-components
 ---
 
 Nessa série de posts iremos criar uma biblioteca de componentes bem completa!
