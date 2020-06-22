@@ -3,19 +3,13 @@ import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
 
 import personalProjects from '../data/projects';
-import { Layout, Title, Card, Button, Repo } from '../components';
+import { Layout, Title, Card, Button, Repo, Box } from '../components';
 import SEO from '../components/seo';
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 32px;
-`;
-
-const Description = styled.p`
-  text-align: center;
-  font-size: 1.375rem;
-  color: #2c2c2c;
 `;
 
 const Repos = styled.div`
@@ -29,6 +23,7 @@ const Repos = styled.div`
 `;
 
 const Home = ({
+  theme,
   location,
   data: {
     site: {
@@ -50,7 +45,7 @@ const Home = ({
         'components',
       ]}
     />
-    <Title>Últimos artigos do blog</Title>
+    <Title as="h2">Últimos artigos do blog</Title>
     {posts.map(({ node }) => {
       const title = node.frontmatter.title || node.fields.slug;
       return (
@@ -67,8 +62,10 @@ const Home = ({
     <Wrapper>
       <Button as="a">Ver todos artigos</Button>
     </Wrapper>
-    <Title>Projetos open source</Title>
-    <Description>Projetos que participo ou participei</Description>
+    <Title as="h2">Projetos open source</Title>
+    <Box as="p" textAlign="center" size="1.375rem">
+      Projetos que participo ou participei
+    </Box>
     <Repos>
       {personalProjects.map(repo => (
         <Repo
