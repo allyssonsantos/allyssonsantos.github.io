@@ -15,16 +15,20 @@ const Wrapper = styled.article`
   `}
 `;
 
+const Tags = styled.div``;
+
 const Card = ({ tags, title, description, date, theme }) => (
   <Wrapper>
-    {tags.map(tag => (
-      <Tag key={tag} tag={tag}>
-        {tag}
-      </Tag>
-    ))}
+    <Tags>
+      {tags.map(tag => (
+        <Tag key={tag} tag={tag}>
+          {tag}
+        </Tag>
+      ))}
+    </Tags>
     <Box
       color={theme.colors.grays[0]}
-      size="1.25rem"
+      size="1.125rem"
       weight="bold"
       mt={16}
       mb={8}
@@ -32,13 +36,13 @@ const Card = ({ tags, title, description, date, theme }) => (
     >
       {title}
     </Box>
-    <Box mb={8} color={theme.colors.grays[0]} size="1.125rem">
+    <Box mb={8} color={theme.colors.grays[0]} size="1rem">
       {description}
     </Box>
     <Box mb={24} color={theme.colors.grays[2]} size="0.8125rem" as="time">
       Postado em {date}
     </Box>
-    <Box size="1.125rem" color={theme.colors.primary} weight="bold" as="span">
+    <Box size="1rem" color={theme.colors.primary} weight="bold" as="span">
       Ler mais
     </Box>
   </Wrapper>

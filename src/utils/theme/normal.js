@@ -1,6 +1,9 @@
 const light = {
   sizes: {
     maxWidth: 910,
+    breakpoints: {
+      md: 880,
+    },
   },
   radius: 8,
   colors: {

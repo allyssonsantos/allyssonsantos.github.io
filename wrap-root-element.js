@@ -16,7 +16,6 @@ const components = {
       return <pre {...preProps} />;
     }
   },
-  p: Paragraph,
   inlineCode: InlineCode,
   ul: Ul,
   ol: Ol,

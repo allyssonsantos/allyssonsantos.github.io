@@ -8,9 +8,9 @@ const Tag = styled.div`
   font-size: 0.75rem;
   font-weight: bold;
 
-  & + & {
-    margin-left: 6px;
-  }
+  text-transform: uppercase;
+  margin-top: 6px;
+  margin-right: 6px;
 
   ${({ tag, theme: { colors, radius } }) => {
     const color = colors.tags[tag.replace(/\s|-*/g, '').toLowerCase()];

@@ -12,6 +12,18 @@ const Wrapper = styled.footer`
   a + a {
     margin-left: 36px;
   }
+
+  ${({ theme: { sizes } }) => css`
+    @media (max-width: ${sizes.breakpoints.md}px) {
+      a {
+        display: block;
+      }
+
+      a + a {
+        margin-left: 0;
+      }
+    }
+  `}
 `;
 
 const Center = styled.div`
@@ -23,6 +35,10 @@ const Center = styled.div`
 
   ${({ theme: { sizes } }) => css`
     max-width: ${sizes.maxWidth}px;
+
+    @media (max-width: ${sizes.breakpoints.md}px) {
+      align-items: flex-start;
+    }
   `}
 `;
 
@@ -33,7 +49,6 @@ const Footer = ({ theme }) => (
         as="span"
         color={theme.colors.grays[1]}
         size="0.875rem"
-        weight="bold"
         display="inline-block"
       >
         © Feito por Allysson

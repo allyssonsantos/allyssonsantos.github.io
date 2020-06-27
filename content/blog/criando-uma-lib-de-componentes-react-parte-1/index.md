@@ -303,9 +303,7 @@ usado no `onClick` do componente `Button`.
 Ao abrir a _story_ _Button > Text_ perceba que há um painel chamado **Actions**
 na parte inferior da página, ao clicar no botão que está sendo exibido na
 _story_, serão logados as informações do evento de _click_ na aba de
-**Actions**:
-
-![Addon action](/addon_action.gif 'Addon action')
+**Actions**.
 
 O _addon_ **actions** pode ser usado para exibir os dados recebidos por
 _event-handlers_ no _storybook_, como `onClick`, `onKeyDown`, etc. Ou qualquer
@@ -319,8 +317,6 @@ Se você quiser saber mais sobre o funcionamento desse addon,
 Como o próprio nome diz, o _addon links_ serve para linkar _stories_ entre sí.
 Na _story_ do componente `<Welcome />` que vem por _default_, há um link para a
 `story` chamada _"Button"_.
-
-![Button link](/link-button.png 'Link para story button')
 
 Esse link é feito através do `linkTo` que está sendo usado na prop `showApp` do
 componente `Welcome`.

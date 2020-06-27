@@ -10,6 +10,8 @@ import Button from './Button';
 import Repo from './Repo';
 import Footer from './Footer';
 import Link from './Link';
+import Input from './Input';
+import SEO from './seo';
 
 export {
   Code,
@@ -26,4 +28,6 @@ export {
   Repo,
   Footer,
   Link,
+  Input,
+  SEO,
 };

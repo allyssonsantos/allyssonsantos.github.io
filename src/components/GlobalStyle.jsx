@@ -28,9 +28,9 @@ const GlobalStyle = createGlobalStyle`
     
     ${({
       theme: {
-        colors: { primary },
+        colors: { grays },
       },
-    }) => `color: ${primary};`}
+    }) => `color: ${grays[0]};`}
   }
 
   h3 {
@@ -41,13 +41,36 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 700;
   }
 
+  h2 {
+    font-size: 	1.75rem;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-size: 1.375rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+  }
+
   pre {
     padding: 12px;
     overflow-x: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
   }
 
-  img {
-    width: 100%;
+  p img, figure img {
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: block;
+    margin: 10px auto;
+  }
+
+  figcaption {
+    margin-bottom: 20px;
   }
 
   footer {
@@ -57,6 +80,12 @@ const GlobalStyle = createGlobalStyle`
 
   p, figure {
     margin: 0;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 26px;
+    margin-bottom: 16px;
   }
 
   blockquote {

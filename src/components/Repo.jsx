@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 50px 40px 0px;
-  margin-top: 24px;
+  margin-bottom: 18px;
 
   background: #ffffff;
   border: 1px solid #e5e5e5;
@@ -35,7 +35,7 @@ const SeeMore = styled.a`
   text-decoration: none;
   text-align: center;
   padding: 16px 0 22px;
-  margin-top: 10px;
+  margin-top: 36px;
   color: #6aa79f;
   font-weight: bold;
   font-size: 1rem;

@@ -1,11 +1,21 @@
 import React from 'react';
-import { withTheme } from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
 import { Box } from '.';
 
+const StyledBox = styled(Box)`
+  padding: 10px 16px;
+  &.active {
+    background-color: #394d64;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: bold;
+  }
+`;
+
 const Link = ({ theme, ...props }) => (
-  <Box
+  <StyledBox
     as={GatsbyLink}
     {...props}
     color={props.color || theme.colors.primary}

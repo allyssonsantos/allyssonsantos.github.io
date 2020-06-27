@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link, graphql } from 'gatsby';
 
 import personalProjects from '../data/projects';
@@ -19,11 +19,16 @@ const Repos = styled.div`
 
   div {
     flex-basis: 49%;
+
+    ${({ theme: { sizes } }) => css`
+      @media (max-width: ${sizes.breakpoints.md}px) {
+        flex-basis: 100%;
+      }
+    `}
   }
 `;
 
 const Home = ({
-  theme,
   location,
   data: {
     site: {
@@ -32,7 +37,7 @@ const Home = ({
     allMdx: { edges: posts },
   },
 }) => (
-  <Layout location={location} title={siteTitle}>
+  <Layout location={location} title={siteTitle} full>
     <SEO
       title="Home"
       keywords={[
@@ -60,12 +65,11 @@ const Home = ({
       );
     })}
     <Wrapper>
-      <Button as="a">Ver todos artigos</Button>
+      <Button as={Link} to="/blog">
+        Ver todos artigos
+      </Button>
     </Wrapper>
     <Title as="h2">Projetos open source</Title>
-    <Box as="p" textAlign="center" size="1.375rem">
-      Projetos que participo ou participei
-    </Box>
     <Repos>
       {personalProjects.map(repo => (
         <Repo
