@@ -1,7 +1,7 @@
 ---
-title: 'Criando uma lib de componentes React, Parte 1: Introdução, github, storybook'
+title: 'Criando uma lib de componentes React, Parte 1'
 slug: /criando-uma-lib-de-componentes-react-parte-1
-description: Como começar?
+description: Introdução ao projeto, criação do repositório no github e a instação e configuração do storybook
 date: '2020-06-02'
 tags:
   - React
@@ -278,10 +278,10 @@ ToStorybook.story = {
 ```
 
 Esse trecho de código editou o título do grupo de histórias do componente
-_Welcome_ e o titulo da história _ToStorybook_, como podemos ver no gif a
+_Welcome_ e o titulo da história _ToStorybook_, como podemos ver no print a
 seguir:
 
-![Gif das histórias editadas](/edited-stories.gif 'Gif das histórias editadas')
+![Gif das histórias editadas](/edited-stories.png 'Imagem da história editada')
 
 ### A pasta .storybook
 

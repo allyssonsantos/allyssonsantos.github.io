@@ -1,7 +1,7 @@
 ---
 title: Abertura do StarWars em CSS.
 slug: /abertura-do-starwars-em-css
-description: I'm your father
+description: Criando a abertura do filme starwars utilizando apenas html e css
 date: '2016-07-25'
 tags:
   - CSS

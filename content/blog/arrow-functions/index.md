@@ -1,7 +1,7 @@
 ---
 title: Arrow Functions
 slug: /arrow-functions
-description: () => {}
+description: Qual a diferença de arrow function para uma function "padrão"?
 date: '2016-12-18'
 tags:
   - Javascript
