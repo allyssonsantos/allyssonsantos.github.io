@@ -3,6 +3,8 @@ title: Transform do CSS3
 slug: /transform-css3
 description: o que é possível fazer?
 date: '2016-04-01'
+tags:
+  - CSS
 ---
 
 O **transform** é uma propriedade do **CSS3** que permite adicionar efeitos 2D e

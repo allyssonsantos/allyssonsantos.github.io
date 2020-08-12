@@ -24,7 +24,7 @@
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.6",
-    "gatsby-plugin-styled-components": "^3.1.17",
+    "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-remark-copy-linked-files": "^2.0.5",
     "gatsby-remark-images": "^3.1.19",
     "gatsby-remark-responsive-iframe": "^2.0.5",
@@ -39,10 +39,10 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.0",
     "react-live": "^2.2.0",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.6",
+    "babel-plugin-styled-components": "^1.11.1",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "3.0.2",
     "prettier": "^1.14.2"
@@ -60,7 +60,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -d public -b master",
+    "deploy": "gatsby build && gh-pages -d public -b gh-pages",
     "commit": "git-cz"
   },
   "config": {

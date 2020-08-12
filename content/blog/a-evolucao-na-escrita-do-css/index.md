@@ -1,8 +1,10 @@
 ---
 title: A evolução na escrita do CSS.
 slug: /a-evolucao-na-escrita-do-css
-description: style > BEM/SMACSS/ITCSS > sass/less/stylus > postcss > css-in-js
+description: Como o CSS saiu da tag style, seguiu metodologias, criou pré-processadores e chegou ao javascript
 date: '2019-05-28'
+tags:
+  - CSS
 ---
 
 O CSS é uma linguagem para descrever como será apresentado um documento escrito em _HTML_, acho que você conhece, né? 🙃

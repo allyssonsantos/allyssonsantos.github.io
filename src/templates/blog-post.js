@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { DiscussionEmbed } from 'disqus-react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import { Layout, SEO, Link, Title, Box } from '../components';
 
 const Time = styled.time`
-  margin-bottom: 28px;
+  margin-bottom: 50px;
+  margin-top: 16px;
+  font-size: 0.8125rem;
+  display: inline-block;
 `;
 
 const disqusConfig = (slug, title) => ({
@@ -28,8 +30,18 @@ const Post = ({
 }) => (
   <Layout location={location} title={siteTitle}>
     <SEO title={post.frontmatter.title} description={post.excerpt} />
-    <h1>{post.frontmatter.title}</h1>
-    <Time>{post.frontmatter.date}</Time>
+    <Link to="/blog" $mt={50} $mb={38}>
+      {'<'} voltar para todos artigos
+    </Link>
+
+    <Title textAlign="left" $mt={0} $mb={8} $size="2rem">
+      {post.frontmatter.title}
+    </Title>
+    <Box as="p" $size="1.5rem" $lh="38px">
+      {post.frontmatter.description}{' '}
+    </Box>
+    <Time>Publicado em {post.frontmatter.date}</Time>
+
     <MDXRenderer>{post.body}</MDXRenderer>
     <hr />
 
@@ -79,7 +91,8 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
-        date(formatString: "DD MMMM, YYYY", locale: "pt-BR")
+        date(formatString: "DD/MM/YYYY", locale: "pt-BR")
+        description
       }
       body
     }

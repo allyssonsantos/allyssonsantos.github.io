@@ -1,8 +1,12 @@
 ---
-title: 'Criando uma lib de componentes React, Parte 1: Introdução, github, storybook'
+title: 'Criando uma lib de componentes React, Parte 1'
 slug: /criando-uma-lib-de-componentes-react-parte-1
-description: Como começar?
+description: Introdução ao projeto, criação do repositório no github e a instação e configuração do storybook
 date: '2020-06-02'
+tags:
+  - React
+  - Design System
+  - styled-components
 ---
 
 Nessa série de posts iremos criar uma biblioteca de componentes bem completa!
@@ -274,10 +278,10 @@ ToStorybook.story = {
 ```
 
 Esse trecho de código editou o título do grupo de histórias do componente
-_Welcome_ e o titulo da história _ToStorybook_, como podemos ver no gif a
+_Welcome_ e o titulo da história _ToStorybook_, como podemos ver no print a
 seguir:
 
-![Gif das histórias editadas](/edited-stories.gif 'Gif das histórias editadas')
+![Gif das histórias editadas](/edited-stories.png 'Imagem da história editada')
 
 ### A pasta .storybook
 
@@ -299,9 +303,7 @@ usado no `onClick` do componente `Button`.
 Ao abrir a _story_ _Button > Text_ perceba que há um painel chamado **Actions**
 na parte inferior da página, ao clicar no botão que está sendo exibido na
 _story_, serão logados as informações do evento de _click_ na aba de
-**Actions**:
-
-![Addon action](/addon_action.gif 'Addon action')
+**Actions**.
 
 O _addon_ **actions** pode ser usado para exibir os dados recebidos por
 _event-handlers_ no _storybook_, como `onClick`, `onKeyDown`, etc. Ou qualquer
@@ -315,8 +317,6 @@ Se você quiser saber mais sobre o funcionamento desse addon,
 Como o próprio nome diz, o _addon links_ serve para linkar _stories_ entre sí.
 Na _story_ do componente `<Welcome />` que vem por _default_, há um link para a
 `story` chamada _"Button"_.
-
-![Button link](/link-button.png 'Link para story button')
 
 Esse link é feito através do `linkTo` que está sendo usado na prop `showApp` do
 componente `Welcome`.

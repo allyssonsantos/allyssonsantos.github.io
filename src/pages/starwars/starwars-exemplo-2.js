@@ -132,7 +132,7 @@ const Starwars = () => (
           their last stand...
         </p>
       </div>
-      <audio autoplay>
+      <audio autoPlay>
         <source src="/starwars.mp3" type="audio/mpeg" />
       </audio>
     </div>
