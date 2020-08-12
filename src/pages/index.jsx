@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { Link, graphql } from 'gatsby';
 
 import personalProjects from '../data/projects';
-import { Layout, Title, Card, Button, Repo, Box } from '../components';
+import { Layout, Title, Card, Button, Repo } from '../components';
 import SEO from '../components/seo';
 
 const Wrapper = styled.div`

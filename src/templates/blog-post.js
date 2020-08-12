@@ -7,7 +7,8 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Layout, SEO, Link, Title, Box } from '../components';
 
 const Time = styled.time`
-  margin-bottom: 28px;
+  margin-bottom: 50px;
+  margin-top: 16px;
   font-size: 0.8125rem;
   display: inline-block;
 `;
@@ -29,15 +30,18 @@ const Post = ({
 }) => (
   <Layout location={location} title={siteTitle}>
     <SEO title={post.frontmatter.title} description={post.excerpt} />
-    <Link to="/blog">{'<'} voltar para todos artigos</Link>
+    <Link to="/blog" $mt={50} $mb={38}>
+      {'<'} voltar para todos artigos
+    </Link>
 
-    <Title textAlign="left" mt={38} mb={8} size="2rem">
+    <Title textAlign="left" $mt={0} $mb={8} $size="2rem">
       {post.frontmatter.title}
     </Title>
-    <Box as="p" size="1.75rem" mb={26}>
-      {post.frontmatter.description}
+    <Box as="p" $size="1.5rem" $lh="38px">
+      {post.frontmatter.description}{' '}
     </Box>
     <Time>Publicado em {post.frontmatter.date}</Time>
+
     <MDXRenderer>{post.body}</MDXRenderer>
     <hr />
 
