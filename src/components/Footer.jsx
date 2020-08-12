@@ -47,9 +47,9 @@ const Footer = ({ theme }) => (
     <Center>
       <Box
         as="span"
-        color={theme.colors.grays[1]}
-        size="0.875rem"
-        display="inline-block"
+        $color={theme.colors.grays[1]}
+        $size="0.875rem"
+        $display="inline-block"
       >
         © Feito por Allysson
       </Box>

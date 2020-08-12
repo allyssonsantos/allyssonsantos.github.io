@@ -27,7 +27,7 @@ const Wrapper = styled.header`
           height: auto;
         `
   }
-    
+
 
     @media (max-width: ${sizes.breakpoints.md}px) {
       background: ${white};
@@ -93,7 +93,7 @@ const Menu = styled.div`
   font-size: 0.875rem;
 
   a + a {
-    margin-left: 32px;
+    margin-left: 6px;
   }
 
   ${({ theme: { colors } }) => css`
@@ -147,9 +147,9 @@ const Header = ({ theme, full }) => (
       <Link to="/">
         <Box
           as="h3"
-          display="inline-block"
-          size="0.875rem"
-          color={theme.colors.grays[1]}
+          $display="inline-block"
+          $size="0.875rem"
+          $color={theme.colors.grays[1]}
           style={{ paddingLeft: 0 }}
         >
           allysson
@@ -159,11 +159,19 @@ const Header = ({ theme, full }) => (
       <Menu>
         <Link
           to="/blog"
-          color={theme.colors.white}
-          weight="normal"
+          $color={theme.colors.white}
+          $weight="normal"
           activeClassName="active"
         >
           Blog
+        </Link>
+        <Link
+          to="/about"
+          $color={theme.colors.white}
+          $weight="normal"
+          activeClassName="active"
+        >
+          Sobre mim
         </Link>
       </Menu>
     </Nav>
@@ -173,15 +181,15 @@ const Header = ({ theme, full }) => (
           <Info>
             <Box
               as="h2"
-              size="2.75rem"
-              mt={30}
-              mb={24}
-              color={theme.colors.grays[0]}
-              weight="bold"
+              $size="2.75rem"
+              $mt={30}
+              $mb={24}
+              $color={theme.colors.grays[0]}
+              $weight="bold"
             >
               E aí, Beleza?
             </Box>
-            <Box as="p" lh="24px">
+            <Box as="p" $lh="24px">
               Sou o Allysson, desenvolvedor Front End no Gympass e vim trazer
               mais conteúdo em português sobre desenvolvimento.
             </Box>

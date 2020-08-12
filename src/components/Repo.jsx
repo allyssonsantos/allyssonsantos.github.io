@@ -48,28 +48,28 @@ const Repo = ({ logo, title, description, stars, forks, link, theme }) => (
       <Img src={`/logos/${logo}.png`} />
       <Box
         as="h2"
-        size="1.25rem"
-        color={theme.colors.grays[0]}
-        weight="bold"
-        mt={20}
-        mb={8}
-        textAlign="center"
+        $size="1.25rem"
+        $color={theme.colors.grays[0]}
+        $weight="bold"
+        $mt={20}
+        $mb={8}
+        $textAlign="center"
       >
         {title}
       </Box>
-      <Box as="p" lh="22px" textAlign="center" mb={16}>
+      <Box as="p" $lh="22px" $textAlign="center" $mb={16}>
         {description}
       </Box>
       <div>
         <Numbers>
           <Img src="/icons/star.svg" />{' '}
-          <Box color={theme.colors.grays[2]} ml={6}>
+          <Box $color={theme.colors.grays[2]} $ml={6}>
             {stars}
           </Box>
         </Numbers>
         <Numbers>
           <Img src="/icons/fork.svg" />{' '}
-          <Box color={theme.colors.grays[2]} ml={6}>
+          <Box $color={theme.colors.grays[2]} $ml={6}>
             {forks}
           </Box>
         </Numbers>
