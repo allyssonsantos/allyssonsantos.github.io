@@ -18,5 +18,7 @@ jobs:
         node-version: 12
 
     # Runs a single command using the runners shell
+    - name: Install dependencies
+      run: yarn
     - name: deploy
       run: yarn deploy
