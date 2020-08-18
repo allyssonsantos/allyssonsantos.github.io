@@ -13,6 +13,14 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    - name: Configure CI Git User
+      run: |
+        git remote set-url origin https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git checkout master
+        git config --global user.email aallysson0@gmail.com
+        git config --global user.name Allysson Santos
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - uses: actions/setup-node@v1
       with:
         node-version: 12
