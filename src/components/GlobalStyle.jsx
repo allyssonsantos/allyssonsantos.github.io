@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+    word-break: break-word;
   }
 
   h1, article > h2 {
@@ -25,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 2rem;
-    
+
     ${({
       theme: {
         colors: { grays },
