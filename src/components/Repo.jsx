@@ -45,7 +45,7 @@ const SeeMore = styled.a`
 const Repo = ({ logo, title, description, stars, forks, link, theme }) => (
   <Wrapper>
     <div>
-      <Img src={`/logos/${logo}.png`} />
+      {logo !== 'frigobar' && <Img src={`/logos/${logo}.png`} />}
       <Box
         as="h2"
         $size="1.25rem"
