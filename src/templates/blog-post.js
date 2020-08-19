@@ -34,7 +34,7 @@ const Post = ({
       {'<'} voltar para todos artigos
     </Link>
 
-    <Title textAlign="left" $mt={0} $mb={8} $size="2rem">
+    <Title $textAlign="left" $mt={0} $mb={8} $size="2rem">
       {post.frontmatter.title}
     </Title>
     <Box as="p" $size="1.5rem" $lh="38px">
