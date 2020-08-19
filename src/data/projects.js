@@ -2,16 +2,16 @@ const projects = [
   {
     name: 'React95',
     description: 'A React components library with Win95 UI',
-    forks: 59,
-    stars: 1269,
+    forks: 57,
+    stars: 1352,
     homepage: 'https://github.com/React95/React95',
   },
   {
     name: 'Yoga',
     description:
       'Yoga design-system: a scientific system of practices made to help each one of us achieve our highest potential and experience.',
-    forks: 9,
-    stars: 97,
+    forks: 10,
+    stars: 101,
     homepage: 'https://github.com/Gympass/yoga',
   },
   {
