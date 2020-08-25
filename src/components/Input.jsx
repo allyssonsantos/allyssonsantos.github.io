@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     position: absolute;
     pointer-events: none;
     left: 20px;
-    top: 23px;
+    top: 20px;
   }
 `;
 
