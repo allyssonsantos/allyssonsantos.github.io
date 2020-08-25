@@ -278,10 +278,7 @@ ToStorybook.story = {
 ```
 
 Esse trecho de código editou o título do grupo de histórias do componente
-_Welcome_ e o titulo da história _ToStorybook_, como podemos ver no print a
-seguir:
-
-![Gif das histórias editadas](/edited-stories.png 'Imagem da história editada')
+_Welcome_ e o titulo da história _ToStorybook_.
 
 ### A pasta .storybook
 
