@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import Helmet from 'react-helmet';
 
 import GlobalStyle from './GlobalStyle';
 import Header from './Header';
@@ -20,6 +21,9 @@ const Wrapper = styled.main`
 const Layout = ({ children, title, full }) => (
   <ThemeProvider theme={normal}>
     <>
+      <Helmet>
+      <script src="https://www.googleoptimize.com/optimize.js?id=OPT-T22ZV98"></script>
+      </Helmet>
       <GlobalStyle />
       <Header show title={title} full={full} />
       <Bg>
