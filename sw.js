@@ -35,45 +35,45 @@ self.__precacheManifest = [
     "url": "f0e45107-ff2c7ac7fae000cceb4b.js"
   },
   {
-    "url": "app-076c0a62f91a23fd0340.js"
+    "url": "app-30b87f0ed7757b0f8776.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-02e8e9a638a311206d60.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "9159f76a6675ba4806a06bfc244357db"
+    "revision": "b2edc29dea9a8b735494a27cfe95ee1a"
   },
   {
-    "url": "google-fonts/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZM.woff2",
+    "url": "google-fonts/s/merriweather/v22/u-440qyriQwlOrhSvowK_l5-fCZM.woff2",
     "revision": "8276fdb72ae8f4714d4e6eba704cc39f"
   },
   {
-    "url": "google-fonts/s/merriweather/v21/u-4l0qyriQwlOrhSvowK_l5-eR71Wvf4jvw.woff2",
+    "url": "google-fonts/s/merriweather/v22/u-4l0qyriQwlOrhSvowK_l5-eR71Wvf4jvw.woff2",
     "revision": "1ef5edaaa20ae53ea50399884c5e48c6"
   },
   {
-    "url": "google-fonts/s/merriweather/v21/u-4l0qyriQwlOrhSvowK_l5-eR7NWPf4jvw.woff2",
+    "url": "google-fonts/s/merriweather/v22/u-4l0qyriQwlOrhSvowK_l5-eR7NWPf4jvw.woff2",
     "revision": "e1b4d2aaa78e12ad84aaf8a56321e4c2"
   },
   {
-    "url": "google-fonts/s/merriweather/v21/u-4l0qyriQwlOrhSvowK_l5-eR7lXff4jvw.woff2",
+    "url": "google-fonts/s/merriweather/v22/u-4l0qyriQwlOrhSvowK_l5-eR7lXff4jvw.woff2",
     "revision": "8fe52a48089d6ebe46db0b8e7cc66263"
   },
   {
-    "url": "google-fonts/s/merriweather/v21/u-4m0qyriQwlOrhSvowK_l5-eRZOf-I.woff2",
+    "url": "google-fonts/s/merriweather/v22/u-4m0qyriQwlOrhSvowK_l5-eRZOf-I.woff2",
     "revision": "3a9be9ea9f7aa4af6de7307df21d9fc0"
   },
   {
-    "url": "google-fonts/s/merriweather/v21/u-4n0qyriQwlOrhSvowK_l521wRZWMf6.woff2",
+    "url": "google-fonts/s/merriweather/v22/u-4n0qyriQwlOrhSvowK_l521wRZWMf6.woff2",
     "revision": "b1158cfcd4aacb9d8fb61625e37af46a"
   },
   {
-    "url": "google-fonts/s/merriweather/v21/u-4n0qyriQwlOrhSvowK_l52_wFZWMf6.woff2",
+    "url": "google-fonts/s/merriweather/v22/u-4n0qyriQwlOrhSvowK_l52_wFZWMf6.woff2",
     "revision": "7528fb70e8a4a82c7305e72ff43ac25f"
   },
   {
-    "url": "google-fonts/s/merriweather/v21/u-4n0qyriQwlOrhSvowK_l52xwNZWMf6.woff2",
+    "url": "google-fonts/s/merriweather/v22/u-4n0qyriQwlOrhSvowK_l52xwNZWMf6.woff2",
     "revision": "fa534be7ffa380e39a7f6e03bf9a5e03"
   },
   {
@@ -121,7 +121,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-076c0a62f91a23fd0340.js`))) {
+  if (!resources || !(await caches.match(`/app-30b87f0ed7757b0f8776.js`))) {
     return await fetch(event.request)
   }
 
