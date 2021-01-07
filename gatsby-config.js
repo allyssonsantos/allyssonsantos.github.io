@@ -135,27 +135,13 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Roboto`,
-            variants: [`400`, `500`, `600`, `700`, `800`, `900`],
-          },
-          {
-            family: `Merriweather`,
-            variants: [
-              '300',
-              '300i',
-              '400',
-              '400i',
-              '700',
-              '700i',
-              '900',
-              '900i',
-            ],
-          },
+          `Roboto\:400,400i,500,500i,700,700i,800,800i,900,900i`,
+          `Merriweather\:300,300i,400,400i,700,700i,900,900i`,
         ],
+        display: 'swap',
       },
     },
   ],
