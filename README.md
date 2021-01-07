@@ -1,52 +1,35 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
 <h1 align="center">
-  Gatsby's blog starter now with 100% more MDX
+allysson.me
 </h1>
 
-Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React, with support for an MDX blog.
+My personal website/blog to share some front-end ideas with everyone!
 
-_Have another more specific idea? You may want to check out this awesome collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Made with
 
-What's MDX you ask? MDX let's you use JSX in your Markdown, making it even
-easier to write blog posts, document your React components, and much more. [Find
-out more about MDX](https://github.com/mdx-js/mdx), and [gatsby-mdx](https://github.com/ChristopherBiscardi/gatsby-mdx), the plugin that makes
-this blog possible!
+- [Gatsby](https://github.com/gatsbyjs/gatsby)
+- [Styled-components](https://github.com/styled-components/styled-components)
+- [MDX](https://mdxjs.com)
 
-## 🚀 Quick start
+## Instalation
 
-1.  **Create a Gatsby site.**
+Clone and install the dependencies:
 
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
+```bash
+git clone git@github.com:allyssonsantos/allyssonsantos.github.io.git
+cd allyssonsantos.github.io
+yarn
+```
 
-    ```sh
-    # create a new Gatsby site using the blog starter
-    npx gatsby new my-blog-starter https://github.com/hagnerd/gatsby-starter-blog-mdx
-    ```
+## Running
 
-1.  **Start developing.**
+Just type `yarn dev` on your terminal.
 
-    Navigate into your new site’s directory and start it up.
+## Contributing
 
-    ```sh
-    cd my-blog-starter/
-    gatsby develop
-    ```
+Feel free to open any kind of issues and pull-requests in this project, just
+make sure to follow the [`conventional-commits`](https://www.conventionalcommits.org/en/v1.0.0/)
+specification when commiting your changes. We have a npm script to do that:
 
-1.  **Open the source code and start editing!**
-
-    Your site is now running at `http://localhost:8000`!
-
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
-
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+```bash
+yarn commit
+```
