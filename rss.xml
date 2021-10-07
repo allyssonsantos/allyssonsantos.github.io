@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby RSS feed]]></title><description><![CDATA[Blog with front-end tips and tutorials]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Feb 2021 00:25:02 GMT</lastBuildDate><item><title><![CDATA[Criando uma lib de componentes React, Parte 1]]></title><link>https://allysson.me/criando-uma-lib-de-componentes-react-parte-1/</link><guid isPermaLink="false">https://allysson.me/criando-uma-lib-de-componentes-react-parte-1/</guid><pubDate>Tue, 02 Jun 2020 00:00:00 GMT</pubDate><content:encoded>function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby RSS feed]]></title><description><![CDATA[Blog with front-end tips and tutorials]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Oct 2021 21:33:11 GMT</lastBuildDate><item><title><![CDATA[Criando uma lib de componentes React, Parte 1]]></title><link>https://allysson.me/criando-uma-lib-de-componentes-react-parte-1/</link><guid isPermaLink="false">https://allysson.me/criando-uma-lib-de-componentes-react-parte-1/</guid><pubDate>Tue, 02 Jun 2020 00:00:00 GMT</pubDate><content:encoded>var _excluded = [&quot;components&quot;];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i &lt; sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) &gt;= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -20,7 +22,7 @@ var layoutProps = {
 var MDXLayout = &quot;wrapper&quot;;
 return function MDXContent(_ref) {
   var components = _ref.components,
-      props = _objectWithoutProperties(_ref, [&quot;components&quot;]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
   return mdx(MDXLayout, _extends({}, layoutProps, props, {
     components: components,
@@ -49,100 +51,86 @@ return function MDXContent(_ref) {
     parentName: &quot;ul&quot;
   }, &quot;etc\u2026&quot;)), mdx(&quot;p&quot;, null, &quot;Tamb\xE9m conheceremos algumas ferramentas para nos ajudar com o desenvolvimento,\nbuild e deploy. Como por exemplo:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://webpack.js.org/&quot;,
     &quot;title&quot;: &quot;Webpack&quot;
-  }), &quot;Webpack&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
+  }, &quot;Webpack&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://rollupjs.org/guide/en/&quot;,
     &quot;title&quot;: &quot;Rollup.js&quot;
-  }), &quot;Rollup.js&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
+  }, &quot;Rollup.js&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://semantic-release.gitbook.io/semantic-release/&quot;,
     &quot;title&quot;: &quot;Semantic Release&quot;
-  }), &quot;Semantic Release&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
+  }, &quot;Semantic Release&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;http://commitizen.github.io/cz-cli/&quot;,
     &quot;title&quot;: &quot;Commitizen&quot;
-  }), &quot;Commitizen&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
+  }, &quot;Commitizen&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://eslint.org/&quot;,
     &quot;title&quot;: &quot;Eslint&quot;
-  }), &quot;Eslint&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
+  }, &quot;Eslint&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://travis-ci.org/&quot;,
     &quot;title&quot;: &quot;TravisCI&quot;
-  }), &quot;TravisCI&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
+  }, &quot;TravisCI&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://storybook.js.org/&quot;,
     &quot;title&quot;: &quot;Storybook&quot;
-  }), &quot;Storybook&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
+  }, &quot;Storybook&quot;), &quot;;&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://www.styled-components.com/&quot;,
     &quot;title&quot;: &quot;Styled Components&quot;
-  }), &quot;Styled Components&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;Styled Components&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, &quot;etc\u2026&quot;)), mdx(&quot;h2&quot;, null, &quot;Criando reposit\xF3rio no GitHub&quot;), mdx(&quot;p&quot;, null, &quot;Por mais simples que seja, precisamos come\xE7ar criando o reposit\xF3rio de nossa\nbiblioteca no github. Primeiramente voc\xEA precisa ter um usu\xE1rio no\n&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;etc\u2026&quot;)), mdx(&quot;h2&quot;, null, &quot;Criando reposit\xF3rio no GitHub&quot;), mdx(&quot;p&quot;, null, &quot;Por mais simples que seja, precisamos come\xE7ar criando o reposit\xF3rio de nossa\nbiblioteca no github. Primeiramente voc\xEA precisa ter um usu\xE1rio no\n&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://github.com&quot;
-  }), &quot;github&quot;), &quot;, se ainda n\xE3o tiver, v\xE1 criar agora!\n&quot;, mdx(&quot;em&quot;, {
+  }, &quot;github&quot;), &quot;, se ainda n\xE3o tiver, v\xE1 criar agora!\n&quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;(&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;em&quot;
-  }, {
+  }, &quot;(&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;em&quot;,
     &quot;href&quot;: &quot;https://github.com/join&quot;
-  }), &quot;https://github.com/join&quot;), &quot;)&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Ap\xF3s logado, crie um\n&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;https://github.com/join&quot;), &quot;)&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Ap\xF3s logado, crie um\n&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://github.com/new&quot;,
     &quot;title&quot;: &quot;Link para criar um novo repositório no github&quot;
-  }), &quot;novo reposit\xF3rio&quot;), &quot;,\nescolha o nome da sua biblioteca, no meu caso, ser\xE1 \u201Cfrigobar\u201D. Coloque tamb\xE9m\numa descri\xE7\xE3o para o projeto, escolha se \xE9 privado ou p\xFAblico (\xE9 claro que ser\xE1\np\xFAblico, n\xE9? voc\xEA usa trocentos projetos open-source, porque sua biblioteca n\xE3o\nseria??). \xC9 bom j\xE1 iniciar com um &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;novo reposit\xF3rio&quot;), &quot;,\nescolha o nome da sua biblioteca, no meu caso, ser\xE1 \u201Cfrigobar\u201D. Coloque tamb\xE9m\numa descri\xE7\xE3o para o projeto, escolha se \xE9 privado ou p\xFAblico (\xE9 claro que ser\xE1\np\xFAblico, n\xE9? voc\xEA usa trocentos projetos open-source, porque sua biblioteca n\xE3o\nseria??). \xC9 bom j\xE1 iniciar com um &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;README.md&quot;), &quot;, um &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;.gitignore&quot;), &quot; e adicionar uma\nlicen\xE7a, e \xE9 claro que ser\xE1 &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;MIT&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;MIT&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/create-repository.png&quot;,
     &quot;alt&quot;: &quot;Imagem do formulário de novo projeto do github preenchido&quot;,
     &quot;title&quot;: &quot;Formulário do github preenchido&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;Ap\xF3s criado, clone seu projeto!&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  })), mdx(&quot;p&quot;, null, &quot;Ap\xF3s criado, clone seu projeto!&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/clone-repository.png&quot;,
     &quot;alt&quot;: &quot;Imagem do pop-over para clonar o projeto do github&quot;,
     &quot;title&quot;: &quot;Pop-over do github para clonar projeto&quot;
-  }))), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  })), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-shell&quot;
-  }), &quot;git clone git@github.com:SEU-USUARIO/SEU-PROJETO.git\n&quot;)), mdx(&quot;p&quot;, null, &quot;Percebeu que ele veio com o &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;git clone git@github.com:SEU-USUARIO/SEU-PROJETO.git\n&quot;)), mdx(&quot;p&quot;, null, &quot;Percebeu que ele veio com o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;.gitignore&quot;), &quot;, &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -160,31 +148,28 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;npm init&quot;), &quot;, responda as\nperguntas, (o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;test command&quot;), &quot; pode ficar em branco mesmo). No meu caso ficou\nassim:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;test command&quot;), &quot; pode ficar em branco mesmo). No meu caso ficou\nassim:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/npm-init.png&quot;,
     &quot;alt&quot;: &quot;Imagem CLI do npm init&quot;,
     &quot;title&quot;: &quot;Imagem CLI do npm init&quot;
-  })), &quot;\nIsso ir\xE1 gerar nosso &quot;, mdx(&quot;inlineCode&quot;, {
+  }), &quot;\nIsso ir\xE1 gerar nosso &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;package.json&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Agora vamos instalar nossas primeiras depend\xEAncias para cria\xE7\xE3o de nossa\nbiblioteca. Primeiramente, vamos instalar o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;react&quot;), &quot; e o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;react-dom&quot;), &quot;.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;react-dom&quot;), &quot;.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-shell&quot;
-  }), &quot;npm install react react-dom\n&quot;)), mdx(&quot;p&quot;, null, &quot;Ap\xF3s a instala\xE7\xE3o, as duas depend\xEAncias ser\xE3o adicionadas no &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;npm install react react-dom\n&quot;)), mdx(&quot;p&quot;, null, &quot;Ap\xF3s a instala\xE7\xE3o, as duas depend\xEAncias ser\xE3o adicionadas no &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;package.json&quot;), &quot;:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;package.json&quot;), &quot;:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/react-reactdom-dependencies.png&quot;,
     &quot;alt&quot;: &quot;Imagem do package.json mostrando o react e react-dom como dependências&quot;,
     &quot;title&quot;: &quot;Imagem do package.json mostrando o react e react-dom como dependências&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;Mais pra frente veremos que o &quot;, mdx(&quot;inlineCode&quot;, {
+  })), mdx(&quot;p&quot;, null, &quot;Mais pra frente veremos que o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;react&quot;), &quot; e o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -194,12 +179,11 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;package.json&quot;), &quot;.&quot;), mdx(&quot;h2&quot;, null, &quot;Storybook&quot;), mdx(&quot;p&quot;, null, &quot;Agora, pra gente n\xE3o precisar criar uma aplica\xE7\xE3o pra conseguir visualizar os\ncomponentes que iremos criar, e tamb\xE9m pra dar um certo tipo de documenta\xE7\xE3o pra\nquem quiser visualizar quais componentes nossa lib disponibiliza, iremos\nutilizar o &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;em&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;em&quot;,
     &quot;href&quot;: &quot;https://storybook.js.org/&quot;,
     &quot;title&quot;: &quot;Storybook&quot;
-  }), &quot;Storybook&quot;)), &quot;. Ele \xE9 uma\nferramenta para desenvolver componentes visuais em &quot;, mdx(&quot;em&quot;, {
+  }, &quot;Storybook&quot;)), &quot;. Ele \xE9 uma\nferramenta para desenvolver componentes visuais em &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;React&quot;), &quot;, &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -207,17 +191,15 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;Angular&quot;), &quot;,\nele mant\xE9m a visualiza\xE7\xE3o de seus componentes organizada e eficiente.&quot;), mdx(&quot;p&quot;, null, &quot;Essa \xE9 a cara do &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;storybook&quot;), &quot;:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;storybook&quot;), &quot;:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/storybook.png&quot;,
     &quot;alt&quot;: &quot;Imagem da interface do storybook&quot;,
     &quot;title&quot;: &quot;Imagem da interface do storybook&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;Pra gente instalar, basta rodar:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  })), mdx(&quot;p&quot;, null, &quot;Pra gente instalar, basta rodar:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-shell&quot;
-  }), &quot;npx -p @storybook/cli sb init\n&quot;)), mdx(&quot;p&quot;, null, &quot;A instala\xE7\xE3o do &quot;, mdx(&quot;em&quot;, {
+  }, &quot;npx -p @storybook/cli sb init\n&quot;)), mdx(&quot;p&quot;, null, &quot;A instala\xE7\xE3o do &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, mdx(&quot;strong&quot;, {
     parentName: &quot;em&quot;
@@ -227,58 +209,51 @@ return function MDXContent(_ref) {
     parentName: &quot;em&quot;
   }, &quot;React&quot;)), &quot;\ne vai instalar a vers\xE3o pro &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;framework/lib&quot;), &quot; correto. Ap\xF3s o t\xE9rmino da instala\xE7\xE3o\nvamos rodar:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;framework/lib&quot;), &quot; correto. Ap\xF3s o t\xE9rmino da instala\xE7\xE3o\nvamos rodar:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-shell&quot;
-  }), &quot;npm run storybook\n&quot;)), mdx(&quot;p&quot;, null, &quot;E se tudo der certo vamos ver a mensagem para acessar nosso &quot;, mdx(&quot;em&quot;, {
+  }, &quot;npm run storybook\n&quot;)), mdx(&quot;p&quot;, null, &quot;E se tudo der certo vamos ver a mensagem para acessar nosso &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;storybook&quot;), &quot; local:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;storybook&quot;), &quot; local:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/local-storybook.png&quot;,
     &quot;alt&quot;: &quot;Imagem da mensagem de que o storybook esta rodando&quot;,
     &quot;title&quot;: &quot;Imagem da mensagem de que o storybook esta rodando&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;Acessando https://localhost:6006/ veremos o nosso pr\xF3prio &quot;, mdx(&quot;em&quot;, {
+  })), mdx(&quot;p&quot;, null, &quot;Acessando https://localhost:6006/ veremos o nosso pr\xF3prio &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;storybook&quot;), &quot;!&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;storybook&quot;), &quot;!&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/storybook-installed.png&quot;,
     &quot;alt&quot;: &quot;Imagem do storybook local&quot;,
     &quot;title&quot;: &quot;Imagem do storybook local&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;Perceba que o &quot;, mdx(&quot;em&quot;, {
+  })), mdx(&quot;p&quot;, null, &quot;Perceba que o &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;storybook&quot;), &quot; criou alguns arquivos no &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;root&quot;), &quot; do projeto:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;root&quot;), &quot; do projeto:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-shell&quot;
-  }), &quot;\u251C\u2500\u2500 .gitignore\n\u251C\u2500\u2500 LICENSE\n\u251C\u2500\u2500 package.json\n\u251C\u2500\u2500 package-lock.json\n\u251C\u2500\u2500 README.md\n\u251C\u2500\u2500 stories /* Essa*/\n\u2502   \u251C\u2500\u2500 0-Welcome.stories.js\n\u2502   \u2514\u2500\u2500 1-Button.stories.js\n\u2514\u2500\u2500 .storybook /* E essa */\n    \u2514\u2500\u2500 main.js\n&quot;)), mdx(&quot;p&quot;, null, &quot;A pasta &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;\u251C\u2500\u2500 .gitignore\n\u251C\u2500\u2500 LICENSE\n\u251C\u2500\u2500 package.json\n\u251C\u2500\u2500 package-lock.json\n\u251C\u2500\u2500 README.md\n\u251C\u2500\u2500 stories /* Essa*/\n\u2502   \u251C\u2500\u2500 0-Welcome.stories.js\n\u2502   \u2514\u2500\u2500 1-Button.stories.js\n\u2514\u2500\u2500 .storybook /* E essa */\n    \u2514\u2500\u2500 main.js\n&quot;)), mdx(&quot;p&quot;, null, &quot;A pasta &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;stories&quot;), &quot; \xE9 a pasta &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;default&quot;), &quot; onde o storybook procura suas hist\xF3rias.\nUma hist\xF3ria geralmente \xE9 a representa\xE7\xE3o de um estado de um componente, perceba\ntamb\xE9m que j\xE1 temos duas hist\xF3rias nesta pasta, vamos analisar o\nconte\xFAdo do &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;0-Welcome.stories.js&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Vamos dar uma olhada no que \xE9 importado dentro do arquivo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;0-Welcome.stories.js&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Vamos dar uma olhada no que \xE9 importado dentro do arquivo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-js&quot;
-  }), &quot;/* 0-Welcome.stories.js */\nimport React from &apos;react&apos;;\nimport { linkTo } from &apos;@storybook/addon-links&apos;;\nimport { Welcome } from &apos;@storybook/react/demo&apos;;\n&quot;)), mdx(&quot;h4&quot;, null, &quot;linkTo&quot;), mdx(&quot;p&quot;, null, &quot;Como voc\xEA pode perceber, o &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;/* 0-Welcome.stories.js */\nimport React from &apos;react&apos;;\nimport { linkTo } from &apos;@storybook/addon-links&apos;;\nimport { Welcome } from &apos;@storybook/react/demo&apos;;\n&quot;)), mdx(&quot;h4&quot;, null, &quot;linkTo&quot;), mdx(&quot;p&quot;, null, &quot;Como voc\xEA pode perceber, o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;linkTo&quot;), &quot; est\xE1 sendo importado como\naddon, o storybook possui v\xE1rios addons para dar algumas funcionalidades a\nmais \xE0 sua hist\xF3ria, voc\xEA pode conferir alguns no &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;linkTo&quot;), &quot; est\xE1 sendo importado como\naddon, o storybook possui v\xE1rios addons para dar algumas funcionalidades a\nmais \xE0 sua hist\xF3ria, voc\xEA pode conferir alguns no &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://storybook.js.org/addons/&quot;,
     &quot;title&quot;: &quot;próprio site do storybook&quot;
-  }), &quot;pr\xF3prio site do storybook&quot;), &quot;.&quot;), mdx(&quot;h4&quot;, null, &quot;Welcome&quot;), mdx(&quot;p&quot;, null, &quot;\xC9 um componente &quot;, mdx(&quot;em&quot;, {
+  }, &quot;pr\xF3prio site do storybook&quot;), &quot;.&quot;), mdx(&quot;h4&quot;, null, &quot;Welcome&quot;), mdx(&quot;p&quot;, null, &quot;\xC9 um componente &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;React&quot;), &quot; comum, est\xE1 ali apenas para popular a hist\xF3ria que vem\npor padr\xE3o.&quot;), mdx(&quot;p&quot;, null, &quot;Agora vamos analisar o c\xF3digo que est\xE1 gerando o que vemos na tela:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;React&quot;), &quot; comum, est\xE1 ali apenas para popular a hist\xF3ria que vem\npor padr\xE3o.&quot;), mdx(&quot;p&quot;, null, &quot;Agora vamos analisar o c\xF3digo que est\xE1 gerando o que vemos na tela:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-jsx&quot;
-  }), &quot;export default {\n  title: &apos;Welcome&apos;,\n  component: Welcome,\n};\n\nexport const ToStorybook = () =&gt; &lt;Welcome showApp={linkTo(&apos;Button&apos;)} /&gt;;\n\nToStorybook.story = {\n  name: &apos;to Storybook&apos;,\n};\n&quot;)), mdx(&quot;p&quot;, null, &quot;Essa \xE9 a forma que se escreve as hist\xF3rias do storybook, o nome desse formato se\nchama &quot;, mdx(&quot;em&quot;, {
+  }, &quot;export default {\n  title: &apos;Welcome&apos;,\n  component: Welcome,\n};\n\nexport const ToStorybook = () =&gt; &lt;Welcome showApp={linkTo(&apos;Button&apos;)} /&gt;;\n\nToStorybook.story = {\n  name: &apos;to Storybook&apos;,\n};\n&quot;)), mdx(&quot;p&quot;, null, &quot;Essa \xE9 a forma que se escreve as hist\xF3rias do storybook, o nome desse formato se\nchama &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;Component Story Format (CSF)&quot;), &quot; \xE9 a forma recomendada pelo storybook de\nse escrever &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -324,29 +299,26 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;name&quot;), &quot; do &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;ToStorybook.story&quot;), &quot;, por exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;ToStorybook.story&quot;), &quot;, por exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-jsx&quot;
-  }), &quot;export default {\n  title: &apos;Welcome&apos;,\n  component: Welcome,\n};\n\nexport const ToStorybook = () =&gt; &lt;Welcome showApp={linkTo(&apos;Button&apos;)} /&gt;;\n\n// ToStorybook.story = {\n//   name: &apos;to Storybook&apos;,\n// };\n&quot;)), mdx(&quot;p&quot;, null, &quot;O nome de nossa hist\xF3ria ser\xE1 \u201CTo Storybook\u201D (pois est\xE1 pegando o nome do\n&quot;, mdx(&quot;em&quot;, {
+  }, &quot;export default {\n  title: &apos;Welcome&apos;,\n  component: Welcome,\n};\n\nexport const ToStorybook = () =&gt; &lt;Welcome showApp={linkTo(&apos;Button&apos;)} /&gt;;\n\n// ToStorybook.story = {\n//   name: &apos;to Storybook&apos;,\n// };\n&quot;)), mdx(&quot;p&quot;, null, &quot;O nome de nossa hist\xF3ria ser\xE1 \u201CTo Storybook\u201D (pois est\xE1 pegando o nome do\n&quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;export&quot;), &quot;) e n\xE3o mais \u201Cto Storybook\u201D (com \u201Ct\u201D min\xFAsculo), como quando utilizavamos a propriedade\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;name&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;name&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/ToStorybook.png&quot;,
     &quot;alt&quot;: &quot;Imagem da história com titulo alterado&quot;,
     &quot;title&quot;: &quot;Imagem da história com titulo alterado&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;Como voc\xEA pode perceber, a nossa v\xE1riavel esta em\n&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  })), mdx(&quot;p&quot;, null, &quot;Como voc\xEA pode perceber, a nossa v\xE1riavel esta em\n&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://wiki.c2.com/?PascalCase&quot;
-  }), &quot;PascalCase&quot;), &quot; mas no storybook h\xE1 um espa\xE7o\nseparando as palavras, isso ocorre porque o &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;PascalCase&quot;), &quot; mas no storybook h\xE1 um espa\xE7o\nseparando as palavras, isso ocorre porque o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;storybook&quot;), &quot; altera o nome antes de\nenviar para o menu, veja alguns exemplos:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
+  }, &quot;storybook&quot;), &quot; altera o nome antes de\nenviar para o menu, veja alguns exemplos:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
     parentName: &quot;pre&quot;
-  }, {}), &quot;name -&gt; &apos;Name&apos;\nsomeName -&gt; &apos;Some Name&apos;\nsomeNAME -&gt; &apos;Some NAME&apos;\nsome_custom_NAME -&gt; &apos;Some Custom NAME&apos;\nsomeName1234 -&gt; &apos;Some Name 1234&apos;\nsomeName1_2_3_4 -&gt; &apos;Some Name 1 2 3 4&apos;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Voc\xEA pode utilizar o &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;name -&gt; &apos;Name&apos;\nsomeName -&gt; &apos;Some Name&apos;\nsomeNAME -&gt; &apos;Some NAME&apos;\nsome_custom_NAME -&gt; &apos;Some Custom NAME&apos;\nsomeName1234 -&gt; &apos;Some Name 1234&apos;\nsomeName1_2_3_4 -&gt; &apos;Some Name 1 2 3 4&apos;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Voc\xEA pode utilizar o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;story.name&quot;), &quot; quando quiser que o t\xEDtulo contenha alguma\npalavra reservada do javascript, como por exemplo &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -356,11 +328,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;default&quot;), &quot; para ver os efeitos que s\xE3o\naplicados no &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;storybook&quot;), &quot;. O c\xF3digo editado deve ficar assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;storybook&quot;), &quot;. O c\xF3digo editado deve ficar assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-jsx&quot;
-  }), &quot;import React from &apos;react&apos;;\nimport { linkTo } from &apos;@storybook/addon-links&apos;;\nimport { Welcome } from &apos;@storybook/react/demo&apos;;\n\nexport default {\n  title: &apos;Bem vindo&apos;,\n  component: Welcome,\n};\n\nexport const ToStorybook = () =&gt; &lt;Welcome showApp={linkTo(&apos;Button&apos;)} /&gt;;\n\nToStorybook.story = {\n  name: &apos;ao Storybook&apos;,\n};\n&quot;)), mdx(&quot;p&quot;, null, &quot;Esse trecho de c\xF3digo editou o t\xEDtulo do grupo de hist\xF3rias do componente\n&quot;, mdx(&quot;em&quot;, {
+  }, &quot;import React from &apos;react&apos;;\nimport { linkTo } from &apos;@storybook/addon-links&apos;;\nimport { Welcome } from &apos;@storybook/react/demo&apos;;\n\nexport default {\n  title: &apos;Bem vindo&apos;,\n  component: Welcome,\n};\n\nexport const ToStorybook = () =&gt; &lt;Welcome showApp={linkTo(&apos;Button&apos;)} /&gt;;\n\nToStorybook.story = {\n  name: &apos;ao Storybook&apos;,\n};\n&quot;)), mdx(&quot;p&quot;, null, &quot;Esse trecho de c\xF3digo editou o t\xEDtulo do grupo de hist\xF3rias do componente\n&quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;Welcome&quot;), &quot; e o titulo da hist\xF3ria &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -378,11 +349,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;webpack&quot;), &quot; por baixo dos panos, caso voc\xEA queira editar\nalguma configura\xE7\xE3o, basta editar o arquivo &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;main.js&quot;), &quot; dessa pasta e sobrescrever\no que necessita ser alterado. Voc\xEA pode ver melhor aqui:\n&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;main.js&quot;), &quot; dessa pasta e sobrescrever\no que necessita ser alterado. Voc\xEA pode ver melhor aqui:\n&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://storybook.js.org/docs/configurations/custom-webpack-config/&quot;
-  }), &quot;https://storybook.js.org/docs/configurations/custom-webpack-config/&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Atualmente a propriedade &quot;, mdx(&quot;em&quot;, {
+  }, &quot;https://storybook.js.org/docs/configurations/custom-webpack-config/&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Atualmente a propriedade &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;addons&quot;), &quot; est\xE1 registrando dois &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -428,12 +398,11 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;onKeyDown&quot;), &quot;, etc. Ou qualquer\noutro tipo de dado que voc\xEA queira logar no painel de &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;Actions&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Se voc\xEA quiser saber mais sobre o funcionamento desse addon,\n&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;Actions&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Se voc\xEA quiser saber mais sobre o funcionamento desse addon,\n&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://github.com/storybookjs/storybook/tree/next/addons/actions&quot;,
     &quot;title&quot;: &quot;veja o github do projeto&quot;
-  }), &quot;veja o github do projeto&quot;), &quot;.&quot;), mdx(&quot;h4&quot;, null, &quot;links&quot;), mdx(&quot;p&quot;, null, &quot;Como o pr\xF3prio nome diz, o &quot;, mdx(&quot;em&quot;, {
+  }, &quot;veja o github do projeto&quot;), &quot;.&quot;), mdx(&quot;h4&quot;, null, &quot;links&quot;), mdx(&quot;p&quot;, null, &quot;Como o pr\xF3prio nome diz, o &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;addon links&quot;), &quot; serve para linkar &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -453,11 +422,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;showApp&quot;), &quot; do\ncomponente &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;Welcome&quot;), &quot;.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Welcome&quot;), &quot;.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-jsx&quot;
-  }), &quot;export const ToStorybook = () =&gt; &lt;Welcome showApp={linkTo(&apos;Button&apos;)} /&gt;;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Ao clicar no link &quot;, mdx(&quot;em&quot;, {
+  }, &quot;export const ToStorybook = () =&gt; &lt;Welcome showApp={linkTo(&apos;Button&apos;)} /&gt;;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Ao clicar no link &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;stories&quot;), &quot;, vamos parar na primeira hist\xF3ria do &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -471,11 +439,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;story&quot;), &quot; &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;Emoji&quot;), &quot;:&quot;), mdx(&quot;h5&quot;, null, &quot;0-Welcome.stories.js&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Emoji&quot;), &quot;:&quot;), mdx(&quot;h5&quot;, null, &quot;0-Welcome.stories.js&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-jsx&quot;
-  }), &quot;import React from &apos;react&apos;;\nimport { linkTo } from &apos;@storybook/addon-links&apos;;\nimport { Welcome } from &apos;@storybook/react/demo&apos;;\n\nexport default {\n  title: &apos;Bem vindo&apos;,\n  component: Welcome,\n};\n\nexport const ToStorybook = () =&gt; (\n  &lt;Welcome showApp={linkTo(&apos;Button&apos;, &apos;Emoji&apos;)} /&gt;\n);\n\nToStorybook.story = {\n  name: &apos;ao Storybook&apos;,\n};\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora ao clicar no link &quot;, mdx(&quot;em&quot;, {
+  }, &quot;import React from &apos;react&apos;;\nimport { linkTo } from &apos;@storybook/addon-links&apos;;\nimport { Welcome } from &apos;@storybook/react/demo&apos;;\n\nexport default {\n  title: &apos;Bem vindo&apos;,\n  component: Welcome,\n};\n\nexport const ToStorybook = () =&gt; (\n  &lt;Welcome showApp={linkTo(&apos;Button&apos;, &apos;Emoji&apos;)} /&gt;\n);\n\nToStorybook.story = {\n  name: &apos;ao Storybook&apos;,\n};\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora ao clicar no link &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;stories&quot;), &quot; estamos indo para &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -483,13 +450,12 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;Emoji&quot;), &quot; e n\xE3o mais a\n&quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;Text&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;Text&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/stories-to-second.gif&quot;,
     &quot;alt&quot;: &quot;Gif do link stories funcionando com segundo parâmetro&quot;,
     &quot;title&quot;: &quot;Gif do link stories funcionando com segundo parâmetro&quot;
-  }))), mdx(&quot;h2&quot;, null, &quot;Conclus\xE3o&quot;), mdx(&quot;p&quot;, null, &quot;At\xE9 agora n\xF3s criamos o reposit\xF3rio no github, instalamos o &quot;, mdx(&quot;strong&quot;, {
+  })), mdx(&quot;h2&quot;, null, &quot;Conclus\xE3o&quot;), mdx(&quot;p&quot;, null, &quot;At\xE9 agora n\xF3s criamos o reposit\xF3rio no github, instalamos o &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;React&quot;), &quot; e o\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -506,7 +472,9 @@ return function MDXContent(_ref) {
   }, &quot;eslint&quot;), &quot; e algumas outras.&quot;));
 }
 ;
-MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[A evolução na escrita do CSS.]]></title><link>https://allysson.me/a-evolucao-na-escrita-do-css/</link><guid isPermaLink="false">https://allysson.me/a-evolucao-na-escrita-do-css/</guid><pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate><content:encoded>function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[A evolução na escrita do CSS.]]></title><link>https://allysson.me/a-evolucao-na-escrita-do-css/</link><guid isPermaLink="false">https://allysson.me/a-evolucao-na-escrita-do-css/</guid><pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate><content:encoded>var _excluded = [&quot;components&quot;];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i &lt; sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) &gt;= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -528,7 +496,7 @@ var layoutProps = {
 var MDXLayout = &quot;wrapper&quot;;
 return function MDXContent(_ref) {
   var components = _ref.components,
-      props = _objectWithoutProperties(_ref, [&quot;components&quot;]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
   return mdx(MDXLayout, _extends({}, layoutProps, props, {
     components: components,
@@ -539,17 +507,15 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;&lt;style&gt;&quot;), &quot; e jogar o &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;CSS&quot;), &quot; l\xE1 dentro.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;CSS&quot;), &quot; l\xE1 dentro.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;style&gt;\n  div {\n    border: 1px solid #ccc;\n  }\n\n  div p {\n    text-indent: 1ch;\n  }\n&lt;/style&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Definir os estilos \u201Clivremente\u201D pode ser suficiente se voc\xEA est\xE1 desenvolvendo uma aplica\xE7\xE3o simples ou apenas para testar algumas coisas, por\xE9m, para aplica\xE7\xF5es mais robustas e complexas \xE9 importante tomar alguns cuidados.&quot;), mdx(&quot;p&quot;, null, &quot;Para manter a sanidade mental e conseguir dar manuten\xE7\xE3o mais tranquilamente no futuro, \xE9 necess\xE1rio cautela na hora de estruturar seus arquivos, escrever &quot;, mdx(&quot;em&quot;, {
+  }, &quot;&lt;style&gt;\n  div {\n    border: 1px solid #ccc;\n  }\n\n  div p {\n    text-indent: 1ch;\n  }\n&lt;/style&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Definir os estilos \u201Clivremente\u201D pode ser suficiente se voc\xEA est\xE1 desenvolvendo uma aplica\xE7\xE3o simples ou apenas para testar algumas coisas, por\xE9m, para aplica\xE7\xF5es mais robustas e complexas \xE9 importante tomar alguns cuidados.&quot;), mdx(&quot;p&quot;, null, &quot;Para manter a sanidade mental e conseguir dar manuten\xE7\xE3o mais tranquilamente no futuro, \xE9 necess\xE1rio cautela na hora de estruturar seus arquivos, escrever &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;CSS&quot;), &quot; sem seguir alguma forma padronizada pode acarretar em alguns problemas, conforme seu codebase vai evoluindo algumas tretas v\xE3o aparecendo, como por exemplo, estilos que afetam elementos indesej\xE1veis, estilos n\xE3o utilizados sendo baixados pelo browser, problemas com especificidades, c\xF3digo duplicado, etc.&quot;), mdx(&quot;p&quot;, null, &quot;Podemos demonstrar alguns pontos de aten\xE7\xE3o atrav\xE9s de um exemplo do nosso dia a dia, imagine que voc\xEA dar\xE1 manuten\xE7\xE3o em um projeto existente e precisa alterar alguma coisa no layout do bot\xE3o, por exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;CSS&quot;), &quot; sem seguir alguma forma padronizada pode acarretar em alguns problemas, conforme seu codebase vai evoluindo algumas tretas v\xE3o aparecendo, como por exemplo, estilos que afetam elementos indesej\xE1veis, estilos n\xE3o utilizados sendo baixados pelo browser, problemas com especificidades, c\xF3digo duplicado, etc.&quot;), mdx(&quot;p&quot;, null, &quot;Podemos demonstrar alguns pontos de aten\xE7\xE3o atrav\xE9s de um exemplo do nosso dia a dia, imagine que voc\xEA dar\xE1 manuten\xE7\xE3o em um projeto existente e precisa alterar alguma coisa no layout do bot\xE3o, por exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;style&gt;\n  .btn {\n    display: inline-block;\n    font-weight: 400;\n    text-align: center;\n    white-space: nowrap;\n    vertical-align: middle;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    border: 1px solid transparent;\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    line-height: 1.5;\n    border-radius: 0.25rem;\n    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,\n      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n  }\n\n  .btn.btn-primary {\n    color: #fff;\n    background-color: #0062cc;\n    border-color: #005cbf;\n  }\n\n  .btn-primary:hover,\n  .btn-primary.active {\n    color: #fff;\n    background-color: #0069d9;\n    border-color: #0062cc;\n  }\n&lt;/style&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Batendo o olho algumas perguntas podem surgir:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
+  }, &quot;&lt;style&gt;\n  .btn {\n    display: inline-block;\n    font-weight: 400;\n    text-align: center;\n    white-space: nowrap;\n    vertical-align: middle;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    border: 1px solid transparent;\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    line-height: 1.5;\n    border-radius: 0.25rem;\n    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,\n      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n  }\n\n  .btn.btn-primary {\n    color: #fff;\n    background-color: #0062cc;\n    border-color: #005cbf;\n  }\n\n  .btn-primary:hover,\n  .btn-primary.active {\n    color: #fff;\n    background-color: #0069d9;\n    border-color: #0062cc;\n  }\n&lt;/style&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Batendo o olho algumas perguntas podem surgir:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
   }, &quot;Onde esse estilo est\xE1 sendo usado, ser\xE1 que s\xF3 em bot\xF5es mesmo?&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
@@ -561,33 +527,29 @@ return function MDXContent(_ref) {
     parentName: &quot;blockquote&quot;
   }, &quot;Metodologia \xE9 um sistema de m\xE9todos. M\xE9todo \xE9 uma forma simples, e sistematica de se fazer algo, de uma maneira pr\xE9 definida para atingir um resultado esperado.&quot;)), mdx(&quot;p&quot;, null, &quot;Para solucionar alguns dos problemas acima, surgiram algumas conven\xE7\xF5es de estrutura\xE7\xE3o do CSS, como por exemplo:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;http://getbem.com/introduction/&quot;,
     &quot;title&quot;: &quot;Metodologia BEM&quot;
-  }), &quot;BEM&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;BEM&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;http://oocss.org/&quot;,
     &quot;title&quot;: &quot;Metodologia OOCS&quot;
-  }), &quot;OOCS&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;OOCS&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;http://smacss.com/&quot;,
     &quot;title&quot;: &quot;Metodologia SMACSS&quot;
-  }), &quot;SMACSS&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;SMACSS&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://itcss.io/&quot;,
     &quot;title&quot;: &quot;Metodologia ITCSS&quot;
-  }), &quot;ITCSS&quot;))), mdx(&quot;h2&quot;, null, &quot;BEM&quot;), mdx(&quot;p&quot;, null, &quot;Criada pelos desenvolvedores da &quot;, mdx(&quot;em&quot;, {
+  }, &quot;ITCSS&quot;))), mdx(&quot;h2&quot;, null, &quot;BEM&quot;), mdx(&quot;p&quot;, null, &quot;Criada pelos desenvolvedores da &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;Yandex&quot;), &quot; em 2009 os conceitos chaves s\xE3o identificar os &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -601,27 +563,24 @@ return function MDXContent(_ref) {
     parentName: &quot;table&quot;
   }, mdx(&quot;tr&quot;, {
     parentName: &quot;thead&quot;
-  }, mdx(&quot;th&quot;, _extends({
-    parentName: &quot;tr&quot;
-  }, {
+  }, mdx(&quot;th&quot;, {
+    parentName: &quot;tr&quot;,
     &quot;align&quot;: null
-  }), mdx(&quot;span&quot;, {
+  }, mdx(&quot;span&quot;, {
     style: {
       &quot;color&quot;: &quot;#76b24f&quot;
     }
-  }, &quot;Blocos&quot;)), mdx(&quot;th&quot;, _extends({
-    parentName: &quot;tr&quot;
-  }, {
+  }, &quot;Blocos&quot;)), mdx(&quot;th&quot;, {
+    parentName: &quot;tr&quot;,
     &quot;align&quot;: null
-  }), mdx(&quot;span&quot;, {
+  }, mdx(&quot;span&quot;, {
     style: {
       &quot;color&quot;: &quot;#4f91b2&quot;
     }
-  }, &quot;Elementos&quot;)), mdx(&quot;th&quot;, _extends({
-    parentName: &quot;tr&quot;
-  }, {
+  }, &quot;Elementos&quot;)), mdx(&quot;th&quot;, {
+    parentName: &quot;tr&quot;,
     &quot;align&quot;: null
-  }), mdx(&quot;span&quot;, {
+  }, mdx(&quot;span&quot;, {
     style: {
       &quot;color&quot;: &quot;#d5635d&quot;
     }
@@ -629,11 +588,10 @@ return function MDXContent(_ref) {
     parentName: &quot;table&quot;
   }, mdx(&quot;tr&quot;, {
     parentName: &quot;tbody&quot;
-  }, mdx(&quot;td&quot;, _extends({
-    parentName: &quot;tr&quot;
-  }, {
+  }, mdx(&quot;td&quot;, {
+    parentName: &quot;tr&quot;,
     &quot;align&quot;: null
-  }), &quot;Entidade autossuficiente e autoexplicativa. Exemplo: &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;Entidade autossuficiente e autoexplicativa. Exemplo: &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;td&quot;
   }, &quot;header&quot;), &quot;, &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;td&quot;
@@ -643,34 +601,30 @@ return function MDXContent(_ref) {
     parentName: &quot;td&quot;
   }, &quot;checkbox&quot;), &quot;, &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;td&quot;
-  }, &quot;input&quot;)), mdx(&quot;td&quot;, _extends({
-    parentName: &quot;tr&quot;
-  }, {
+  }, &quot;input&quot;)), mdx(&quot;td&quot;, {
+    parentName: &quot;tr&quot;,
     &quot;align&quot;: null
-  }), &quot;Parte de um bloco que n\xE3o tem significado quando usado sozinho, est\xE1 atrelado ao bloco. Exemplo: &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;Parte de um bloco que n\xE3o tem significado quando usado sozinho, est\xE1 atrelado ao bloco. Exemplo: &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;td&quot;
   }, &quot;menu item&quot;), &quot;, &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;td&quot;
   }, &quot;list item&quot;), &quot;, &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;td&quot;
-  }, &quot;header title&quot;)), mdx(&quot;td&quot;, _extends({
-    parentName: &quot;tr&quot;
-  }, {
+  }, &quot;header title&quot;)), mdx(&quot;td&quot;, {
+    parentName: &quot;tr&quot;,
     &quot;align&quot;: null
-  }), &quot;Uma flag em um elemento ou bloco, Usado para alterar a apar\xEAncia ou um comportamento.&quot;)))), mdx(&quot;p&quot;, null, &quot;No pr\xF3prio site da metodologia &quot;, mdx(&quot;em&quot;, {
+  }, &quot;Uma flag em um elemento ou bloco, Usado para alterar a apar\xEAncia ou um comportamento.&quot;)))), mdx(&quot;p&quot;, null, &quot;No pr\xF3prio site da metodologia &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;BEM&quot;), &quot; existe um exemplo utilizando o site do github como exemplo:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;BEM&quot;), &quot; existe um exemplo utilizando o site do github como exemplo:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/github_captions.jpg&quot;,
     &quot;alt&quot;: &quot;Exemplo do BEM sendo aplicado no site do GitHub&quot;
-  })), &quot;\n&quot;, mdx(&quot;em&quot;, {
+  }), &quot;\n&quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;Imagem retirada de &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;em&quot;
-  }, {
+  }, &quot;Imagem retirada de &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;em&quot;,
     &quot;href&quot;: &quot;http://getbem.com/introduction/&quot;
-  }), &quot;BEM - Block Element Modifier&quot;))), mdx(&quot;p&quot;, null, &quot;Um outro exemplo, temos um bot\xE3o padr\xE3o &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;BEM - Block Element Modifier&quot;))), mdx(&quot;p&quot;, null, &quot;Um outro exemplo, temos um bot\xE3o padr\xE3o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;.button&quot;), &quot;, precisamos de um bot\xE3o com o estado de &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -680,15 +634,13 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;block--modifier&quot;), &quot;, ent\xE3o, podemos aplicar uma classe parecida com essa &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;.button--danger&quot;), &quot;.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;.button--danger&quot;), &quot;.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;&lt;style&gt;\n  .button { /* ... */ }\n  .button--danger { /* ... */ }\n&lt;/style&gt;\n&quot;)), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;&lt;style&gt;\n  .button { /* ... */ }\n  .button--danger { /* ... */ }\n&lt;/style&gt;\n&quot;)), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;button class=\&quot;button\&quot;&gt;Normal Button&lt;/button&gt;\n&lt;button class=\&quot;button button--danger\&quot;&gt;Danger Button&lt;/button&gt;\n&quot;)), mdx(&quot;h3&quot;, null, &quot;Benef\xEDcios&quot;), mdx(&quot;p&quot;, null, &quot;Modularidade, &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&lt;button class=\&quot;button\&quot;&gt;Normal Button&lt;/button&gt;\n&lt;button class=\&quot;button button--danger\&quot;&gt;Danger Button&lt;/button&gt;\n&quot;)), mdx(&quot;h3&quot;, null, &quot;Benef\xEDcios&quot;), mdx(&quot;p&quot;, null, &quot;Modularidade, &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;blocos&quot;), &quot; nunca dependem de outros elementos na p\xE1gina, com isso n\xE3o teremos o problema de estilos de outros blocos influenciando em outros.&quot;), mdx(&quot;p&quot;, null, &quot;Compartilhamento de c\xF3digo, compor blocos de maneiras diferentes e reus\xE1-los com intelig\xEAncia reduz a quantidade de &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -696,12 +648,11 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;BEM&quot;), &quot; d\xE1 ao seu &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;CSS&quot;), &quot; uma estrutura de nomenclaturas s\xF3lida, de f\xE1cil leitura e manuten\xE7\xE3o.&quot;), mdx(&quot;h2&quot;, null, &quot;SMACSS&quot;), mdx(&quot;p&quot;, null, &quot;Desenvolvido em 2011 por &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;CSS&quot;), &quot; uma estrutura de nomenclaturas s\xF3lida, de f\xE1cil leitura e manuten\xE7\xE3o.&quot;), mdx(&quot;h2&quot;, null, &quot;SMACSS&quot;), mdx(&quot;p&quot;, null, &quot;Desenvolvido em 2011 por &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://snook.ca/&quot;,
     &quot;title&quot;: &quot;Jonathan Snook&quot;
-  }), &quot;Jonathan Snook&quot;), &quot; o &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;Jonathan Snook&quot;), &quot; o &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;SMACSS&quot;), &quot; n\xE3o determina a forma que voc\xEA escreve suas classes, mas sim a estrutura de diret\xF3rios, com ele, voc\xEA \xE9 orientado a criar as seguintes pastas:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
@@ -741,91 +692,79 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;CSS&quot;), &quot; puro. Visam dar mais legibilidade e facilitar a manuten\xE7\xE3o atrav\xE9s de funcionalidades como:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://sass-lang.com/documentation/style-rules#nesting&quot;,
     &quot;title&quot;: &quot;Nesting&quot;
-  }), &quot;Nesting&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;Nesting&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://sass-lang.com/documentation/variables&quot;,
     &quot;title&quot;: &quot;Criação de variáveis&quot;
-  }), &quot;Cria\xE7\xE3o de vari\xE1veis&quot;), &quot;*&quot;), mdx(&quot;li&quot;, {
+  }, &quot;Cria\xE7\xE3o de vari\xE1veis&quot;), &quot;*&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://sass-lang.com/documentation/at-rules/control&quot;,
     &quot;title&quot;: &quot;Condicionais&quot;
-  }), &quot;Condicionais&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;Condicionais&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://sass-lang.com/documentation/at-rules/control/for&quot;,
     &quot;title&quot;: &quot;Loops&quot;
-  }), &quot;Loops&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;Loops&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://sass-lang.com/documentation/at-rules/import&quot;,
     &quot;title&quot;: &quot;Imports&quot;
-  }), &quot;Imports&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;Imports&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://sass-lang.com/documentation/at-rules/function&quot;,
     &quot;title&quot;: &quot;Funções&quot;
-  }), &quot;Fun\xE7\xF5es&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;Fun\xE7\xF5es&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://sass-lang.com/documentation/at-rules/mixin&quot;,
     &quot;title&quot;: &quot;mixins&quot;
-  }), mdx(&quot;em&quot;, {
+  }, mdx(&quot;em&quot;, {
     parentName: &quot;a&quot;
   }, &quot;mixins&quot;))), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://sass-lang.com/documentation/at-rules/extend&quot;,
     &quot;title&quot;: &quot;extends&quot;
-  }), mdx(&quot;em&quot;, {
+  }, mdx(&quot;em&quot;, {
     parentName: &quot;a&quot;
-  }, &quot;extends&quot;)))), mdx(&quot;p&quot;, null, &quot;*&quot;, &quot;J\xE1 dispon\xEDvel nativamente: &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;extends&quot;)))), mdx(&quot;p&quot;, null, &quot;*&quot;, &quot;J\xE1 dispon\xEDvel nativamente: &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties&quot;,
     &quot;title&quot;: &quot;Using CSS custom properties&quot;
-  }), &quot;Using CSS custom properties&quot;)), mdx(&quot;p&quot;, null, &quot;Alguns pr\xE9-processadores:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
+  }, &quot;Using CSS custom properties&quot;)), mdx(&quot;p&quot;, null, &quot;Alguns pr\xE9-processadores:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://sass-lang.com/&quot;,
     &quot;title&quot;: &quot;Sass&quot;
-  }), &quot;Sass&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;Sass&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;http://lesscss.org/&quot;,
     &quot;title&quot;: &quot;LESS&quot;
-  }), &quot;LESS&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;LESS&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;http://stylus-lang.com/&quot;,
     &quot;title&quot;: &quot;Stylus&quot;
-  }), &quot;Stylus&quot;))), mdx(&quot;p&quot;, null, &quot;Agora, al\xE9m de ter nomenclaturas de classe que fazem sentido e uma estrutura de arquivos bem definida voc\xEA tamb\xE9m pode contar com novas funcionalidades, os pr\xE9-processadores v\xE3o te ajudar muito na legibilidade e compartilhamento de c\xF3digo atrav\xE9s do &quot;, mdx(&quot;em&quot;, {
+  }, &quot;Stylus&quot;))), mdx(&quot;p&quot;, null, &quot;Agora, al\xE9m de ter nomenclaturas de classe que fazem sentido e uma estrutura de arquivos bem definida voc\xEA tamb\xE9m pode contar com novas funcionalidades, os pr\xE9-processadores v\xE3o te ajudar muito na legibilidade e compartilhamento de c\xF3digo atrav\xE9s do &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;nesting&quot;), &quot; e das in\xFAmeras fun\xE7\xF5es dispon\xEDveis, sem contar que voc\xEA pode criar as suas pr\xF3prias!&quot;), mdx(&quot;p&quot;, null, &quot;Ser\xE1 poss\xEDvel centralizar a paleta de cores, definir o tamanho padr\xE3o de &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -833,11 +772,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;Sass&quot;), &quot;, por\xE9m, a maioria dos pr\xE9-processadores possuem essas features).&quot;), mdx(&quot;p&quot;, null, &quot;Atualmente j\xE1 \xE9 poss\xEDvel criar vari\xE1veis sem a necessidade de um pr\xE9-processador.&quot;), mdx(&quot;p&quot;, null, &quot;Vari\xE1veis com &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;CSS \u201CPuro\u201D&quot;), &quot;:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;CSS \u201CPuro\u201D&quot;), &quot;:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;&lt;style&gt;\n  :root {\n    --main-bg-color: red;\n  }\n\n  .header {\n    background-color: var(--main-bg-color);\n  }\n&lt;/style&gt;\n&quot;)), mdx(&quot;h3&quot;, null, &quot;PostCSS&quot;), mdx(&quot;p&quot;, null, &quot;Outro cara que a comunidade desenvolveu foi o &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&lt;style&gt;\n  :root {\n    --main-bg-color: red;\n  }\n\n  .header {\n    background-color: var(--main-bg-color);\n  }\n&lt;/style&gt;\n&quot;)), mdx(&quot;h3&quot;, null, &quot;PostCSS&quot;), mdx(&quot;p&quot;, null, &quot;Outro cara que a comunidade desenvolveu foi o &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;PostCSS&quot;), &quot;, uma ferramenta para transformar o &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -851,27 +789,23 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;bundling&quot;), &quot; para conseguir manipular o seu &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;CSS&quot;), &quot;, como por exemplo: &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;CSS&quot;), &quot;, como por exemplo: &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://gulpjs.com/&quot;,
     &quot;title&quot;: &quot;Gulp&quot;
-  }), &quot;Gulp&quot;), &quot;, &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;Gulp&quot;), &quot;, &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://gruntjs.com/&quot;,
     &quot;title&quot;: &quot;Grunt&quot;
-  }), &quot;Grunt&quot;), &quot;, &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;Grunt&quot;), &quot;, &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://webpack.js.org/&quot;,
     &quot;title&quot;: &quot;Webpack&quot;
-  }), &quot;Webpack&quot;), &quot;, &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;Webpack&quot;), &quot;, &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://rollupjs.org/guide/en&quot;,
     &quot;title&quot;: &quot;Rollup&quot;
-  }), &quot;Rollup&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Com ele \xE9 poss\xEDvel instalar alguns plugins como o &quot;, mdx(&quot;em&quot;, {
+  }, &quot;Rollup&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Com ele \xE9 poss\xEDvel instalar alguns plugins como o &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;autoprefixer&quot;), &quot; que adiciona prefixos como &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -879,22 +813,19 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;-moz-&quot;), &quot; e &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;-ms-&quot;), &quot; ao seus estilos automaticamente.&quot;), mdx(&quot;h2&quot;, null, &quot;CSS-in-JS&quot;), mdx(&quot;p&quot;, null, &quot;Com o surgimento das bibliotecas para constru\xE7\xE3o de interfaces, como &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;-ms-&quot;), &quot; ao seus estilos automaticamente.&quot;), mdx(&quot;h2&quot;, null, &quot;CSS-in-JS&quot;), mdx(&quot;p&quot;, null, &quot;Com o surgimento das bibliotecas para constru\xE7\xE3o de interfaces, como &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://reactjs.org/&quot;,
     &quot;title&quot;: &quot;React&quot;
-  }), &quot;React&quot;), &quot;, &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;React&quot;), &quot;, &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://angular.io/&quot;,
     &quot;title&quot;: &quot;Angular&quot;
-  }), &quot;Angular&quot;), &quot;, &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;Angular&quot;), &quot;, &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://vuejs.org/&quot;,
     &quot;title&quot;: &quot;Vue.js&quot;
-  }), &quot;Vue.js&quot;), &quot;, etc, o conceito de componentes visuais come\xE7ou a ser difundido, passamos a quebrar o desenvolvimento de interfaces em componentes, pensamos primeiro em pontos isolados, como bot\xF5es, tooltips, cards, inputs para depois em como compor em um bloco maior, como forms, modal, tabs, etc, e assim formar uma p\xE1gina completa.&quot;), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;em&quot;, {
+  }, &quot;Vue.js&quot;), &quot;, etc, o conceito de componentes visuais come\xE7ou a ser difundido, passamos a quebrar o desenvolvimento de interfaces em componentes, pensamos primeiro em pontos isolados, como bot\xF5es, tooltips, cards, inputs para depois em como compor em um bloco maior, como forms, modal, tabs, etc, e assim formar uma p\xE1gina completa.&quot;), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;CSS-in-JS&quot;), &quot; n\xE3o \xE9 uma biblioteca especifica, ele se refere a um grupo de ideias para resolver problemas complexos do &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -902,40 +833,35 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;JavaScript&quot;), &quot; para manipular e aplicar os estilos:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://glenmaddern.com/articles/css-modules&quot;,
     &quot;title&quot;: &quot;CSS Modules&quot;
-  }), &quot;CSS Modules&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;CSS Modules&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://cssinjs.org/?v=v10.0.0-alpha.16&quot;,
     &quot;title&quot;: &quot;JSS&quot;
-  }), &quot;JSS&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;JSS&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://github.com/FormidableLabs/radium&quot;,
     &quot;title&quot;: &quot;Radium&quot;
-  }), &quot;Radium&quot;)), mdx(&quot;li&quot;, {
+  }, &quot;Radium&quot;)), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://www.styled-components.com/&quot;,
     &quot;title&quot;: &quot;Styled Components&quot;
-  }), &quot;Styled Components&quot;))), mdx(&quot;h3&quot;, null, &quot;De onde surgiu o conceito CSS-in-JS?&quot;), mdx(&quot;p&quot;, null, &quot;Provavelmente a primeira vez que o termo &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;Styled Components&quot;))), mdx(&quot;h3&quot;, null, &quot;De onde surgiu o conceito CSS-in-JS?&quot;), mdx(&quot;p&quot;, null, &quot;Provavelmente a primeira vez que o termo &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;CSS-in-JS&quot;), &quot; surgiu foi atrav\xE9s de uma palestra de um engenheiro que trabalha no Facebook, &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;CSS-in-JS&quot;), &quot; surgiu foi atrav\xE9s de uma palestra de um engenheiro que trabalha no Facebook, &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://vimeo.com/116209150&quot;,
     &quot;title&quot;: &quot;React: CSS in your JS by Christopher Chedeau&quot;
-  }), &quot;React: CSS in your JS by Christopher Chedeau&quot;), &quot; com o intuito de resolver alguns problemas:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
+  }, &quot;React: CSS in your JS by Christopher Chedeau&quot;), &quot; com o intuito de resolver alguns problemas:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
   }, &quot;Escopo Global&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
@@ -953,21 +879,19 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;CSS&quot;), &quot; que vimos acima serem criadas, por\xE9m, elas nao blindam completamente esse problema de ocorrer, os desenvolvedores precisam seguir a risca os conjuntos de regras estipuladas.&quot;), mdx(&quot;p&quot;, null, &quot;Uma biblioteca que resolve esse problema \xE9 o &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;styled-components&quot;), &quot;, a abordagem que ele segue \xE9 de gerar um hash \xFAnico para cada componente, um estilo nunca influenciar\xE1 outro.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;styled-components&quot;), &quot;, a abordagem que ele segue \xE9 de gerar um hash \xFAnico para cada componente, um estilo nunca influenciar\xE1 outro.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-javascript&quot;
-  }), &quot;const Button = styled.button`\n  background-color: blue;\n  padding: 10px;\n`;\n\n// ...\n\nrender() {\n  return &lt;Button&gt;Hello&lt;/Button&gt;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Este exemplo renderizar\xE1 uma classe aleat\xF3ria baseada no conte\xFAdo &quot;, mdx(&quot;em&quot;, {
+  }, &quot;const Button = styled.button`\n  background-color: blue;\n  padding: 10px;\n`;\n\n// ...\n\nrender() {\n  return &lt;Button&gt;Hello&lt;/Button&gt;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Este exemplo renderizar\xE1 uma classe aleat\xF3ria baseada no conte\xFAdo &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;CSS&quot;), &quot; que foi escrito dentro da &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;template string&quot;), &quot; e adicionar\xE1 a classe ao elemento do &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;DOM&quot;), &quot;:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;DOM&quot;), &quot;:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;style&gt;\n  .sc-bwzfXH jmtBes {\n    background-color: blue;\n    padding: 10px;\n  }\n&lt;/style&gt;\n\n&lt;button class=\&quot;sc-bwzfXH jmtBes\&quot;&gt;Hello&lt;/button&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Percebeu que o elemento recebeu &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&lt;style&gt;\n  .sc-bwzfXH jmtBes {\n    background-color: blue;\n    padding: 10px;\n  }\n&lt;/style&gt;\n\n&lt;button class=\&quot;sc-bwzfXH jmtBes\&quot;&gt;Hello&lt;/button&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Percebeu que o elemento recebeu &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;duas&quot;), &quot; classes aleat\xF3rias? &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1035,11 +959,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;styled-components&quot;), &quot; \xE9 poss\xEDvel adicionar estilos baseado nas &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;props&quot;), &quot; que o componente recebe.&quot;), mdx(&quot;p&quot;, null, &quot;Por exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;props&quot;), &quot; que o componente recebe.&quot;), mdx(&quot;p&quot;, null, &quot;Por exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-javascript&quot;
-  }), &quot;const Button = styled.button`\n  background: ${props =&gt; props.primary ? \&quot;palevioletred\&quot; : \&quot;white\&quot;};\n  color: ${props =&gt; props.primary ? \&quot;white\&quot; : \&quot;palevioletred\&quot;};\n  font-size: 1em;\n  margin: 1em;\n  padding: 0.25em 1em;\n  border: 2px solid palevioletred;\n  border-radius: 3px;\n`;\n\nrender() {\n  return (\n    &lt;div&gt;\n      &lt;Button&gt;Normal&lt;/Button&gt;\n      &lt;Button primary&gt;Primary&lt;/Button&gt;\n    &lt;/div&gt;\n  );\n};\n&quot;)), mdx(&quot;p&quot;, null, &quot;Essa forma aprimora muito a legibilidade do &quot;, mdx(&quot;em&quot;, {
+  }, &quot;const Button = styled.button`\n  background: ${props =&gt; props.primary ? \&quot;palevioletred\&quot; : \&quot;white\&quot;};\n  color: ${props =&gt; props.primary ? \&quot;white\&quot; : \&quot;palevioletred\&quot;};\n  font-size: 1em;\n  margin: 1em;\n  padding: 0.25em 1em;\n  border: 2px solid palevioletred;\n  border-radius: 3px;\n`;\n\nrender() {\n  return (\n    &lt;div&gt;\n      &lt;Button&gt;Normal&lt;/Button&gt;\n      &lt;Button primary&gt;Primary&lt;/Button&gt;\n    &lt;/div&gt;\n  );\n};\n&quot;)), mdx(&quot;p&quot;, null, &quot;Essa forma aprimora muito a legibilidade do &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;JSX&quot;), &quot;. Batendo o olho voc\xEA consegue ver que um bot\xE3o \xE9 &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1068,7 +991,9 @@ return function MDXContent(_ref) {
   }, &quot;styled-components&quot;), &quot;.&quot;));
 }
 ;
-MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Critical rendering path - Renderização no browser.]]></title><link>https://allysson.me/critical-rendering-path/</link><guid isPermaLink="false">https://allysson.me/critical-rendering-path/</guid><pubDate>Sat, 17 Jun 2017 00:00:00 GMT</pubDate><content:encoded>function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Critical rendering path - Renderização no browser.]]></title><link>https://allysson.me/critical-rendering-path/</link><guid isPermaLink="false">https://allysson.me/critical-rendering-path/</guid><pubDate>Sat, 17 Jun 2017 00:00:00 GMT</pubDate><content:encoded>var _excluded = [&quot;components&quot;];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i &lt; sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) &gt;= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -1090,7 +1015,7 @@ var layoutProps = {
 var MDXLayout = &quot;wrapper&quot;;
 return function MDXContent(_ref) {
   var components = _ref.components,
-      props = _objectWithoutProperties(_ref, [&quot;components&quot;]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
   return mdx(MDXLayout, _extends({}, layoutProps, props, {
     components: components,
@@ -1119,11 +1044,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;TAG&quot;), &quot; ele emite um &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;Token&quot;), &quot;, vejamos um exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Token&quot;), &quot;, vejamos um exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width\&quot; /&gt;\n    &lt;link href=\&quot;style.css\&quot; rel=\&quot;stylesheet\&quot; /&gt;\n\n    ...\n  &lt;/head&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Ap\xF3s o browser receber o nosso html ele analisa a primeira &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width\&quot; /&gt;\n    &lt;link href=\&quot;style.css\&quot; rel=\&quot;stylesheet\&quot; /&gt;\n\n    ...\n  &lt;/head&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Ap\xF3s o browser receber o nosso html ele analisa a primeira &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;TAG&quot;), &quot; &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1167,49 +1091,44 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;meta&quot;), &quot; e o node da tag &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;link&quot;), &quot; s\xE3o filhos de head, e assim por diante.&quot;), mdx(&quot;p&quot;, null, &quot;Veja um esquema desse processo aplicado \xE0 uma p\xE1gina web simples:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;link&quot;), &quot; s\xE3o filhos de head, e assim por diante.&quot;), mdx(&quot;p&quot;, null, &quot;Veja um esquema desse processo aplicado \xE0 uma p\xE1gina web simples:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/processo-crp.png&quot;,
     &quot;alt&quot;: &quot;Processo do Critical Rendering Path&quot;,
     &quot;title&quot;: &quot;Processo do Critical Rendering Path&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;Depois de consumido todos os tokens e todos os nodes criados, chegamos ao DOM, que \xE9 a estrutura em \xE1rvore que captura o conte\xFAdo e propriedades do HTML e todas suas rela\xE7\xF5es entre os nodes.&quot;), mdx(&quot;p&quot;, null, &quot;No &quot;, mdx(&quot;strong&quot;, {
+  })), mdx(&quot;p&quot;, null, &quot;Depois de consumido todos os tokens e todos os nodes criados, chegamos ao DOM, que \xE9 a estrutura em \xE1rvore que captura o conte\xFAdo e propriedades do HTML e todas suas rela\xE7\xF5es entre os nodes.&quot;), mdx(&quot;p&quot;, null, &quot;No &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;DevTools&quot;), &quot; do navegador &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;Google Chrome&quot;), &quot; existe uma aba chamada &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;Performance&quot;), &quot; nela \xE9 poss\xEDvel consultar o tempo necess\xE1rio que o browser levou para executar todo esse processo que vimos acima:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;Performance&quot;), &quot; nela \xE9 poss\xEDvel consultar o tempo necess\xE1rio que o browser levou para executar todo esse processo que vimos acima:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/timeline.png&quot;,
     &quot;alt&quot;: &quot;Timeline&quot;,
     &quot;title&quot;: &quot;Timeline do Google Chrome exibindo o tempo de parse do HTML&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;O browser constr\xF3i o DOM incrementalmente, e n\xF3s podemos tirar vantagem disso e aumentar a velocidade da renderiza\xE7\xE3o. Um exemplo \xE9 como a p\xE1gina de resultados do Google trabalha, assim que voc\xEA est\xE1 digitando o que quer procurar o servidor do google j\xE1 entrega o header da p\xE1gina, que \xE9 igual para todos os usu\xE1rios, assim, quando voc\xEA terminar de escrever o que deseja buscar, o servidor envia os dados em HTML e o browser incrementa o DOM com os resultados. Como voc\xEA pode notar, o servidor do google n\xE3o precisa esperar que voc\xEA envie o que deseja buscar para retornar o HTML completo para o browser processar tudo de uma vez, ele come\xE7a com o header da p\xE1gina, e incrementalmente devolve o resultado da sua busca. Portanto, entregar HTML em parcelas \xE9 algo muito bom!&quot;), mdx(&quot;h2&quot;, null, &quot;CSSOM - Convertendo CSS em CSS Object Model&quot;), mdx(&quot;p&quot;, null, &quot;Bom, o DOM captura o conte\xFAdo da p\xE1gina, mas n\xF3s tamb\xE9m precisamos saber como exibi-la e onde encaixar as coisas, e para isso, o browser precisa criar o &quot;, mdx(&quot;strong&quot;, {
+  })), mdx(&quot;p&quot;, null, &quot;O browser constr\xF3i o DOM incrementalmente, e n\xF3s podemos tirar vantagem disso e aumentar a velocidade da renderiza\xE7\xE3o. Um exemplo \xE9 como a p\xE1gina de resultados do Google trabalha, assim que voc\xEA est\xE1 digitando o que quer procurar o servidor do google j\xE1 entrega o header da p\xE1gina, que \xE9 igual para todos os usu\xE1rios, assim, quando voc\xEA terminar de escrever o que deseja buscar, o servidor envia os dados em HTML e o browser incrementa o DOM com os resultados. Como voc\xEA pode notar, o servidor do google n\xE3o precisa esperar que voc\xEA envie o que deseja buscar para retornar o HTML completo para o browser processar tudo de uma vez, ele come\xE7a com o header da p\xE1gina, e incrementalmente devolve o resultado da sua busca. Portanto, entregar HTML em parcelas \xE9 algo muito bom!&quot;), mdx(&quot;h2&quot;, null, &quot;CSSOM - Convertendo CSS em CSS Object Model&quot;), mdx(&quot;p&quot;, null, &quot;Bom, o DOM captura o conte\xFAdo da p\xE1gina, mas n\xF3s tamb\xE9m precisamos saber como exibi-la e onde encaixar as coisas, e para isso, o browser precisa criar o &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;CSS Object Model&quot;), &quot;, o CSSOM \xE9 bem parecido com o DOM, por\xE9m, DOM e CSSOM s\xE3o estruturas independentes! Vejamos:&quot;), mdx(&quot;p&quot;, null, &quot;Quando o navegador est\xE1 construindo o DOM e encontra uma tag &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;link&quot;), &quot; que referencia alguma folha de estilo CSS ele prev\xEA que esse recurso \xE9 necess\xE1rio para renderizar a p\xE1gina e envia imediatamente uma requisi\xE7\xE3o para esse arquivo, segue um exemplo do que essa folha de estilos pode retornar:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;link&quot;), &quot; que referencia alguma folha de estilo CSS ele prev\xEA que esse recurso \xE9 necess\xE1rio para renderizar a p\xE1gina e envia imediatamente uma requisi\xE7\xE3o para esse arquivo, segue um exemplo do que essa folha de estilos pode retornar:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;body {\n  font-size: 16px;\n}\np {\n  font-weight: bold;\n}\nspan {\n  color: red;\n}\np span {\n  display: none;\n}\nimg {\n  float: right;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Assim como o &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;body {\n  font-size: 16px;\n}\np {\n  font-weight: bold;\n}\nspan {\n  color: red;\n}\np span {\n  display: none;\n}\nimg {\n  float: right;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Assim como o &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;HTML&quot;), &quot; o navegador precisa converter as regras &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;CSS&quot;), &quot; em algo que ele consiga entender e utilizar. Portanto, o processo feito no HTML \xE9 repetido, s\xF3 que dessa vez, para o CSS.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;CSS&quot;), &quot; em algo que ele consiga entender e utilizar. Portanto, o processo feito no HTML \xE9 repetido, s\xF3 que dessa vez, para o CSS.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/construcao-cssom.png&quot;,
     &quot;alt&quot;: &quot;CSSOM&quot;,
     &quot;title&quot;: &quot;Contrução do CSSOM&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;Como vemos, segue o mesmo padr\xE3o utilizado no HTML, s\xF3 que ao inv\xE9s de criar a estrutura do DOM, \xE9 criada a estrutura do CSSOM.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  })), mdx(&quot;p&quot;, null, &quot;Como vemos, segue o mesmo padr\xE3o utilizado no HTML, s\xF3 que ao inv\xE9s de criar a estrutura do DOM, \xE9 criada a estrutura do CSSOM.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/arvore-cssom.png&quot;,
     &quot;alt&quot;: &quot;Árvore CSSOM&quot;,
     &quot;title&quot;: &quot;Árvore CSSOM&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;Com o esquema acima, conseguimos entender o porque o CSS \xE9 aplicado em cascata. O estilo aplicado ao elemento &quot;, mdx(&quot;inlineCode&quot;, {
+  })), mdx(&quot;p&quot;, null, &quot;Com o esquema acima, conseguimos entender o porque o CSS \xE9 aplicado em cascata. O estilo aplicado ao elemento &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;body&quot;), &quot; \xE9 herdado por todos os seus filhos, analisando a \xE1rvore CSS acima, todo texto dentro do elemento &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1219,20 +1138,18 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;span&quot;), &quot;).&quot;), mdx(&quot;p&quot;, null, &quot;H\xE1 um detalhe muito importante, todo navegador possui um conjunto de regras CSS padr\xF5es, conhecidos tamb\xE9m por &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;estilos de user-agent&quot;), &quot; (por exemplo &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;estilos de user-agent&quot;), &quot; (por exemplo &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;http://www.iecss.com/&quot;,
     &quot;title&quot;: &quot;Estilos padrões do Internet Explorer&quot;
-  }), &quot;estilos padr\xF5es do Internet Explorer&quot;), &quot;)&quot;), mdx(&quot;p&quot;, null, &quot;Assim como \xE9 poss\xEDvel descobrir o tempo necess\xE1rio para o &quot;, mdx(&quot;em&quot;, {
+  }, &quot;estilos padr\xF5es do Internet Explorer&quot;), &quot;)&quot;), mdx(&quot;p&quot;, null, &quot;Assim como \xE9 poss\xEDvel descobrir o tempo necess\xE1rio para o &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;parse&quot;), &quot; do HTML, tamb\xE9m \xE9 poss\xEDvel verificar o tempo necess\xE1rio para o processamento do CSS atrav\xE9s do DevTools:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;parse&quot;), &quot; do HTML, tamb\xE9m \xE9 poss\xEDvel verificar o tempo necess\xE1rio para o processamento do CSS atrav\xE9s do DevTools:&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/cssom-timeline.png&quot;,
     &quot;alt&quot;: &quot;Timeline do CSSOM&quot;,
     &quot;title&quot;: &quot;Timeline do CSSOM&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;\xC9 poss\xEDvel analisar o tempo decorrido e tamb\xE9m quantos elementos foram afetados. Com isso, podemos concluir que escrever um &quot;, mdx(&quot;strong&quot;, {
+  })), mdx(&quot;p&quot;, null, &quot;\xC9 poss\xEDvel analisar o tempo decorrido e tamb\xE9m quantos elementos foram afetados. Com isso, podemos concluir que escrever um &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;CSS de qualidade&quot;), &quot;, com &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -1252,13 +1169,12 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;CSS&quot;), &quot; do &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;CSSOM&quot;), &quot; de cada n\xF3.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;CSSOM&quot;), &quot; de cada n\xF3.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/arvore-de-renderizacao.png&quot;,
     &quot;alt&quot;: &quot;Árvore de renderização&quot;,
     &quot;title&quot;: &quot;Árvore de renderização&quot;
-  })), &quot;\n&quot;, mdx(&quot;em&quot;, {
+  }), &quot;\n&quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;Exemlo de uma \xE1rvore de renderiza\xE7\xE3o&quot;)), mdx(&quot;p&quot;, null, &quot;As demais tarefas s\xE3o as seguintes:&quot;), mdx(&quot;ol&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ol&quot;
@@ -1302,23 +1218,21 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;layout&quot;), &quot;, tamb\xE9m conhecida como &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;reflow&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Para calcular a posi\xE7\xE3o e o tamanho exato de cada elemento, o browser analisa a \xE1rvore de renderiza\xE7\xE3o passando por toda ela a partir de sua raiz. Vamos analisar esse simples exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;reflow&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Para calcular a posi\xE7\xE3o e o tamanho exato de cada elemento, o browser analisa a \xE1rvore de renderiza\xE7\xE3o passando por toda ela a partir de sua raiz. Vamos analisar esse simples exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width,initial-scale=1\&quot; /&gt;\n    &lt;title&gt;Critial Path: Hello world!&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div style=\&quot;width: 50%\&quot;&gt;\n      &lt;div style=\&quot;width: 50%\&quot;&gt;Hello world!&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width,initial-scale=1\&quot; /&gt;\n    &lt;title&gt;Critial Path: Hello world!&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div style=\&quot;width: 50%\&quot;&gt;\n      &lt;div style=\&quot;width: 50%\&quot;&gt;Hello world!&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;HTML&quot;), &quot; acima possu\xED dois divs aninhados. O primeiro (pai) define o tamanho do elemento na tela como 50% da largura da janela do dispositivo (&quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;viewport&quot;), &quot;). O segundo div (filho) define sua largura como 50% do seu pai, ou seja, 25% da largura do &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;viewport&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;viewport&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/layout-viewport.png&quot;,
     &quot;alt&quot;: &quot;Layout viewport&quot;,
     &quot;title&quot;: &quot;Layout viewport&quot;
-  }))), mdx(&quot;p&quot;, null, &quot;O resultado da renderiza\xE7\xE3o \xE9 em modelo de caixa, ou seja, todos elementos s\xE3o ret\xE2ngulos. Todas as medidas relativas, como porcentagens, &quot;, mdx(&quot;em&quot;, {
+  })), mdx(&quot;p&quot;, null, &quot;O resultado da renderiza\xE7\xE3o \xE9 em modelo de caixa, ou seja, todos elementos s\xE3o ret\xE2ngulos. Todas as medidas relativas, como porcentagens, &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;em\u2019s&quot;), &quot;, &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -1334,13 +1248,12 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;Layout&quot;), &quot; e &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;Paint&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;Paint&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, mdx(&quot;img&quot;, {
+    parentName: &quot;p&quot;,
     &quot;src&quot;: &quot;/paint-timeline.png&quot;,
     &quot;alt&quot;: &quot;Layout Timeline&quot;,
     &quot;title&quot;: &quot;Layout Timeline&quot;
-  }))), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
+  })), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
   }, &quot;O evento &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;li&quot;
@@ -1364,15 +1277,16 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;box-shadow&quot;), &quot;) \xE9 bem mais complexa e custosa.&quot;), mdx(&quot;p&quot;, null, &quot;E com isso descobrimos todo o trabalho que o browser necessita realizar para renderizar nossa p\xE1gina na tela do usu\xE1rio. No pr\xF3ximo post veremos o que gera o famoso \u201CBloqueio de renderiza\xE7\xE3o\u201D ou \u201CBloqueio do caminho crit\xEDco de renderiza\xE7\xE3o\u201D e como podemos com medidas simples, solucionar isso.&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, &quot;Todas imagens foram retiradas do &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;li&quot;
-  }, {
+  }, &quot;Todas imagens foram retiradas do &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;li&quot;,
     &quot;href&quot;: &quot;https://developers.google.com/&quot;,
     &quot;title&quot;: &quot;Google Developers&quot;
-  }), &quot;Google Developers&quot;))));
+  }, &quot;Google Developers&quot;))));
 }
 ;
-MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Arrow Functions]]></title><link>https://allysson.me/arrow-functions/</link><guid isPermaLink="false">https://allysson.me/arrow-functions/</guid><pubDate>Sun, 18 Dec 2016 00:00:00 GMT</pubDate><content:encoded>function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Arrow Functions]]></title><link>https://allysson.me/arrow-functions/</link><guid isPermaLink="false">https://allysson.me/arrow-functions/</guid><pubDate>Sun, 18 Dec 2016 00:00:00 GMT</pubDate><content:encoded>var _excluded = [&quot;components&quot;];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i &lt; sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) &gt;= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -1394,7 +1308,7 @@ var layoutProps = {
 var MDXLayout = &quot;wrapper&quot;;
 return function MDXContent(_ref) {
   var components = _ref.components,
-      props = _objectWithoutProperties(_ref, [&quot;components&quot;]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
   return mdx(MDXLayout, _extends({}, layoutProps, props, {
     components: components,
@@ -1403,23 +1317,19 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;fun\xE7\xF5es anonimas&quot;), &quot;, vamos\nentender sua sintaxe e como funciona o seu valor de &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;this&quot;), &quot;.&quot;), mdx(&quot;h3&quot;, null, &quot;Sintaxe&quot;), mdx(&quot;p&quot;, null, &quot;Uma fun\xE7\xE3o anonima no ES5 era assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;this&quot;), &quot;.&quot;), mdx(&quot;h3&quot;, null, &quot;Sintaxe&quot;), mdx(&quot;p&quot;, null, &quot;Uma fun\xE7\xE3o anonima no ES5 era assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-js&quot;
-  }), &quot;const countries = [&apos;Germany&apos;, &apos;United States&apos;];\n\nconst go = countries.map(function(country) {\n  return &apos;One day I will go to &apos; + country;\n});\n\nconsole.log(go);\n\n&gt; [\&quot;One day I will go to Germany\&quot;, \&quot;One day I will go to United States\&quot;]\n&quot;)), mdx(&quot;p&quot;, null, &quot;Com as arrows functions, podemos simplifica-las das seguintes formas:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;const countries = [&apos;Germany&apos;, &apos;United States&apos;];\n\nconst go = countries.map(function(country) {\n  return &apos;One day I will go to &apos; + country;\n});\n\nconsole.log(go);\n\n&gt; [\&quot;One day I will go to Germany\&quot;, \&quot;One day I will go to United States\&quot;]\n&quot;)), mdx(&quot;p&quot;, null, &quot;Com as arrows functions, podemos simplifica-las das seguintes formas:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-js&quot;
-  }), &quot;const contries = [&apos;Germany&apos;, &apos;United States&apos;];\nconst go = countries.map(country =&gt; {\n  return &apos;One day I will go to &apos; + country;\n}); // Podemos tirar a palavra function e adicionar uma =&gt; a frente dos () dos parametros.\n&quot;)), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;const contries = [&apos;Germany&apos;, &apos;United States&apos;];\nconst go = countries.map(country =&gt; {\n  return &apos;One day I will go to &apos; + country;\n}); // Podemos tirar a palavra function e adicionar uma =&gt; a frente dos () dos parametros.\n&quot;)), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-js&quot;
-  }), &quot;const go = countries.map(country =&gt; {\n  return &apos;One day I will go to &apos; + country;\n}); // Caso a fun\xE7\xE3o tenha apenas um par\xE2metro, podemos retirar o seus par\xEAnteses.\n&quot;)), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;const go = countries.map(country =&gt; {\n  return &apos;One day I will go to &apos; + country;\n}); // Caso a fun\xE7\xE3o tenha apenas um par\xE2metro, podemos retirar o seus par\xEAnteses.\n&quot;)), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-js&quot;
-  }), &quot;const go = countries.map(country =&gt; &apos;One day I will go to &apos; + country);\n/* Caso a fun\xE7\xE3o tenha apenas um par\xE2metro e retorne logo na primeira linha,\npodemos escrever sem as chaves e sem a palavra return */\n\n/* Podemos usar tamb\xE9m as template strings, ficando assim: */\n\nconst go = countries.map(country =&gt; `One day I will go to ${country}`);\n&quot;)), mdx(&quot;p&quot;, null, &quot;Recapitulando:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
+  }, &quot;const go = countries.map(country =&gt; &apos;One day I will go to &apos; + country);\n/* Caso a fun\xE7\xE3o tenha apenas um par\xE2metro e retorne logo na primeira linha,\npodemos escrever sem as chaves e sem a palavra return */\n\n/* Podemos usar tamb\xE9m as template strings, ficando assim: */\n\nconst go = countries.map(country =&gt; `One day I will go to ${country}`);\n&quot;)), mdx(&quot;p&quot;, null, &quot;Recapitulando:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
   }, &quot;Podemos tirar a palavra function e adicionar uma seta &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;li&quot;
@@ -1443,19 +1353,17 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;arrow function&quot;), &quot; se comporta de uma maneira\ndiferente da que estamos acostumados, primeiro, vamos analisar um c\xF3digo\njs &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;sem uso de arrow functions&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Imagine que temos o seguinte HTML e JS:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;sem uso de arrow functions&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Imagine que temos o seguinte HTML e JS:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;html&gt;\n  &lt;body&gt;\n    &lt;button id=\&quot;btn\&quot;&gt;Click!&lt;/button&gt;\n  &lt;/body&gt;\n  &lt;script&gt;\n    const btn = document.getElementById(&apos;btn&apos;);\n\n    btn.addEventListener(&apos;click&apos;, function() {\n      console.log(this);\n    });\n  &lt;/script&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Na fun\xE7\xE3o acima, ao clicar no bot\xE3o com &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;&lt;html&gt;\n  &lt;body&gt;\n    &lt;button id=\&quot;btn\&quot;&gt;Click!&lt;/button&gt;\n  &lt;/body&gt;\n  &lt;script&gt;\n    const btn = document.getElementById(&apos;btn&apos;);\n\n    btn.addEventListener(&apos;click&apos;, function() {\n      console.log(this);\n    });\n  &lt;/script&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Na fun\xE7\xE3o acima, ao clicar no bot\xE3o com &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;id=&apos;btn&apos;&quot;), &quot; iremos logar o valor de\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;this&quot;), &quot;, que nesse caso \xE9 o pr\xF3prio bot\xE3o. Teremos como sa\xEDda essa resposta:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;this&quot;), &quot;, que nesse caso \xE9 o pr\xF3prio bot\xE3o. Teremos como sa\xEDda essa resposta:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;button id=\&quot;btn\&quot;&gt;Click&lt;/button&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Se esse mesmo c\xF3digo for escrito com &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&lt;button id=\&quot;btn\&quot;&gt;Click&lt;/button&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Se esse mesmo c\xF3digo for escrito com &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;arrow function&quot;), &quot; o resultado n\xE3o ser\xE1 o\nmesmo, pois o valor de &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1465,17 +1373,15 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;window&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Ao clicar no bot\xE3o com uma &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;arrow function&quot;), &quot;, teremos o seguinte retorno:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;arrow function&quot;), &quot;, teremos o seguinte retorno:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;html&gt;\n  &lt;body&gt;\n    &lt;button id=\&quot;btn\&quot;&gt;Click!&lt;/button&gt;\n  &lt;/body&gt;\n  &lt;script&gt;\n    const btn = document.getElementById(&apos;btn&apos;);\n\n    btn.addEventListener(&apos;click&apos;, () =&gt; {\n      // mudan\xE7a aqui /\\\n      console.log(this);\n    });\n  &lt;/script&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
+  }, &quot;&lt;html&gt;\n  &lt;body&gt;\n    &lt;button id=\&quot;btn\&quot;&gt;Click!&lt;/button&gt;\n  &lt;/body&gt;\n  &lt;script&gt;\n    const btn = document.getElementById(&apos;btn&apos;);\n\n    btn.addEventListener(&apos;click&apos;, () =&gt; {\n      // mudan\xE7a aqui /\\\n      console.log(this);\n    });\n  &lt;/script&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
     parentName: &quot;pre&quot;
-  }, {}), &quot;&gt; Window {speechSynthesis: SpeechSynthesis, caches: CacheStorage, localStorage: Storage\n&gt; sessionStorage: Storage, webkitStorageInfo: DeprecatedStorageInfo\u2026}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora um outro exemplo para tentar fixar melhor, temos a seguinte estrutura sem\no uso de arrow functions ainda:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;&gt; Window {speechSynthesis: SpeechSynthesis, caches: CacheStorage, localStorage: Storage\n&gt; sessionStorage: Storage, webkitStorageInfo: DeprecatedStorageInfo\u2026}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora um outro exemplo para tentar fixar melhor, temos a seguinte estrutura sem\no uso de arrow functions ainda:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;html&gt;\n  &lt;body&gt;\n    &lt;button id=\&quot;btn\&quot;&gt;Click!&lt;/button&gt;\n  &lt;/body&gt;\n  &lt;script&gt;\n    const pessoa = {\n      nome: &apos;Allysson&apos;,\n      idade: &apos;22&apos;,\n\n      apresentar: function() {\n        return `Meu nome e ${this.nome} e eu tenho ${this.idade} anos`;\n      },\n\n      falar: function() {\n        const self = this;\n        window.setTimeout(function() {\n          console.log(self.apresentar());\n        }, 500);\n      },\n    };\n\n    const btn = document.getElementById(&apos;btn&apos;);\n\n    btn.addEventListener(&apos;click&apos;, function() {\n      pessoa.falar();\n    });\n  &lt;/script&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Repare que na linha 15 precisamos &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&lt;html&gt;\n  &lt;body&gt;\n    &lt;button id=\&quot;btn\&quot;&gt;Click!&lt;/button&gt;\n  &lt;/body&gt;\n  &lt;script&gt;\n    const pessoa = {\n      nome: &apos;Allysson&apos;,\n      idade: &apos;22&apos;,\n\n      apresentar: function() {\n        return `Meu nome e ${this.nome} e eu tenho ${this.idade} anos`;\n      },\n\n      falar: function() {\n        const self = this;\n        window.setTimeout(function() {\n          console.log(self.apresentar());\n        }, 500);\n      },\n    };\n\n    const btn = document.getElementById(&apos;btn&apos;);\n\n    btn.addEventListener(&apos;click&apos;, function() {\n      pessoa.falar();\n    });\n  &lt;/script&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Repare que na linha 15 precisamos &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;guardar o valor de this&quot;), &quot; na vari\xE1vel &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1493,9 +1399,9 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;window&quot;), &quot; n\xE3o possu\xEDmos\na fun\xE7\xE3o falar, ela est\xE1 dentro de &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;pessoa&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Executando esse JS temos o seguinte log no console:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
+  }, &quot;pessoa&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Executando esse JS temos o seguinte log no console:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
     parentName: &quot;pre&quot;
-  }, {}), &quot;&gt; Meu nome e Allysson e eu tenho 22 anos\n&quot;)), mdx(&quot;h4&quot;, null, &quot;Usando arrow functions&quot;), mdx(&quot;p&quot;, null, &quot;Agora se n\xF3s mudarmos a fun\xE7\xE3o anonima que est\xE1 dentro do &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;&gt; Meu nome e Allysson e eu tenho 22 anos\n&quot;)), mdx(&quot;h4&quot;, null, &quot;Usando arrow functions&quot;), mdx(&quot;p&quot;, null, &quot;Agora se n\xF3s mudarmos a fun\xE7\xE3o anonima que est\xE1 dentro do &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;setTimeout&quot;), &quot; para\nutilizar &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -1507,20 +1413,21 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;arrow function&quot;), &quot;, o contexto de this j\xE1 \xE9 o objeto\npessoa, &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;o escopo se mant\xE9m o mesmo&quot;), &quot;!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;o escopo se mant\xE9m o mesmo&quot;), &quot;!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;html&gt;\n  &lt;body&gt;\n    &lt;button id=\&quot;btn\&quot;&gt;Click!&lt;/button&gt;\n  &lt;/body&gt;\n  &lt;script&gt;\n    const pessoa = {\n      nome: &apos;Allysson&apos;,\n      idade: &apos;22&apos;,\n\n      apresentar: function() {\n        return `Meu nome e ${this.nome} e eu tenho ${this.idade} anos`;\n      },\n\n      falar: function() {\n        window.setTimeout(() =&gt; {\n          console.log(this.apresentar());\n        }, 500);\n      },\n    };\n\n    const btn = document.getElementById(&apos;btn&apos;);\n\n    btn.addEventListener(&apos;click&apos;, function() {\n      pessoa.falar();\n    });\n  &lt;/script&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Temos como retorno o mesmo que na fun\xE7\xE3o anterior, mas agora &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&lt;html&gt;\n  &lt;body&gt;\n    &lt;button id=\&quot;btn\&quot;&gt;Click!&lt;/button&gt;\n  &lt;/body&gt;\n  &lt;script&gt;\n    const pessoa = {\n      nome: &apos;Allysson&apos;,\n      idade: &apos;22&apos;,\n\n      apresentar: function() {\n        return `Meu nome e ${this.nome} e eu tenho ${this.idade} anos`;\n      },\n\n      falar: function() {\n        window.setTimeout(() =&gt; {\n          console.log(this.apresentar());\n        }, 500);\n      },\n    };\n\n    const btn = document.getElementById(&apos;btn&apos;);\n\n    btn.addEventListener(&apos;click&apos;, function() {\n      pessoa.falar();\n    });\n  &lt;/script&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Temos como retorno o mesmo que na fun\xE7\xE3o anterior, mas agora &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;sem precisar do\nself&quot;), &quot;!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
+  }, &quot;sem precisar do\nself&quot;), &quot;!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
     parentName: &quot;pre&quot;
-  }, {}), &quot;&gt; Meu nome e Allysson e eu tenho 22 anos\n&quot;)), mdx(&quot;h2&quot;, null, &quot;Conclus\xE3o&quot;), mdx(&quot;p&quot;, null, &quot;O valor de this com arrow functions pode gerar grandes dores de cabe\xE7a, esteja\natento, fa\xE7a testes, pratique criando fun\xE7\xF5es anonimas convencionais e logue o\nvalor de this, fa\xE7a essa mesma fun\xE7\xE3o utilizando arrow functions e compare o\nvalor de this, &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&gt; Meu nome e Allysson e eu tenho 22 anos\n&quot;)), mdx(&quot;h2&quot;, null, &quot;Conclus\xE3o&quot;), mdx(&quot;p&quot;, null, &quot;O valor de this com arrow functions pode gerar grandes dores de cabe\xE7a, esteja\natento, fa\xE7a testes, pratique criando fun\xE7\xF5es anonimas convencionais e logue o\nvalor de this, fa\xE7a essa mesma fun\xE7\xE3o utilizando arrow functions e compare o\nvalor de this, &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;saiba que o escopo se mantem o mesmo de onde a arrow function\nfoi criada&quot;), &quot;!&quot;), mdx(&quot;p&quot;, null, &quot;Ela \xE9 muito boa para ocasi\xF5es como no objeto pessoa, mas n\xE3o parece ser muito\ninteressante quando queremos adicionar um event listener em algum elemento, pois\nestariamos alterando o escopo, o contexto. Nosso event listener n\xE3o teria o\nefeito desejado.&quot;));
 }
 ;
-MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Abertura do StarWars em CSS.]]></title><link>https://allysson.me/abertura-do-starwars-em-css/</link><guid isPermaLink="false">https://allysson.me/abertura-do-starwars-em-css/</guid><pubDate>Mon, 25 Jul 2016 00:00:00 GMT</pubDate><content:encoded>function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Abertura do StarWars em CSS.]]></title><link>https://allysson.me/abertura-do-starwars-em-css/</link><guid isPermaLink="false">https://allysson.me/abertura-do-starwars-em-css/</guid><pubDate>Mon, 25 Jul 2016 00:00:00 GMT</pubDate><content:encoded>var _excluded = [&quot;components&quot;];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i &lt; sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) &gt;= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -1542,7 +1449,7 @@ var layoutProps = {
 var MDXLayout = &quot;wrapper&quot;;
 return function MDXContent(_ref) {
   var components = _ref.components,
-      props = _objectWithoutProperties(_ref, [&quot;components&quot;]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
   return mdx(MDXLayout, _extends({}, layoutProps, props, {
     components: components,
@@ -1551,15 +1458,13 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;introdu\xE7\xE3o do Starwars&quot;), &quot; (o logo\ndiminuindo e as letrinhas amarelas subindo)\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;utilizando apenas HTML e CSS&quot;), &quot;, com direito a musiquinha!&quot;), mdx(&quot;h2&quot;, null, &quot;O que vamos utilizar?&quot;), mdx(&quot;p&quot;, null, &quot;Vamos utilizar os seguintes arquivos: o &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;utilizando apenas HTML e CSS&quot;), &quot;, com direito a musiquinha!&quot;), mdx(&quot;h2&quot;, null, &quot;O que vamos utilizar?&quot;), mdx(&quot;p&quot;, null, &quot;Vamos utilizar os seguintes arquivos: o &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;/starwars.svg&quot;
-  }), &quot;logo do starwars&quot;), &quot; e a\n&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;logo do starwars&quot;), &quot; e a\n&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;/starwars.mp3&quot;
-  }), &quot;trilha sonora&quot;), &quot; da nossa abertura.&quot;), mdx(&quot;p&quot;, null, &quot;E tamb\xE9m utilizaremos as &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;trilha sonora&quot;), &quot; da nossa abertura.&quot;), mdx(&quot;p&quot;, null, &quot;E tamb\xE9m utilizaremos as &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;seguintes t\xE9cnicas&quot;), &quot;:&quot;), mdx(&quot;ul&quot;, null, mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
@@ -1579,11 +1484,10 @@ return function MDXContent(_ref) {
     parentName: &quot;ul&quot;
   }, &quot;animation&quot;), mdx(&quot;li&quot;, {
     parentName: &quot;ul&quot;
-  }, &quot;keyframes&quot;)), mdx(&quot;p&quot;, null, &quot;Se voc\xEA quiser saber mais sobre o transform, tem um post explicando algumas\ncoisas sobre ele aqui:\n&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;keyframes&quot;)), mdx(&quot;p&quot;, null, &quot;Se voc\xEA quiser saber mais sobre o transform, tem um post explicando algumas\ncoisas sobre ele aqui:\n&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;/transform-css3&quot;
-  }), &quot;Transform do CSS3 - O que \xE9 possivel fazer?&quot;)), mdx(&quot;h2&quot;, null, &quot;Come\xE7ando com o HTML&quot;), mdx(&quot;p&quot;, null, &quot;A estrutura do nosso &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;Transform do CSS3 - O que \xE9 possivel fazer?&quot;)), mdx(&quot;h2&quot;, null, &quot;Come\xE7ando com o HTML&quot;), mdx(&quot;p&quot;, null, &quot;A estrutura do nosso &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;HTML&quot;), &quot; ser\xE1 bem b\xE1sica, vamos come\xE7ar com\numa &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1595,11 +1499,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;div&quot;), &quot; que conter\xE1 todos nossos t\xEDtulos e\npar\xE1grafos e por fim, nossa tag &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;audio&quot;), &quot; que\nimportaremos nossa m\xFAsica.&quot;), mdx(&quot;p&quot;, null, &quot;Nosso HTML fica assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;audio&quot;), &quot; que\nimportaremos nossa m\xFAsica.&quot;), mdx(&quot;p&quot;, null, &quot;Nosso HTML fica assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta charset=\&quot;UTF-8\&quot; /&gt;\n    &lt;title&gt;Starwars Intro&lt;/title&gt;\n    &lt;link rel=\&quot;stylesheet\&quot; href=\&quot;style.css\&quot; /&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div class=\&quot;shadow\&quot;&gt;&lt;/div&gt;\n    &lt;img src=\&quot;starwars.svg\&quot; class=\&quot;logo\&quot; /&gt;\n    &lt;div class=\&quot;container\&quot;&gt;\n      &lt;div class=\&quot;texto\&quot;&gt;\n        &lt;h1 class=\&quot;titulo\&quot;&gt;Episode VII&lt;/h1&gt;\n        &lt;h2 class=\&quot;subtitulo\&quot;&gt;The force awakens&lt;/h2&gt;\n        &lt;p&gt;\n          It is a time of hope for the restored Republic. The last Imperial\n          loyalists have been pushed back to the Outer Rim Territories.\n        &lt;/p&gt;\n        &lt;p&gt;\n          Chased across the galaxy by the Republic, the last remnants of the\n          Galactic Empire have started raiding outposts in the outlying systems,\n          desperate to replenish their dwindling supplies.\n        &lt;/p&gt;\n        &lt;p&gt;\n          With a large Republic fleet closing in on their position, the\n          Imperials gather above the Outer Rim world of Tatooine, ready to make\n          their last stand...\n        &lt;/p&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;audio autoplay&gt;\n      &lt;source src=\&quot;starwars.mp3\&quot; type=\&quot;audio/mpeg\&quot; /&gt;\n    &lt;/audio&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;h2&quot;, null, &quot;Come\xE7ando com o CSS!&quot;), mdx(&quot;p&quot;, null, &quot;Vamos come\xE7ar estilizando nosso &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta charset=\&quot;UTF-8\&quot; /&gt;\n    &lt;title&gt;Starwars Intro&lt;/title&gt;\n    &lt;link rel=\&quot;stylesheet\&quot; href=\&quot;style.css\&quot; /&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div class=\&quot;shadow\&quot;&gt;&lt;/div&gt;\n    &lt;img src=\&quot;starwars.svg\&quot; class=\&quot;logo\&quot; /&gt;\n    &lt;div class=\&quot;container\&quot;&gt;\n      &lt;div class=\&quot;texto\&quot;&gt;\n        &lt;h1 class=\&quot;titulo\&quot;&gt;Episode VII&lt;/h1&gt;\n        &lt;h2 class=\&quot;subtitulo\&quot;&gt;The force awakens&lt;/h2&gt;\n        &lt;p&gt;\n          It is a time of hope for the restored Republic. The last Imperial\n          loyalists have been pushed back to the Outer Rim Territories.\n        &lt;/p&gt;\n        &lt;p&gt;\n          Chased across the galaxy by the Republic, the last remnants of the\n          Galactic Empire have started raiding outposts in the outlying systems,\n          desperate to replenish their dwindling supplies.\n        &lt;/p&gt;\n        &lt;p&gt;\n          With a large Republic fleet closing in on their position, the\n          Imperials gather above the Outer Rim world of Tatooine, ready to make\n          their last stand...\n        &lt;/p&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;audio autoplay&gt;\n      &lt;source src=\&quot;starwars.mp3\&quot; type=\&quot;audio/mpeg\&quot; /&gt;\n    &lt;/audio&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n&quot;)), mdx(&quot;h2&quot;, null, &quot;Come\xE7ando com o CSS!&quot;), mdx(&quot;p&quot;, null, &quot;Vamos come\xE7ar estilizando nosso &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;.container&quot;), &quot;,\ndando a ele uma &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -1611,21 +1514,19 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;overflow: hidden&quot;), &quot; para sumir com as scrollbars\ne no meu caso, vou utilizar a fonte Helvetica em todos os textos e com a cor\namarela (&quot;, mdx(&quot;abbr&quot;, {
     title: &quot;Hexadecimal de uma cor com tom amarelado&quot;
-  }, &quot;#F2CB06&quot;), &quot;).\nAt\xE9 agora, nosso css est\xE1 assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;#F2CB06&quot;), &quot;).\nAt\xE9 agora, nosso css est\xE1 assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;* {\n  /* Vamos fazer um reset do padding e margin. */\n  padding: 0;\n  margin: 0;\n}\nbody {\n  background: #000;\n  color: #f2cb06;\n  font-family: &apos;Helvetica-neue&apos;, &apos;Helvetica&apos;, sans-serif;\n  overflow: hidden;\n}\n.container {\n  max-width: 1000px;\n  margin: 0 auto;\n  position: relative;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Hora de estilizar a nossa &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;* {\n  /* Vamos fazer um reset do padding e margin. */\n  padding: 0;\n  margin: 0;\n}\nbody {\n  background: #000;\n  color: #f2cb06;\n  font-family: &apos;Helvetica-neue&apos;, &apos;Helvetica&apos;, sans-serif;\n  overflow: hidden;\n}\n.container {\n  max-width: 1000px;\n  margin: 0 auto;\n  position: relative;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Hora de estilizar a nossa &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;div&quot;), &quot; que ser\xE1 a base\npara nossa &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;sombra&quot;), &quot;. vamos dar uma altura de 100&quot;, mdx(&quot;abbr&quot;, {
     title: &quot;pixels&quot;
-  }, &quot;px&quot;), &quot;\n, a cor da div e da sombra ser\xE1 a mesma cor do fundo, vamos dar um position\nrelative para poder setar um z-index maior para que todos os elementos passem\npor de baixo de nossa sombra.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;px&quot;), &quot;\n, a cor da div e da sombra ser\xE1 a mesma cor do fundo, vamos dar um position\nrelative para poder setar um z-index maior para que todos os elementos passem\npor de baixo de nossa sombra.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.shadow {\n  height: 100px;\n  background-color: #000;\n  box-shadow: 0px 10px 20px #000;\n  position: relative;\n  z-index: 100;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;O motivo de colocarmos essa sombra, \xE9 pra dar um efeito legal, veja o exemplo:&quot;), mdx(&quot;figure&quot;, null, mdx(&quot;img&quot;, {
+  }, &quot;.shadow {\n  height: 100px;\n  background-color: #000;\n  box-shadow: 0px 10px 20px #000;\n  position: relative;\n  z-index: 100;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;O motivo de colocarmos essa sombra, \xE9 pra dar um efeito legal, veja o exemplo:&quot;), mdx(&quot;figure&quot;, null, mdx(&quot;img&quot;, {
     src: &quot;/exemplo.png&quot;,
     alt: &quot;Exemplo da sombra&quot;
   }), mdx(&quot;figcaption&quot;, null, &quot;1. Exemplo da sombra sendo aplicada, e nosso texto sumindo suavemente.&quot;)), mdx(&quot;h3&quot;, null, &quot;Animando o logo!&quot;), mdx(&quot;p&quot;, null, &quot;Agora sim come\xE7a a m\xE1gica, vamos &quot;, mdx(&quot;strong&quot;, {
@@ -1636,11 +1537,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;translate(-50%, -50%)&quot;), &quot; e um\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;position: absolute;&quot;), &quot; para alinhar-mos o logo no\ncentro da p\xE1gina.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;position: absolute;&quot;), &quot; para alinhar-mos o logo no\ncentro da p\xE1gina.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.logo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: scale(0) translate(-50%, -50%);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora vamos &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.logo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: scale(0) translate(-50%, -50%);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora vamos &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;dar um nome para a nossa anima\xE7\xE3o&quot;), &quot; do logo\nutilizando a propriedade\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1654,11 +1554,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;-webkit-&quot;), &quot; e\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;-moz-&quot;), &quot; por quest\xF5es de compatibilidade entre os\nnavegadores.&quot;), mdx(&quot;p&quot;, null, &quot;Nosso css est\xE1 assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;-moz-&quot;), &quot; por quest\xF5es de compatibilidade entre os\nnavegadores.&quot;), mdx(&quot;p&quot;, null, &quot;Nosso css est\xE1 assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.logo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: scale(0) translate(-50%, -50%);\n  -moz-transform: scale(0) translate(-50%, -50%);\n  transform: scale(0) translate(-50%, -50%);\n  -webkit-animation-name: logo;\n  -webkit-animation-duration: 15s;\n  -webkit-animation-timing-function: linear;\n  -moz-animation-name: logo;\n  -moz-animation-duration: 15s;\n  -moz-animation-timing-function: linear;\n  animation-name: logo;\n  animation-duration: 15s;\n  animation-timing-function: linear;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;At\xE9 agora, nada acontece, precisamos adicionar nossos\n&quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.logo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: scale(0) translate(-50%, -50%);\n  -moz-transform: scale(0) translate(-50%, -50%);\n  transform: scale(0) translate(-50%, -50%);\n  -webkit-animation-name: logo;\n  -webkit-animation-duration: 15s;\n  -webkit-animation-timing-function: linear;\n  -moz-animation-name: logo;\n  -moz-animation-duration: 15s;\n  -moz-animation-timing-function: linear;\n  animation-name: logo;\n  animation-duration: 15s;\n  animation-timing-function: linear;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;At\xE9 agora, nada acontece, precisamos adicionar nossos\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;keyframes!&quot;), &quot; a sintaxe \xE9 a seguinte,\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1680,15 +1579,13 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;to {&quot;), &quot; que ser\xE3o as\npropriedades finais de nossa anima\xE7\xE3o, ou seja, como nosso logo estar\xE1 no\nfinal. O tamanho dele ser\xE1 0, ou seja, ele vai diminuir at\xE9 sumir!\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;scale(0);&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Nosso keyframe no CSS, ficar\xE1 assim (utilize os prefixos para compatibilidade,\nn\xE3o utilizarei para poupar c\xF3digo):&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;scale(0);&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Nosso keyframe no CSS, ficar\xE1 assim (utilize os prefixos para compatibilidade,\nn\xE3o utilizarei para poupar c\xF3digo):&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;@keyframes logo {\n  from {\n    transform: translate(-50%, -50%) scale(2);\n    /* Precisamos repetir o translate, pois o keyframe sobescreve os valores da propriedade */\n  }\n  to {\n    transform: translate(-50%, -50%) scale(0);\n  }\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Veja um exemplo de como est\xE1 nossa anima\xE7\xE3o at\xE9 agora:\n&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;@keyframes logo {\n  from {\n    transform: translate(-50%, -50%) scale(2);\n    /* Precisamos repetir o translate, pois o keyframe sobescreve os valores da propriedade */\n  }\n  to {\n    transform: translate(-50%, -50%) scale(0);\n  }\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Veja um exemplo de como est\xE1 nossa anima\xE7\xE3o at\xE9 agora:\n&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;/starwars/starwars-exemplo-1&quot;
-  }), &quot;Exemplo&quot;)), mdx(&quot;h3&quot;, null, &quot;Animando o texto&quot;), mdx(&quot;p&quot;, null, &quot;Primeiramente precisamos dar &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;Exemplo&quot;)), mdx(&quot;h3&quot;, null, &quot;Animando o texto&quot;), mdx(&quot;p&quot;, null, &quot;Primeiramente precisamos dar &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;estilo para o nosso texto&quot;), &quot;,\ncome\xE7amos adicionando o b\xE1sico, alinhamos todo nosso texto ao centro,\nalteramos os nossos par\xE1grafos para fonte de 70&quot;, mdx(&quot;abbr&quot;, {
     title: &quot;pixels&quot;
@@ -1698,11 +1595,10 @@ return function MDXContent(_ref) {
     title: &quot;pixels&quot;
   }, &quot;px&quot;), &quot; para distanciar\nde nosso t\xEDtulo.&quot;), mdx(&quot;p&quot;, null, &quot;Para o t\xEDtulo vamos apenas aumentar a fonte para\n85&quot;, mdx(&quot;abbr&quot;, {
     title: &quot;pixels&quot;
-  }, &quot;px&quot;), &quot; e para nosso subt\xEDtulo vamos deixar ele com o\npeso da fonte \u201Cnormal\u201D, alterar a altura das linhas e deixar tudo em caixa alta.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;px&quot;), &quot; e para nosso subt\xEDtulo vamos deixar ele com o\npeso da fonte \u201Cnormal\u201D, alterar a altura das linhas e deixar tudo em caixa alta.&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.texto {\n  text-align: center;\n}\n.texto p {\n  font-size: 70px;\n  font-weight: bold;\n  text-shadow: 0px 0px 10px #000;\n  margin-top: 70px;\n  line-height: 1.4;\n}\n.titulo {\n  font-size: 85px;\n}\n.subtitulo {\n  font-weight: normal;\n  text-transform: uppercase;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora come\xE7amos com a &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.texto {\n  text-align: center;\n}\n.texto p {\n  font-size: 70px;\n  font-weight: bold;\n  text-shadow: 0px 0px 10px #000;\n  margin-top: 70px;\n  line-height: 1.4;\n}\n.titulo {\n  font-size: 85px;\n}\n.subtitulo {\n  font-weight: normal;\n  text-transform: uppercase;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora come\xE7amos com a &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;nossa anima\xE7\xE3o&quot;), &quot;, primeira novidade,\nvamos adicionar uma &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -1710,11 +1606,10 @@ return function MDXContent(_ref) {
     title: &quot;pixels&quot;
   }, &quot;px&quot;), &quot; da tela!\nassim podemos dar uma &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;sensa\xE7\xE3o de profundidade&quot;), &quot; ao nosso\nelemento. Vamos tamb\xE9m rotacionar nosso elemento no eixo X em 25 graus. O\nestilo do nosso texto fica assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;sensa\xE7\xE3o de profundidade&quot;), &quot; ao nosso\nelemento. Vamos tamb\xE9m rotacionar nosso elemento no eixo X em 25 graus. O\nestilo do nosso texto fica assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.texto {\n  text-align: center;\n  transform: perspective(800px) rotateX(25deg);\n}\n&quot;)), mdx(&quot;figure&quot;, null, mdx(&quot;img&quot;, {
+  }, &quot;.texto {\n  text-align: center;\n  transform: perspective(800px) rotateX(25deg);\n}\n&quot;)), mdx(&quot;figure&quot;, null, mdx(&quot;img&quot;, {
     src: &quot;/exemplo2.png&quot;,
     alt: &quot;Exemplo de texto rotacionado&quot;
   }), mdx(&quot;figcaption&quot;, null, &quot;2. Exemplo do texto com profundidade e rotacionado 25 graus no eixo X.&quot;)), mdx(&quot;p&quot;, null, &quot;Por\xE9m, no come\xE7o da nossa anima\xE7\xE3o\n&quot;, mdx(&quot;strong&quot;, {
@@ -1723,21 +1618,19 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;esconder nosso texto&quot;), &quot;, podemos desloca-lo utilizando o\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;translateY()&quot;), &quot;, isso far\xE1 nosso texto deslocar para baixo e\nficar fora da p\xE1gina, para depois subir dando aquele efeito legal!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;translateY()&quot;), &quot;, isso far\xE1 nosso texto deslocar para baixo e\nficar fora da p\xE1gina, para depois subir dando aquele efeito legal!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.texto {\n  text-align: center;\n  transform: perspective(800px) rotateX(25deg) translateY(40%);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Vamos come\xE7ar com nossas anima\xE7\xF5es, come\xE7amos adicionando nosso\n&quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;.texto {\n  text-align: center;\n  transform: perspective(800px) rotateX(25deg) translateY(40%);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Vamos come\xE7ar com nossas anima\xE7\xF5es, come\xE7amos adicionando nosso\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;animation-name: subir;&quot;), &quot;,\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;animation-duration: 60s;&quot;), &quot;,\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;animation-timing-function: linear;&quot;), &quot;, at\xE9 aqui,\nnada de novo, nossa anima\xE7\xE3o se chama \u201Csubir\u201D (vamos utilizar esse nome no\nkeyframe), ter\xE1 60 segundos de dura\xE7\xE3o e sua velocidade ser\xE1 linear, ou seja,\na mesma velocidade durante a anima\xE7\xE3o inteira. (Adicione os prefixos para\ncompatibilidade nos browsers).&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;animation-timing-function: linear;&quot;), &quot;, at\xE9 aqui,\nnada de novo, nossa anima\xE7\xE3o se chama \u201Csubir\u201D (vamos utilizar esse nome no\nkeyframe), ter\xE1 60 segundos de dura\xE7\xE3o e sua velocidade ser\xE1 linear, ou seja,\na mesma velocidade durante a anima\xE7\xE3o inteira. (Adicione os prefixos para\ncompatibilidade nos browsers).&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.texto {\n  text-align: center;\n  transform: perspective(800px) rotateX(25deg) translateY(40%);\n  animation-name: subir;\n  animation-duration: 60s;\n  animation-timing-function: linear;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora vamos ao nosso &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.texto {\n  text-align: center;\n  transform: perspective(800px) rotateX(25deg) translateY(40%);\n  animation-name: subir;\n  animation-duration: 60s;\n  animation-timing-function: linear;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Agora vamos ao nosso &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;keyframe&quot;), &quot;, ao inv\xE9s de utilizar o\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1745,17 +1638,18 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;to {&quot;), &quot;, vamos utilizar\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;porcentagens&quot;), &quot;, vamos iniciar nossa anima\xE7\xE3o apenas quando a\nanima\xE7\xE3o do logo estiver quase terminando, ou seja, vamos esperar um tempo\npara nossa anima\xE7\xE3o do texto come\xE7ar. Vamos iniciar em 15% e vamos at\xE9 100%,\nvamos esperar cerca de 9 segundos (15% de 60s) para iniciar a anima\xE7\xE3o do\ntexto. Nesse keyframe vamos alterar apenas o translateY(), passando um valor\nnegativo para nosso texto subir!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;porcentagens&quot;), &quot;, vamos iniciar nossa anima\xE7\xE3o apenas quando a\nanima\xE7\xE3o do logo estiver quase terminando, ou seja, vamos esperar um tempo\npara nossa anima\xE7\xE3o do texto come\xE7ar. Vamos iniciar em 15% e vamos at\xE9 100%,\nvamos esperar cerca de 9 segundos (15% de 60s) para iniciar a anima\xE7\xE3o do\ntexto. Nesse keyframe vamos alterar apenas o translateY(), passando um valor\nnegativo para nosso texto subir!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;@keyframes subir {\n  15% {\n    transform: perspective(800px) rotateX(25deg) translateY(40%);\n    /* Precisamos repertir a perspective e o rotate para manter a perspectiva e rota\xE7\xE3o. */\n  }\n  100% {\n    transform: perspective(800px) rotateX(25deg) translateY(-220%);\n    /* O translate -220% serve para deslocar o texto para cima! dando a sensa\xE7\xE3o de que o texto est\xE1 subindo. */\n  }\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;E est\xE1 pronto nosso starwars!&quot;), mdx(&quot;a&quot;, {
+  }, &quot;@keyframes subir {\n  15% {\n    transform: perspective(800px) rotateX(25deg) translateY(40%);\n    /* Precisamos repertir a perspective e o rotate para manter a perspectiva e rota\xE7\xE3o. */\n  }\n  100% {\n    transform: perspective(800px) rotateX(25deg) translateY(-220%);\n    /* O translate -220% serve para deslocar o texto para cima! dando a sensa\xE7\xE3o de que o texto est\xE1 subindo. */\n  }\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;E est\xE1 pronto nosso starwars!&quot;), mdx(&quot;a&quot;, {
     href: &quot;/starwars/starwars-exemplo-2&quot;,
     title: &quot;Exemplo da anima\xE7\xE3o final&quot;
   }, &quot;Exemplo da anima\xE7\xE3o final&quot;), &quot;.&quot;, mdx(&quot;p&quot;, null, &quot;Caso voc\xEA queira colocar um outro texto, alterar tamanho da fonte, \xE9 bem\nprov\xE1vel que voc\xEA tenha que fazer altera\xE7\xF5es no rotate ou na perspectiva, fique\natento!&quot;), mdx(&quot;p&quot;, null, &quot;E segue o desafio de algu\xE9m adaptar para funcionar bacana no mobile!&quot;));
 }
 ;
-MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Seletores avançados do CSS]]></title><link>https://allysson.me/seletores-avancados-do-css/</link><guid isPermaLink="false">https://allysson.me/seletores-avancados-do-css/</guid><pubDate>Sun, 03 Apr 2016 00:00:00 GMT</pubDate><content:encoded>function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Seletores avançados do CSS]]></title><link>https://allysson.me/seletores-avancados-do-css/</link><guid isPermaLink="false">https://allysson.me/seletores-avancados-do-css/</guid><pubDate>Sun, 03 Apr 2016 00:00:00 GMT</pubDate><content:encoded>var _excluded = [&quot;components&quot;];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i &lt; sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) &gt;= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -1777,7 +1671,7 @@ var layoutProps = {
 var MDXLayout = &quot;wrapper&quot;;
 return function MDXContent(_ref) {
   var components = _ref.components,
-      props = _objectWithoutProperties(_ref, [&quot;components&quot;]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
   return mdx(MDXLayout, _extends({}, layoutProps, props, {
     components: components,
@@ -1786,19 +1680,17 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;~&quot;), &quot; para: &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;\u201Cquero pegar todos elementos depois desse elemento\u201D&quot;), &quot; por\nexemplo, temos a seguinte marca\xE7\xE3o HTML:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;\u201Cquero pegar todos elementos depois desse elemento\u201D&quot;), &quot; por\nexemplo, temos a seguinte marca\xE7\xE3o HTML:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;ul&gt;\n  &lt;li&gt;Primeiro Item&lt;/li&gt;\n  &lt;li&gt;Segundo Item&lt;/li&gt;\n  &lt;li&gt;Terceiro Item&lt;/li&gt;\n  &lt;li&gt;Quarto Item&lt;/li&gt;\n&lt;/ul&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Queremos que a partir do segundo item, ele e todos os outros &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;&lt;ul&gt;\n  &lt;li&gt;Primeiro Item&lt;/li&gt;\n  &lt;li&gt;Segundo Item&lt;/li&gt;\n  &lt;li&gt;Terceiro Item&lt;/li&gt;\n  &lt;li&gt;Quarto Item&lt;/li&gt;\n&lt;/ul&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Queremos que a partir do segundo item, ele e todos os outros &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;li&apos;s&quot;), &quot; tenham uma\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;margin-top&quot;), &quot; de 10px. Poderiamos fazer da seguinte maneira:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;margin-top&quot;), &quot; de 10px. Poderiamos fazer da seguinte maneira:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;li ~ li {\n  margin-top: 10px;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Dessa forma, o primeiro elemento n\xE3o teria o &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;li ~ li {\n  margin-top: 10px;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Dessa forma, o primeiro elemento n\xE3o teria o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;margin-top&quot;), &quot;, mas o segundo e todos\nos outros possuiriam essa propriedade.&quot;), mdx(&quot;p&quot;, null, &quot;Outra forma de ler esse seletor: &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -1814,15 +1706,13 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;Lembre-se bem&quot;), &quot;, o \u201D~\u201D seleciona &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;TODOS&quot;), &quot; os elementos depois de outro.&quot;), mdx(&quot;p&quot;, null, &quot;Agora, um outro caso, temos o seguinte HTML:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;TODOS&quot;), &quot; os elementos depois de outro.&quot;), mdx(&quot;p&quot;, null, &quot;Agora, um outro caso, temos o seguinte HTML:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;img src=\&quot;imagem.jpg\&quot; /&gt;\n&lt;div&gt;\n  &lt;p&gt;\n    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor\n    sit amet.\n  &lt;/p&gt;\n&lt;/div&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;E queremos pegar todos os paragrafos depois da imagem. Poder\xEDamos selecion\xE1-lo\nda seguinte maneira?&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;&lt;img src=\&quot;imagem.jpg\&quot; /&gt;\n&lt;div&gt;\n  &lt;p&gt;\n    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor\n    sit amet.\n  &lt;/p&gt;\n&lt;/div&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;E queremos pegar todos os paragrafos depois da imagem. Poder\xEDamos selecion\xE1-lo\nda seguinte maneira?&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;img ~ p\n&quot;)), mdx(&quot;p&quot;, null, &quot;O nosso seletor de \u201D~\u201D iria funcionar nesse caso? A resposta \xE9: &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;img ~ p\n&quot;)), mdx(&quot;p&quot;, null, &quot;O nosso seletor de \u201D~\u201D iria funcionar nesse caso? A resposta \xE9: &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;n\xE3o&quot;), &quot;, esse\nseletor n\xE3o iria funcionar, pois quem est\xE1 depois da imagem \xE9 a &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1834,29 +1724,25 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;seletor \u201D+\u201D&quot;), &quot; que nos permite selecionar um elemento\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;IMEDIATAMENTE&quot;), &quot; depois de outro elemento, por exemplo, temos o seguinte HTML:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;IMEDIATAMENTE&quot;), &quot; depois de outro elemento, por exemplo, temos o seguinte HTML:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;img src=\&quot;imagem.jpg\&quot; /&gt;\n&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/p&gt;\n&lt;p&gt;\n  Temporibus, incidunt. Lorem ipsum dolor sit amet, consectetur adipisicing\n  elit.\n&lt;/p&gt;\n&lt;p&gt;\n  Possimus, blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing\n  elit.\n&lt;/p&gt;\n&lt;p&gt;Fugiat, pariatur?&lt;/p&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Queremos que &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&lt;img src=\&quot;imagem.jpg\&quot; /&gt;\n&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/p&gt;\n&lt;p&gt;\n  Temporibus, incidunt. Lorem ipsum dolor sit amet, consectetur adipisicing\n  elit.\n&lt;/p&gt;\n&lt;p&gt;\n  Possimus, blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing\n  elit.\n&lt;/p&gt;\n&lt;p&gt;Fugiat, pariatur?&lt;/p&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Queremos que &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;apenas o primeiro paragrafo&quot;), &quot; seja em negrito. Podemos ent\xE3o\nselecion\xE1-lo da seguinte maneira:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;apenas o primeiro paragrafo&quot;), &quot; seja em negrito. Podemos ent\xE3o\nselecion\xE1-lo da seguinte maneira:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;img + p {\n  font-weight: bold;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Lembre-se, o \u201D+\u201D pega o elemento &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;img + p {\n  font-weight: bold;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Lembre-se, o \u201D+\u201D pega o elemento &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;IMEDIATAMENTE&quot;), &quot; ap\xF3s, ent\xE3o, ele n\xE3o\nfuncionaria em um caso como esse, onde queremos selecionar o primeiro paragrafo\nap\xF3s a imagem:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;IMEDIATAMENTE&quot;), &quot; ap\xF3s, ent\xE3o, ele n\xE3o\nfuncionaria em um caso como esse, onde queremos selecionar o primeiro paragrafo\nap\xF3s a imagem:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;img sc=\&quot;imagem.jpg\&quot; /&gt;\n&lt;div&gt;\n  &lt;p&gt;\n    Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,\n    consectetur.\n  &lt;/p&gt;\n&lt;/div&gt;\n&quot;)), mdx(&quot;h2&quot;, null, &quot;O seletor \u201D&gt;\u201D&quot;), mdx(&quot;p&quot;, null, &quot;Esse seletor nos permite selecionar elementos &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;&lt;img sc=\&quot;imagem.jpg\&quot; /&gt;\n&lt;div&gt;\n  &lt;p&gt;\n    Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,\n    consectetur.\n  &lt;/p&gt;\n&lt;/div&gt;\n&quot;)), mdx(&quot;h2&quot;, null, &quot;O seletor \u201D&gt;\u201D&quot;), mdx(&quot;p&quot;, null, &quot;Esse seletor nos permite selecionar elementos &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;PAI e FILHOS&quot;), &quot;, n\xE3o seleciona\nelementos netos, apenas elementos filhos, por exemplo, temos o seguinte HTML:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;PAI e FILHOS&quot;), &quot;, n\xE3o seleciona\nelementos netos, apenas elementos filhos, por exemplo, temos o seguinte HTML:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-html&quot;
-  }), &quot;&lt;div&gt;\n  &lt;p&gt;Lorem ipsum.&lt;/p&gt;\n  &lt;!-- filho de div --&gt;\n\n  &lt;blockquote&gt;\n    &lt;p&gt;Lorem ipsum.&lt;/p&gt;\n    &lt;!-- neto de div --&gt;\n  &lt;/blockquote&gt;\n\n  &lt;p&gt;Lorem ipsum.&lt;/p&gt;\n  &lt;!-- filho de div --&gt;\n&lt;/div&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Queremos pegar os &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;&lt;div&gt;\n  &lt;p&gt;Lorem ipsum.&lt;/p&gt;\n  &lt;!-- filho de div --&gt;\n\n  &lt;blockquote&gt;\n    &lt;p&gt;Lorem ipsum.&lt;/p&gt;\n    &lt;!-- neto de div --&gt;\n  &lt;/blockquote&gt;\n\n  &lt;p&gt;Lorem ipsum.&lt;/p&gt;\n  &lt;!-- filho de div --&gt;\n&lt;/div&gt;\n&quot;)), mdx(&quot;p&quot;, null, &quot;Queremos pegar os &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;p&quot;), &quot; que s\xE3o filhos da &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1868,11 +1754,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;div&quot;), &quot; e aplicarmos um estilo de &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;text-decoration: underline;&quot;), &quot;, podemos\nselecion\xE1-los da seguinte forma:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;text-decoration: underline;&quot;), &quot;, podemos\nselecion\xE1-los da seguinte forma:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;div &gt; p {\n  text-decoration: underline;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Dessa maneira, todos os &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;div &gt; p {\n  text-decoration: underline;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Dessa maneira, todos os &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;p&quot;), &quot; que s\xE3o filhos da &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -1911,7 +1796,9 @@ return function MDXContent(_ref) {
   }, &quot;use com cuidado!&quot;)));
 }
 ;
-MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Transform do CSS3]]></title><link>https://allysson.me/transform-css3/</link><guid isPermaLink="false">https://allysson.me/transform-css3/</guid><pubDate>Fri, 01 Apr 2016 00:00:00 GMT</pubDate><content:encoded>function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+MDXContent.isMDXComponent = true;</content:encoded></item><item><title><![CDATA[Transform do CSS3]]></title><link>https://allysson.me/transform-css3/</link><guid isPermaLink="false">https://allysson.me/transform-css3/</guid><pubDate>Fri, 01 Apr 2016 00:00:00 GMT</pubDate><content:encoded>var _excluded = [&quot;components&quot;];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i &lt; sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) &gt;= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -1933,7 +1820,7 @@ var layoutProps = {
 var MDXLayout = &quot;wrapper&quot;;
 return function MDXContent(_ref) {
   var components = _ref.components,
-      props = _objectWithoutProperties(_ref, [&quot;components&quot;]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
   return mdx(MDXLayout, _extends({}, layoutProps, props, {
     components: components,
@@ -1964,11 +1851,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;50px&quot;), &quot; para baixo,\n(coloque o cursor em cima para ver o efeito!)&quot;), mdx(&quot;div&quot;, {
     className: &quot;transform translate&quot;
-  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.translate {\n  width: 100px;\n  height: 100px;\n  background-color: yellow;\n  border: 1px solid #ccc;\n  text-align: center;\n  padding: 10px;\n  transition: transform 1s;\n}\n\n.translate:hover {\n  transform: translate(50px, 50px);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Tamb\xE9m existem os m\xE9todos &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.translate {\n  width: 100px;\n  height: 100px;\n  background-color: yellow;\n  border: 1px solid #ccc;\n  text-align: center;\n  padding: 10px;\n  transition: transform 1s;\n}\n\n.translate:hover {\n  transform: translate(50px, 50px);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Tamb\xE9m existem os m\xE9todos &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;translateX&quot;), &quot; e &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -2006,11 +1892,10 @@ return function MDXContent(_ref) {
     className: &quot;transform rotateY&quot;
   }, &quot;Eixo Y&quot;), mdx(&quot;div&quot;, {
     className: &quot;transform rotateY-negativo&quot;
-  }, &quot;Eixo Y com valor negativo&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Eixo Y com valor negativo&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.rotate:hover {\n  transform: rotateX(25deg);\n}\n\n.rotate-anti-horario:hover {\n  transform: rotateX(-25deg);\n}\n\n.rotateY:hover {\n  transform: rotateY(180deg);\n}\n\n.rotateY-negativo:hover {\n  transform: rotateY(-160deg);\n}\n&quot;)), mdx(&quot;h3&quot;, null, &quot;O m\xE9todo scale&quot;), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.rotate:hover {\n  transform: rotateX(25deg);\n}\n\n.rotate-anti-horario:hover {\n  transform: rotateX(-25deg);\n}\n\n.rotateY:hover {\n  transform: rotateY(180deg);\n}\n\n.rotateY-negativo:hover {\n  transform: rotateY(-160deg);\n}\n&quot;)), mdx(&quot;h3&quot;, null, &quot;O m\xE9todo scale&quot;), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;scale&quot;), &quot; serve justamente para alterar a escala do elemento, voc\xEA pode\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -2022,11 +1907,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;height&quot;), &quot; do mesmo, utilizando\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;transform: scale(width, height)&quot;), &quot;, por exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;transform: scale(width, height)&quot;), &quot;, por exemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.scale {\n  transform: scale(2); // aumenta 2x o width e 2x o height do elemento\n}\n.scale {\n  transform: scale(2, 5); // aumenta o width em 2x e o height em 5x;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Por\xE9m, se voc\xEA declarar um &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;.scale {\n  transform: scale(2); // aumenta 2x o width e 2x o height do elemento\n}\n.scale {\n  transform: scale(2, 5); // aumenta o width em 2x e o height em 5x;\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Por\xE9m, se voc\xEA declarar um &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;scale(1)&quot;), &quot; o elemento n\xE3o sofrer\xE1\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -2046,11 +1930,10 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;estranhamente&quot;), &quot;\ntamb\xE9m aumenta de tamanho, por\xE9m ele ficar\xE1 de &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;cabe\xE7a para baixo!&quot;), &quot; por\nexemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;cabe\xE7a para baixo!&quot;), &quot; por\nexemplo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.scale {\n  transform: scale(-1);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;No exemplo abaixo, deixaremos um elemento com o dobro de seu tamanho, outro com\no 2x o tamanho de seu width e 4x o tamanho de seu height e o outro que est\xE1 com\no valor negativo, adivinha? de &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.scale {\n  transform: scale(-1);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;No exemplo abaixo, deixaremos um elemento com o dobro de seu tamanho, outro com\no 2x o tamanho de seu width e 4x o tamanho de seu height e o outro que est\xE1 com\no valor negativo, adivinha? de &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;cabe\xE7a para baixo!&quot;), &quot;.&quot;), mdx(&quot;div&quot;, {
     className: &quot;transform scale&quot;
@@ -2058,11 +1941,10 @@ return function MDXContent(_ref) {
     className: &quot;transform scale-torto&quot;
   }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;div&quot;, {
     className: &quot;transform scale-negativo&quot;
-  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.scale,\n.scale-negativo,\nscale-torto {\n  width: 100px;\n  height: 100px;\n  transition: transform 1s;\n}\n.scale:hover {\n  transform: scale(2); // aumenta o elemento em 2x\n}\n\n.scale-torto:hover {\n  transform: scale(2, 4); // aumenta o width em 2x e o height em 4x\n}\n\n.scale-negativo:hover {\n  transform: scale(-2);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;.scale,\n.scale-negativo,\nscale-torto {\n  width: 100px;\n  height: 100px;\n  transition: transform 1s;\n}\n.scale:hover {\n  transform: scale(2); // aumenta o elemento em 2x\n}\n\n.scale-torto:hover {\n  transform: scale(2, 4); // aumenta o width em 2x e o height em 4x\n}\n\n.scale-negativo:hover {\n  transform: scale(-2);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;scale(-1)&quot;), &quot; \xE9 bom caso voc\xEA queira inverter um elemento, deixar ele de cabe\xE7a\npara baixo, basta colocar o -1 no scale do elemento.&quot;), mdx(&quot;p&quot;, null, &quot;Como o translate, o scale tamb\xE9m possui os seus m\xE9todos para alterar apenas um\neixo, o &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -2078,21 +1960,19 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;degrees&quot;), &quot;.;\nNo exemplo abaixo distorceremos um elemento 10 graus no eixo X e 5 graus no eixo\nY.&quot;), mdx(&quot;div&quot;, {
     className: &quot;transform skew&quot;
-  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.skew {\n  transform: skew(10deg, 5deg);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Caso voc\xEA passe &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.skew {\n  transform: skew(10deg, 5deg);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Caso voc\xEA passe &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;apenas um par\xE2metro&quot;), &quot;, como por exemplo:\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;transform: skew(20deg);&quot;), &quot; o elemento ser\xE1 distorcido apenas no eixo X.&quot;), mdx(&quot;div&quot;, {
     className: &quot;transform skew-um-parametro&quot;
-  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.skew {\n  transform: skew(20deg);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Podemos tamb\xE9m distorcer apenas um dos eixos separadamente, para isso, existem o\n&quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.skew {\n  transform: skew(20deg);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Podemos tamb\xE9m distorcer apenas um dos eixos separadamente, para isso, existem o\n&quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;skewX&quot;), &quot; e o &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
@@ -2100,55 +1980,46 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;transform: skewX(15deg)&quot;), &quot;, ir\xE1 distorcer\n15 graus no eixo X.&quot;), mdx(&quot;div&quot;, {
     className: &quot;transform skewX&quot;
-  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.skewX {\n  transform: skewX(15deg);\n}\n&quot;)), mdx(&quot;h4&quot;, null, &quot;SkewY&quot;), mdx(&quot;p&quot;, null, &quot;Serve para distorcer apenas o eixo Y, &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;.skewX {\n  transform: skewX(15deg);\n}\n&quot;)), mdx(&quot;h4&quot;, null, &quot;SkewY&quot;), mdx(&quot;p&quot;, null, &quot;Serve para distorcer apenas o eixo Y, &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;transform: skewY(15deg)&quot;), &quot;, ir\xE1 distorcer\n15 graus no eixo Y.&quot;), mdx(&quot;div&quot;, {
     className: &quot;transform skewY&quot;
-  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.skewY {\n  transform: skewY(15deg);\n}\n&quot;)), mdx(&quot;h3&quot;, null, &quot;O m\xE9todo matrix&quot;), mdx(&quot;p&quot;, null, &quot;Calma, calma, esse m\xE9todo n\xE3o ir\xE1 fazer chover caracteres verdes num fundo preto\n\u2026&quot;), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;strong&quot;, {
+  }, &quot;.skewY {\n  transform: skewY(15deg);\n}\n&quot;)), mdx(&quot;h3&quot;, null, &quot;O m\xE9todo matrix&quot;), mdx(&quot;p&quot;, null, &quot;Calma, calma, esse m\xE9todo n\xE3o ir\xE1 fazer chover caracteres verdes num fundo preto\n\u2026&quot;), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;strong&quot;, {
     parentName: &quot;p&quot;
   }, &quot;matrix&quot;), &quot; \xE9 a jun\xE7\xE3o de m\xE9todos 2D do transform, ele \xE9 bem complexo em\nrela\xE7\xE3o aos outros, voc\xEA precisa passar 6 par\xE2metros que s\xE3o m\xE9todos anteriores,\num exemplo seria esse:\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;transform: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Se quiser ter um exemplo de uso do matrix no mundo real, de uma olhada nesse\nsite: &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;transform: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Se quiser ter um exemplo de uso do matrix no mundo real, de uma olhada nesse\nsite: &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://onlycoin.com/&quot;
-  }), &quot;OnlyCoin&quot;), &quot; (no computador, n\xE3o em mobile) Todo o\nefeito dos cart\xF5es s\xE3o gerados atrav\xE9s do matrix.&quot;), mdx(&quot;p&quot;, null, &quot;Para entender melhor como funciona o matrix, que envolve &quot;, mdx(&quot;del&quot;, {
+  }, &quot;OnlyCoin&quot;), &quot; (no computador, n\xE3o em mobile) Todo o\nefeito dos cart\xF5es s\xE3o gerados atrav\xE9s do matrix.&quot;), mdx(&quot;p&quot;, null, &quot;Para entender melhor como funciona o matrix, que envolve &quot;, mdx(&quot;del&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;calculos malucos&quot;), &quot;\nmatem\xE1tica, &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;calculos malucos&quot;), &quot;\nmatem\xE1tica, &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/&quot;
-  }), &quot;sugiro esse artigo aqui&quot;)), mdx(&quot;p&quot;, null, &quot;E tamb\xE9m tem esse matrix generator que voc\xEA pode dar uma brincada:\n&quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;sugiro esse artigo aqui&quot;)), mdx(&quot;p&quot;, null, &quot;E tamb\xE9m tem esse matrix generator que voc\xEA pode dar uma brincada:\n&quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://ds-overdesign.com/transform/matrix3d.html&quot;
-  }), &quot;matrix3d&quot;)), mdx(&quot;p&quot;, null, &quot;Aqui temos um exemplo utilizando o matrix:&quot;), mdx(&quot;div&quot;, {
+  }, &quot;matrix3d&quot;)), mdx(&quot;p&quot;, null, &quot;Aqui temos um exemplo utilizando o matrix:&quot;), mdx(&quot;div&quot;, {
     className: &quot;transform matrix&quot;
-  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;Coloque o mouse aqui!&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.matrix {\n  transform: matrix(2, 1, 1, 2, 200, 200);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;O matrix vai se comportar da seguinte maneira, ir\xE1 aumentar o scale no eixo X em\n2x, vai distorcer o eixo Y e o eixo X em 1 grau, vai aumentar o scale no eixo Y\nem 2x, ir\xE1 mover o elemento 200px para a direita e 200px para baixo.&quot;), mdx(&quot;p&quot;, null, &quot;Traduzindo os par\xE2metros do matrix para os outros m\xE9todos, ficaria assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;.matrix {\n  transform: matrix(2, 1, 1, 2, 200, 200);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;O matrix vai se comportar da seguinte maneira, ir\xE1 aumentar o scale no eixo X em\n2x, vai distorcer o eixo Y e o eixo X em 1 grau, vai aumentar o scale no eixo Y\nem 2x, ir\xE1 mover o elemento 200px para a direita e 200px para baixo.&quot;), mdx(&quot;p&quot;, null, &quot;Traduzindo os par\xE2metros do matrix para os outros m\xE9todos, ficaria assim:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;/* pseudo c\xF3digo */\n.matrix {\n  transform: matrix(\n    scaleX(2),\n    skewY(1),\n    skewX(1),\n    scaleY(2),\n    translateX(200),\n    translateY(200)\n  );\n}\n&quot;)), mdx(&quot;h2&quot;, null, &quot;E o suporte dos navegadores?&quot;), mdx(&quot;p&quot;, null, &quot;Os navegadores atuais n\xE3o possuem problema algum em renderizar o transform, mas\n\xE9 aconselhavel utilizar os prefixos -webkit-, -moz- e -ms-, caso voc\xEA queira dar\nsuporte a vers\xF5es realmente antigas do Chrome e do Firefox, o IE suporta apenas\na partir do 9 (com o prefixo) o 10 pra cima j\xE1 n\xE3o precisa de prefixo.&quot;), mdx(&quot;p&quot;, null, &quot;Existe esse site bem bacaninha para voc\xEA checar o suporte do transform e de\nqualquer outra regra, &quot;, mdx(&quot;a&quot;, _extends({
-    parentName: &quot;p&quot;
-  }, {
+  }, &quot;/* pseudo c\xF3digo */\n.matrix {\n  transform: matrix(\n    scaleX(2),\n    skewY(1),\n    skewX(1),\n    scaleY(2),\n    translateX(200),\n    translateY(200)\n  );\n}\n&quot;)), mdx(&quot;h2&quot;, null, &quot;E o suporte dos navegadores?&quot;), mdx(&quot;p&quot;, null, &quot;Os navegadores atuais n\xE3o possuem problema algum em renderizar o transform, mas\n\xE9 aconselhavel utilizar os prefixos -webkit-, -moz- e -ms-, caso voc\xEA queira dar\nsuporte a vers\xF5es realmente antigas do Chrome e do Firefox, o IE suporta apenas\na partir do 9 (com o prefixo) o 10 pra cima j\xE1 n\xE3o precisa de prefixo.&quot;), mdx(&quot;p&quot;, null, &quot;Existe esse site bem bacaninha para voc\xEA checar o suporte do transform e de\nqualquer outra regra, &quot;, mdx(&quot;a&quot;, {
+    parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://caniuse.com/#search=transform&quot;
-  }), &quot;CanIUse?&quot;), &quot;.&quot;), mdx(&quot;h2&quot;, null, &quot;Conclus\xE3o:&quot;), mdx(&quot;p&quot;, null, &quot;O transform do CSS3 juntamente com o transition permite criar anima\xE7\xF5es muito\nbem elaboradas, basta usar sua criatividade, o translate tamb\xE9m \xE9 muito usado\npara centralizar objetos na tela, como um modal, por exemplo. Uma t\xE9cnica muito\nusada \xE9 a seguinte:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, _extends({
-    parentName: &quot;pre&quot;
-  }, {
+  }, &quot;CanIUse?&quot;), &quot;.&quot;), mdx(&quot;h2&quot;, null, &quot;Conclus\xE3o:&quot;), mdx(&quot;p&quot;, null, &quot;O transform do CSS3 juntamente com o transition permite criar anima\xE7\xF5es muito\nbem elaboradas, basta usar sua criatividade, o translate tamb\xE9m \xE9 muito usado\npara centralizar objetos na tela, como um modal, por exemplo. Uma t\xE9cnica muito\nusada \xE9 a seguinte:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
+    parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-css&quot;
-  }), &quot;.modal {\n  width: 100px;\n  height: 100px;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Onde voc\xEA coloca 50% de dist\xE2ncia do topo e da esqueda da janela do navegador,\ne acerta a centraliza\xE7\xE3o com o translate. Mas isso \xE9 assunto pra um pr\xF3ximo\nartigo.&quot;), mdx(&quot;p&quot;, null, &quot;Tamb\xE9m existem os efeitos 3D que logo, logo tamb\xE9m estarei criando um artigo\nsobre eles.&quot;));
+  }, &quot;.modal {\n  width: 100px;\n  height: 100px;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n&quot;)), mdx(&quot;p&quot;, null, &quot;Onde voc\xEA coloca 50% de dist\xE2ncia do topo e da esqueda da janela do navegador,\ne acerta a centraliza\xE7\xE3o com o translate. Mas isso \xE9 assunto pra um pr\xF3ximo\nartigo.&quot;), mdx(&quot;p&quot;, null, &quot;Tamb\xE9m existem os efeitos 3D que logo, logo tamb\xE9m estarei criando um artigo\nsobre eles.&quot;));
 }
 ;
 MDXContent.isMDXComponent = true;</content:encoded></item></channel></rss>
