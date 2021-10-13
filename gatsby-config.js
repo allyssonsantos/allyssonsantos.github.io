@@ -144,5 +144,17 @@ module.exports = {
         display: 'swap',
       },
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@components': 'src/components',
+          '@templates': 'src/templates',
+          '@services': 'src/services',
+          '@utils': 'src/utils',
+        },
+        extensions: ['js'],
+      },
+    },
   ],
 };
