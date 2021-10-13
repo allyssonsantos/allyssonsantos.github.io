@@ -1,37 +1,37 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import Helmet from 'react-helmet';
+import { ThemeProvider, Button } from '@frigobar/core';
+import Wrapper from '@components/Wrapper';
+import Header from '@components/Header';
+import useDarkTheme from '@utils/color-scheme';
 
 import GlobalStyle from './GlobalStyle';
-import Header from './Header';
-import Footer from './Footer';
-import { normal } from '../utils/theme';
 
-const Bg = styled.div`
-  background-color: #f6f6f6;
-`;
+const Layout = ({ children }) => {
+  const [isDarkTheme, toggleDarkTheme] = useDarkTheme();
 
-const Wrapper = styled.main`
-  max-width: 910px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 10px;
-`;
-
-const Layout = ({ children, title, full }) => (
-  <ThemeProvider theme={normal}>
-    <>
-      <Helmet>
-      <script src="https://www.googleoptimize.com/optimize.js?id=OPT-T22ZV98"></script>
-      </Helmet>
-      <GlobalStyle />
-      <Header show title={title} full={full} />
-      <Bg>
-        <Wrapper show>{children}</Wrapper>
-        <Footer />
-      </Bg>
-    </>
-  </ThemeProvider>
-);
+  return (
+    <ThemeProvider>
+      <Wrapper>
+        <GlobalStyle />
+        <Header>
+          <Header.Navigation>
+            <Header.List>
+              <Header.ListItem>
+                <a href="/">home</a>
+              </Header.ListItem>
+              <Header.ListItem>
+                <a href="/blog">blog</a>
+              </Header.ListItem>
+              <Header.ListItem>
+                <a href="/about">about</a>
+              </Header.ListItem>
+            </Header.List>
+          </Header.Navigation>
+        </Header>
+        <main>{children}</main>
+      </Wrapper>
+    </ThemeProvider>
+  );
+};
 
 export default Layout;
