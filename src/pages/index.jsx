@@ -1,32 +1,23 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { Link, graphql } from 'gatsby';
+import React, { useState, useEffect } from 'react';
+import { graphql } from 'gatsby';
 
-import personalProjects from '../data/projects';
-import { Layout, Title, Card, Button, Repo } from '../components';
-import SEO from '../components/seo';
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 32px;
-`;
-
-const Repos = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  div {
-    flex-basis: 49%;
-
-    ${({ theme: { sizes } }) => css`
-      @media (max-width: ${sizes.breakpoints.md}px) {
-        flex-basis: 100%;
-      }
-    `}
-  }
-`;
+import { Layout, SEO } from '@components';
+import {
+  Title,
+  SubTitle,
+  Description,
+  Posts,
+  Post,
+  PostTitle,
+  PostDescription,
+  Projects,
+  Repos,
+  Project,
+  ProjectTitle,
+  ProjectDescription,
+  ProjectStars,
+} from '@components/Home';
+import { getPersonalProjects } from '@services/github';
 
 const Home = ({
   location,
@@ -36,55 +27,82 @@ const Home = ({
     },
     allMdx: { edges: posts },
   },
-}) => (
-  <Layout location={location} title={siteTitle} full>
-    <SEO
-      title="Home"
-      keywords={[
-        'blog',
-        'gatsby',
-        'javascript',
-        'react',
-        'styled-components',
-        'design-system',
-        'components',
-      ]}
-    />
-    <Title as="h2">Últimos artigos do blog</Title>
-    {posts.map(({ node }) => {
-      const title = node.frontmatter.title || node.fields.slug;
-      return (
-        <Link key={node.fields.slug} to={node.fields.slug}>
-          <Card
-            tags={node.frontmatter.tags}
-            title={title}
-            description={node.frontmatter.description}
-            date={node.frontmatter.date}
-          />
-        </Link>
-      );
-    })}
-    <Wrapper>
-      <Button as={Link} to="/blog">
-        Ver todos artigos
-      </Button>
-    </Wrapper>
-    <Title as="h2">Projetos open source</Title>
-    <Repos>
-      {personalProjects.map(repo => (
-        <Repo
-          key={repo.name}
-          logo={repo.name.toLowerCase()}
-          title={repo.name}
-          description={repo.description}
-          forks={repo.forks}
-          stars={repo.stars}
-          link={repo.homepage}
-        />
-      ))}
-    </Repos>
-  </Layout>
-);
+}) => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const result = await getPersonalProjects();
+      setProjects(result);
+    };
+
+    fetchProjects();
+  }, []);
+
+  return (
+    <Layout location={location} title={siteTitle} full>
+      <SEO
+        title="Home"
+        keywords={[
+          'blog',
+          'gatsby',
+          'javascript',
+          'react',
+          'styled-components',
+          'design-system',
+          'components',
+        ]}
+      />
+      <section>
+        <Title>Allysson Santos</Title>
+        <Description as="h2">
+          Frontend Developer no <strong>Olist</strong>
+        </Description>
+      </section>
+      <Posts>
+        <SubTitle>Posts recentes</SubTitle>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          return (
+            <Post>
+              <PostTitle>{title}</PostTitle>
+              <PostDescription>{node.frontmatter.description}</PostDescription>
+            </Post>
+          );
+        })}
+      </Posts>
+      <Projects>
+        <SubTitle>Projetos</SubTitle>
+        <Repos>
+          {projects.map(({ name, description, stars, url }) => (
+            <Project href={url}>
+              <div>
+                <ProjectTitle>{name}</ProjectTitle>
+                <ProjectDescription>{description}</ProjectDescription>
+              </div>
+              <ProjectStars>
+                {stars}
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  fill="#333"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12.672.668a.75.75 0 00-1.345 0L8.27 6.865l-6.838.994a.75.75 0 00-.416 1.279l4.948 4.823-1.168 6.811a.75.75 0 001.088.791L12 18.347l6.117 3.216a.75.75 0 001.088-.79l-1.168-6.812 4.948-4.823a.75.75 0 00-.416-1.28l-6.838-.993L12.672.668z"
+                  />
+                </svg>
+              </ProjectStars>
+            </Project>
+          ))}
+        </Repos>
+      </Projects>
+    </Layout>
+  );
+};
 
 export default Home;
 
