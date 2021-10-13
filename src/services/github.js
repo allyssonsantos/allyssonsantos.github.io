@@ -1,6 +1,7 @@
 import { Octokit } from 'octokit';
 
 const octokit = new Octokit({
+  // TODO: fake token, update and add to env var
   auth: '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',
 });
 
