@@ -1,6 +1,25 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+const { getPersonalProjects } = require('./src/services/github');
+
+exports.sourceNodes = async ({
+  actions: { createNode },
+  createContentDigest,
+}) => {
+  const repositories = await getPersonalProjects();
+  createNode({
+    repositories,
+    id: 'repositories',
+    parent: null,
+    children: [],
+    internal: {
+      type: 'Github',
+      contentDigest: createContentDigest(repositories),
+    },
+  });
+};
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
