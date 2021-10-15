@@ -1,8 +1,7 @@
-import { Octokit } from 'octokit';
+const { Octokit } = require('@octokit/rest');
 
 const octokit = new Octokit({
-  // TODO: fake token, update and add to env var
-  auth: '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',
+  auth: process.env.GH_PERSONAL_TOKEN,
 });
 
 const generateRepoObject = repo => ({
@@ -42,4 +41,4 @@ const getPersonalProjects = async () => {
   ];
 };
 
-export { getPersonalProjects };
+module.exports = { getPersonalProjects };
