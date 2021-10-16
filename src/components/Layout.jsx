@@ -1,7 +1,8 @@
 import React from 'react';
-import { ThemeProvider, Button } from '@frigobar/core';
+import { ThemeProvider } from '@frigobar/core';
 import Wrapper from '@components/Wrapper';
 import Header from '@components/Header';
+import Footer from '@components/Footer';
 import useDarkTheme from '@utils/color-scheme';
 
 import GlobalStyle from './GlobalStyle';
@@ -29,6 +30,18 @@ const Layout = ({ children }) => {
           </Header.Navigation>
         </Header>
         <main>{children}</main>
+        <Footer>
+          © allysson.me
+          <Footer.Socials href="https://twitter.com/_allyssonsantos">
+            twitter
+          </Footer.Socials>
+          <Footer.Socials href="https://github.com/allyssonsantos/">
+            github
+          </Footer.Socials>
+          <Footer.Socials href="https://www.linkedin.com/in/allyssonsantos/">
+            linkedin
+          </Footer.Socials>
+        </Footer>
       </Wrapper>
     </ThemeProvider>
   );
