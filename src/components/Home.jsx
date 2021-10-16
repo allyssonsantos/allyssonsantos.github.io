@@ -31,24 +31,29 @@ const Posts = styled.section(
     display: flex;
     flex-direction: column;
 
-    margin-top: 64px;
+    margin-top: ${theme.spacings.xxxlarge}px;
   `
 );
 
-const Post = styled.article(
+const Post = styled.a(
   ({ theme }) => css`
     padding-bottom: ${theme.spacings.xlarge}px;
 
     transition: transform 0.3s ease;
+    text-decoration: none;
 
     & + & {
       padding-top: ${theme.spacings.xlarge}px;
 
-      border-top: ${theme.borders.tiny}px solid ${theme.colors.neutral[200]};
+      border-top: ${theme.borders.small}px solid ${theme.colors.neutral[200]};
     }
 
     &:hover {
       transform: scale(1.02);
+    }
+
+    &:last-child {
+      padding-bottom: 0;
     }
   `
 );
@@ -64,30 +69,28 @@ const PostTitle = styled.h3(
 );
 
 const PostDescription = styled.p(
-  ({ theme }) => `
-  font-size: ${rem(16)};
-  line-height: ${rem(22)};
+  ({ theme }) => css`
+    font-size: ${rem(16)};
+    line-height: ${rem(22)};
 
-  color: ${theme.colors.neutral[800]};
+    color: ${theme.colors.neutral[800]};
 
-  margin: 0;
-  margin-top: 8px;
-`
+    margin: 0;
+    margin-top: 8px;
+  `
 );
 
 const Projects = styled.section(
   ({ theme }) => css`
-    margin-top: ${theme.spacings.xxlarge}px;
+    margin-top: ${theme.spacings.xxxlarge}px;
   `
 );
 
-const Repos = styled.div(
-  ({ theme }) => css`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  `
-);
+const Repos = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+`;
 
 const Project = styled.a(
   ({ theme }) => css`
@@ -101,8 +104,9 @@ const Project = styled.a(
 
     transition: transform 0.3s ease;
     text-decoration: none;
+    color: ${theme.colors.neutral[800]};
 
-    border: ${theme.borders.tiny}px solid ${theme.colors.neutral[200]};
+    border: ${theme.borders.small}px solid ${theme.colors.neutral[200]};
     border-radius: ${theme.radius[2]}px;
 
     &:hover {
