@@ -17,7 +17,6 @@ import {
   ProjectDescription,
   ProjectStars,
 } from '@components/Home';
-import { getPersonalProjects } from '@services/github';
 
 const Home = ({
   location,
@@ -53,7 +52,7 @@ const Home = ({
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
-          <Post>
+          <Post href={node.fields.slug}>
             <PostTitle>{title}</PostTitle>
             <PostDescription>{node.frontmatter.description}</PostDescription>
           </Post>
@@ -71,7 +70,6 @@ const Home = ({
             </div>
             <ProjectStars>
               {stars}
-
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
