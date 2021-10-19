@@ -4,13 +4,10 @@ import { graphql } from 'gatsby';
 import { DiscussionEmbed } from 'disqus-react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { Layout, SEO, Link, Title, Box } from '../components';
+import { Layout, SEO, Link, Title, Description, Img } from '@components';
 
 const Time = styled.time`
-  margin-bottom: 50px;
-  margin-top: 16px;
   font-size: 0.8125rem;
-  display: inline-block;
 `;
 
 const disqusConfig = (slug, title) => ({
@@ -30,18 +27,10 @@ const Post = ({
 }) => (
   <Layout location={location} title={siteTitle}>
     <SEO title={post.frontmatter.title} description={post.excerpt} />
-    <Link to="/blog" $mt={50} $mb={38}>
-      {'<'} voltar para todos artigos
-    </Link>
-
-    <Title $textAlign="left" $mt={0} $mb={8} $size="2rem">
-      {post.frontmatter.title}
-    </Title>
-    <Box as="p" $size="1.5rem" $lh="38px">
-      {post.frontmatter.description}{' '}
-    </Box>
+    <Title>{post.frontmatter.title}</Title>
+    <Description>{post.frontmatter.description}</Description>
     <Time>Publicado em {post.frontmatter.date}</Time>
-
+    <Img src={`/${post.frontmatter.img}`} />
     <MDXRenderer>{post.body}</MDXRenderer>
     <hr />
 
@@ -93,6 +82,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "DD/MM/YYYY", locale: "pt-BR")
         description
+        img
       }
       body
     }
