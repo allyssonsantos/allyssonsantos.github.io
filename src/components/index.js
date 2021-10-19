@@ -1,5 +1,7 @@
 import Wrapper from './Wrapper';
 import Header from './Header';
+import Description from './Description';
+import Img from './Img';
 import Code from './Code';
 import Box from './Box';
 import InlineCode from './InlineCode';
@@ -18,6 +20,8 @@ import SEO from './seo';
 export {
   Wrapper,
   Header,
+  Description,
+  Img,
   Code,
   Box,
   InlineCode,
