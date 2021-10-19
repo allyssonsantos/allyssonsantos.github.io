@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { Link, graphql } from 'gatsby';
 
-import { Layout, Title, Card, Box, Input } from '../components';
+import { Layout, Input } from '@components';
+import {
+  Title,
+  Posts,
+  Post,
+  PostTitle,
+  PostDescription,
+} from '@components/Home';
 import SEO from '../components/seo';
 
 const Blog = ({
@@ -40,39 +47,27 @@ const Blog = ({
           'components',
         ]}
       />
-      <Title as="h2" $textAlign="left" $size="2.25rem">
-        Blog
-      </Title>
-      <Box as="p" lh="25px" $size="1rem" $mb={24}>
-        Aqui você vai explicar quais são os assuntos que você gosta de estudar e
-        escrever. É importante para setar as expectativas do usuário.
-      </Box>
-      <Input
-        placeholder="buscar artigo, categoria ou palavra chave"
-        onChange={filter}
-      />
-      <Title as="h2" $textAlign="left" $size="1.75rem" $mt={50} $mb={12}>
-        Artigos {Boolean(filteredPosts.length) && <>({filteredPosts.length})</>}
-      </Title>
-      {Boolean(filteredPosts.length) ? (
-        filteredPosts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
-            <Link key={node.fields.slug} to={node.fields.slug}>
-              <Card
-                tags={node.frontmatter.tags}
-                title={title}
-                description={node.frontmatter.description}
-                date={node.frontmatter.date}
-              />
-            </Link>
-          );
-        })
-      ) : (
-        <Box $size="1.25rem" $color="#797979">
-          Ops, com essa busca não encontrei nenhum artigo relacionado.
-        </Box>
-      )}
+      <Title>Blog</Title>
+      <Input placeholder="Procurar post" onChange={filter} />
+      <Posts>
+        {filteredPosts.length ? (
+          filteredPosts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            return (
+              <Post key={node.fields.slug} href={node.fields.slug}>
+                <PostTitle>{title}</PostTitle>
+                <PostDescription>
+                  {node.frontmatter.description}
+                </PostDescription>
+              </Post>
+            );
+          })
+        ) : (
+          <span>
+            Ops, com essa busca não encontrei nenhum artigo relacionado.
+          </span>
+        )}
+      </Posts>
     </Layout>
   );
 };
