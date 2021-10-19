@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const sharedStyle = css`
-  margin-left: 40px;
+  margin-left: 20px;
   padding: 0;
 `;
 
@@ -24,8 +24,9 @@ const Ol = styled.ol`
 `;
 
 const Li = styled.li`
-  margin-bottom: 12px;
   line-height: 28px;
+
+  margin-bottom: 12px;
 
   > ul {
     margin-top: 10px;
