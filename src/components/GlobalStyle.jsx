@@ -12,6 +12,16 @@ const GlobalStyle = createGlobalStyle`
     padding: 32px;
   }
 
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+
+    color: ${props => props.theme.colors.primary[500]};
+  }
 `;
 
 export default GlobalStyle;
