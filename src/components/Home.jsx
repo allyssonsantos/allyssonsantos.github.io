@@ -31,7 +31,7 @@ const Posts = styled.section(
     display: flex;
     flex-direction: column;
 
-    margin-top: ${theme.spacings.xxxlarge}px;
+    margin-top: ${theme.spacings.huge}px;
   `
 );
 
@@ -45,7 +45,7 @@ const Post = styled.a(
     & + & {
       padding-top: ${theme.spacings.xlarge}px;
 
-      border-top: ${theme.borders.small}px solid ${theme.colors.neutral[200]};
+      border-top: ${theme.borders.tiny}px solid ${theme.colors.neutral[200]};
     }
 
     &:hover {
@@ -73,16 +73,16 @@ const PostDescription = styled.p(
     font-size: ${rem(16)};
     line-height: ${rem(22)};
 
-    color: ${theme.colors.neutral[800]};
-
     margin: 0;
     margin-top: 8px;
+
+    color: ${theme.colors.neutral[800]};
   `
 );
 
 const Projects = styled.section(
   ({ theme }) => css`
-    margin-top: ${theme.spacings.xxxlarge}px;
+    margin-top: ${theme.spacings.huge}px;
   `
 );
 
@@ -104,10 +104,10 @@ const Project = styled.a(
 
     transition: transform 0.3s ease;
     text-decoration: none;
+
     color: ${theme.colors.neutral[800]};
 
-    border: ${theme.borders.small}px solid ${theme.colors.neutral[200]};
-    border-radius: ${theme.radius[2]}px;
+    border: ${theme.borders.tiny}px solid ${theme.colors.neutral[200]};
 
     &:hover {
       transform: scale(1.02);

@@ -3,6 +3,7 @@ import { ThemeProvider } from '@frigobar/core';
 import Wrapper from '@components/Wrapper';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
+import Link from '@components/Link';
 import useDarkTheme from '@utils/color-scheme';
 
 import GlobalStyle from './GlobalStyle';
@@ -18,13 +19,10 @@ const Layout = ({ children }) => {
           <Header.Navigation>
             <Header.List>
               <Header.ListItem>
-                <a href="/">home</a>
+                <Link to="/">home</Link>
               </Header.ListItem>
               <Header.ListItem>
-                <a href="/blog">blog</a>
-              </Header.ListItem>
-              <Header.ListItem>
-                <a href="/about">about</a>
+                <Link to="/blog">blog</Link>
               </Header.ListItem>
             </Header.List>
           </Header.Navigation>
@@ -32,15 +30,11 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <Footer>
           © allysson.me
-          <Footer.Socials href="https://twitter.com/_allyssonsantos">
-            twitter
-          </Footer.Socials>
-          <Footer.Socials href="https://github.com/allyssonsantos/">
-            github
-          </Footer.Socials>
-          <Footer.Socials href="https://www.linkedin.com/in/allyssonsantos/">
+          <Link href="https://twitter.com/_allyssonsantos">twitter</Link>
+          <Link href="https://github.com/allyssonsantos/">github</Link>
+          <Link href="https://www.linkedin.com/in/allyssonsantos/">
             linkedin
-          </Footer.Socials>
+          </Link>
         </Footer>
       </Wrapper>
     </ThemeProvider>
