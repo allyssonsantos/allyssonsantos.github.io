@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout, SEO } from '@components';
+import { Layout, SEO, Link } from '@components';
 import {
   Title,
   SubTitle,
@@ -52,18 +52,19 @@ const Home = ({
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
-          <Post href={node.fields.slug}>
+          <Post key={title} href={node.fields.slug}>
             <PostTitle>{title}</PostTitle>
             <PostDescription>{node.frontmatter.description}</PostDescription>
           </Post>
         );
       })}
+      <Link to="/blog">todos os posts</Link>
     </Posts>
     <Projects>
       <SubTitle>Projetos</SubTitle>
       <Repos>
         {repositories.map(({ name, description, stars, url }) => (
-          <Project href={url}>
+          <Project key={name} href={url}>
             <div>
               <ProjectTitle>{name}</ProjectTitle>
               <ProjectDescription>{description}</ProjectDescription>
