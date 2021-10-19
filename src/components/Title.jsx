@@ -1,18 +1,14 @@
-import React from 'react';
-import { withTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
+import rem from '@utils/rem';
 
-import { Box } from '.';
+const Title = styled.h1(
+  ({ theme }) => css`
+    font-size: ${rem(46)};
 
-const Title = ({ theme, ...props }) => (
-  <Box
-    $textAlign="center"
-    $mt={62}
-    $mb={20}
-    $size="1.75rem"
-    $color={theme.colors.grays[0]}
-    $weight="bold"
-    {...props}
-  />
+    margin: 0;
+
+    color: ${theme.colors.neutral[800]};
+  `
 );
 
-export default withTheme(Title);
+export default Title;
