@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Code, InlineCode, Ul, Ol, Li, Link } from '@components';
+import { Ul, Ol, Li, Link, Code, InlineCode } from '@components/Elements';
 import { preToCodeBlock } from 'mdx-utils';
 
 const components = {
