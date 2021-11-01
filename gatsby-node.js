@@ -30,6 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
         allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
+          filter: { frontmatter: { published: { ne: false } } }
         ) {
           edges {
             node {
@@ -39,6 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                published
               }
               body
             }
