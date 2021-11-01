@@ -27,6 +27,7 @@ const Li = styled.li`
   line-height: 28px;
 
   margin-bottom: 12px;
+  padding-left: 8px;
 
   > ul {
     margin-top: 10px;

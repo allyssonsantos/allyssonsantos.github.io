@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import { Layout, SEO, Link } from '@components';
+import { SEO } from '@components';
+import { Link } from '@components/Elements';
+import { Layout } from '@components/Layout';
 import {
+  About,
   Title,
-  SubTitle,
+  Subtitle,
   Description,
   Posts,
   Post,
@@ -19,7 +23,6 @@ import {
 } from '@components/Home';
 
 const Home = ({
-  location,
   data: {
     site: {
       siteMetadata: { title: siteTitle },
@@ -28,7 +31,7 @@ const Home = ({
     github: { repositories },
   },
 }) => (
-  <Layout location={location} title={siteTitle} full>
+  <Layout title={siteTitle} full>
     <SEO
       title="Home"
       keywords={[
@@ -41,18 +44,18 @@ const Home = ({
         'components',
       ]}
     />
-    <section>
+    <About>
       <Title>Allysson Santos</Title>
       <Description as="h2">
         Frontend Developer no <strong>Olist</strong>
       </Description>
-    </section>
+    </About>
     <Posts>
-      <SubTitle>Posts recentes</SubTitle>
+      <Subtitle>Posts recentes</Subtitle>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
-          <Post key={title} href={node.fields.slug}>
+          <Post key={title} to={node.fields.slug}>
             <PostTitle>{title}</PostTitle>
             <PostDescription>{node.frontmatter.description}</PostDescription>
           </Post>
@@ -61,7 +64,7 @@ const Home = ({
       <Link to="/blog">todos os posts</Link>
     </Posts>
     <Projects>
-      <SubTitle>Projetos</SubTitle>
+      <Subtitle>Projetos</Subtitle>
       <Repos>
         {repositories.map(({ name, description, stars, url }) => (
           <Project key={name} href={url}>
@@ -100,7 +103,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 3) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { ne: false } } }
+      limit: 3
+    ) {
       edges {
         node {
           excerpt
@@ -126,3 +133,41 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+Home.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string,
+      }),
+    }),
+    allMdx: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            excerpt: PropTypes.string,
+            fields: PropTypes.shape({
+              slug: PropTypes.string,
+            }),
+            frontmatter: PropTypes.shape({
+              date: PropTypes.string,
+              title: PropTypes.string,
+              description: PropTypes.string,
+              tags: PropTypes.arrayOf(PropTypes.string),
+            }),
+          }),
+        })
+      ),
+    }),
+    github: PropTypes.shape({
+      repositories: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          description: PropTypes.string,
+          stars: PropTypes.number,
+          url: PropTypes.string,
+        })
+      ),
+    }),
+  }).isRequired,
+};

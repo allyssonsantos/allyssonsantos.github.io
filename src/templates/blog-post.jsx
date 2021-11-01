@@ -1,35 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { DiscussionEmbed } from 'disqus-react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { Layout, SEO, Link, Title, Description, Img } from '@components';
-
-const Time = styled.time`
-  font-size: 0.8125rem;
-`;
+import { SEO, Description } from '@components';
+import { Link, Title, Img } from '@components/Elements';
+import { Layout } from '@components/Layout';
 
 const disqusConfig = (slug, title) => ({
   shortname: 'allyssonme',
   config: { identifier: slug, title },
 });
 
-const Post = ({
-  location,
-  data: {
-    mdx: post,
-    site: {
-      siteMetadata: { title: siteTitle },
-    },
-  },
-  pageContext: { previous, next },
-}) => (
-  <Layout location={location} title={siteTitle}>
+const Post = ({ data: { mdx: post }, pageContext: { previous, next } }) => (
+  <Layout>
     <SEO title={post.frontmatter.title} description={post.excerpt} />
     <Title>{post.frontmatter.title}</Title>
     <Description>{post.frontmatter.description}</Description>
-    <Time>Publicado em {post.frontmatter.date}</Time>
+    <time>Publicado em {post.frontmatter.date}</time>
     <Img src={`/${post.frontmatter.img}`} />
     <MDXRenderer>{post.body}</MDXRenderer>
     <hr />
@@ -37,7 +26,6 @@ const Post = ({
     <DiscussionEmbed
       {...disqusConfig(post.frontmatter.slug, post.frontmatter.title)}
     />
-
     <ul
       style={{
         display: `flex`,
@@ -88,3 +76,31 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+Post.defaultProps = {
+  pageContext: undefined,
+};
+
+Post.propTypes = {
+  data: PropTypes.shape({
+    mdx: PropTypes.string,
+  }).isRequired,
+  pageContext: PropTypes.shape({
+    previous: PropTypes.shape({
+      fields: PropTypes.shape({
+        slug: PropTypes.string,
+      }),
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string,
+      }),
+    }),
+    next: PropTypes.shape({
+      fields: PropTypes.shape({
+        slug: PropTypes.string,
+      }),
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string,
+      }),
+    }),
+  }),
+};

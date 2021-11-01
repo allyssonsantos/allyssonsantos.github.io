@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const Wrapper = styled.div(
@@ -23,13 +24,14 @@ const Field = styled.input`
   font-size: 0.875rem;
 
   width: 100%;
-  height: 28px;
+  height: 48px;
 
   ${({ theme: { colors, radius, spacings } }) => css`
     padding: ${spacings.small}px;
     padding-left: ${spacings.xxlarge}px;
 
     border: 1px solid ${colors.neutral[300]};
+    border-radius: ${radius[2]}px;
     background-color: ${colors.white};
 
     ::placeholder {
@@ -59,5 +61,10 @@ const Input = ({ onChange, placeholder }) => (
     <Field type="text" onChange={onChange} placeholder={placeholder} />
   </Wrapper>
 );
+
+Input.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
+};
 
 export default Input;

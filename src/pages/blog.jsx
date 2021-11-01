@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Link, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-import { Layout, Input } from '@components';
+import { Input, SEO } from '@components';
+import { Layout } from '@components/Layout';
 import {
   Title,
   Posts,
@@ -9,7 +11,6 @@ import {
   PostTitle,
   PostDescription,
 } from '@components/Home';
-import SEO from '../components/seo';
 
 const Blog = ({
   data: {
@@ -54,7 +55,7 @@ const Blog = ({
           filteredPosts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug;
             return (
-              <Post key={node.fields.slug} href={node.fields.slug}>
+              <Post key={node.fields.slug} to={node.fields.slug}>
                 <PostTitle>{title}</PostTitle>
                 <PostDescription>
                   {node.frontmatter.description}
@@ -81,7 +82,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { ne: false } } }
+    ) {
       edges {
         node {
           excerpt
@@ -93,9 +97,39 @@ export const pageQuery = graphql`
             title
             description
             tags
+            published
           }
         }
       }
     }
   }
 `;
+
+Blog.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string,
+      }),
+    }),
+    allMdx: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          posts: PropTypes.arrayOf(
+            PropTypes.shape({
+              node: PropTypes.shape({
+                frontmatter: PropTypes.shape({
+                  tags: PropTypes.arrayOf(PropTypes.string),
+                  title: PropTypes.string,
+                  description: PropTypes.string,
+                  date: PropTypes.string,
+                  published: PropTypes.bool,
+                }),
+              }),
+            })
+          ),
+        })
+      ),
+    }),
+  }).isRequired,
+};

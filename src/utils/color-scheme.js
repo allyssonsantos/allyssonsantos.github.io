@@ -16,10 +16,10 @@ function getCurrentTheme() {
 }
 
 function useDarkTheme() {
-  const [currentTheme, setCurrentTheme] = useState(() => getCurrentTheme());
+  const [currentTheme, setTheme] = useState(() => getCurrentTheme());
   const toggleDarkTheme = () => {
-    setCurrentTheme(!currentTheme);
-    setCurrentTheme(!currentTheme);
+    setTheme(!currentTheme);
+    setTheme(!currentTheme);
   };
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function useDarkTheme() {
       '(prefers-color-scheme: dark)'
     );
     if (preferredDarkScheme.matches) {
-      setCurrentTheme(true);
+      setTheme(true);
     }
   }, []);
 
