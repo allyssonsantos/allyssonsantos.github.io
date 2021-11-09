@@ -56,6 +56,10 @@ const ProjectStars = styled.span`
   gap: 10px;
 
   margin-top: 10px;
+
+  svg {
+    fill: ${props => props.theme.colors.neutral[800]};
+  }
 `;
 
 export {

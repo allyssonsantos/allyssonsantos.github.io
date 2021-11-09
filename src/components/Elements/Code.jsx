@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import github from 'prism-react-renderer/themes/github';
+import nightOwl from 'prism-react-renderer/themes/nightOwl';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+import { useDarkTheme } from '@utils/color-scheme';
 
 const Code = ({ codeString, language, 'react-live': reactLive }) => {
+  const { isDarkTheme } = useDarkTheme();
+
   if (reactLive) {
     return (
       <LiveProvider code={codeString} noInline>
@@ -17,7 +21,7 @@ const Code = ({ codeString, language, 'react-live': reactLive }) => {
   return (
     <Highlight
       {...defaultProps}
-      theme={github}
+      theme={isDarkTheme ? nightOwl : github}
       code={codeString}
       language={language}
     >

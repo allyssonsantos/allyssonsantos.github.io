@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import { Input, SEO } from '@components';
+import { Input, SEO, Description } from '@components';
 import { Layout } from '@components/Layout';
 import {
   Title,
@@ -11,6 +11,7 @@ import {
   PostTitle,
   PostDescription,
 } from '@components/Home';
+import { DarkProvider } from '@utils/color-scheme';
 
 const Blog = ({
   data: {
@@ -35,41 +36,43 @@ const Blog = ({
   });
 
   return (
-    <Layout title={siteTitle}>
-      <SEO
-        title="Todos os posts"
-        keywords={[
-          'blog',
-          'gatsby',
-          'javascript',
-          'react',
-          'styled-components',
-          'design-system',
-          'components',
-        ]}
-      />
-      <Title>Blog</Title>
-      <Input placeholder="Procurar post" onChange={filter} />
-      <Posts>
-        {filteredPosts.length ? (
-          filteredPosts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug;
-            return (
-              <Post key={node.fields.slug} to={node.fields.slug}>
-                <PostTitle>{title}</PostTitle>
-                <PostDescription>
-                  {node.frontmatter.description}
-                </PostDescription>
-              </Post>
-            );
-          })
-        ) : (
-          <span>
-            Ops, com essa busca não encontrei nenhum artigo relacionado.
-          </span>
-        )}
-      </Posts>
-    </Layout>
+    <DarkProvider>
+      <Layout title={siteTitle}>
+        <SEO
+          title="Todos os posts"
+          keywords={[
+            'blog',
+            'gatsby',
+            'javascript',
+            'react',
+            'styled-components',
+            'design-system',
+            'components',
+          ]}
+        />
+        <Title>Blog</Title>
+        <Input placeholder="Procurar post" onChange={filter} />
+        <Posts>
+          {filteredPosts.length ? (
+            filteredPosts.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug;
+              return (
+                <Post key={node.fields.slug} to={node.fields.slug}>
+                  <PostTitle>{title}</PostTitle>
+                  <PostDescription>
+                    {node.frontmatter.description}
+                  </PostDescription>
+                </Post>
+              );
+            })
+          ) : (
+            <Description>
+              Ops, com essa busca não encontrei nenhum artigo relacionado.
+            </Description>
+          )}
+        </Posts>
+      </Layout>
+    </DarkProvider>
   );
 };
 

@@ -21,6 +21,7 @@ import {
   ProjectDescription,
   ProjectStars,
 } from '@components/Home';
+import { DarkProvider } from '@utils/color-scheme';
 
 const Home = ({
   data: {
@@ -31,67 +32,68 @@ const Home = ({
     github: { repositories },
   },
 }) => (
-  <Layout title={siteTitle} full>
-    <SEO
-      title="Home"
-      keywords={[
-        'blog',
-        'gatsby',
-        'javascript',
-        'react',
-        'styled-components',
-        'design-system',
-        'components',
-      ]}
-    />
-    <About>
-      <Title>Allysson Santos</Title>
-      <Description as="h2">
-        Frontend Developer no <strong>Olist</strong>
-      </Description>
-    </About>
-    <Posts>
-      <Subtitle>Posts recentes</Subtitle>
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
-        return (
-          <Post key={title} to={node.fields.slug}>
-            <PostTitle>{title}</PostTitle>
-            <PostDescription>{node.frontmatter.description}</PostDescription>
-          </Post>
-        );
-      })}
-      <Link to="/blog">todos os posts</Link>
-    </Posts>
-    <Projects>
-      <Subtitle>Projetos</Subtitle>
-      <Repos>
-        {repositories.map(({ name, description, stars, url }) => (
-          <Project key={name} href={url}>
-            <div>
-              <ProjectTitle>{name}</ProjectTitle>
-              <ProjectDescription>{description}</ProjectDescription>
-            </div>
-            <ProjectStars>
-              {stars}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-                fill="#333"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12.672.668a.75.75 0 00-1.345 0L8.27 6.865l-6.838.994a.75.75 0 00-.416 1.279l4.948 4.823-1.168 6.811a.75.75 0 001.088.791L12 18.347l6.117 3.216a.75.75 0 001.088-.79l-1.168-6.812 4.948-4.823a.75.75 0 00-.416-1.28l-6.838-.993L12.672.668z"
-                />
-              </svg>
-            </ProjectStars>
-          </Project>
-        ))}
-      </Repos>
-    </Projects>
-  </Layout>
+  <DarkProvider>
+    <Layout title={siteTitle} full>
+      <SEO
+        title="Home"
+        keywords={[
+          'blog',
+          'gatsby',
+          'javascript',
+          'react',
+          'styled-components',
+          'design-system',
+          'components',
+        ]}
+      />
+      <About>
+        <Title>Allysson Santos</Title>
+        <Description as="h2">
+          Frontend Developer no <strong>Olist</strong>
+        </Description>
+      </About>
+      <Posts>
+        <Subtitle>Posts recentes</Subtitle>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          return (
+            <Post key={title} to={node.fields.slug}>
+              <PostTitle>{title}</PostTitle>
+              <PostDescription>{node.frontmatter.description}</PostDescription>
+            </Post>
+          );
+        })}
+        <Link to="/blog">todos os posts</Link>
+      </Posts>
+      <Projects>
+        <Subtitle>Projetos</Subtitle>
+        <Repos>
+          {repositories.map(({ name, description, stars, url }) => (
+            <Project key={name} href={url}>
+              <div>
+                <ProjectTitle>{name}</ProjectTitle>
+                <ProjectDescription>{description}</ProjectDescription>
+              </div>
+              <ProjectStars>
+                {stars}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12.672.668a.75.75 0 00-1.345 0L8.27 6.865l-6.838.994a.75.75 0 00-.416 1.279l4.948 4.823-1.168 6.811a.75.75 0 001.088.791L12 18.347l6.117 3.216a.75.75 0 001.088-.79l-1.168-6.812 4.948-4.823a.75.75 0 00-.416-1.28l-6.838-.993L12.672.668z"
+                  />
+                </svg>
+              </ProjectStars>
+            </Project>
+          ))}
+        </Repos>
+      </Projects>
+    </Layout>
+  </DarkProvider>
 );
 
 export default Home;

@@ -5,6 +5,8 @@ const Footer = styled.footer`
   align-items: center;
   justify-content: space-between;
 
+  color: ${props => props.theme.colors.neutral[900]};
+
   margin-top: ${props => props.theme.spacings.huge}px;
 `;
 

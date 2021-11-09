@@ -17,6 +17,7 @@ const Ul = styled.ul`
 const Ol = styled.ol`
   padding: 0;
   ${sharedStyle}
+
   & &,
   & ul {
     ${sharedStyle}
@@ -28,6 +29,7 @@ const Li = styled.li`
 
   margin-bottom: 12px;
   padding-left: 8px;
+  color: ${props => props.theme.colors.neutral[900]};
 
   > ul {
     margin-top: 10px;

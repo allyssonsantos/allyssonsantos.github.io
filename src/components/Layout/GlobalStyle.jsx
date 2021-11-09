@@ -4,6 +4,8 @@ const GlobalStyle = createGlobalStyle(
   ({ theme }) => `
   * {
     box-sizing: border-box;
+
+    transition: all 200ms;
   }
 
   html, body {
@@ -11,12 +13,16 @@ const GlobalStyle = createGlobalStyle(
 
     margin: 0;
     padding: 0;
+
+    background-color: ${theme.colors.neutral[50]};
   }
 
   body {
     padding: ${theme.spacings.xxlarge}px;
+  }
 
-    background-color: #f9fafb;
+  h1, h2, h3, h4, h5, h6 {
+    color: ${theme.colors.neutral[900]};
   }
 
   h2 {
@@ -26,6 +32,8 @@ const GlobalStyle = createGlobalStyle(
 
   p {
     line-height: 1.75;
+
+    color: ${theme.colors.neutral[900]};
 
     margin-bottom: ${theme.spacings.large}px;
   }
@@ -57,9 +65,11 @@ const GlobalStyle = createGlobalStyle(
     margin-bottom: ${theme.spacings.large}px;
 
     border-collapse: collapse;
+    color: ${theme.colors.neutral[900]};
 
     word-break: normal;
   }
+
   table td, table th {
     line-height: 28px;
     
@@ -72,6 +82,14 @@ const GlobalStyle = createGlobalStyle(
     text-decoration: none;
 
     color: ${props => props.theme.colors.primary[200]};
+  }
+
+  time {
+    color: ${theme.colors.neutral[900]};
+  }
+
+  svg {
+    fill: ${theme.colors.neutral[900]};
   }
 `
 );
