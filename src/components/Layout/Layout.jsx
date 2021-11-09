@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { ThemeProvider, theme } from '@frigobar/core';
 
@@ -14,17 +14,30 @@ import GlobalStyle from './GlobalStyle';
 import Sun from '../../../public/icons/sun.svg';
 import Moon from '../../../public/icons/moon.svg';
 
-const ChangeThemeButton = styled.button`
-  background-color: transparent;
-  border: none;
+const ChangeThemeButton = styled.button(
+  ({ isDarkTheme }) => css`
+    width: 30px;
+    height: 25px;
 
-  svg {
-    width: 20px;
-    height: 20px;
-  }
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
 
-  transform: translate(45deg);
-`;
+    overflow: hidden;
+    cursor: pointer;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    div {
+      transform: translateY(${isDarkTheme ? -22 : 0}px);
+
+      transition: transform 300ms cubic-bezier(0.21, 0.54, 0.29, 0.92);
+    }
+  `
+);
 
 const darkMode = {
   colors: {
@@ -45,6 +58,7 @@ const darkMode = {
 
 const Layout = ({ children }) => {
   const { isDarkTheme, toggleDarkTheme } = useDarkTheme();
+  const buttonLabel = `Trocar para tema ${isDarkTheme ? 'claro' : 'escuro'}`;
 
   return (
     <ThemeProvider
@@ -67,8 +81,13 @@ const Layout = ({ children }) => {
               <Header.ListItem>
                 <ChangeThemeButton
                   onClick={() => toggleDarkTheme(!isDarkTheme)}
+                  title={buttonLabel}
+                  isDarkTheme={isDarkTheme}
                 >
-                  <div>{isDarkTheme ? <Moon /> : <Sun />}</div>
+                  <div aria-label={buttonLabel}>
+                    <Moon />
+                    <Sun />
+                  </div>
                 </ChangeThemeButton>
               </Header.ListItem>
             </Header.List>

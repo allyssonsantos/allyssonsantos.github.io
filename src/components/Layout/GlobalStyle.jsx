@@ -1,97 +1,102 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle(
-  ({ theme }) => `
-  * {
-    box-sizing: border-box;
+  ({ theme }) => css`
+    * {
+      box-sizing: border-box;
+      transition: all 200ms;
+    }
 
-    transition: all 200ms;
-  }
+    html,
+    body {
+      font-family: 'Roboto', serif;
 
-  html, body {
-    font-family: 'Roboto', serif;
+      margin: 0;
+      padding: 0;
 
-    margin: 0;
-    padding: 0;
+      background-color: ${theme.colors.neutral[50]};
+    }
 
-    background-color: ${theme.colors.neutral[50]};
-  }
+    body {
+      padding: ${theme.spacings.xxlarge}px;
+    }
 
-  body {
-    padding: ${theme.spacings.xxlarge}px;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: ${theme.colors.neutral[900]};
+    }
 
-  h1, h2, h3, h4, h5, h6 {
-    color: ${theme.colors.neutral[900]};
-  }
+    h2 {
+      margin-top: ${theme.spacings.xxxlarge}px;
+      margin-bottom: ${theme.spacings.medium}px;
+    }
 
-  h2 {
-    margin-top: ${theme.spacings.xxxlarge}px;
-    margin-bottom: ${theme.spacings.medium}px;
-  }
+    p {
+      line-height: 1.75;
 
-  p {
-    line-height: 1.75;
+      color: ${theme.colors.neutral[900]};
 
-    color: ${theme.colors.neutral[900]};
+      margin-bottom: ${theme.spacings.large}px;
+    }
 
-    margin-bottom: ${theme.spacings.large}px;
-  }
+    img {
+      width: 100%;
+      max-width: 100%;
 
-  img {
-    width: 100%;
-    max-width: 100%;
+      border: 1px solid ${theme.colors.neutral[200]};
+      border-radius: ${theme.radius[2]}px;
+    }
 
-    border: 1px solid ${theme.colors.neutral[200]};
-    border-radius: ${theme.radius[2]}px;
-  }
+    pre {
+      padding: ${theme.spacings.small}px;
 
-  pre {
-    padding: ${theme.spacings.small}px;
+      border: 1px solid ${theme.colors.neutral[200]};
+      border-radius: ${theme.radius[2]}px;
+    }
 
-    border: 1px solid ${theme.colors.neutral[200]};
-    border-radius: ${theme.radius[2]}px;
+    blockquote {
+      margin: 0;
+      padding-left: ${theme.spacings.xlarge}px;
 
-  }
+      border-left: ${theme.borders.medium}px solid ${theme.colors.neutral[200]};
+    }
 
-  blockquote {
-    margin: 0;
-    padding-left: ${theme.spacings.xlarge}px;
+    table {
+      margin-bottom: ${theme.spacings.large}px;
 
-    border-left: ${theme.borders.medium}px solid ${theme.colors.neutral[200]};
-  }
+      border-collapse: collapse;
+      color: ${theme.colors.neutral[900]};
 
-  table {
-    margin-bottom: ${theme.spacings.large}px;
+      word-break: normal;
+    }
 
-    border-collapse: collapse;
-    color: ${theme.colors.neutral[900]};
+    table td,
+    table th {
+      line-height: 28px;
 
-    word-break: normal;
-  }
+      padding: ${theme.spacings.small}px;
 
-  table td, table th {
-    line-height: 28px;
-    
-    padding: ${theme.spacings.small}px;
+      border: ${theme.borders.tiny}px solid ${theme.colors.neutral[200]};
+    }
 
-    border: ${theme.borders.tiny}px solid ${theme.colors.neutral[200]};
-  }
+    a {
+      text-decoration: none;
 
-  a {
-    text-decoration: none;
+      color: ${props => props.theme.colors.primary[200]};
+    }
 
-    color: ${props => props.theme.colors.primary[200]};
-  }
+    time {
+      color: ${theme.colors.neutral[900]};
+    }
 
-  time {
-    color: ${theme.colors.neutral[900]};
-  }
-
-  svg {
-    fill: ${theme.colors.neutral[900]};
-  }
-`
+    svg {
+      fill: ${theme.colors.neutral[900]};
+    }
+  `
 );
 
 export default GlobalStyle;

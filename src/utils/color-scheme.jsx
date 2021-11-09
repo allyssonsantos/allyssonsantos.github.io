@@ -7,12 +7,15 @@ function setCurrentTheme(colorScheme) {
 }
 
 function getCurrentTheme() {
+  if (typeof window === 'undefined') {
+    return false;
+  }
   const currentTheme = window.localStorage.getItem(COLOR_SCHEME_KEY);
   if (!currentTheme) {
     setCurrentTheme(false);
   }
 
-  return JSON.parse(window.localStorage.getItem(COLOR_SCHEME_KEY));
+  return JSON.parse(currentTheme);
 }
 
 const DarkContext = createContext({

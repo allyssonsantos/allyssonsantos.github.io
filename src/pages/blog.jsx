@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import { Input, SEO, Description } from '@components';
-import { Layout } from '@components/Layout';
 import {
   Title,
   Posts,
@@ -11,13 +10,9 @@ import {
   PostTitle,
   PostDescription,
 } from '@components/Home';
-import { DarkProvider } from '@utils/color-scheme';
 
 const Blog = ({
   data: {
-    site: {
-      siteMetadata: { title: siteTitle },
-    },
     allMdx: { edges: posts },
   },
 }) => {
@@ -36,43 +31,41 @@ const Blog = ({
   });
 
   return (
-    <DarkProvider>
-      <Layout title={siteTitle}>
-        <SEO
-          title="Todos os posts"
-          keywords={[
-            'blog',
-            'gatsby',
-            'javascript',
-            'react',
-            'styled-components',
-            'design-system',
-            'components',
-          ]}
-        />
-        <Title>Blog</Title>
-        <Input placeholder="Procurar post" onChange={filter} />
-        <Posts>
-          {filteredPosts.length ? (
-            filteredPosts.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug;
-              return (
-                <Post key={node.fields.slug} to={node.fields.slug}>
-                  <PostTitle>{title}</PostTitle>
-                  <PostDescription>
-                    {node.frontmatter.description}
-                  </PostDescription>
-                </Post>
-              );
-            })
-          ) : (
-            <Description>
-              Ops, com essa busca não encontrei nenhum artigo relacionado.
-            </Description>
-          )}
-        </Posts>
-      </Layout>
-    </DarkProvider>
+    <>
+      <SEO
+        title="Todos os posts"
+        keywords={[
+          'blog',
+          'gatsby',
+          'javascript',
+          'react',
+          'styled-components',
+          'design-system',
+          'components',
+        ]}
+      />
+      <Title>Blog</Title>
+      <Input placeholder="Procurar post" onChange={filter} />
+      <Posts>
+        {filteredPosts.length ? (
+          filteredPosts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            return (
+              <Post key={node.fields.slug} to={node.fields.slug}>
+                <PostTitle>{title}</PostTitle>
+                <PostDescription>
+                  {node.frontmatter.description}
+                </PostDescription>
+              </Post>
+            );
+          })
+        ) : (
+          <Description>
+            Ops, com essa busca não encontrei nenhum artigo relacionado.
+          </Description>
+        )}
+      </Posts>
+    </>
   );
 };
 
@@ -80,11 +73,6 @@ export default Blog;
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { ne: false } } }
@@ -110,11 +98,6 @@ export const pageQuery = graphql`
 
 Blog.propTypes = {
   data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string,
-      }),
-    }),
     allMdx: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({

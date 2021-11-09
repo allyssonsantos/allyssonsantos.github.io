@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Link } from 'gatsby';
 import rem from '@utils/rem';
 
@@ -11,6 +11,33 @@ const Posts = styled.section(
   `
 );
 
+const BorderAnimation = props => keyframes`
+  0% {
+    border-image-source: linear-gradient(
+      to right,
+        ${props.theme.colors.primary[300]} 0%,
+        ${props.theme.colors.secondary[300]} 50%
+    );
+  }
+
+  50% {
+    border-image-source: linear-gradient(
+      to right,
+      ${props.theme.colors.secondary[300]} 50%,
+      ${props.theme.colors.primary[300]} 100%
+    );
+  }
+
+  100% {
+    border-image-source: linear-gradient(
+      to right,
+        ${props.theme.colors.primary[300]} 0%,
+        ${props.theme.colors.secondary[300]} 50%
+    );
+  }
+
+`;
+
 const Post = styled(Link)(
   ({ theme }) => css`
     padding-bottom: ${theme.spacings.xlarge}px;
@@ -21,7 +48,14 @@ const Post = styled(Link)(
     & + & {
       padding-top: ${theme.spacings.xlarge}px;
 
-      border-top: ${theme.borders.tiny}px solid ${theme.colors.neutral[200]};
+      border-top: ${theme.borders.medium}px solid;
+      border-image-slice: 1;
+      border-image-source: linear-gradient(
+        to right,
+        ${theme.colors.primary[500]} 0%,
+        ${theme.colors.secondary[500]} 50%
+      );
+      animation: ${BorderAnimation} 4s infinite alternate;
     }
 
     &:hover {
