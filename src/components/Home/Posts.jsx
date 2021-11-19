@@ -70,7 +70,8 @@ const Post = styled(Link)(
 
 const PostTitle = styled.h3(
   ({ theme }) => css`
-    font-size: ${rem(24)};
+    font-size: ${rem(32)};
+    line-height: 1.1;
 
     margin: 0;
 
@@ -80,7 +81,7 @@ const PostTitle = styled.h3(
 
 const PostDescription = styled.p(
   ({ theme }) => css`
-    font-size: ${rem(16)};
+    font-size: ${rem(18)};
     line-height: ${rem(22)};
 
     margin: 0;

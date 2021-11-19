@@ -9,15 +9,9 @@ const Link = styled.a.attrs(props => ({
 
   transition: border-bottom 0.3s ease;
 
-  text-decoration: none;
-
   color: ${props => props.theme.colors.primary[500]};
 
   border-bottom: 1px solid transparent;
-
-  &:hover {
-    border-bottom: 1px solid ${props => props.theme.colors.primary[500]};
-  }
 `;
 
 export default Link;

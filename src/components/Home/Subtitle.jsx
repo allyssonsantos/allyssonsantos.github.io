@@ -7,7 +7,7 @@ const Subtitle = styled(Title).attrs({ as: 'h2' })`
   font-size: ${rem(18)};
   font-weight: normal;
 
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 `;
 
 export default Subtitle;

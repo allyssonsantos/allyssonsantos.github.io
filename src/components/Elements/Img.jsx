@@ -1,13 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Img = styled.img(
-  ({ theme }) => `
-  margin: ${theme.spacings.large}px 0;
+  ({ theme }) => css`
+    width: 120%;
+    max-width: calc(100% + 80px);
+    margin: ${theme.spacings.large}px 0;
+    margin-left: -${theme.spacings.xxlarge}px;
 
-  border: 1px solid ${theme.colors.neutral[200]};
+    border: 1px solid ${theme.colors.neutral[200]};
+    border-radius: 0;
 
-  max-width: 100%;
-`
+    @media (min-width: 768px) {
+      border-radius: ${theme.radius[2]}px;
+    }
+  `
 );
 
 export default Img;

@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import rem from '@utils/rem';
 
+import { Link } from '@components/Elements';
+
 const Header = styled.header`
   margin-bottom: 58px;
 `;
@@ -18,6 +20,10 @@ const List = styled.ul`
 
   list-style: none;
   gap: 28px;
+
+  ${Link}:hover {
+    border-bottom: 1px solid ${props => props.theme.colors.primary[500]};
+  }
 `;
 
 const ListItem = styled.li(

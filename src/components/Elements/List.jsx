@@ -1,8 +1,12 @@
 import styled, { css } from 'styled-components';
+import rem from '@utils/rem';
 
 const sharedStyle = css`
   margin-left: 20px;
   padding: 0;
+
+  line-height: 2.2;
+  font-size: ${rem(18)};
 `;
 
 const Ul = styled.ul`

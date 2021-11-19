@@ -15,33 +15,6 @@ const Repos = styled.div`
   gap: 20px;
 `;
 
-const BorderAnimation = props => keyframes`
-  0% {
-    border-image-source: linear-gradient(
-      to right,
-        ${props.theme.colors.primary[300]} 0%,
-        ${props.theme.colors.secondary[300]} 50%
-    );
-  }
-
-  50% {
-    border-image-source: linear-gradient(
-      to right,
-      ${props.theme.colors.secondary[300]} 50%,
-      ${props.theme.colors.primary[300]} 100%
-    );
-  }
-
-  100% {
-    border-image-source: linear-gradient(
-      to right,
-        ${props.theme.colors.primary[300]} 0%,
-        ${props.theme.colors.secondary[300]} 50%
-    );
-  }
-
-`;
-
 const Project = styled.a(
   ({ theme }) => css`
     display: flex;
@@ -57,15 +30,8 @@ const Project = styled.a(
 
     color: ${theme.colors.neutral[800]};
 
-    border: ${theme.borders.medium}px solid ${theme.colors.success[100]};
     border-radius: 8px;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(
-      to right,
-      ${theme.colors.primary[500]} 0%,
-      ${theme.colors.secondary[500]} 50%
-    );
-    animation: ${BorderAnimation} 4s ease-in-out infinite alternate;
+    box-shadow: 1px 1px 6px ${theme.colors.neutral[200]};
 
     &:hover {
       transform: scale(1.02);
