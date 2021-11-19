@@ -6,6 +6,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import { SEO, Description } from '@components';
 import { Link, Title, Img } from '@components/Elements';
+import { TableOfContents } from '@components/Layout';
 
 const disqusConfig = (slug, title) => ({
   shortname: 'allyssonme',
@@ -19,6 +20,9 @@ const Post = ({ data: { mdx: post }, pageContext: { previous, next } }) => (
     <Description>{post.frontmatter.description}</Description>
     <time>Publicado em {post.frontmatter.date}</time>
     <Img src={`/${post.frontmatter.img}`} />
+
+    <TableOfContents headings={post.headings} />
+
     <MDXRenderer>{post.body}</MDXRenderer>
     <hr />
 
@@ -72,6 +76,10 @@ export const pageQuery = graphql`
         img
       }
       body
+      headings(depth: h2) {
+        depth
+        value
+      }
     }
   }
 `;
