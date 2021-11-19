@@ -1,17 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, useTheme } from 'styled-components';
+import rem from '@utils/rem';
 
 const Wrapper = styled.div(
   ({ theme: { spacings } }) => css`
     position: relative;
 
     margin-top: ${spacings.xxxlarge}px;
+    margin-left: -${spacings.xlarge}px;
+    margin-right: -${spacings.xlarge}px;
+
+    @media (min-width: 768px) {
+      margin-left: -${spacings.xxlarge}px;
+      margin-right: -${spacings.xxlarge}px;
+    }
 
     svg {
       position: absolute;
       top: 50%;
-      left: ${spacings.small}px;
+      left: ${spacings.xlarge}px;
 
       transform: translateY(-50%);
 
@@ -21,23 +29,23 @@ const Wrapper = styled.div(
 );
 
 const Field = styled.input`
-  font-size: 0.875rem;
+  font-size: ${rem(26)};
 
   width: 100%;
-  height: 48px;
+  height: 80px;
 
   ${({ theme: { colors, radius, spacings } }) => css`
     padding: ${spacings.small}px;
-    padding-left: ${spacings.xxlarge}px;
+    padding-left: ${spacings.huge}px;
 
     border: 1px solid ${colors.neutral[300]};
-    border-radius: ${radius[2]}px;
+    border-radius: ${radius[3]}px;
     background-color: ${colors.neutral[50]};
     color: ${colors.neutral[900]};
 
     ::placeholder {
       color: ${colors.neutral[400]};
-      font-size: 14px;
+      font-size: ${rem(26)};
     }
   `}
 `;
@@ -50,8 +58,8 @@ const Input = ({ onChange, placeholder }) => {
   return (
     <Wrapper>
       <svg
-        width="18"
-        height="18"
+        width="28"
+        height="28"
         viewBox="0 0 18 18"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
