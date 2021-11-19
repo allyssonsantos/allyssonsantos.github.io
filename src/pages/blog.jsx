@@ -45,7 +45,7 @@ const Blog = ({
         ]}
       />
       <Title>Blog</Title>
-      <Input placeholder="Procurar post" onChange={filter} />
+      <Input placeholder="Procurar posts" onChange={filter} />
       <Posts>
         {filteredPosts.length ? (
           filteredPosts.map(({ node }) => {
