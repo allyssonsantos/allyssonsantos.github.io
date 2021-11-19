@@ -18,6 +18,11 @@ const components = {
   ol: Ol,
   li: Li,
   a: Link,
+  h2: ({ children, ...props }) => (
+    <h2 {...props} id={children.toLowerCase().replaceAll(' ', '-')}>
+      {children}
+    </h2>
+  ),
 };
 export const wrapRootElement = ({ element }) => (
   <DarkProvider>
