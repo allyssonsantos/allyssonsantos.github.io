@@ -11,8 +11,8 @@ import Header from './Header';
 import Footer from './Footer';
 import GlobalStyle from './GlobalStyle';
 
-import Sun from '../../../public/icons/sun.svg';
-import Moon from '../../../public/icons/moon.svg';
+import Sun from '../../../static/icons/sun.svg';
+import Moon from '../../../static/icons/moon.svg';
 
 const ChangeThemeButton = styled.button(
   ({ isDarkTheme }) => css`
