@@ -155,6 +155,7 @@ module.exports = {
           '@templates': 'src/templates',
           '@services': 'src/services',
           '@utils': 'src/utils',
+          '@static': 'static',
         },
         extensions: ['js'],
       },
