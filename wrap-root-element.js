@@ -1,9 +1,9 @@
 import React from 'react';
-import { Layout } from '@components/Layout';
 import { MDXProvider } from '@mdx-js/react';
 import { Ul, Ol, Li, Link, Code, InlineCode } from '@components/Elements';
 import { preToCodeBlock } from 'mdx-utils';
 import { DarkProvider } from '@utils/color-scheme';
+import { LocationProvider } from '@reach/router';
 
 const components = {
   pre: preProps => {
@@ -25,9 +25,9 @@ const components = {
   ),
 };
 export const wrapRootElement = ({ element }) => (
-  <DarkProvider>
-    <Layout>
+  <LocationProvider>
+    <DarkProvider>
       <MDXProvider components={components}>{element}</MDXProvider>
-    </Layout>
-  </DarkProvider>
+    </DarkProvider>
+  </LocationProvider>
 );
