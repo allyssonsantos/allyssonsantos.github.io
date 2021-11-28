@@ -14,6 +14,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-transition-link',
+      options: {
+        layout: require.resolve('./src/components/Layout/Layout.jsx'),
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
