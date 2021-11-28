@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { DiscussionEmbed } from 'disqus-react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
+import useTransition from '@utils/useTransition';
 import { SEO, Description } from '@components';
 import { Link, Title, Img } from '@components/Elements';
 import { TableOfContents } from '@components/Layout';
@@ -13,48 +14,56 @@ const disqusConfig = (slug, title) => ({
   config: { identifier: slug, title },
 });
 
-const Post = ({ data: { mdx: post }, pageContext: { previous, next } }) => (
-  <>
-    <SEO title={post.frontmatter.title} description={post.excerpt} />
-    <Title>{post.frontmatter.title}</Title>
-    <Description>{post.frontmatter.description}</Description>
-    <time>Publicado em {post.frontmatter.date}</time>
-    <Img src={`/${post.frontmatter.img}`} />
+const Post = ({
+  data: { mdx: post },
+  pageContext: { previous, next },
+  transitionStatus,
+}) => {
+  const animation = useTransition(transitionStatus);
 
-    <TableOfContents headings={post.headings} />
+  return (
+    <div animation={animation}>
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <Title>{post.frontmatter.title}</Title>
+      <Description>{post.frontmatter.description}</Description>
+      <time>Publicado em {post.frontmatter.date}</time>
+      <Img src={`/${post.frontmatter.img}`} />
 
-    <MDXRenderer>{post.body}</MDXRenderer>
-    <hr />
+      <TableOfContents headings={post.headings} />
 
-    <DiscussionEmbed
-      {...disqusConfig(post.frontmatter.slug, post.frontmatter.title)}
-    />
-    <ul
-      style={{
-        display: `flex`,
-        flexWrap: `wrap`,
-        justifyContent: `space-between`,
-        listStyle: `none`,
-        padding: 0,
-      }}
-    >
-      <li>
-        {previous && (
-          <Link to={previous.fields.slug} rel="prev">
-            ← {previous.frontmatter.title}
-          </Link>
-        )}
-      </li>
-      <li>
-        {next && (
-          <Link to={next.fields.slug} rel="next">
-            {next.frontmatter.title} →
-          </Link>
-        )}
-      </li>
-    </ul>
-  </>
-);
+      <MDXRenderer>{post.body}</MDXRenderer>
+      <hr />
+
+      <DiscussionEmbed
+        {...disqusConfig(post.frontmatter.slug, post.frontmatter.title)}
+      />
+      <ul
+        style={{
+          display: `flex`,
+          flexWrap: `wrap`,
+          justifyContent: `space-between`,
+          listStyle: `none`,
+          padding: 0,
+        }}
+      >
+        <li>
+          {previous && (
+            <Link to={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </Link>
+          )}
+        </li>
+        <li>
+          {next && (
+            <Link to={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </Link>
+          )}
+        </li>
+      </ul>
+    </div>
+  );
+};
 
 export default Post;
 

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import useTransition from '@utils/useTransition';
 import { SEO } from '@components';
 import { Link } from '@components/Elements';
 import {
@@ -13,47 +14,99 @@ import {
   Post,
   PostTitle,
   PostDescription,
+  PostBody,
+  Me,
 } from '@components/Home';
 
 const Home = ({
+  transitionStatus,
   data: {
     allMdx: { edges: posts },
   },
-}) => (
-  <>
-    <SEO
-      title="Home"
-      keywords={[
-        'blog',
-        'gatsby',
-        'javascript',
-        'react',
-        'styled-components',
-        'design-system',
-        'components',
-      ]}
-    />
-    <About>
-      <Title>Allysson Santos</Title>
-      <Description as="h2">
-        Frontend Developer no <strong>Olist</strong>
-      </Description>
-    </About>
-    <Posts>
-      <Subtitle>Posts recentes</Subtitle>
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
-        return (
-          <Post key={title} to={node.fields.slug}>
-            <PostTitle>{title}</PostTitle>
-            <PostDescription>{node.frontmatter.description}</PostDescription>
-          </Post>
-        );
-      })}
-      <Link to="/blog">todos os posts</Link>
-    </Posts>
-  </>
-);
+}) => {
+  const animation = useTransition(transitionStatus);
+
+  return (
+    <div animation={animation}>
+      <SEO
+        title="Home"
+        keywords={[
+          'blog',
+          'gatsby',
+          'javascript',
+          'react',
+          'styled-components',
+          'design-system',
+          'components',
+        ]}
+      />
+      <About>
+        <div>
+          <Title>Olá,</Title>
+          <Description>
+            Sou desenvolvedor front-end, atualmente estou desenvolvendo o
+            design-system do{' '}
+            <strong>
+              <a
+                href="https://olist.com"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Olist
+              </a>
+            </strong>
+          </Description>
+          <Description as="h2">
+            Antes do Olist estava no{' '}
+            <strong>
+              <a
+                href="https://gympass.com"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Gympass
+              </a>
+            </strong>
+            , e trabalhei majoritariamente no design system{' '}
+            <strong>
+              <a href="https://gympass.github.io/yoga/">Yoga</a>
+            </strong>{' '}
+            mas também atuei em alguns times de produto.
+          </Description>
+        </div>
+        <Me />
+      </About>
+      <Posts>
+        <Subtitle>Posts recentes</Subtitle>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          return (
+            <Post
+              key={title}
+              to={`/blog${node.fields.slug}`}
+              entry={{ length: 0.11, delay: 0.11 }}
+              exit={{ length: 0.11 }}
+            >
+              <PostBody>
+                <PostTitle>{title}</PostTitle>
+                <PostDescription>
+                  {node.frontmatter.description}
+                </PostDescription>
+              </PostBody>
+            </Post>
+          );
+        })}
+        <Link
+          to="/blog"
+          entry={{ length: 0.11, delay: 0.11 }}
+          exit={{ length: 0.11 }}
+        >
+          todos os posts
+        </Link>
+      </Posts>
+    </div>
+  );
+};
 
 export default Home;
 
@@ -62,7 +115,7 @@ export const pageQuery = graphql`
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { ne: false } } }
-      limit: 2
+      limit: 3
     ) {
       edges {
         node {
@@ -77,14 +130,6 @@ export const pageQuery = graphql`
             tags
           }
         }
-      }
-    }
-    github {
-      repositories {
-        name
-        description
-        stars
-        url
       }
     }
   }

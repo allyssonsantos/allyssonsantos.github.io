@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import useTransition from '@utils/useTransition';
 import { Input, SEO, Description } from '@components';
 import {
   Title,
@@ -9,9 +10,11 @@ import {
   Post,
   PostTitle,
   PostDescription,
+  PostBody,
 } from '@components/Home';
 
 const Blog = ({
+  transitionStatus,
   data: {
     allMdx: { edges: posts },
   },
@@ -30,8 +33,10 @@ const Blog = ({
     );
   });
 
+  const animation = useTransition(transitionStatus);
+
   return (
-    <>
+    <div animation={animation}>
       <SEO
         title="Todos os posts"
         keywords={[
@@ -44,18 +49,33 @@ const Blog = ({
           'components',
         ]}
       />
-      <Title>Blog</Title>
-      <Input placeholder="Procurar posts" onChange={filter} />
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <Title>Artigos</Title>
+        <Input placeholder="Procurar posts" onChange={filter} />
+      </div>
       <Posts>
         {filteredPosts.length ? (
           filteredPosts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug;
             return (
-              <Post key={node.fields.slug} to={node.fields.slug}>
-                <PostTitle>{title}</PostTitle>
-                <PostDescription>
-                  {node.frontmatter.description}
-                </PostDescription>
+              <Post
+                key={node.fields.slug}
+                to={`/blog${node.fields.slug}`}
+                entry={{ length: 0.11, delay: 0.11 }}
+                exit={{ length: 0.11 }}
+              >
+                <PostBody>
+                  <PostTitle>{title}</PostTitle>
+                  <PostDescription>
+                    {node.frontmatter.description}
+                  </PostDescription>
+                </PostBody>
               </Post>
             );
           })
@@ -65,7 +85,7 @@ const Blog = ({
           </Description>
         )}
       </Posts>
-    </>
+    </div>
   );
 };
 
