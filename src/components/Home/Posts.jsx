@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
-import { Link } from 'gatsby';
 import rem from '@utils/rem';
+import Link from 'gatsby-plugin-transition-link';
 
 const Posts = styled.section(
   ({ theme }) => css`
@@ -11,66 +11,55 @@ const Posts = styled.section(
   `
 );
 
-const BorderAnimation = props => keyframes`
+const BorderAnimation = keyframes`
   0% {
-    border-image-source: linear-gradient(
-      to right,
-        ${props.theme.colors.primary[300]} 0%,
-        ${props.theme.colors.secondary[300]} 50%
-    );
-  }
-
-  50% {
-    border-image-source: linear-gradient(
-      to right,
-      ${props.theme.colors.secondary[300]} 50%,
-      ${props.theme.colors.primary[300]} 100%
-    );
-  }
-
-  100% {
-    border-image-source: linear-gradient(
-      to right,
-        ${props.theme.colors.primary[300]} 0%,
-        ${props.theme.colors.secondary[300]} 50%
-    );
-  }
-
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 `;
+
+const PostBody = styled.div(
+  ({ theme }) => css`
+    background: ${theme.colors.neutral[50]};
+
+    padding-bottom: ${theme.spacings.xlarge}px;
+
+    transition: background-color 300ms ease-in-out;
+  `
+);
 
 const Post = styled(Link)(
   ({ theme }) => css`
-    padding-bottom: ${theme.spacings.xlarge}px;
+    background: linear-gradient(
+      to right,
+      ${theme.colors.primary[500]},
+      ${theme.colors.secondary[500]},
+      ${theme.colors.primary[500]}
+    );
+    background-size: 200% 200%;
+    animation: ${BorderAnimation} 8s ease-in-out infinite;
 
     transition: transform 0.3s ease;
     text-decoration: none;
 
     & + & {
+      padding-top: ${theme.borders.small}px;
+    }
+
+    & + & ${PostBody} {
       padding-top: ${theme.spacings.xlarge}px;
-
-      border-top: ${theme.borders.medium}px solid;
-      border-image-slice: 1;
-      border-image-source: linear-gradient(
-        to right,
-        ${theme.colors.primary[500]} 0%,
-        ${theme.colors.secondary[500]} 50%
-      );
-      animation: ${BorderAnimation} 4s infinite alternate;
-    }
-
-    &:hover {
-      transform: scale(1.02);
-    }
-
-    &:last-child {
-      padding-bottom: 0;
     }
   `
 );
 
 const PostTitle = styled.h3(
   ({ theme }) => css`
-    font-size: ${rem(32)};
+    font-size: ${rem(22)};
     line-height: 1.1;
 
     margin: 0;
@@ -81,7 +70,7 @@ const PostTitle = styled.h3(
 
 const PostDescription = styled.p(
   ({ theme }) => css`
-    font-size: ${rem(18)};
+    font-size: ${rem(16)};
     line-height: ${rem(22)};
 
     margin: 0;
@@ -91,4 +80,4 @@ const PostDescription = styled.p(
   `
 );
 
-export { Posts, Post, PostTitle, PostDescription };
+export { Posts, Post, PostTitle, PostDescription, PostBody };

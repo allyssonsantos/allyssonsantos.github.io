@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Link as GatsbyLink } from 'gatsby';
+import TransitionLink from 'gatsby-plugin-transition-link';
 
 const Link = styled.a.attrs(props => ({
-  as: props.to ? GatsbyLink : 'a',
+  as: props.to ? TransitionLink : 'a',
 }))`
   display: inline-block;
   align-self: flex-start;

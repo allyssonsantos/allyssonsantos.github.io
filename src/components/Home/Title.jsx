@@ -3,7 +3,7 @@ import rem from '@utils/rem';
 
 const Title = styled.h1(
   ({ theme }) => css`
-    font-size: ${rem(56)};
+    font-size: ${rem(22)};
     line-height: 1;
 
     margin: 0;

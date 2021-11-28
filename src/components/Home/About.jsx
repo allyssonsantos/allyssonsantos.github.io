@@ -1,21 +1,15 @@
-import styled, { keyframes } from 'styled-components';
-
-const ShowAnimation = keyframes`
-  from {
-    transform: scale(1.3);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-`;
+import styled from 'styled-components';
 
 const About = styled.section`
-  text-align: center;
+  display: flex;
+  align-items: center;
 
-  animation: ${ShowAnimation} 500ms cubic-bezier(0, 0, 0.26, 0.95);
+  gap: 24px;
+
+  @media (max-width: 540px) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
 `;
 
 export default About;

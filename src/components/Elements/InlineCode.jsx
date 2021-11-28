@@ -3,7 +3,7 @@ import rem from '@utils/rem';
 
 const InlineCode = styled.code(
   ({ theme }) => css`
-    font-size: ${rem(16)};
+    font-size: ${rem(14)};
 
     padding: 2px;
 

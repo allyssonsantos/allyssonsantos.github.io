@@ -6,7 +6,7 @@ const sharedStyle = css`
   padding: 0;
 
   line-height: 2.2;
-  font-size: ${rem(18)};
+  font-size: ${rem(16)};
 `;
 
 const Ul = styled.ul`

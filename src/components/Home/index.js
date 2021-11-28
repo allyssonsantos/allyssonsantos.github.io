@@ -1,6 +1,6 @@
 import About from './About';
 import Description from './Description';
-import { Posts, Post, PostTitle, PostDescription } from './Posts';
+import { Posts, Post, PostTitle, PostDescription, PostBody } from './Posts';
 import {
   Projects,
   Repos,
@@ -11,6 +11,7 @@ import {
 } from './Projects';
 import Subtitle from './Subtitle';
 import Title from './Title';
+import Me from './Me';
 
 export {
   About,
@@ -19,6 +20,7 @@ export {
   Post,
   PostTitle,
   PostDescription,
+  PostBody,
   Projects,
   Repos,
   Project,
@@ -27,4 +29,5 @@ export {
   ProjectStars,
   Subtitle,
   Title,
+  Me,
 };
