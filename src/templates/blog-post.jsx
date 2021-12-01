@@ -68,7 +68,7 @@ const Post = ({
 export default Post;
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     site {
       siteMetadata {
         title

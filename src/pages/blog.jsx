@@ -20,10 +20,10 @@ const Blog = ({
   },
 }) => {
   const [filteredTerm, setFilteredTerm] = useState('');
-  const filter = e => setFilteredTerm(e.target.value.toLowerCase());
+  const filter = (e) => setFilteredTerm(e.target.value.toLowerCase());
 
   const filteredPosts = posts.filter(({ node }) => {
-    const matchedTags = node.frontmatter.tags.filter(tag =>
+    const matchedTags = node.frontmatter.tags.filter((tag) =>
       tag.toLowerCase().includes(filteredTerm)
     ).length;
     return (

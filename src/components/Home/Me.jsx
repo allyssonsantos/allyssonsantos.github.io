@@ -24,9 +24,15 @@ const Image = styled.img(
 );
 
 const Me = () => {
-  const { isDarkTheme } = useDarkTheme();
+  const { currentTheme } = useDarkTheme();
 
-  return <Image src="/me.jpg" alt="Allysson Santos" darkTheme={isDarkTheme} />;
+  return (
+    <Image
+      src="/me.jpg"
+      alt="Allysson Santos"
+      darkTheme={currentTheme === 'dark'}
+    />
+  );
 };
 
 export default Me;

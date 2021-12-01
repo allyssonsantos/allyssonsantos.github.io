@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext, useEffect } from 'react';
 
 const COLOR_SCHEME_KEY = 'dark-theme';
 
@@ -6,45 +6,42 @@ function setCurrentTheme(colorScheme) {
   window.localStorage.setItem(COLOR_SCHEME_KEY, colorScheme);
 }
 
-function getCurrentTheme() {
+export function getCurrentTheme() {
   if (typeof window === 'undefined') {
-    return false;
+    return 'dark';
   }
-  const currentTheme = window.localStorage.getItem(COLOR_SCHEME_KEY);
-  if (!currentTheme) {
-    setCurrentTheme(false);
+  const preferredColorScheme = window.matchMedia(
+    '(prefers-color-scheme: dark)'
+  );
+  const prefersDark = preferredColorScheme.matches;
+  const storedPreference = window.localStorage.getItem(COLOR_SCHEME_KEY);
+
+  if (typeof storedPreference === 'string') {
+    return storedPreference;
   }
 
-  return JSON.parse(currentTheme);
+  return prefersDark ? 'dark' : 'light';
 }
 
 const DarkContext = createContext({
-  isDarkTheme: false,
+  currentTheme: undefined,
   toggleDarkTheme: () => {},
 });
 
 const DarkProvider = ({ children }) => {
-  const [currentTheme, setTheme] = useState(() => getCurrentTheme());
-
-  const toggleDarkTheme = () => {
-    setTheme(Boolean(!currentTheme));
-    setCurrentTheme(Boolean(!currentTheme));
-  };
+  const [currentTheme, setTheme] = useState('light');
 
   useEffect(() => {
-    const preferredDarkScheme = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    );
-    if (preferredDarkScheme.matches) {
-      setTheme(true);
-    }
+    setTheme(getCurrentTheme());
   }, []);
 
-  const isDarkTheme =
-    typeof currentTheme === 'string' ? currentTheme === 'true' : currentTheme;
+  const toggleDarkTheme = (newValue) => {
+    setTheme(newValue);
+    setCurrentTheme(newValue);
+  };
 
   return (
-    <DarkContext.Provider value={{ isDarkTheme, toggleDarkTheme }}>
+    <DarkContext.Provider value={{ currentTheme, toggleDarkTheme }}>
       {children}
     </DarkContext.Provider>
   );

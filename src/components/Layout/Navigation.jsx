@@ -12,9 +12,9 @@ import { useDarkTheme } from '@utils/color-scheme';
 import Menu from './Menu';
 
 const Nav = styled.nav(
-  ({ opened, theme: { spacings, colors, borders } }) => css`
+  ({ opened, theme }) => css`
     width: 240px;
-    height: calc(100vh - ${spacings.medium}px);
+    height: calc(100vh - ${theme.spacings.medium}px);
 
     grid-area: nav;
     flex-shrink: 0;
@@ -23,12 +23,13 @@ const Nav = styled.nav(
     top: 0;
     left: 0;
 
-    margin-left: -${spacings.medium}px;
-    padding: ${spacings.medium}px;
+    margin-left: -${theme.spacings.medium}px;
+    padding: ${theme.spacings.medium}px;
 
-    background-color: ${colors.neutral[50]};
+    background-color: ${theme.colors.neutral[50]};
 
-    border-right: ${borders.tiny}px solid ${colors.neutral[100]};
+    border-right: ${theme.borders.tiny}px solid ${theme.colors.neutral[100]};
+
     transition: background-color 300ms ease-in-out, transform 300ms ease-in-out,
       border-color 300ms ease-in-out;
 
@@ -41,7 +42,7 @@ const Nav = styled.nav(
       z-index: 10;
 
       margin: 0;
-      padding-top: ${spacings.huge}px;
+      padding-top: ${theme.spacings.huge}px;
 
       transform: translateX(${opened ? '0%' : '-120%'});
     }
@@ -53,20 +54,20 @@ const Nav = styled.nav(
 );
 
 const Name = styled.p(
-  ({ theme: { spacings } }) => css`
+  ({ theme }) => css`
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     margin: 0;
-    margin-bottom: ${spacings.medium}px;
-    padding-left: ${spacings.xsmall}px;
+    margin-bottom: ${theme.spacings.medium}px;
+    padding-left: ${theme.spacings.xsmall}px;
     font-size: ${rem(16)};
   `
 );
 
 const ChangeThemeButton = styled.button(
-  ({ isDarkTheme, theme: { colors } }) => css`
+  ({ isDarkTheme, theme }) => css`
     display: flex;
     width: 26px;
     height: 26px;
@@ -81,7 +82,7 @@ const ChangeThemeButton = styled.button(
     cursor: pointer;
 
     &:hover {
-      background-color: ${colors.neutral[200]};
+      background-color: ${theme.colors.neutral[200]};
     }
 
     svg {
@@ -102,16 +103,16 @@ const ChangeThemeButton = styled.button(
 );
 
 const Category = styled.li(
-  ({ theme: { spacings, colors } }) => css`
+  ({ theme }) => css`
     font-size: ${rem(12)};
 
-    padding-right: ${spacings.small}px;
-    padding-left: ${spacings.small}px;
+    padding-right: ${theme.spacings.small}px;
+    padding-left: ${theme.spacings.small}px;
 
-    color: ${colors.neutral[800]};
+    color: ${theme.colors.neutral[800]};
 
     && {
-      margin-top: ${spacings.xxlarge}px;
+      margin-top: ${theme.spacings.xxlarge}px;
     }
   `
 );
@@ -160,14 +161,14 @@ const List = styled.ul`
   list-style: none;
 
   li + li {
-    margin-top: ${props => props.theme.spacings.xsmall}px;
+    margin-top: ${(props) => props.theme.spacings.xsmall}px;
   }
 `;
 
 const Navigation = React.forwardRef(
   ({ items, socials, opened, onMenuClick }, ref) => {
-    const { isDarkTheme, toggleDarkTheme } = useDarkTheme();
-    const buttonLabel = `Trocar para tema ${isDarkTheme ? 'claro' : 'escuro'}`;
+    const { currentTheme, toggleDarkTheme } = useDarkTheme();
+    const buttonLabel = `Trocar para tema ${currentTheme}`;
 
     return (
       <Nav opened={opened} ref={ref}>
@@ -176,9 +177,11 @@ const Navigation = React.forwardRef(
           <Name>
             allysson.me
             <ChangeThemeButton
-              onClick={() => toggleDarkTheme(!isDarkTheme)}
+              onClick={() =>
+                toggleDarkTheme(currentTheme === 'dark' ? 'light' : 'dark')
+              }
               title={buttonLabel}
-              isDarkTheme={isDarkTheme}
+              isDarkTheme={currentTheme === 'dark'}
             >
               <div aria-label={buttonLabel}>
                 <Moon />

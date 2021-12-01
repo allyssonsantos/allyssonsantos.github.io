@@ -25,7 +25,7 @@ const Code = ({
   'react-live': reactLive,
   metastring,
 }) => {
-  const { isDarkTheme } = useDarkTheme();
+  const { currentTheme } = useDarkTheme();
   const theme = useTheme();
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
 
@@ -41,7 +41,7 @@ const Code = ({
   return (
     <Highlight
       {...defaultProps}
-      theme={isDarkTheme ? nightOwl : nightOwlLight}
+      theme={currentTheme === 'dark' ? nightOwl : nightOwlLight}
       code={codeString}
       language={language}
     >
