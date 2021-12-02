@@ -18,12 +18,12 @@ import {
   Me,
 } from '@components/Home';
 
-const Home = ({
+function Home({
   transitionStatus,
   data: {
     allMdx: { edges: posts },
   },
-}) => {
+}) {
   const animation = useTransition(transitionStatus);
 
   return (
@@ -106,7 +106,7 @@ const Home = ({
       </Posts>
     </div>
   );
-};
+}
 
 export default Home;
 
@@ -136,6 +136,12 @@ export const pageQuery = graphql`
 `;
 
 Home.propTypes = {
+  transitionStatus: PropTypes.oneOf([
+    'entering',
+    'entered',
+    'exiting',
+    'exited',
+  ]),
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -166,4 +172,8 @@ Home.propTypes = {
       ),
     }),
   }).isRequired,
+};
+
+Home.defaultProps = {
+  transitionStatus: undefined,
 };

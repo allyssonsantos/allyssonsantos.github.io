@@ -46,13 +46,15 @@ const Field = styled.input`
   `}
 `;
 
-const Input = ({ onChange, placeholder }) => (
-  <Wrapper>
-    <Search width={16} height={16} />
+function Input({ onChange, placeholder }) {
+  return (
+    <Wrapper>
+      <Search width={16} height={16} />
 
-    <Field type="text" onChange={onChange} placeholder={placeholder} />
-  </Wrapper>
-);
+      <Field type="text" onChange={onChange} placeholder={placeholder} />
+    </Wrapper>
+  );
+}
 
 Input.propTypes = {
   onChange: PropTypes.func.isRequired,

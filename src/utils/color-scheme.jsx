@@ -1,4 +1,11 @@
-import React, { useState, useContext, createContext, useEffect } from 'react';
+import React, {
+  useState,
+  useContext,
+  createContext,
+  useEffect,
+  useMemo,
+} from 'react';
+import PropTypes from 'prop-types';
 
 const COLOR_SCHEME_KEY = 'dark-theme';
 
@@ -28,7 +35,7 @@ const DarkContext = createContext({
   toggleDarkTheme: () => {},
 });
 
-const DarkProvider = ({ children }) => {
+function DarkProvider({ children }) {
   const [currentTheme, setTheme] = useState('light');
 
   useEffect(() => {
@@ -40,11 +47,16 @@ const DarkProvider = ({ children }) => {
     setCurrentTheme(newValue);
   };
 
-  return (
-    <DarkContext.Provider value={{ currentTheme, toggleDarkTheme }}>
-      {children}
-    </DarkContext.Provider>
+  const value = useMemo(
+    () => ({ currentTheme, toggleDarkTheme }),
+    [currentTheme]
   );
+
+  return <DarkContext.Provider value={value}>{children}</DarkContext.Provider>;
+}
+
+DarkProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 function useDarkTheme() {

@@ -14,11 +14,11 @@ const disqusConfig = (slug, title) => ({
   config: { identifier: slug, title },
 });
 
-const Post = ({
+function Post({
   data: { mdx: post },
   pageContext: { previous, next },
   transitionStatus,
-}) => {
+}) {
   const animation = useTransition(transitionStatus);
 
   return (
@@ -63,7 +63,7 @@ const Post = ({
       </ul>
     </div>
   );
-};
+}
 
 export default Post;
 
@@ -98,6 +98,12 @@ Post.defaultProps = {
 };
 
 Post.propTypes = {
+  transitionStatus: PropTypes.oneOf([
+    'entering',
+    'entered',
+    'exiting',
+    'exited',
+  ]),
   data: PropTypes.shape({
     mdx: PropTypes.shape({
       frontmatter: PropTypes.shape({
@@ -107,6 +113,13 @@ Post.propTypes = {
         img: PropTypes.string,
         slug: PropTypes.string,
       }),
+      excerpt: PropTypes.string,
+      headings: PropTypes.arrayOf(
+        PropTypes.shape({
+          value: PropTypes.string,
+        })
+      ).isRequired,
+      body: PropTypes.string,
     }),
     excerpt: PropTypes.string,
   }).isRequired,
@@ -128,4 +141,8 @@ Post.propTypes = {
       }),
     }),
   }),
+};
+
+Post.defaultProps = {
+  transitionStatus: undefined,
 };

@@ -8,23 +8,18 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import { useDarkTheme } from '@utils/color-scheme';
 
-const calculateLinesToHighlight = meta => {
+const calculateLinesToHighlight = (meta) => {
   const RE = /{([\d,-]+)}/;
   if (RE.test(meta)) {
     const strlineNumbers = RE.exec(meta)[1];
     const lineNumbers = rangeParser(strlineNumbers);
-    return i => lineNumbers.includes(i + 1);
+    return (i) => lineNumbers.includes(i + 1);
   }
 
   return () => false;
 };
 
-const Code = ({
-  codeString,
-  language,
-  'react-live': reactLive,
-  metastring,
-}) => {
+function Code({ codeString, language, 'react-live': reactLive, metastring }) {
   const { currentTheme } = useDarkTheme();
   const theme = useTheme();
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
@@ -70,7 +65,7 @@ const Code = ({
       )}
     </Highlight>
   );
-};
+}
 
 Code.propTypes = {
   codeString: PropTypes.string.isRequired,

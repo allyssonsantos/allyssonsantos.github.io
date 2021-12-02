@@ -31,7 +31,7 @@ const Wrapper = styled.div(
   `
 );
 
-const Menu = ({ onClick, close }) => {
+function Menu({ onClick, close }) {
   const label = close ? 'Fechar menu' : 'Abrir menu';
   return (
     <Wrapper>
@@ -44,7 +44,7 @@ const Menu = ({ onClick, close }) => {
       </MenuButton>
     </Wrapper>
   );
-};
+}
 
 Menu.propTypes = {
   onClick: PropTypes.func.isRequired,

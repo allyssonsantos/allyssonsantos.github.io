@@ -237,6 +237,8 @@ Navigation.propTypes = {
       href: PropTypes.string,
     })
   ).isRequired,
+  opened: PropTypes.bool.isRequired,
+  onMenuClick: PropTypes.func.isRequired,
 };
 
 export default Navigation;

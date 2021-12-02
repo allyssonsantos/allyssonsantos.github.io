@@ -7,8 +7,8 @@ const Wrapper = styled.section`
   margin-bottom: 72px;
 `;
 
-const TableOfContents = ({ headings }) => (
-  <Wrapper>
+function TableOfContents({ headings }) {
+  return <Wrapper>
     <h2>Índice</h2>
     <Ol>
       {headings.map(({ value }) => (
@@ -18,7 +18,7 @@ const TableOfContents = ({ headings }) => (
       ))}
     </Ol>
   </Wrapper>
-);
+}
 
 TableOfContents.propTypes = {
   headings: PropTypes.arrayOf(

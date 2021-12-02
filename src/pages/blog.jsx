@@ -13,12 +13,12 @@ import {
   PostBody,
 } from '@components/Home';
 
-const Blog = ({
+function Blog({
   transitionStatus,
   data: {
     allMdx: { edges: posts },
   },
-}) => {
+}) {
   const [filteredTerm, setFilteredTerm] = useState('');
   const filter = (e) => setFilteredTerm(e.target.value.toLowerCase());
 
@@ -87,7 +87,7 @@ const Blog = ({
       </Posts>
     </div>
   );
-};
+}
 
 export default Blog;
 
@@ -117,6 +117,12 @@ export const pageQuery = graphql`
 `;
 
 Blog.propTypes = {
+  transitionStatus: PropTypes.oneOf([
+    'entering',
+    'entered',
+    'exiting',
+    'exited',
+  ]),
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -138,4 +144,8 @@ Blog.propTypes = {
       ),
     }),
   }).isRequired,
+};
+
+Blog.defaultProps = {
+  transitionStatus: undefined,
 };

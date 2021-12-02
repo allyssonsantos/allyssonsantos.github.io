@@ -23,7 +23,7 @@ const Image = styled.img(
   `
 );
 
-const Me = () => {
+function Me() {
   const { currentTheme } = useDarkTheme();
 
   return (
@@ -33,6 +33,6 @@ const Me = () => {
       darkTheme={currentTheme === 'dark'}
     />
   );
-};
+}
 
 export default Me;

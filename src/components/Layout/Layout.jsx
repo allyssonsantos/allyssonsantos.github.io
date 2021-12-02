@@ -28,7 +28,7 @@ const usePrevious = (value) => {
   return ref.current;
 };
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
   const { currentTheme } = useDarkTheme();
   const navRef = useRef(null);
   const [opened, setOpened] = useState(false);
@@ -105,7 +105,7 @@ const Layout = ({ children }) => {
       </Grid>
     </ThemeProvider>
   );
-};
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

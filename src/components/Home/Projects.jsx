@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import rem from '@utils/rem';
 
 import { PostTitle, PostDescription } from './Posts';
@@ -58,7 +58,7 @@ const ProjectStars = styled.span`
   margin-top: 10px;
 
   svg {
-    fill: ${props => props.theme.colors.neutral[800]};
+    fill: ${(props) => props.theme.colors.neutral[800]};
   }
 `;
 

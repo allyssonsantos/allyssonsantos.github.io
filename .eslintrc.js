@@ -18,6 +18,12 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'react/jsx-props-no-spreading': 'off',
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'function-declaration',
+      },
+    ],
   },
   settings: {
     'import/resolver': {
