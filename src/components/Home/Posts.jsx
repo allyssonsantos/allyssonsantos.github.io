@@ -48,7 +48,7 @@ const Post = styled(Link)(
     text-decoration: none;
 
     & + & {
-      padding-top: ${theme.borders.small}px;
+      padding-top: ${theme.borders.tiny}px;
     }
 
     & + & ${PostBody} {
