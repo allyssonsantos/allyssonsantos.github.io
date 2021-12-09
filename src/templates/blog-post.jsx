@@ -27,7 +27,7 @@ function Post({
       <Title>{post.frontmatter.title}</Title>
       <Description>{post.frontmatter.description}</Description>
       <time>Publicado em {post.frontmatter.date}</time>
-      <Img src={`/${post.frontmatter.img}`} />
+      {post.frontmatter.img && <Img src={`/${post.frontmatter.img}`} />}
 
       <TableOfContents headings={post.headings} />
 
