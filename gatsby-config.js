@@ -96,7 +96,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => ({
+              return allMdx.edges.map((edge) => ({
                 ...edge.node.frontmatter,
                 description: edge.node.excerpt,
                 data: edge.node.frontmatter.date,
@@ -149,7 +149,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Poppins\:300,300i,400,400i,700,700i`],
+        fonts: [`Source Sans 3\:300,300i,400,400i,700,700i`],
         display: 'swap',
       },
     },

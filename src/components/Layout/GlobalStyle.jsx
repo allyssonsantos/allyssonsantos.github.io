@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle(
 
     html,
     body {
-      font-family: 'Poppins', serif;
+      font-family: 'Source Sans 3', serif;
 
       margin: 0;
       padding: 0;
@@ -167,7 +167,7 @@ const GlobalStyle = createGlobalStyle(
     }
 
     a {
-      color: ${props => props.theme.colors.primary[500]};
+      color: ${(props) => props.theme.colors.primary[500]};
     }
 
     time {
@@ -192,6 +192,14 @@ const GlobalStyle = createGlobalStyle(
       ::marker {
         color: ${theme.colors.neutral[900]};
       }
+    }
+
+    hr {
+      margin-top: ${theme.spacings.xlarge}px;
+      margin-bottom: ${theme.spacings.xlarge}px;
+
+      border: none;
+      border-bottom: 1px solid ${theme.colors.neutral[200]};
     }
 
     .tl-edges {
