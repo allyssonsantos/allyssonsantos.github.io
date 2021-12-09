@@ -3,15 +3,10 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import useTransition from '@utils/useTransition';
-import { Input, SEO, Description } from '@components';
-import {
-  Title,
-  Posts,
-  Post,
-  PostTitle,
-  PostDescription,
-  PostBody,
-} from '@components/Home';
+import { Input, SEO } from '@components';
+import { Title } from '@components/Home';
+
+import Posts from '@components/Posts';
 
 function Blog({
   transitionStatus,
@@ -58,32 +53,7 @@ function Blog({
         <Title>Artigos</Title>
         <Input placeholder="Procurar posts" onChange={filter} />
       </div>
-      <Posts>
-        {filteredPosts.length ? (
-          filteredPosts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug;
-            return (
-              <Post
-                key={node.fields.slug}
-                to={`/blog${node.fields.slug}`}
-                entry={{ length: 0.11, delay: 0.11 }}
-                exit={{ length: 0.11 }}
-              >
-                <PostBody>
-                  <PostTitle>{title}</PostTitle>
-                  <PostDescription>
-                    {node.frontmatter.description}
-                  </PostDescription>
-                </PostBody>
-              </Post>
-            );
-          })
-        ) : (
-          <Description>
-            Ops, com essa busca não encontrei nenhum artigo relacionado.
-          </Description>
-        )}
-      </Posts>
+      <Posts posts={filteredPosts} />
     </div>
   );
 }

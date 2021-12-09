@@ -5,18 +5,9 @@ import { graphql } from 'gatsby';
 import useTransition from '@utils/useTransition';
 import { SEO } from '@components';
 import { Link } from '@components/Elements';
-import {
-  About,
-  Title,
-  Subtitle,
-  Description,
-  Posts,
-  Post,
-  PostTitle,
-  PostDescription,
-  PostBody,
-  Me,
-} from '@components/Home';
+import { About, Title, Description, Me } from '@components/Home';
+
+import Posts from '@components/Posts';
 
 function Home({
   transitionStatus,
@@ -76,34 +67,14 @@ function Home({
         </div>
         <Me />
       </About>
-      <Posts>
-        <Subtitle>Posts recentes</Subtitle>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
-            <Post
-              key={title}
-              to={`/blog${node.fields.slug}`}
-              entry={{ length: 0.11, delay: 0.11 }}
-              exit={{ length: 0.11 }}
-            >
-              <PostBody>
-                <PostTitle>{title}</PostTitle>
-                <PostDescription>
-                  {node.frontmatter.description}
-                </PostDescription>
-              </PostBody>
-            </Post>
-          );
-        })}
-        <Link
-          to="/blog"
-          entry={{ length: 0.11, delay: 0.11 }}
-          exit={{ length: 0.11 }}
-        >
-          todos os posts
-        </Link>
-      </Posts>
+      <Posts posts={posts} />
+      <Link
+        to="/blog"
+        entry={{ length: 0.11, delay: 0.11 }}
+        exit={{ length: 0.11 }}
+      >
+        todos os posts
+      </Link>
     </div>
   );
 }
