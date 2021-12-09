@@ -52,7 +52,6 @@ function Blog({
       <div
         style={{
           display: 'flex',
-          alignItems: 'center',
           justifyContent: 'space-between',
         }}
       >
