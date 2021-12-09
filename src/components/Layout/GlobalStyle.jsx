@@ -3,6 +3,12 @@ import rem from '@utils/rem';
 
 const GlobalStyle = createGlobalStyle(
   ({ theme }) => css`
+    :root {
+      accent-color: ${theme.colors.neutral[900]};
+
+      transition: accent-color 300ms ease-in-out;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -20,7 +26,8 @@ const GlobalStyle = createGlobalStyle(
         font-size: 90%;
       }
 
-      transition: background-color 300ms ease-in-out;
+      transition: background-color 300ms ease-in-out,
+        font-size 300ms ease-in-out;
     }
 
     body {
@@ -195,11 +202,7 @@ const GlobalStyle = createGlobalStyle(
     }
 
     hr {
-      margin-top: ${theme.spacings.xlarge}px;
-      margin-bottom: ${theme.spacings.xlarge}px;
-
       border: none;
-      border-bottom: 1px solid ${theme.colors.neutral[200]};
     }
 
     .tl-edges {

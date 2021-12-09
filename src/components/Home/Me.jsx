@@ -2,14 +2,15 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { useDarkTheme } from '@utils/color-scheme';
+import rem from '@utils/rem';
 
 const Image = styled.img(
-  ({ darkTheme }) => css`
-    width: 120px;
-    height: 120px;
+  ({ darkTheme, theme }) => css`
+    width: ${rem(120)};
+    height: ${rem(120)};
 
     border: none;
-    border-radius: 50%;
+    border-radius: ${theme.radius[1]}px;
 
     transition: filter 300ms ease-in-out;
 

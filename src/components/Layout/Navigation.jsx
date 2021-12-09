@@ -69,8 +69,8 @@ const Name = styled.p(
 const ChangeThemeButton = styled.button(
   ({ isDarkTheme, theme }) => css`
     display: flex;
-    width: 26px;
-    height: 26px;
+    width: ${rem(26)};
+    height: ${rem(26)};
 
     padding: 0;
 
@@ -86,16 +86,16 @@ const ChangeThemeButton = styled.button(
     }
 
     svg {
-      width: 16px;
-      height: 16px;
+      width: ${rem(16)};
+      height: ${rem(16)};
     }
 
     svg + svg {
-      margin-top: 2px;
+      margin-top: ${rem(3)};
     }
 
     div {
-      transform: translateY(${isDarkTheme ? -16 : 5}px);
+      transform: translateY(${isDarkTheme ? `-${rem(16)}` : rem(5)});
 
       transition: transform 300ms cubic-bezier(0.21, 0.54, 0.29, 0.92);
     }
@@ -137,6 +137,11 @@ const Link = styled(GatsbyLink)(
 
     &:hover {
       background-color: ${theme.colors.neutral[200]};
+    }
+
+    svg {
+      width: ${rem(14)};
+      height: ${rem(14)};
     }
 
     &.active {
