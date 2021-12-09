@@ -1,72 +1,57 @@
 import styled, { css } from 'styled-components';
 import rem from '@utils/rem';
 
-import { PostTitle, PostDescription } from './Posts';
+import { PostTitle, PostDescription } from '../Posts/Posts';
 
-const Projects = styled.section(
+const Repos = styled.div(
   ({ theme }) => css`
-    margin-top: ${theme.spacings.huge}px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    margin-top: ${theme.spacings.xlarge}px;
   `
 );
 
-const Repos = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-`;
-
-const Project = styled.a(
+const Project = styled.a.attrs({ target: '_blank' })(
   ({ theme }) => css`
+    position: relative;
     display: flex;
-    flex-basis: 200px;
+    width: 100%;
     flex-direction: column;
-    flex-grow: 1;
     justify-content: space-between;
 
     padding: ${theme.spacings.small}px;
 
-    transition: transform 0.3s ease;
-    text-decoration: none;
-
     color: ${theme.colors.neutral[800]};
 
-    border-radius: 8px;
-    box-shadow: 1px 1px 6px ${theme.colors.neutral[200]};
+    border-radius: 4px;
+    border: 1px solid ${theme.colors.neutral[800]};
+
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    text-decoration: none;
 
     &:hover {
       transform: scale(1.02);
+    }
+
+    svg,
+    img {
+      position: absolute;
+      top: ${theme.spacings.small}px;
+      right: ${theme.spacings.small}px;
+      stroke: none;
+
+      width: 50px;
     }
   `
 );
 
 const ProjectTitle = styled(PostTitle)`
   margin-bottom: 12px;
-
-  text-transform: lowercase;
 `;
 const ProjectDescription = styled(PostDescription)`
   font-size: ${rem(14)};
 `;
-const ProjectStars = styled.span`
-  font-size: ${rem(12)};
 
-  display: flex;
-  align-items: center;
-  align-self: flex-end;
-  gap: 10px;
-
-  margin-top: 10px;
-
-  svg {
-    fill: ${(props) => props.theme.colors.neutral[800]};
-  }
-`;
-
-export {
-  Projects,
-  Repos,
-  Project,
-  ProjectTitle,
-  ProjectDescription,
-  ProjectStars,
-};
+export { Repos, Project, ProjectTitle, ProjectDescription };

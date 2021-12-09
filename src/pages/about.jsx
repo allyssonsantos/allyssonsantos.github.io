@@ -4,11 +4,23 @@ import styled from 'styled-components';
 
 import useTransition from '@utils/useTransition';
 import { SEO } from '@components';
-import { Link, Subtitle, Ol, Li } from '@components/Elements';
-import { Title, Description } from '@components/Home';
+import { Subtitle, Ol, Li, Hr } from '@components/Elements';
+import {
+  Title,
+  Description,
+  Repos,
+  Project,
+  ProjectTitle,
+  ProjectDescription,
+} from '@components/Home';
 
-const Section = styled.section`
-  margin-top: 24px;
+import rem from '@utils/rem';
+
+const ExpList = styled(Ol)`
+  padding-left: 5ch;
+  margin-left: 0;
+
+  font-size: ${rem(18)};
 `;
 
 function About({ transitionStatus }) {
@@ -32,17 +44,74 @@ function About({ transitionStatus }) {
         que acho interessante, principalmente sobre front-end.
       </Description>
 
-      <hr />
+      <Hr />
 
-      <Subtitle>Experiência</Subtitle>
+      <Subtitle as="h2">Experiência</Subtitle>
 
-      <Description>Já trabalhei por aqui:</Description>
+      <Description>
+        Hoje estou trabalhando em um time de plataforma front-end,
+        principalmente no produto design-system do Olist.
+      </Description>
 
-      <Ol>
-        <Li>Gympass</Li>
-        <Li>Catho</Li>
-        <Li>Encontra Brasil</Li>
-      </Ol>
+      <Description>Também passei por essas empresas:</Description>
+
+      <ExpList
+        start={new Date().getFullYear()}
+        reversed
+        style={{ paddingLeft: '5ch', marginLeft: 0 }}
+      >
+        <Li>
+          <a href="https://olist.com/">Olist</a>
+        </Li>
+        <Li value="2019">
+          <a href="https://gympass.com/">Gympass</a>
+        </Li>
+        <Li value="2015">
+          <a href="https://catho.com.br/">Catho</a>
+        </Li>
+        <Li>
+          <a href="https://www.encontrabrasil.com.br/">Encontra Brasil</a>
+        </Li>
+      </ExpList>
+
+      <Hr />
+
+      <Subtitle as="h2">Projetos</Subtitle>
+
+      <Description>
+        Alguns projetos que eu me orgulho de fazer/ter feito parte:
+      </Description>
+
+      <Repos>
+        <Project href="https://github.com/gympass/yoga">
+          <ProjectTitle>Yoga</ProjectTitle>
+          <ProjectDescription>
+            O design system do Gympass. Design tokens, componentes em react e em
+            react-native, icones, etc... Um dos projetos mais legais que tive o
+            prazer de contribuir desde o início.
+          </ProjectDescription>
+        </Project>
+        <Project href="https://github.com/catho/quantum">
+          <ProjectTitle>Quantum</ProjectTitle>
+          <ProjectDescription>
+            Componentes reutilizaveis são a base do Quantum, uma biblioteca para
+            desenvolver interfaces e experiências consistentes.
+          </ProjectDescription>
+        </Project>
+        <Project href="https://github.com/frigobar/frigobar">
+          <ProjectTitle>Frigobar</ProjectTitle>
+          <ProjectDescription>
+            É um conjunto de ferramentas para sua aplicação react, contém uma
+            biblioteca de animação e também componentes básicos.
+          </ProjectDescription>
+        </Project>
+        <Project href="https://github.com/react95/react95">
+          <ProjectTitle>React95</ProjectTitle>
+          <ProjectDescription>
+            Uma biblioteca de componentes inspirada pelo design do Windows 95.
+          </ProjectDescription>
+        </Project>
+      </Repos>
     </div>
   );
 }
