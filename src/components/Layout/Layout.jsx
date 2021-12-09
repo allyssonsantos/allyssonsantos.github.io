@@ -5,6 +5,7 @@ import { ThemeProvider } from '@frigobar/core';
 import {
   Home,
   Book,
+  Info,
   GitHub,
   Instagram,
   Twitter,
@@ -74,6 +75,7 @@ function Layout({ children }) {
           items={[
             { title: 'Home', href: '/', icon: Home },
             { title: 'Artigos', href: '/blog', icon: Book },
+            { title: 'Sobre', href: '/about', icon: Info },
           ]}
           socials={[
             {
