@@ -8,7 +8,6 @@ tags:
   - Design System
   - styled-components
 img: github_captions.jpg
-published: false
 ---
 
 Nessa série de posts iremos criar uma biblioteca de componentes bem completa!
