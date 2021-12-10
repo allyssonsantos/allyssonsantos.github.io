@@ -183,22 +183,22 @@ const Navigation = React.forwardRef(
     return (
       <Nav opened={opened} ref={ref}>
         <Menu onClick={onMenuClick} close />
+        <Name>
+          allysson.me
+          <ChangeThemeButton
+            onClick={() =>
+              toggleDarkTheme(currentTheme === 'dark' ? 'light' : 'dark')
+            }
+            title={buttonLabel}
+            isDarkTheme={currentTheme === 'dark'}
+          >
+            <div>
+              <Moon />
+              <Sun />
+            </div>
+          </ChangeThemeButton>
+        </Name>
         <List>
-          <Name>
-            allysson.me
-            <ChangeThemeButton
-              onClick={() =>
-                toggleDarkTheme(currentTheme === 'dark' ? 'light' : 'dark')
-              }
-              title={buttonLabel}
-              isDarkTheme={currentTheme === 'dark'}
-            >
-              <div aria-label={buttonLabel}>
-                <Moon />
-                <Sun />
-              </div>
-            </ChangeThemeButton>
-          </Name>
           {items.map(({ title, href, icon: Icon }) => (
             <React.Fragment key={title}>
               <li>
