@@ -1,12 +1,8 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
-
 module.exports = {
   siteMetadata: {
     title: `allysson.me`,
     author: `Allysson Santos`,
-    description: `Blog with front-end tips and tutorials`,
+    description: `Allysson Santos personal website`,
     siteUrl: `https://allysson.me/`,
     social: {
       twitter: `allyssonsantos`,
