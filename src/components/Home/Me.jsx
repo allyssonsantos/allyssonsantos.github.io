@@ -4,17 +4,25 @@ import styled, { css } from 'styled-components';
 import { useDarkTheme } from '@utils/color-scheme';
 import rem from '@utils/rem';
 
-const Image = styled.img(
-  ({ darkTheme, theme }) => css`
+const Picture = styled.picture(
+  ({ theme }) => css`
     width: ${rem(120)};
     height: ${rem(120)};
 
     margin-bottom: 24px;
 
-    transition: filter 300ms ease-in-out;
-
     border: none;
     border-radius: ${theme.radius[1]}px;
+
+    @media (min-width: 540px) {
+      margin-left: 24px;
+    }
+  `
+);
+
+const Image = styled.img(
+  ({ darkTheme }) => css`
+    transition: filter 300ms ease-in-out;
 
     ${darkTheme
       ? css`
@@ -23,22 +31,22 @@ const Image = styled.img(
       : css`
           filter: grayscale(0);
         `}
-
-    @media (min-width: 540px) {
-      margin-left: 24px;
-    }
   `
 );
 
-function Me() {
+function Me({ children, ...props }) {
   const { currentTheme } = useDarkTheme();
 
   return (
-    <Image
-      src="/me.jpg"
-      alt="Allysson Santos"
-      darkTheme={currentTheme === 'dark'}
-    />
+    <Picture>
+      {children}
+      <Image
+        alt="Allysson Santos"
+        darkTheme={currentTheme === 'dark'}
+        src="/me.jpg"
+        {...props}
+      />
+    </Picture>
   );
 }
 

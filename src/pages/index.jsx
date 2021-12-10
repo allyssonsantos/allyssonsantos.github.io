@@ -65,7 +65,10 @@ function Home({
             mas também atuei em alguns times de produto.
           </Description>
         </div>
-        <Me />
+        <Me>
+          <source srcSet="/me.webp" type="image/webp" />
+          <source srcSet="/me.jpg" type="image/jpeg" />
+        </Me>
       </About>
       <Posts posts={posts} />
       <Link
