@@ -1,5 +1,4 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { useLocation } from '@reach/router';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from '@frigobar/core';
 import {
@@ -21,26 +20,10 @@ import GlobalStyle from './GlobalStyle';
 import Navigation from './Navigation';
 import Grid from './Grid';
 
-const usePrevious = (value) => {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-};
-
 function Layout({ children }) {
   const { currentTheme } = useDarkTheme();
   const navRef = useRef(null);
   const [opened, setOpened] = useState(false);
-  const location = useLocation();
-  const previousLocation = usePrevious(location);
-
-  useEffect(() => {
-    if (location !== previousLocation) {
-      setOpened(false);
-    }
-  }, [location, previousLocation, setOpened]);
 
   const handleMenu = () => {
     setOpened(!opened);

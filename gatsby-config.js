@@ -13,6 +13,7 @@ module.exports = {
     },
   },
   plugins: [
+    'gatsby-plugin-webpack-bundle-analyser-v2',
     {
       resolve: 'gatsby-plugin-transition-link',
       options: {

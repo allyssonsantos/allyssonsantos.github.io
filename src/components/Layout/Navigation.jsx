@@ -209,6 +209,7 @@ const Navigation = React.forwardRef(
                   partiallyActive={href !== '/'}
                   entry={{ length: 0.11, delay: 0.11 }}
                   exit={{ length: 0.11 }}
+                  onClick={onMenuClick}
                 >
                   <Icon width={14} height={14} />
                   {title}

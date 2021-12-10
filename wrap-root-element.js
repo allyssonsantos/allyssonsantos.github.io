@@ -3,10 +3,9 @@ import { MDXProvider } from '@mdx-js/react';
 import { Ul, Ol, Li, Link, Code, InlineCode } from '@components/Elements';
 import { preToCodeBlock } from 'mdx-utils';
 import { DarkProvider } from '@utils/color-scheme';
-import { LocationProvider } from '@reach/router';
 
 const components = {
-  pre: preProps => {
+  pre: (preProps) => {
     const props = preToCodeBlock(preProps);
     if (props) {
       return <Code {...props} />;
@@ -25,9 +24,7 @@ const components = {
   ),
 };
 export const wrapRootElement = ({ element }) => (
-  <LocationProvider>
-    <DarkProvider>
-      <MDXProvider components={components}>{element}</MDXProvider>
-    </DarkProvider>
-  </LocationProvider>
+  <DarkProvider>
+    <MDXProvider components={components}>{element}</MDXProvider>
+  </DarkProvider>
 );
