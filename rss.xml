@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby RSS feed]]></title><description><![CDATA[Blog with front-end tips and tutorials]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Oct 2021 21:33:11 GMT</lastBuildDate><item><title><![CDATA[Criando uma lib de componentes React, Parte 1]]></title><link>https://allysson.me/criando-uma-lib-de-componentes-react-parte-1/</link><guid isPermaLink="false">https://allysson.me/criando-uma-lib-de-componentes-react-parte-1/</guid><pubDate>Tue, 02 Jun 2020 00:00:00 GMT</pubDate><content:encoded>var _excluded = [&quot;components&quot;];
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby RSS feed]]></title><description><![CDATA[Blog with front-end tips and tutorials]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 10 Dec 2021 00:34:14 GMT</lastBuildDate><item><title><![CDATA[Criando uma lib de componentes React, Parte 1]]></title><link>https://allysson.me/criando-uma-lib-de-componentes-react-parte-1/</link><guid isPermaLink="false">https://allysson.me/criando-uma-lib-de-componentes-react-parte-1/</guid><pubDate>Tue, 02 Jun 2020 00:00:00 GMT</pubDate><content:encoded>var _excluded = [&quot;components&quot;];
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -14,7 +14,8 @@ var _frontmatter = {
   &quot;slug&quot;: &quot;/criando-uma-lib-de-componentes-react-parte-1&quot;,
   &quot;description&quot;: &quot;Introdução ao projeto, criação do repositório no github e a instação e configuração do storybook&quot;,
   &quot;date&quot;: &quot;2020-06-02&quot;,
-  &quot;tags&quot;: [&quot;React&quot;, &quot;Design System&quot;, &quot;styled-components&quot;]
+  &quot;tags&quot;: [&quot;React&quot;, &quot;Design System&quot;, &quot;styled-components&quot;],
+  &quot;img&quot;: &quot;github_captions.jpg&quot;
 };
 var layoutProps = {
   _frontmatter: _frontmatter
@@ -242,13 +243,13 @@ return function MDXContent(_ref) {
   }, &quot;0-Welcome.stories.js&quot;), &quot;.&quot;), mdx(&quot;p&quot;, null, &quot;Vamos dar uma olhada no que \xE9 importado dentro do arquivo:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
     parentName: &quot;pre&quot;,
     &quot;className&quot;: &quot;language-js&quot;
-  }, &quot;/* 0-Welcome.stories.js */\nimport React from &apos;react&apos;;\nimport { linkTo } from &apos;@storybook/addon-links&apos;;\nimport { Welcome } from &apos;@storybook/react/demo&apos;;\n&quot;)), mdx(&quot;h4&quot;, null, &quot;linkTo&quot;), mdx(&quot;p&quot;, null, &quot;Como voc\xEA pode perceber, o &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;/* 0-Welcome.stories.js */\nimport React from &apos;react&apos;;\nimport { linkTo } from &apos;@storybook/addon-links&apos;;\nimport { Welcome } from &apos;@storybook/react/demo&apos;;\n&quot;)), mdx(&quot;h3&quot;, null, &quot;linkTo&quot;), mdx(&quot;p&quot;, null, &quot;Como voc\xEA pode perceber, o &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;linkTo&quot;), &quot; est\xE1 sendo importado como\naddon, o storybook possui v\xE1rios addons para dar algumas funcionalidades a\nmais \xE0 sua hist\xF3ria, voc\xEA pode conferir alguns no &quot;, mdx(&quot;a&quot;, {
     parentName: &quot;p&quot;,
     &quot;href&quot;: &quot;https://storybook.js.org/addons/&quot;,
     &quot;title&quot;: &quot;próprio site do storybook&quot;
-  }, &quot;pr\xF3prio site do storybook&quot;), &quot;.&quot;), mdx(&quot;h4&quot;, null, &quot;Welcome&quot;), mdx(&quot;p&quot;, null, &quot;\xC9 um componente &quot;, mdx(&quot;em&quot;, {
+  }, &quot;pr\xF3prio site do storybook&quot;), &quot;.&quot;), mdx(&quot;h3&quot;, null, &quot;Welcome&quot;), mdx(&quot;p&quot;, null, &quot;\xC9 um componente &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
   }, &quot;React&quot;), &quot; comum, est\xE1 ali apenas para popular a hist\xF3ria que vem\npor padr\xE3o.&quot;), mdx(&quot;p&quot;, null, &quot;Agora vamos analisar o c\xF3digo que est\xE1 gerando o que vemos na tela:&quot;), mdx(&quot;pre&quot;, null, mdx(&quot;code&quot;, {
     parentName: &quot;pre&quot;,
@@ -275,7 +276,7 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;const&quot;), &quot; &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;ToStorybook&quot;), &quot;\nque estamos exportando.&quot;), mdx(&quot;h4&quot;, null, &quot;Export default&quot;), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;ToStorybook&quot;), &quot;\nque estamos exportando.&quot;), mdx(&quot;h3&quot;, null, &quot;Export default&quot;), mdx(&quot;p&quot;, null, &quot;O &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;export default&quot;), &quot; define dados sobre o seu componente, incluindo o componente\nem s\xED, e tamb\xE9m o t\xEDtulo do grupo das hist\xF3rias que ser\xE1 exibido no menu lateral do\nstorybook.&quot;), mdx(&quot;p&quot;, null, &quot;N\xE3o \xE9 obrigat\xF3rio definir o componente, por\xE9m, \xE9 recomendado que fa\xE7a. Essa\npropriedade &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
@@ -322,7 +323,7 @@ return function MDXContent(_ref) {
     parentName: &quot;p&quot;
   }, &quot;story.name&quot;), &quot; quando quiser que o t\xEDtulo contenha alguma\npalavra reservada do javascript, como por exemplo &quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
-  }, &quot;default&quot;), &quot;, ou se quiser\nutilizar emojis.&quot;), mdx(&quot;h4&quot;, null, &quot;Estrutura de uma hist\xF3ria&quot;), mdx(&quot;p&quot;, null, &quot;Bom, para criar uma hist\xF3ria basta seguir como no exemplo da hist\xF3ria do\n&quot;, mdx(&quot;inlineCode&quot;, {
+  }, &quot;default&quot;), &quot;, ou se quiser\nutilizar emojis.&quot;), mdx(&quot;h3&quot;, null, &quot;Estrutura de uma hist\xF3ria&quot;), mdx(&quot;p&quot;, null, &quot;Bom, para criar uma hist\xF3ria basta seguir como no exemplo da hist\xF3ria do\n&quot;, mdx(&quot;inlineCode&quot;, {
     parentName: &quot;p&quot;
   }, &quot;Welcome&quot;), &quot;. Edite a hist\xF3ria que vem por &quot;, mdx(&quot;em&quot;, {
     parentName: &quot;p&quot;
@@ -1812,7 +1813,8 @@ var _frontmatter = {
   &quot;slug&quot;: &quot;/transform-css3&quot;,
   &quot;description&quot;: &quot;o que é possível fazer?&quot;,
   &quot;date&quot;: &quot;2016-04-01&quot;,
-  &quot;tags&quot;: [&quot;CSS&quot;]
+  &quot;tags&quot;: [&quot;CSS&quot;],
+  &quot;published&quot;: true
 };
 var layoutProps = {
   _frontmatter: _frontmatter
