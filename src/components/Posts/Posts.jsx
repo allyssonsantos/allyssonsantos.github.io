@@ -67,7 +67,7 @@ function Posts({ posts }) {
         posts.map(({ node }, index) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
-            <>
+            <React.Fragment key={title}>
               {Boolean(index) && <Hr style={{ marginTop: 0 }} />}
               <Post
                 key={node.fields.slug}
@@ -82,7 +82,7 @@ function Posts({ posts }) {
                   </PostDescription>
                 </PostBody>
               </Post>
-            </>
+            </React.Fragment>
           );
         })
       ) : (
