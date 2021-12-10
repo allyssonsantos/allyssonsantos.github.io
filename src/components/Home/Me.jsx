@@ -6,9 +6,7 @@ import rem from '@utils/rem';
 
 const Picture = styled.picture(
   ({ theme }) => css`
-    width: ${rem(120)};
-    height: ${rem(120)};
-
+    flex-shrink: 0;
     margin-bottom: 24px;
 
     border: none;
@@ -22,6 +20,9 @@ const Picture = styled.picture(
 
 const Image = styled.img(
   ({ darkTheme }) => css`
+    width: ${rem(120)};
+    height: ${rem(120)};
+
     transition: filter 300ms ease-in-out;
 
     ${darkTheme
