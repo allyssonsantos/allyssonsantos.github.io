@@ -16,7 +16,6 @@
     "@mdx-js/tag": "^0.20.3",
     "@octokit/rest": "^18.12.0",
     "@reach/router": "^1.3.4",
-    "disqus-react": "^1.0.7",
     "dotenv": "^10.0.0",
     "gatsby": "^4.2.0",
     "gatsby-image": "^3.11.0",
