@@ -9,10 +9,10 @@ const Image = styled.img(
     width: ${rem(120)};
     height: ${rem(120)};
 
+    transition: filter 300ms ease-in-out;
+
     border: none;
     border-radius: ${theme.radius[1]}px;
-
-    transition: filter 300ms ease-in-out;
 
     ${darkTheme
       ? css`

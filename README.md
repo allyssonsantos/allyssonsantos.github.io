@@ -1,6 +1,4 @@
-<h1 align="center">
-allysson.me
-</h1>
+# allysson.me
 
 ![Gatsby](https://github.com/allyssonsantos/allyssonsantos.github.io/workflows/Gatsby/badge.svg)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
@@ -10,21 +8,20 @@ My personal website/blog to share some front-end ideas with everyone!
 
 ## Made with
 
-- [Gatsby](https://github.com/gatsbyjs/gatsby)
-- [Styled-components](https://github.com/styled-components/styled-components)
-- [MDX](https://mdxjs.com)
+- Framework: [Gatsby](https://github.com/gatsbyjs/gatsby)
+- Styling: [Styled-components](https://github.com/styled-components/styled-components)
+- Content: [MDX](https://mdxjs.com)
+- Animation: [Frigobar](https://github.com/frigobar/frigobar)
 
-## Instalation
+## Running
 
 Clone and install the dependencies:
 
 ```bash
-git clone git@github.com:allyssonsantos/allyssonsantos.github.io.git
-cd allyssonsantos.github.io
+git clone git@github.com:allyssonsantos/allysson.me.git
+cd allysson.me
 yarn
 ```
-
-## Running
 
 Just type `yarn dev` on your terminal.
 

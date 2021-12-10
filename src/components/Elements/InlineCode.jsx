@@ -7,11 +7,12 @@ const InlineCode = styled.code(
 
     padding: 2px;
 
-    border: 1px solid ${theme.colors.neutral[200]};
-    border-radius: 4px;
+    white-space: pre;
 
     color: ${theme.colors.secondary[500]};
-    white-space: pre;
+
+    border: 1px solid ${theme.colors.neutral[200]};
+    border-radius: 4px;
   `
 );
 

@@ -7,22 +7,22 @@ import MenuButton from './MenuButton';
 
 const Wrapper = styled.div(
   ({ theme: { colors, spacings } }) => css`
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+
     display: none;
 
     width: 100%;
     height: ${24 + spacings.medium * 2}px;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9;
-
     padding: ${spacings.medium}px;
+
+    transition: background-color 300ms ease-in-out;
 
     background-color: ${colors.neutral[50]};
     box-shadow: 0px 0px 10px -5px #000;
-
-    transition: background-color 300ms ease-in-out;
 
     @media (max-width: 1024px) {
       display: flex;

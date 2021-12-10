@@ -20,14 +20,14 @@ const GlobalStyle = createGlobalStyle(
       margin: 0;
       padding: 0;
 
+      transition: background-color 300ms ease-in-out,
+        font-size 300ms ease-in-out;
+
       background-color: ${theme.colors.neutral[50]};
 
       @media (max-width: 768px) {
         font-size: 90%;
       }
-
-      transition: background-color 300ms ease-in-out,
-        font-size 300ms ease-in-out;
     }
 
     body {
@@ -40,9 +40,9 @@ const GlobalStyle = createGlobalStyle(
     h4,
     h5,
     h6 {
-      color: ${theme.colors.neutral[900]};
-
       transition: color 300ms ease-in-out;
+
+      color: ${theme.colors.neutral[900]};
     }
 
     h2,
@@ -78,11 +78,11 @@ const GlobalStyle = createGlobalStyle(
       font-size: ${rem(16)};
       line-height: 1.75;
 
-      color: ${theme.colors.neutral[900]};
-
       margin-bottom: ${theme.spacings.large}px;
 
       transition: color 300ms ease-in-out;
+
+      color: ${theme.colors.neutral[900]};
     }
 
     img {
@@ -96,45 +96,48 @@ const GlobalStyle = createGlobalStyle(
       font-size: ${rem(14)};
       line-height: 1.75;
 
-      padding: ${theme.spacings.xlarge}px;
-      margin-left: -16px;
-      margin-right: -16px;
-      border-radius: 0;
-
       overflow-x: auto;
+
+      margin-right: -16px;
+      margin-left: -16px;
+      padding: ${theme.spacings.xlarge}px;
 
       transition: background-color 300ms ease-in-out;
 
-      @media (max-width: 1024px) {
-        padding: ${theme.spacings.xlarge}px ${theme.spacings.xxlarge}px;
-        margin-right: -16px;
-        margin-left: -32px;
-      }
+      border-radius: 0;
 
       code {
         font-size: ${rem(14)};
 
         display: inline-block;
+
         min-width: 100%;
       }
 
       .highlight-line {
-        background-color: ${theme.colors.primary[50]}60;
-        margin-left: -${theme.spacings.xlarge}px;
         margin-right: -${theme.spacings.xlarge}px;
-        padding-left: ${theme.spacings.xlarge - 5}px;
+        margin-left: -${theme.spacings.xlarge}px;
         padding-right: ${theme.spacings.xlarge}px;
-
-        border-left: 5px solid ${theme.colors.primary[200]};
+        padding-left: ${theme.spacings.xlarge - 5}px;
 
         transition: background-color 300ms ease-in-out;
 
+        border-left: 5px solid ${theme.colors.primary[200]};
+
+        background-color: ${theme.colors.primary[50]}60;
+
         @media (max-width: 1024px) {
-          margin-left: -${theme.spacings.xxlarge}px;
           margin-right: -${theme.spacings.xxlarge}px;
-          padding-left: ${theme.spacings.xxlarge - 5}px;
+          margin-left: -${theme.spacings.xxlarge}px;
           padding-right: ${theme.spacings.xxlarge}px;
+          padding-left: ${theme.spacings.xxlarge - 5}px;
         }
+      }
+
+      @media (max-width: 1024px) {
+        margin-right: -16px;
+        margin-left: -32px;
+        padding: ${theme.spacings.xlarge}px ${theme.spacings.xxlarge}px;
       }
 
       @media (min-width: 768px) {
@@ -146,9 +149,10 @@ const GlobalStyle = createGlobalStyle(
       margin: 0;
       padding: ${theme.spacings.small}px ${theme.spacings.small}px
         ${theme.spacings.small}px ${theme.spacings.xlarge}px;
-      background-color: ${theme.colors.info[50]};
 
       border-left: 6px solid ${theme.colors.info[200]};
+
+      background-color: ${theme.colors.info[50]};
 
       p {
         margin: 0;
@@ -159,9 +163,10 @@ const GlobalStyle = createGlobalStyle(
       margin-bottom: ${theme.spacings.large}px;
 
       border-collapse: collapse;
-      color: ${theme.colors.neutral[900]};
 
       word-break: normal;
+
+      color: ${theme.colors.neutral[900]};
     }
 
     table td,
@@ -178,9 +183,9 @@ const GlobalStyle = createGlobalStyle(
     }
 
     time {
-      color: ${theme.colors.neutral[900]};
-
       transition: color 300ms ease-in-out;
+
+      color: ${theme.colors.neutral[900]};
     }
 
     svg {

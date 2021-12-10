@@ -20,6 +20,8 @@ const Hr = styled.hr(
     margin-top: ${theme.spacings.xlarge}px;
     margin-bottom: ${theme.spacings.xlarge}px;
 
+    animation: ${BorderAnimation} 8s ease-in-out infinite;
+
     background: linear-gradient(
       to right,
       ${theme.colors.primary[500]},
@@ -27,7 +29,6 @@ const Hr = styled.hr(
       ${theme.colors.primary[500]}
     );
     background-size: 200% 200%;
-    animation: ${BorderAnimation} 8s ease-in-out infinite;
   `
 );
 

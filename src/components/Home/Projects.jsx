@@ -16,20 +16,24 @@ const Repos = styled.div(
 const Project = styled.a.attrs({ target: '_blank' })(
   ({ theme }) => css`
     position: relative;
+
     display: flex;
-    width: 100%;
+
     flex-direction: column;
     justify-content: space-between;
 
+    width: 100%;
+
     padding: ${theme.spacings.small}px;
+
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    text-decoration: none;
 
     color: ${theme.colors.neutral[800]};
 
-    border-radius: 4px;
     border: 1px solid ${theme.colors.neutral[800]};
-
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    text-decoration: none;
+    border-radius: 4px;
 
     &:hover {
       transform: scale(1.02);
@@ -50,6 +54,7 @@ const Project = styled.a.attrs({ target: '_blank' })(
 const ProjectTitle = styled(PostTitle)`
   margin-bottom: 12px;
 `;
+
 const ProjectDescription = styled(PostDescription)`
   font-size: ${rem(14)};
 `;

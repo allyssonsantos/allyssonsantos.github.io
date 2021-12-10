@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components';
 import rem from '@utils/rem';
 
 const sharedStyle = css`
+  font-size: ${rem(16)};
+  line-height: 2.2;
+
   margin-left: 20px;
   padding: 0;
-
-  line-height: 2.2;
-  font-size: ${rem(16)};
 `;
 
 const Ul = styled.ul`
@@ -33,7 +33,8 @@ const Li = styled.li`
 
   margin-bottom: 12px;
   padding-left: 8px;
-  color: ${props => props.theme.colors.neutral[900]};
+
+  color: ${(props) => props.theme.colors.neutral[900]};
 
   > ul {
     margin-top: 10px;

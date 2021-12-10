@@ -13,73 +13,77 @@ import Menu from './Menu';
 
 const Nav = styled.nav(
   ({ opened, theme }) => css`
-    width: 240px;
-    height: calc(100vh - ${theme.spacings.medium}px);
-
-    grid-area: nav;
-    flex-shrink: 0;
-
     position: sticky;
     top: 0;
     left: 0;
 
+    flex-shrink: 0;
+
+    width: 240px;
+    height: calc(100vh - ${theme.spacings.medium}px);
+
+    grid-area: nav;
+
     margin-left: -${theme.spacings.medium}px;
     padding: ${theme.spacings.medium}px;
-
-    background-color: ${theme.colors.neutral[50]};
-
-    border-right: ${theme.borders.tiny}px solid ${theme.colors.neutral[100]};
 
     transition: background-color 300ms ease-in-out, transform 300ms ease-in-out,
       border-color 300ms ease-in-out;
 
-    @media (max-width: 1024px) {
-      height: 100%;
+    border-right: ${theme.borders.tiny}px solid ${theme.colors.neutral[100]};
 
+    background-color: ${theme.colors.neutral[50]};
+
+    > div {
+      box-shadow: none;
+    }
+
+    @media (max-width: 1024px) {
       position: fixed;
+      z-index: 10;
       top: 0;
       left: 0;
-      z-index: 10;
+
+      height: 100%;
 
       margin: 0;
       padding-top: ${theme.spacings.huge}px;
 
       transform: translateX(${opened ? '0%' : '-120%'});
     }
-
-    > div {
-      box-shadow: none;
-    }
   `
 );
 
 const Name = styled.p(
   ({ theme }) => css`
+    font-size: ${rem(16)};
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
     margin: 0;
     margin-bottom: ${theme.spacings.medium}px;
     padding-left: ${theme.spacings.xsmall}px;
-    font-size: ${rem(16)};
   `
 );
 
 const ChangeThemeButton = styled.button(
   ({ isDarkTheme, theme }) => css`
     display: flex;
+
+    overflow: hidden;
+
     width: ${rem(26)};
     height: ${rem(26)};
 
     padding: 0;
 
-    background-color: transparent;
+    cursor: pointer;
+
     border: none;
     border-radius: 50%;
-
-    overflow: hidden;
-    cursor: pointer;
+    background-color: transparent;
 
     &:hover {
       background-color: ${theme.colors.neutral[200]};
@@ -95,9 +99,9 @@ const ChangeThemeButton = styled.button(
     }
 
     div {
-      transform: translateY(${isDarkTheme ? `-${rem(16)}` : rem(5)});
-
       transition: transform 300ms cubic-bezier(0.21, 0.54, 0.29, 0.92);
+
+      transform: translateY(${isDarkTheme ? `-${rem(16)}` : rem(5)});
     }
   `
 );
@@ -119,34 +123,35 @@ const Category = styled.li(
 
 const Link = styled(GatsbyLink)(
   ({ theme }) => css`
+    font-size: ${rem(14)};
+    line-height: ${rem(14)};
+
     display: flex;
     align-items: center;
     gap: 12px;
 
-    font-size: ${rem(14)};
-    line-height: ${rem(14)};
-    color: ${theme.colors.neutral[900]};
-
     padding: ${theme.spacings.xsmall}px ${theme.spacings.xsmall}px;
 
-    background-color: ${theme.colors.neutral[50]};
-    border-radius: ${theme.radius[1]}px;
-
-    text-decoration: none;
     transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+    text-decoration: none;
 
-    &:hover {
-      background-color: ${theme.colors.neutral[200]};
-    }
+    color: ${theme.colors.neutral[900]};
+
+    border-radius: ${theme.radius[1]}px;
+    background-color: ${theme.colors.neutral[50]};
 
     svg {
       width: ${rem(14)};
       height: ${rem(14)};
     }
 
+    &:hover {
+      background-color: ${theme.colors.neutral[200]};
+    }
+
     &.active {
-      background-color: ${theme.colors.neutral[900]};
       color: ${theme.colors.neutral[50]};
+      background-color: ${theme.colors.neutral[900]};
 
       svg {
         stroke: ${theme.colors.neutral[50]};
@@ -160,8 +165,8 @@ const Link = styled(GatsbyLink)(
 );
 
 const List = styled.ul`
-  padding: 0;
   margin: 0;
+  padding: 0;
 
   list-style: none;
 

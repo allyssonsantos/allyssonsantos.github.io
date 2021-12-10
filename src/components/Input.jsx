@@ -8,7 +8,9 @@ import rem from '@utils/rem';
 const Wrapper = styled.div(
   ({ theme: { spacings } }) => css`
     position: relative;
+
     max-width: 280px;
+
     margin-left: 20px;
 
     svg {

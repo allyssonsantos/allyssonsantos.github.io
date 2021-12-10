@@ -17,10 +17,10 @@ import {
 import rem from '@utils/rem';
 
 const ExpList = styled(Ol)`
-  padding-left: 5ch;
-  margin-left: 0;
-
   font-size: ${rem(18)};
+
+  margin-left: 0;
+  padding-left: 5ch;
 `;
 
 function About({ transitionStatus }) {

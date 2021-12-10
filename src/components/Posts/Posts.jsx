@@ -19,11 +19,11 @@ const Wrapper = styled.section(
 
 const PostBody = styled.div(
   ({ theme }) => css`
-    background: ${theme.colors.neutral[50]};
-
     padding-bottom: ${theme.spacings.xlarge}px;
 
     transition: background-color 300ms ease-in-out;
+
+    background: ${theme.colors.neutral[50]};
   `
 );
 

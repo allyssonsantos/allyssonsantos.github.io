@@ -7,8 +7,8 @@ const About = styled.section`
   gap: 24px;
 
   @media (max-width: 540px) {
-    flex-direction: column-reverse;
     align-items: flex-start;
+    flex-direction: column-reverse;
   }
 `;
 
