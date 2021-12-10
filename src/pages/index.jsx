@@ -43,7 +43,7 @@ function Home({
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Olist
+                olist
               </a>
             </strong>
           </Description>

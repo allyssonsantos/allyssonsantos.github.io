@@ -35,7 +35,7 @@ function About({ transitionStatus }) {
       <Title>Sobre mim</Title>
       <Description>
         Oi, Eu sou o Allysson! Sou desenvolvedor front-end em São Paulo.
-        Atualmente estou trabalhando no <strong>Olist</strong>
+        Atualmente estou trabalhando no <strong>olist</strong>
       </Description>
 
       <Description>
@@ -49,8 +49,8 @@ function About({ transitionStatus }) {
       <Subtitle as="h2">Experiência</Subtitle>
 
       <Description>
-        Hoje estou trabalhando em um time de plataforma front-end,
-        principalmente no produto design-system do Olist.
+        Hoje estou trabalhando em um time de plataforma front-end onde o
+        principal produto é o design-system do olist.
       </Description>
 
       <Description>Também passei por essas empresas:</Description>

@@ -5,14 +5,10 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import useTransition from '@utils/useTransition';
 import { SEO, Description } from '@components';
-import { Link, Title, Img } from '@components/Elements';
+import { Title, Img } from '@components/Elements';
 import { TableOfContents } from '@components/Layout';
 
-function Post({
-  data: { mdx: post },
-  pageContext: { previous, next },
-  transitionStatus,
-}) {
+function Post({ data: { mdx: post }, transitionStatus }) {
   const animation = useTransition(transitionStatus);
 
   return (
@@ -26,32 +22,6 @@ function Post({
       <TableOfContents headings={post.headings} />
 
       <MDXRenderer>{post.body}</MDXRenderer>
-      <hr />
-
-      <ul
-        style={{
-          display: `flex`,
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0,
-        }}
-      >
-        <li>
-          {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Link>
-          )}
-        </li>
-      </ul>
     </div>
   );
 }
@@ -114,24 +84,6 @@ Post.propTypes = {
     }),
     excerpt: PropTypes.string,
   }).isRequired,
-  pageContext: PropTypes.shape({
-    previous: PropTypes.shape({
-      fields: PropTypes.shape({
-        slug: PropTypes.string,
-      }),
-      frontmatter: PropTypes.shape({
-        title: PropTypes.string,
-      }),
-    }),
-    next: PropTypes.shape({
-      fields: PropTypes.shape({
-        slug: PropTypes.string,
-      }),
-      frontmatter: PropTypes.shape({
-        title: PropTypes.string,
-      }),
-    }),
-  }),
 };
 
 Post.defaultProps = {
