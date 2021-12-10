@@ -9,6 +9,8 @@ const Image = styled.img(
     width: ${rem(120)};
     height: ${rem(120)};
 
+    margin-bottom: 24px;
+
     transition: filter 300ms ease-in-out;
 
     border: none;
@@ -21,6 +23,10 @@ const Image = styled.img(
       : css`
           filter: grayscale(0);
         `}
+
+    @media (min-width: 540px) {
+      margin-left: 24px;
+    }
   `
 );
 
