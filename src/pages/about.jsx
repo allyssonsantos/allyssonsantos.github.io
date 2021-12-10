@@ -1,178 +1,132 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { Layout, Title, Box, Link } from '../components';
-import SEO from '../components/seo';
+import useTransition from '@utils/useTransition';
+import { SEO } from '@components';
+import { Subtitle, Ol, Li, Hr } from '@components/Elements';
+import {
+  Title,
+  Description,
+  Repos,
+  Project,
+  ProjectTitle,
+  ProjectDescription,
+} from '@components/Home';
 
-const Card = styled.div`
-  padding: 32px;
-  border: 1px solid #e5e5e5;
-  background-color: #fff;
-  border-radius: 8px;
-  margin-top: 16px;
-  margin-bottom: 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+import rem from '@utils/rem';
 
-  img {
-    width: 151px;
-  }
+const ExpList = styled(Ol)`
+  font-size: ${rem(18)};
 
-  ${({
-    theme: {
-      sizes: { breakpoints },
-    },
-  }) => css`
-    @media (max-width: ${breakpoints.md}px) {
-      flex-direction: column;
-
-      ${Box} {
-        margin-left: 0;
-      }
-      img {
-        margin-bottom: 12px;
-      }
-    }
-  `}
+  margin-left: 0;
+  padding-left: 5ch;
 `;
 
-const About = ({
-  data: {
-    site: {
-      siteMetadata: { title: siteTitle },
-    },
-  },
-}) => {
+function About({ transitionStatus }) {
+  const animation = useTransition(transitionStatus);
+
   return (
-    <Layout title={siteTitle}>
+    <div animation={animation}>
       <SEO
         title="Sobre mim"
-        keywords={[
-          'blog',
-          'gatsby',
-          'javascript',
-          'react',
-          'styled-components',
-          'design-system',
-          'components',
-        ]}
+        keywords={['sobre', 'allysson santos', 'front-end', 'developer']}
       />
-      <Title as="h2" $textAlign="left" $size="2.25rem">
-        Desenvolvedor front-end & guitarrista nas horas vagas
-      </Title>
-      <Box as="p" $lh="26px" $size="1.125rem" $mb={24}>
-        Sou formado em Produção Multimídia pelo Senac mas lá foi apenas uma
-        porta de entrada para o desenvolvimento Front-end. Desde então, estudo
-        muito sobre <strong>Javascript, React, HTML e CSS</strong> - formalmente
-        em cursos e informalmente com conteúdos que encontro na internet.
-      </Box>
+      <Title>Sobre mim</Title>
+      <Description>
+        Oi, Eu sou o Allysson! Sou desenvolvedor front-end em São Paulo.
+        Atualmente estou trabalhando no <strong>Olist</strong>
+      </Description>
 
-      <Box as="p" $lh="26px" $size="1.125rem" $mb={24}>
-        Estou trabalhando no meu segundo Design System, já vivi alguns estágios
-        da implementação de um DS nas empresas e acho esse desafio estimulante.
-        Como projeto paralelo, criei junto com o{' '}
-        <Link
-          as="a"
-          href="https://twitter.com/ggdaltoso"
-          rel="noopener noreferrer"
-          target="_blank"
-          $size="1.125rem"
-          $pt={0}
-          $pr={0}
-          $pb={0}
-          $pl={0}
-        >
-          Gabriel Daltoso
-        </Link>{' '}
-        o{' '}
-        <Link
-          as="a"
-          href="https://github.com/React95/React95"
-          rel="noopener noreferrer"
-          target="_blank"
-          $size="1.125rem"
-          $pt={0}
-          $pr={0}
-          $pb={0}
-          $pl={0}
-        >
-          React95
-        </Link>
-        , uma lib que nos levou até a Holanda pra buscar um prêmio de melhor{' '}
-        <Link
-          as="a"
-          href="https://youtu.be/4KfAS3zrvX8?t=25484"
-          rel="noopener noreferrer"
-          target="_blank"
-          $size="1.125rem"
-          $pt={0}
-          $pr={0}
-          $pb={0}
-          $pl={0}
-        >
-          Fun Side Project de 2019
-        </Link>{' '}
-        organizado pela Open Source Awards e entregue na "React Amsterdam
-        Conference" - foi dahora!
-      </Box>
+      <Description>
+        Esse espaço, além de ser a cobaia para experimentar novas tecnologias e
+        projetos pessoais, também é onde coloco minhas ideias sobre conteúdos
+        que acho interessante, principalmente sobre front-end.
+      </Description>
 
-      <Box as="p" $lh="26px" $size="1.125rem" $mb={24}>
-        Se quiser trocar uma idéia sobre projetos ou estudos, manda uma mensagem
-        que vai ser um prazer falar com você!
-      </Box>
+      <Hr />
 
-      <Title as="h3" $textAlign="left" $size="1.25rem">
-        Estou atualmente aqui
-      </Title>
-      <Card>
-        <img src="/logos/gympass.png" alt="Logo do Gympass" />
-        <Box as="div" $ml={42}>
-          <Title as="h4" $textAlign="left" $size="1.125rem" $mb={0} $mt={0}>
-            Gympass
-          </Title>
-          <Box as="p" $size="1.125rem" $mb={16}>
-            Desde agosto de 2019
-          </Box>
-          <Box as="p" $size="1rem" $lh="22px">
-            Sou do time Front-end que é responsável pelo Yoga, nosso Design
-            System. Participei da construção do Yoga e continuo trabalhando em
-            melhorias além de auxiliar os outros times com a nossa biblioteca.
-            Também atuei no Gympass Wellness e na nova experiência de login.
-          </Box>
-        </Box>
-      </Card>
-      <Card>
-        <img src="/logos/quantum.png" alt="Logo da Catho" />
-        <Box as="div" $ml={42}>
-          <Title as="h4" $textAlign="left" $size="1.125rem" $mb={0} $mt={0}>
-            Catho
-          </Title>
-          <Box as="p" $size="1.125rem" $mb={16}>
-            De dezembro de 2015 até julho de 2019
-          </Box>
-          <Box as="p" $size="1rem" $lh="22px">
-            Trabalhei no time de plataforma front-end que visava estruturar e
-            padronizar o desenvolvimento de aplicações web. Desenvolvi
-            ferramentas que centralizavam e evitavam esforços desnecessários
-            garantindo integridade visual, performance, redução de lead-time,
-            reutilização de código, padronização, qualidade e documentação.
-          </Box>
-        </Box>
-      </Card>
-    </Layout>
+      <Subtitle as="h2">Experiência</Subtitle>
+
+      <Description>
+        Hoje estou trabalhando em um time de plataforma front-end,
+        principalmente no produto design-system do Olist.
+      </Description>
+
+      <Description>Também passei por essas empresas:</Description>
+
+      <ExpList
+        start={new Date().getFullYear()}
+        reversed
+        style={{ paddingLeft: '5ch', marginLeft: 0 }}
+      >
+        <Li>
+          <a href="https://olist.com/">Olist</a>
+        </Li>
+        <Li value="2019">
+          <a href="https://gympass.com/">Gympass</a>
+        </Li>
+        <Li value="2015">
+          <a href="https://catho.com.br/">Catho</a>
+        </Li>
+        <Li>
+          <a href="https://www.encontrabrasil.com.br/">Encontra Brasil</a>
+        </Li>
+      </ExpList>
+
+      <Hr />
+
+      <Subtitle as="h2">Projetos</Subtitle>
+
+      <Description>
+        Alguns projetos que eu me orgulho de fazer/ter feito parte:
+      </Description>
+
+      <Repos>
+        <Project href="https://github.com/gympass/yoga">
+          <ProjectTitle>Yoga</ProjectTitle>
+          <ProjectDescription>
+            O design system do Gympass. Design tokens, componentes em react e em
+            react-native, icones, etc... Um dos projetos mais legais que tive o
+            prazer de contribuir desde o início.
+          </ProjectDescription>
+        </Project>
+        <Project href="https://github.com/catho/quantum">
+          <ProjectTitle>Quantum</ProjectTitle>
+          <ProjectDescription>
+            Componentes reutilizaveis são a base do Quantum, uma biblioteca para
+            desenvolver interfaces e experiências consistentes.
+          </ProjectDescription>
+        </Project>
+        <Project href="https://github.com/frigobar/frigobar">
+          <ProjectTitle>Frigobar</ProjectTitle>
+          <ProjectDescription>
+            É um conjunto de ferramentas para sua aplicação react, contém uma
+            biblioteca de animação e também componentes básicos.
+          </ProjectDescription>
+        </Project>
+        <Project href="https://github.com/react95/react95">
+          <ProjectTitle>React95</ProjectTitle>
+          <ProjectDescription>
+            Uma biblioteca de componentes inspirada pelo design do Windows 95.
+          </ProjectDescription>
+        </Project>
+      </Repos>
+    </div>
   );
-};
+}
 
 export default About;
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
+About.propTypes = {
+  transitionStatus: PropTypes.oneOf([
+    'entering',
+    'entered',
+    'exiting',
+    'exited',
+  ]),
+};
+
+About.defaultProps = {
+  transitionStatus: undefined,
+};

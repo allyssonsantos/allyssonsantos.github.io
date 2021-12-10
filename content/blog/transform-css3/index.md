@@ -5,6 +5,7 @@ description: o que é possível fazer?
 date: '2016-04-01'
 tags:
   - CSS
+published: true
 ---
 
 O **transform** é uma propriedade do **CSS3** que permite adicionar efeitos 2D e

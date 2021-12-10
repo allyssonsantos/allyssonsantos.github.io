@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { Link, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-import { Layout, Title, Card, Box, Input } from '../components';
-import SEO from '../components/seo';
+import useTransition from '@utils/useTransition';
+import { Input, SEO } from '@components';
+import { Title } from '@components/Home';
 
-const Blog = ({
+import Posts from '@components/Posts';
+
+function Blog({
+  transitionStatus,
   data: {
-    site: {
-      siteMetadata: { title: siteTitle },
-    },
     allMdx: { edges: posts },
   },
-}) => {
+}) {
   const [filteredTerm, setFilteredTerm] = useState('');
-  const filter = e => setFilteredTerm(e.target.value.toLowerCase());
+  const filter = (e) => setFilteredTerm(e.target.value.toLowerCase());
 
   const filteredPosts = posts.filter(({ node }) => {
-    const matchedTags = node.frontmatter.tags.filter(tag =>
+    const matchedTags = node.frontmatter.tags.filter((tag) =>
       tag.toLowerCase().includes(filteredTerm)
     ).length;
     return (
@@ -26,8 +28,10 @@ const Blog = ({
     );
   });
 
+  const animation = useTransition(transitionStatus);
+
   return (
-    <Layout title={siteTitle}>
+    <div animation={animation}>
       <SEO
         title="Todos os posts"
         keywords={[
@@ -40,53 +44,28 @@ const Blog = ({
           'components',
         ]}
       />
-      <Title as="h2" $textAlign="left" $size="2.25rem">
-        Blog
-      </Title>
-      <Box as="p" lh="25px" $size="1rem" $mb={24}>
-        Aqui você vai explicar quais são os assuntos que você gosta de estudar e
-        escrever. É importante para setar as expectativas do usuário.
-      </Box>
-      <Input
-        placeholder="buscar artigo, categoria ou palavra chave"
-        onChange={filter}
-      />
-      <Title as="h2" $textAlign="left" $size="1.75rem" $mt={50} $mb={12}>
-        Artigos {Boolean(filteredPosts.length) && <>({filteredPosts.length})</>}
-      </Title>
-      {Boolean(filteredPosts.length) ? (
-        filteredPosts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
-            <Link key={node.fields.slug} to={node.fields.slug}>
-              <Card
-                tags={node.frontmatter.tags}
-                title={title}
-                description={node.frontmatter.description}
-                date={node.frontmatter.date}
-              />
-            </Link>
-          );
-        })
-      ) : (
-        <Box $size="1.25rem" $color="#797979">
-          Ops, com essa busca não encontrei nenhum artigo relacionado.
-        </Box>
-      )}
-    </Layout>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
+        <Title>Artigos</Title>
+        <Input placeholder="Procurar posts" onChange={filter} />
+      </div>
+      <Posts posts={filteredPosts} />
+    </div>
   );
-};
+}
 
 export default Blog;
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { ne: false } } }
+    ) {
       edges {
         node {
           excerpt
@@ -98,9 +77,44 @@ export const pageQuery = graphql`
             title
             description
             tags
+            published
           }
         }
       }
     }
   }
 `;
+
+Blog.propTypes = {
+  transitionStatus: PropTypes.oneOf([
+    'entering',
+    'entered',
+    'exiting',
+    'exited',
+  ]),
+  data: PropTypes.shape({
+    allMdx: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          posts: PropTypes.arrayOf(
+            PropTypes.shape({
+              node: PropTypes.shape({
+                frontmatter: PropTypes.shape({
+                  tags: PropTypes.arrayOf(PropTypes.string),
+                  title: PropTypes.string,
+                  description: PropTypes.string,
+                  date: PropTypes.string,
+                  published: PropTypes.bool,
+                }),
+              }),
+            })
+          ),
+        })
+      ),
+    }),
+  }).isRequired,
+};
+
+Blog.defaultProps = {
+  transitionStatus: undefined,
+};

@@ -1,101 +1,93 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { Link, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-import personalProjects from '../data/projects';
-import { Layout, Title, Card, Button, Repo } from '../components';
-import SEO from '../components/seo';
+import useTransition from '@utils/useTransition';
+import { SEO } from '@components';
+import { Link } from '@components/Elements';
+import { About, Title, Description, Me } from '@components/Home';
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 32px;
-`;
+import Posts from '@components/Posts';
 
-const Repos = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  div {
-    flex-basis: 49%;
-
-    ${({ theme: { sizes } }) => css`
-      @media (max-width: ${sizes.breakpoints.md}px) {
-        flex-basis: 100%;
-      }
-    `}
-  }
-`;
-
-const Home = ({
-  location,
+function Home({
+  transitionStatus,
   data: {
-    site: {
-      siteMetadata: { title: siteTitle },
-    },
     allMdx: { edges: posts },
   },
-}) => (
-  <Layout location={location} title={siteTitle} full>
-    <SEO
-      title="Home"
-      keywords={[
-        'blog',
-        'gatsby',
-        'javascript',
-        'react',
-        'styled-components',
-        'design-system',
-        'components',
-      ]}
-    />
-    <Title as="h2">Últimos artigos do blog</Title>
-    {posts.map(({ node }) => {
-      const title = node.frontmatter.title || node.fields.slug;
-      return (
-        <Link key={node.fields.slug} to={node.fields.slug}>
-          <Card
-            tags={node.frontmatter.tags}
-            title={title}
-            description={node.frontmatter.description}
-            date={node.frontmatter.date}
-          />
-        </Link>
-      );
-    })}
-    <Wrapper>
-      <Button as={Link} to="/blog">
-        Ver todos artigos
-      </Button>
-    </Wrapper>
-    <Title as="h2">Projetos open source</Title>
-    <Repos>
-      {personalProjects.map(repo => (
-        <Repo
-          key={repo.name}
-          logo={repo.name.toLowerCase()}
-          title={repo.name}
-          description={repo.description}
-          forks={repo.forks}
-          stars={repo.stars}
-          link={repo.homepage}
-        />
-      ))}
-    </Repos>
-  </Layout>
-);
+}) {
+  const animation = useTransition(transitionStatus);
+
+  return (
+    <div animation={animation}>
+      <SEO
+        title="Home"
+        keywords={[
+          'blog',
+          'gatsby',
+          'javascript',
+          'react',
+          'styled-components',
+          'design-system',
+          'components',
+        ]}
+      />
+      <About>
+        <div>
+          <Title>Olá,</Title>
+          <Description>
+            Sou desenvolvedor front-end, atualmente estou desenvolvendo o
+            design-system do{' '}
+            <strong>
+              <a
+                href="https://olist.com"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Olist
+              </a>
+            </strong>
+          </Description>
+          <Description as="h2">
+            Antes do Olist estava no{' '}
+            <strong>
+              <a
+                href="https://gympass.com"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Gympass
+              </a>
+            </strong>
+            , e trabalhei majoritariamente no design system{' '}
+            <strong>
+              <a href="https://gympass.github.io/yoga/">Yoga</a>
+            </strong>{' '}
+            mas também atuei em alguns times de produto.
+          </Description>
+        </div>
+        <Me />
+      </About>
+      <Posts posts={posts} />
+      <Link
+        to="/blog"
+        entry={{ length: 0.11, delay: 0.11 }}
+        exit={{ length: 0.11 }}
+      >
+        todos os posts
+      </Link>
+    </div>
+  );
+}
 
 export default Home;
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 3) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { ne: false } } }
+      limit: 3
+    ) {
       edges {
         node {
           excerpt
@@ -113,3 +105,46 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+Home.propTypes = {
+  transitionStatus: PropTypes.oneOf([
+    'entering',
+    'entered',
+    'exiting',
+    'exited',
+  ]),
+  data: PropTypes.shape({
+    allMdx: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            excerpt: PropTypes.string,
+            fields: PropTypes.shape({
+              slug: PropTypes.string,
+            }),
+            frontmatter: PropTypes.shape({
+              date: PropTypes.string,
+              title: PropTypes.string,
+              description: PropTypes.string,
+              tags: PropTypes.arrayOf(PropTypes.string),
+            }),
+          }),
+        })
+      ),
+    }),
+    github: PropTypes.shape({
+      repositories: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          description: PropTypes.string,
+          stars: PropTypes.number,
+          url: PropTypes.string,
+        })
+      ),
+    }),
+  }).isRequired,
+};
+
+Home.defaultProps = {
+  transitionStatus: undefined,
+};

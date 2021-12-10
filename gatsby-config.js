@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `allysson.me`,
@@ -9,6 +13,20 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-transition-link',
+      options: {
+        layout: require.resolve('./src/components/Layout/Layout.jsx'),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /icons/,
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -78,28 +96,22 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  data: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.body }],
-                });
-              });
+              return allMdx.edges.map((edge) => ({
+                ...edge.node.frontmatter,
+                description: edge.node.excerpt,
+                data: edge.node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                custom_elements: [{ 'content:encoded': edge.node.body }],
+              }));
             },
 
-            /* if you want to filter for only published posts, you can do
-             * something like this:
-             * filter: { frontmatter: { published: { ne: false } } }
-             * just make sure to add a published frontmatter field to all posts,
-             * otherwise gatsby will complain
-             **/
             query: `
             {
               allMdx(
                 limit: 1000,
                 sort: { order: DESC, fields: [frontmatter___date] },
+                filter: { frontmatter: { published: { ne: false } } }
               ) {
                 edges {
                   node {
@@ -137,11 +149,21 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Roboto\:400,400i,500,500i,700,700i,800,800i,900,900i`,
-          `Merriweather\:300,300i,400,400i,700,700i,900,900i`,
-        ],
+        fonts: [`Source Sans 3\:300,300i,400,400i,700,700i`],
         display: 'swap',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@components': 'src/components',
+          '@templates': 'src/templates',
+          '@services': 'src/services',
+          '@utils': 'src/utils',
+          '@static': 'static',
+        },
+        extensions: ['js'],
       },
     },
   ],

@@ -1,7 +1,9 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Code, InlineCode, Ul, Ol, Li } from './src/components';
+import { Ul, Ol, Li, Link, Code, InlineCode } from '@components/Elements';
 import { preToCodeBlock } from 'mdx-utils';
+import { DarkProvider } from '@utils/color-scheme';
+import { LocationProvider } from '@reach/router';
 
 const components = {
   pre: preProps => {
@@ -15,7 +17,17 @@ const components = {
   ul: Ul,
   ol: Ol,
   li: Li,
+  a: Link,
+  h2: ({ children, ...props }) => (
+    <h2 {...props} id={children.toLowerCase().replaceAll(' ', '-')}>
+      {children}
+    </h2>
+  ),
 };
 export const wrapRootElement = ({ element }) => (
-  <MDXProvider components={components}>{element}</MDXProvider>
+  <LocationProvider>
+    <DarkProvider>
+      <MDXProvider components={components}>{element}</MDXProvider>
+    </DarkProvider>
+  </LocationProvider>
 );

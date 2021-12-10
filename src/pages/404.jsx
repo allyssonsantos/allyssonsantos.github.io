@@ -1,18 +1,19 @@
 import React from 'react';
 
-import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import useTransition from '@utils/useTransition';
+import { Description, SEO } from '@components';
+import { Title } from '@components/Home';
 
-class NotFoundPage extends React.Component {
-  render() {
-    return (
-      <Layout location={this.props.location}>
-        <SEO title="404: Not Found" />
-        <h1>Not Found</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-      </Layout>
-    );
-  }
+function NotFoundPage() {
+  const { animation } = useTransition();
+
+  return (
+    <div animation={animation}>
+      <SEO title="404: Not Found" />
+      <Title>Not Found</Title>
+      <Description>Essa página não existe 🧐</Description>
+    </div>
+  );
 }
 
 export default NotFoundPage;

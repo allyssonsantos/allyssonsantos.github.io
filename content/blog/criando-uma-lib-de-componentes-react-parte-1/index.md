@@ -7,6 +7,7 @@ tags:
   - React
   - Design System
   - styled-components
+img: github_captions.jpg
 ---
 
 Nessa série de posts iremos criar uma biblioteca de componentes bem completa!
@@ -161,13 +162,13 @@ import { linkTo } from '@storybook/addon-links';
 import { Welcome } from '@storybook/react/demo';
 ```
 
-#### linkTo
+### linkTo
 
 Como você pode perceber, o `linkTo` está sendo importado como
 addon, o storybook possui vários addons para dar algumas funcionalidades a
 mais à sua história, você pode conferir alguns no [próprio site do storybook](https://storybook.js.org/addons/ 'próprio site do storybook').
 
-#### Welcome
+### Welcome
 
 É um componente _React_ comum, está ali apenas para popular a história que vem
 por padrão.
@@ -196,7 +197,7 @@ arquivo de _story_ necessita ter um `export default` e um ou mais
 _named exports_, no caso acima, nosso _named export_ é a `const` `ToStorybook`
 que estamos exportando.
 
-#### Export default
+### Export default
 
 O `export default` define dados sobre o seu componente, incluindo o componente
 em sí, e também o título do grupo das histórias que será exibido no menu lateral do
@@ -254,7 +255,7 @@ Você pode utilizar o `story.name` quando quiser que o título contenha alguma
 palavra reservada do javascript, como por exemplo `default`, ou se quiser
 utilizar emojis.
 
-#### Estrutura de uma história
+### Estrutura de uma história
 
 Bom, para criar uma história basta seguir como no exemplo da história do
 `Welcome`. Edite a história que vem por _default_ para ver os efeitos que são
