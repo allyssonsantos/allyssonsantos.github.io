@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { DiscussionEmbed } from 'disqus-react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import useTransition from '@utils/useTransition';
 import { SEO, Description } from '@components';
 import { Link, Title, Img } from '@components/Elements';
 import { TableOfContents } from '@components/Layout';
-
-const disqusConfig = (slug, title) => ({
-  shortname: 'allyssonme',
-  config: { identifier: slug, title },
-});
 
 function Post({
   data: { mdx: post },
@@ -34,9 +28,6 @@ function Post({
       <MDXRenderer>{post.body}</MDXRenderer>
       <hr />
 
-      <DiscussionEmbed
-        {...disqusConfig(post.frontmatter.slug, post.frontmatter.title)}
-      />
       <ul
         style={{
           display: `flex`,
