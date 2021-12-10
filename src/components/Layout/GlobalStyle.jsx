@@ -179,7 +179,7 @@ const GlobalStyle = createGlobalStyle(
     }
 
     a {
-      color: ${(props) => props.theme.colors.primary[500]};
+      color: ${(props) => props.theme.colors.primary[900]};
     }
 
     time {
