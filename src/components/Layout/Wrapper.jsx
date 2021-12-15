@@ -9,14 +9,14 @@ const Wrapper = styled.div(
     padding-top: ${(props) => props.theme.spacings.huge}px;
     padding-left: 16px;
 
-    ${menuOpened
-      ? css`
-          pointer-events: none;
-        `
-      : ''}
-
     @media (max-width: 1024px) {
       width: 100%;
+
+      ${menuOpened
+        ? css`
+            pointer-events: none;
+          `
+        : ''}
     }
   `
 );
