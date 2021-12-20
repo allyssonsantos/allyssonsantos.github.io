@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import useTransition from '@utils/useTransition';
-import { SEO } from '@components';
+import { SEO } from '@components/Layout';
 import { Subtitle, Ol, Li, Hr } from '@components/Elements';
 import {
   Title,
