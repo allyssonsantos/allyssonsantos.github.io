@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import useTransition from '@utils/useTransition';
-import { SEO } from '@components';
+import { SEO } from '@components/Layout';
 import { Link } from '@components/Elements';
 import { About, Title, Description, Me } from '@components/Home';
 

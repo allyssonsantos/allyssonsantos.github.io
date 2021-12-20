@@ -1,7 +1,8 @@
 import React from 'react';
 
 import useTransition from '@utils/useTransition';
-import { Description, SEO } from '@components';
+import { SEO } from '@components/Layout';
+import { Description } from '@components/Elements';
 import { Title } from '@components/Home';
 
 function NotFoundPage() {

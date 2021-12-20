@@ -6,7 +6,7 @@ import Link from 'gatsby-plugin-transition-link';
 import rem from '@utils/rem';
 
 import Hr from '../Elements/Hr';
-import Description from '../Description';
+import Description from '../Elements/Description';
 
 const Wrapper = styled.section(
   ({ theme }) => css`

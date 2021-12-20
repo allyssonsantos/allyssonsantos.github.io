@@ -6,5 +6,20 @@ import Title from './Title';
 import Link from './Link';
 import Subtitle from './Subtitle';
 import Hr from './Hr';
+import Description from './Description';
+import Input from './Input';
 
-export { Code, Img, InlineCode, Ul, Ol, Li, Title, Link, Subtitle, Hr };
+export {
+  Code,
+  Img,
+  InlineCode,
+  Ul,
+  Ol,
+  Li,
+  Title,
+  Link,
+  Subtitle,
+  Hr,
+  Description,
+  Input,
+};

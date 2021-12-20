@@ -4,9 +4,8 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import useTransition from '@utils/useTransition';
-import { SEO, Description } from '@components';
-import { Title, Img } from '@components/Elements';
-import { TableOfContents } from '@components/Layout';
+import { Title, Img, Description } from '@components/Elements';
+import { TableOfContents, SEO } from '@components/Layout';
 
 function Post({ data: { mdx: post }, transitionStatus }) {
   const animation = useTransition(transitionStatus);
