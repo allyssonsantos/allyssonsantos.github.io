@@ -4,6 +4,7 @@ const lightTheme = { ...theme };
 
 const darkColors = {
   colors: {
+    ...theme.colors,
     neutral: {
       900: '#fdfdfd',
       800: '#f2f2f2',

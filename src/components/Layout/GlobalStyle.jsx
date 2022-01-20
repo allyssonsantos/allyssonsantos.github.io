@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle(
         font-size 300ms ease-in-out;
 
       background-color: ${theme.colors.neutral[50]};
+      color: ${theme.colors.neutral[900]};
 
       @media (max-width: 768px) {
         font-size: 90%;
@@ -189,8 +190,6 @@ const GlobalStyle = createGlobalStyle(
     }
 
     svg {
-      stroke: ${theme.colors.neutral[900]};
-
       transition: stroke 300ms ease-in-out;
     }
 
