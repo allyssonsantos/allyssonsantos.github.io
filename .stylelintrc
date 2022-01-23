@@ -1,22 +1,17 @@
 {
-  "processors": [
-    "stylelint-processor-styled-components"
-  ],
+  "processors": ["stylelint-processor-styled-components"],
   "extends": [
     "stylelint-config-recommended",
     "stylelint-order-config-csscomb",
     "stylelint-config-styled-components"
   ],
-  "plugins": [
-    "stylelint-order"
-  ],
+  "plugins": ["stylelint-order"],
   "rules": {
+    "custom-property-no-missing-var-function": null,
     "selector-type-no-unknown": [
       true,
       {
-        "ignoreTypes": [
-          "/^-styled-mixin/"
-        ]
+        "ignoreTypes": ["/^-styled-mixin/"]
       }
     ]
   }

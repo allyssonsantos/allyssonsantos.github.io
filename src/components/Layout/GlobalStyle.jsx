@@ -17,14 +17,17 @@ const GlobalStyle = createGlobalStyle(
     body {
       font-family: 'Source Sans 3', serif;
 
+      height: 100%;
+
       margin: 0;
       padding: 0;
 
       transition: background-color 300ms ease-in-out,
         font-size 300ms ease-in-out;
 
-      background-color: ${theme.colors.neutral[50]};
       color: ${theme.colors.neutral[900]};
+
+      background-color: ${theme.colors.neutral[50]};
 
       @media (max-width: 768px) {
         font-size: 90%;
@@ -207,6 +210,11 @@ const GlobalStyle = createGlobalStyle(
 
     hr {
       border: none;
+    }
+
+    #___gatsby,
+    #gatsby-focus-wrapper {
+      height: 100%;
     }
 
     .tl-edges {

@@ -1584,10 +1584,8 @@
   dependencies:
     "@babel/plugin-syntax-jsx" "^7.14.5"
 
-"@frigobar/core@^0.10.0":
+"@frigobar/core@../frigobar/packages/core/dist":
   version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@frigobar/core/-/core-0.10.0.tgz#35998d453ad2a08c7e63b29be0f9ad2aef32a918"
-  integrity sha512-fJKPo13c093xN7HS157G9t1AfrVZSR+Tq7DJm9UE+hbOMybUsS4c3PhB3kTE1hQCf6x4GFnhXINaYyOhX41VpA==
   dependencies:
     react-feather "^2.0.9"
 

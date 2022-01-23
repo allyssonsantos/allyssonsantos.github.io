@@ -10,6 +10,10 @@ const MenuButton = styled.button`
   border: none;
 
   background-color: transparent;
+
+  svg {
+    color: ${(props) => props.theme.colors.neutral[900]};
+  }
 `;
 
 export default MenuButton;

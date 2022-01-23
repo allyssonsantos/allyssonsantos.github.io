@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TransitionLink from 'gatsby-plugin-transition-link';
 import styled, { css } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 import { Sun, Moon, ExternalLink } from 'react-feather';
-import { Button, Modal } from '@frigobar/core';
 import { useFade } from '@frigobar/animation';
+
+import Button from '@components/SignIn/Login';
+import UserInfo from '@components/SignIn/UserInfo';
 
 import rem from '@utils/rem';
 import { useDarkTheme } from '@utils/color-scheme';
 import { useAuth } from '../../contexts/AuthContext';
-import GoogleBtn from '../SignIn/Google';
 
 import Menu from './Menu';
 import LoginModal from './LoginModal';
-import { useEffect } from 'react';
 
 const Nav = styled.nav(
   ({ opened, theme }) => css`
@@ -63,7 +63,18 @@ const Nav = styled.nav(
   `
 );
 
-const Name = styled.p(
+const Header = styled.div(
+  ({ theme }) => css`
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: ${theme.spacings.medium}px;
+  `
+);
+
+const Name = styled(TransitionLink)(
   ({ theme }) => css`
     font-size: ${rem(16)};
 
@@ -72,8 +83,11 @@ const Name = styled.p(
     justify-content: space-between;
 
     margin: 0;
-    margin-bottom: ${theme.spacings.medium}px;
     padding-left: ${theme.spacings.xsmall}px;
+
+    color: ${theme.colors.neutral[900]};
+
+    text-decoration: none;
   `
 );
 
@@ -192,7 +206,7 @@ const Navigation = React.forwardRef(
         startOnRender: false,
       });
     const buttonLabel = `Trocar para tema ${currentTheme}`;
-    const { logout, currentUser } = useAuth();
+    const { currentUser } = useAuth();
 
     useEffect(() => {
       if (currentUser) {
@@ -203,18 +217,22 @@ const Navigation = React.forwardRef(
     return (
       <Nav opened={opened} ref={ref}>
         <Menu onClick={onMenuClick} close />
-        <Name>
-          allysson.me
+        <Header>
+          <Name
+            to="/"
+            entry={{ length: 0.11, delay: 0.11 }}
+            exit={{ length: 0.11 }}
+          >
+            allysson.me
+          </Name>
           {currentUser ? (
-            <Button skin="neutral" onClick={logout}>
-              Sair
-            </Button>
+            <UserInfo />
           ) : (
             <Button skin="neutral" onClick={() => toggleModal(true)}>
               Entrar
             </Button>
           )}
-        </Name>
+        </Header>
         <List>
           {items.map(({ title, href, icon: Icon }) => (
             <React.Fragment key={title}>

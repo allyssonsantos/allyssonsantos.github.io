@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Modal } from '@frigobar/core';
 
 import { Subtitle } from '@components/Elements';
@@ -12,15 +12,16 @@ const StyledModal = styled(Modal)`
     border: none;
   }
   button svg {
-    stroke: white;
+    stroke: ${(props) => props.theme.colors.neutral[900]};
   }
 `;
 
 const Content = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: space-evenly;
+
   min-width: 300px;
   min-height: 200px;
 `;
