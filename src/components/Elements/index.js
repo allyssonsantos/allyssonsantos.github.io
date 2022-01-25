@@ -8,6 +8,7 @@ import Subtitle from './Subtitle';
 import Hr from './Hr';
 import Description from './Description';
 import Input from './Input';
+import Textarea from './Textarea';
 
 export {
   Code,
@@ -22,4 +23,5 @@ export {
   Hr,
   Description,
   Input,
+  Textarea,
 };
