@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const config = {
   apiKey: process.env.GATSBY_API_KEY,
@@ -13,5 +14,6 @@ const config = {
 
 const app = initializeApp(config);
 
+export const db = getFirestore();
 export const auth = getAuth();
 export default app;
