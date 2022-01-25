@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import { Menu, Modal, Button as FrigobarButton, Alert } from '@frigobar/core';
+import { Menu, Modal, Button as FrigobarButton } from '@frigobar/core';
 import { useFade } from '@frigobar/animation';
 
 import { Subtitle } from '@components/Elements';
@@ -13,17 +13,17 @@ const Button = styled.button`
 
   padding: 0;
 
-  background-color: transparent;
+  cursor: pointer;
 
   border: none;
   border-radius: 50%;
-
-  cursor: pointer;
+  background-color: transparent;
 `;
 
 const StyledModal = styled(Modal)`
   section {
     min-height: unset;
+
     border: none;
   }
 
@@ -35,7 +35,7 @@ const StyledModal = styled(Modal)`
 function UserInfo() {
   const [open, toggleOpen] = useState(false);
   const anchorRef = useRef(null);
-  const { currentUser, logout } = useAuth();
+  const { currentUser, logout, deleteAccount } = useAuth();
 
   const [{ animation: modalAnimation, state: modalState }, toggleModal] =
     useFade({
@@ -44,8 +44,13 @@ function UserInfo() {
 
   return (
     <>
-      <Button onClick={() => toggleOpen(!open)} ref={anchorRef}>
-        <img src={currentUser.photoURL} alt="name" />
+      <Button
+        onClick={() => toggleOpen(!open)}
+        ref={anchorRef}
+        aria-label="Exibir opções da sua conta"
+        title="Exibir opções da sua conta"
+      >
+        <img src={currentUser.photoURL} alt={currentUser.displayName} />
       </Button>
       <Menu
         anchorElement={anchorRef}
@@ -75,10 +80,18 @@ function UserInfo() {
             skin="neutral"
             style={{ marginRight: 12 }}
             onClick={() => toggleModal(false)}
+            outline
           >
             Cancelar
           </FrigobarButton>
-          <FrigobarButton skin="danger">Deletar conta</FrigobarButton>
+          <FrigobarButton
+            skin="danger"
+            onClick={() => {
+              deleteAccount();
+            }}
+          >
+            Deletar conta
+          </FrigobarButton>
         </StyledModal>
       )}
     </>
