@@ -6,7 +6,8 @@ const GlobalStyle = createGlobalStyle(
     :root {
       accent-color: ${theme.colors.neutral[900]};
 
-      transition: accent-color 300ms ease-in-out;
+      transition: accent-color 300ms ease-in-out,
+        background-color 300ms ease-in-out, font-size 300ms ease-in-out;
     }
 
     * {
@@ -210,11 +211,6 @@ const GlobalStyle = createGlobalStyle(
 
     hr {
       border: none;
-    }
-
-    #___gatsby,
-    #gatsby-focus-wrapper {
-      height: 100%;
     }
 
     .tl-edges {
