@@ -5,11 +5,25 @@ import React, {
   useEffect,
   useMemo,
 } from 'react';
-import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  deleteUser,
+  reauthenticateWithPopup,
+} from 'firebase/auth';
+import {
+  collection,
+  deleteDoc,
+  query,
+  where,
+  getDocs,
+} from 'firebase/firestore';
+
 import { node } from 'prop-types';
 import { navigate } from 'gatsby';
 
-import { auth } from '../services/firebase';
+import { auth, db } from '../services/firebase';
 
 const AuthContext = createContext();
 
@@ -32,6 +46,9 @@ function AuthProvider({ children }) {
   async function login() {
     try {
       const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({
+        prompt: 'select_account',
+      });
       await signInWithPopup(auth, provider);
     } catch (err) {
       setError(err);
@@ -43,12 +60,36 @@ function AuthProvider({ children }) {
     navigate('/');
   }
 
+  async function deleteAccount() {
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({
+      prompt: 'select_account',
+    });
+    const user = auth.currentUser;
+
+    try {
+      await deleteUser(user);
+
+      const q = query(collection(db, 'comments'), where('uid', '==', user.uid));
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach((doc) => deleteDoc(doc.ref));
+
+      navigate('/');
+    } catch (err) {
+      if (err) {
+        reauthenticateWithPopup(user, provider);
+      }
+    }
+  }
+
   const value = useMemo(
     () => ({
       currentUser,
       error,
       login,
       logout,
+      deleteAccount,
     }),
     [currentUser]
   );
