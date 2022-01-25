@@ -10,7 +10,7 @@
   "dependencies": {
     "@frigobar/animation": "^2.1.1",
     "@frigobar/babel-plugin": "^0.1.1",
-    "@frigobar/core": "^0.10.0",
+    "@frigobar/core": "^0.11.1",
     "@mdx-js/mdx": "^1.4.0",
     "@mdx-js/react": "^1.4.0",
     "@mdx-js/tag": "^0.20.3",
@@ -71,12 +71,12 @@
     "postcss-syntax": "^0.36.2",
     "prettier": "^2.5.0",
     "remark-slug": "^7.0.1",
-    "stylelint": "^14.1.0",
+    "stylelint": "^14.3.0",
+    "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^6.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^5.0.0",
-    "stylelint-order-config-csscomb": "^0.1.2",
-    "stylelint-processor-styled-components": "^1.10.0"
+    "stylelint-order-config-csscomb": "^0.1.2"
   },
   "homepage": "https://github.com/allyssonsantos/allyssonsantos.github.io-starter-blog#readme",
   "keywords": [
