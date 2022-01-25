@@ -22,6 +22,9 @@ const Nav = styled.nav(
     top: 0;
     left: 0;
 
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
     flex-shrink: 0;
 
     width: 240px;
@@ -85,21 +88,22 @@ const Name = styled(TransitionLink)(
     margin: 0;
     padding-left: ${theme.spacings.xsmall}px;
 
-    color: ${theme.colors.neutral[900]};
-
     text-decoration: none;
+
+    color: ${theme.colors.neutral[900]};
   `
 );
 
 const ChangeThemeButton = styled.button(
   ({ isDarkTheme, theme }) => css`
     display: flex;
-
     overflow: hidden;
+    flex-shrink: 0;
 
     width: ${rem(26)};
     height: ${rem(26)};
 
+    margin-top: auto;
     padding: 0;
 
     cursor: pointer;
@@ -172,6 +176,10 @@ const Link = styled(GatsbyLink)(
       background-color: ${theme.colors.neutral[200]};
     }
 
+    svg:nth-child(2) {
+      margin-left: auto;
+    }
+
     &.active {
       color: ${theme.colors.neutral[50]};
       background-color: ${theme.colors.neutral[900]};
@@ -179,10 +187,6 @@ const Link = styled(GatsbyLink)(
       svg {
         stroke: ${theme.colors.neutral[50]};
       }
-    }
-
-    svg:nth-child(2) {
-      margin-left: auto;
     }
   `
 );
@@ -228,7 +232,11 @@ const Navigation = React.forwardRef(
           {currentUser ? (
             <UserInfo />
           ) : (
-            <Button skin="neutral" onClick={() => toggleModal(true)}>
+            <Button
+              skin="neutral"
+              onClick={() => toggleModal(true)}
+              aria-label="Fazer login"
+            >
               Entrar
             </Button>
           )}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import { useDarkTheme } from '@utils/color-scheme';
@@ -7,6 +8,7 @@ import rem from '@utils/rem';
 const Picture = styled.picture(
   ({ theme }) => css`
     flex-shrink: 0;
+
     margin-bottom: 24px;
 
     border: none;
@@ -50,5 +52,9 @@ function Me({ children, ...props }) {
     </Picture>
   );
 }
+
+Me.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Me;

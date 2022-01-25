@@ -34,16 +34,17 @@ const Field = styled.input`
     padding: ${spacings.small}px;
     padding-left: ${spacings.xxlarge}px;
 
+    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+
+    color: ${colors.neutral[900]};
     border: none;
     border-bottom: 1px solid ${colors.neutral[400]};
     background-color: ${colors.neutral[50]};
-    color: ${colors.neutral[900]};
-
-    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 
     ::placeholder {
-      color: ${colors.neutral[400]};
       font-size: ${rem(14)};
+
+      color: ${colors.neutral[400]};
     }
   `}
 `;

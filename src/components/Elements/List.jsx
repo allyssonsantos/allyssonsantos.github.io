@@ -12,6 +12,7 @@ const sharedStyle = css`
 const Ul = styled.ul`
   padding: 0;
   ${sharedStyle}
+
   & &,
   & ol {
     ${sharedStyle}
