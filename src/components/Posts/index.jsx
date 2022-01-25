@@ -1,3 +1,4 @@
 import { Posts } from './Posts';
+import CommentsSection from './Comments';
 
-export default Posts;
+export { Posts, CommentsSection };
