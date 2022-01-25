@@ -1,13 +1,21 @@
 {
-  "processors": ["stylelint-processor-styled-components"],
   "extends": [
     "stylelint-config-recommended",
     "stylelint-order-config-csscomb",
+    "stylelint-config-prettier",
     "stylelint-config-styled-components"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.jsx"],
+      "customSyntax": "@stylelint/postcss-css-in-js"
+    }
   ],
   "plugins": ["stylelint-order"],
   "rules": {
-    "custom-property-no-missing-var-function": null,
+    "keyframes-name-pattern": null,
+    "property-no-unknown": null,
+    "value-keyword-case": ["lower", { "ignoreKeywords": ["dummyValue"] }],
     "selector-type-no-unknown": [
       true,
       {
