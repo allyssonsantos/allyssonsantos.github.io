@@ -11,9 +11,10 @@ import {
   documentId,
 } from 'firebase/firestore';
 import { X } from 'react-feather';
-import { Alert, Modal, Button } from '@frigobar/core';
+import { Alert, Button } from '@frigobar/core';
 import { useFade } from '@frigobar/animation';
 
+import { Modal } from '@components/Layout';
 import { Textarea } from '@components/Elements';
 import rem from '@utils/rem';
 

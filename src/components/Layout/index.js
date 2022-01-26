@@ -6,6 +6,7 @@ import Wrapper from './Wrapper';
 import TableOfContents from './TableOfContents';
 import SEO from './SEO';
 import LoginModal from './LoginModal';
+import Modal from './Modal';
 
 export {
   Footer,
@@ -16,4 +17,5 @@ export {
   TableOfContents,
   SEO,
   LoginModal,
+  Modal,
 };

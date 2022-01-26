@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Modal, Alert } from '@frigobar/core';
+import { Alert } from '@frigobar/core';
 
 import { Subtitle } from '@components/Elements';
 
+import Modal from './Modal';
 import { login } from '../../contexts/AuthContext';
 import GoogleBtn from '../SignIn/Google';
 

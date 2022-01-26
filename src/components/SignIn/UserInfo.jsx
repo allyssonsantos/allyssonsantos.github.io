@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import { Menu, Modal, Button as FrigobarButton } from '@frigobar/core';
+import { Menu, Button as FrigobarButton } from '@frigobar/core';
 import { useFade } from '@frigobar/animation';
 
 import { Subtitle } from '@components/Elements';
+import Modal from '../Layout/Modal';
 
 import { useAuth, logout, deleteAccount } from '../../contexts/AuthContext';
 
@@ -23,12 +24,6 @@ const Button = styled.button`
 const StyledModal = styled(Modal)`
   section {
     min-height: unset;
-
-    border: none;
-  }
-
-  button svg {
-    stroke: ${(props) => props.theme.colors.neutral[900]};
   }
 `;
 
