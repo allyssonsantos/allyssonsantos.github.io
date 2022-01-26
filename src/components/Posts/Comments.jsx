@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
@@ -114,65 +114,126 @@ function AuthorInfo({ name, date }) {
 
 AuthorInfo.propTypes = {
   name: PropTypes.string.isRequired,
-  date: PropTypes.oneOfType([
-    PropTypes.instanceOf(Date),
-    PropTypes.shape({
-      nanoseconds: PropTypes.number,
-      seconds: PropTypes.number,
-      toDate: PropTypes.func,
-    }),
-  ]).isRequired,
+  date: PropTypes.shape({
+    nanoseconds: PropTypes.number,
+    seconds: PropTypes.number,
+    toDate: PropTypes.func,
+  }).isRequired,
 };
+
+function commentsReducer(state, action) {
+  switch (action.type) {
+    case 'IDLE': {
+      return {
+        ...state,
+        status: 'IDLE',
+      };
+    }
+    case 'WRITTING': {
+      return {
+        ...state,
+        status: 'writting',
+        value: action.value,
+      };
+    }
+    case 'CREATED': {
+      return {
+        ...state,
+        status: 'created',
+      };
+    }
+    case 'FAILED': {
+      return {
+        ...state,
+        status: 'rejected',
+        action: action.action,
+      };
+    }
+    case 'SELECTED': {
+      return {
+        ...state,
+        selected: action.selected,
+      };
+    }
+    case 'RESET': {
+      return {
+        ...state,
+        selected: null,
+        value: '',
+      };
+    }
+    default: {
+      throw new Error(`Unhandled action type: ${action.type}`);
+    }
+  }
+}
+
+async function deleteComment(id) {
+  const q = query(collection(db, 'comments'), where(documentId(), '==', id));
+  const querySnapshot = await getDocs(q);
+
+  querySnapshot.forEach(async (doc) => {
+    try {
+      await deleteDoc(doc.ref);
+      return true;
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  });
+}
+
+async function createComment(currentUser, comment, slug) {
+  try {
+    const createdComment = await addDoc(collection(db, 'comments'), {
+      uid: currentUser.uid,
+      message: comment,
+      userName: currentUser.displayName,
+      date: new Date(),
+      slug,
+    });
+
+    return createdComment;
+  } catch (err) {
+    return Promise.reject(err);
+  }
+}
 
 function CommentsSection({ comments, slug }) {
   const { currentUser } = useAuth();
   const fieldRef = useRef(null);
-  const [value, setValue] = useState('');
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
-  const [selectedComment, setSelectedComment] = useState('');
 
   const [{ animation: modalAnimation, state: modalState }, toggleModal] =
     useFade({ startOnRender: false });
 
+  const [state, dispatch] = useReducer(commentsReducer, {
+    status: null,
+    action: null,
+    selected: null,
+    value: '',
+  });
+
+  const { status, action, selected, value } = state;
+
   const handleOnChange = (event) => {
-    setError(false);
-    setValue(event.target.value);
+    dispatch({ type: 'WRITTING', value: event.target.value });
     fieldRef.current.style.height = `${fieldRef.current.scrollHeight}px`;
-  };
-
-  const deleteForm = async (id) => {
-    const q = query(collection(db, 'comments'), where(documentId(), '==', id));
-    const querySnapshot = await getDocs(q);
-
-    querySnapshot.forEach(async (doc) => {
-      try {
-        await deleteDoc(doc.ref);
-      } catch (err) {
-        if (err) {
-          setError('deletar');
-        }
-      }
-    });
   };
 
   const handleForm = async (event) => {
     event.preventDefault();
-
     try {
-      await addDoc(collection(db, 'comments'), {
-        uid: currentUser.uid,
-        message: value,
-        userName: currentUser.displayName,
-        date: new Date(),
-        slug,
-      });
-      setSuccess(true);
+      await createComment(currentUser, value, slug);
+      dispatch({ type: 'CREATED' });
     } catch (err) {
-      setError('criar');
+      dispatch({ type: 'FAILED', action: 'criar' });
     }
 
-    setValue('');
+    dispatch({ type: 'RESET' });
+  };
+
+  const handleSelect = (id) => () => {
+    toggleModal(true);
+    dispatch({ type: 'SELECTED', selected: id });
   };
 
   return (
@@ -189,10 +250,7 @@ function CommentsSection({ comments, slug }) {
                 <div>
                   <DeleteComment
                     title="Deletar comentário"
-                    onClick={() => {
-                      toggleModal(true);
-                      setSelectedComment(id);
-                    }}
+                    onClick={handleSelect(id)}
                   >
                     <X width={16} height={16} />
                   </DeleteComment>
@@ -204,7 +262,7 @@ function CommentsSection({ comments, slug }) {
 
       {currentUser && (
         <Form onSubmit={handleForm} aria-live="polite">
-          {success ? (
+          {status === 'created' ? (
             <Alert show type="success">
               Seu comentário foi adicionado!
             </Alert>
@@ -220,13 +278,13 @@ function CommentsSection({ comments, slug }) {
       )}
 
       <Alert
-        show={error}
+        show={status === 'rejected'}
         closable
-        onClose={() => setError(false)}
+        onClose={() => dispatch({ type: 'IDLE' })}
         type="danger"
       >
-        Ocorreu algum erro inexperado ao {error} seu comentário. Tente novamente
-        daqui a pouco.
+        Ocorreu algum erro inexperado ao {action} seu comentário. Tente
+        novamente daqui a pouco.
       </Alert>
 
       {modalState && (
@@ -245,7 +303,7 @@ function CommentsSection({ comments, slug }) {
           <Button
             skin="danger"
             onClick={async () => {
-              deleteForm(selectedComment);
+              deleteComment(selected);
               toggleModal(false);
             }}
           >
@@ -262,14 +320,11 @@ CommentsSection.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       userName: PropTypes.string,
-      date: PropTypes.oneOfType([
-        PropTypes.instanceOf(Date),
-        PropTypes.shape({
-          nanoseconds: PropTypes.number,
-          seconds: PropTypes.number,
-          toDate: PropTypes.func,
-        }),
-      ]),
+      date: PropTypes.shape({
+        nanoseconds: PropTypes.number,
+        seconds: PropTypes.number,
+        toDate: PropTypes.func,
+      }).isRequired,
       message: PropTypes.string,
       uid: PropTypes.string,
     })
