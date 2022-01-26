@@ -9,6 +9,7 @@ import {
   where,
   getDocs,
   documentId,
+  serverTimestamp,
 } from 'firebase/firestore';
 import { X } from 'react-feather';
 import { Alert, Button } from '@frigobar/core';
@@ -190,6 +191,7 @@ async function createComment(currentUser, comment, slug) {
       message: comment,
       userName: currentUser.displayName,
       date: new Date(),
+      timestamp: serverTimestamp(),
       slug,
     });
 
