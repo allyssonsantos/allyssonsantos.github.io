@@ -1572,10 +1572,10 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.6.1.tgz#0c74724ba6e9ea6ad25a391eab60a79eaba4c556"
   integrity sha512-9FqhNjKQWpQ3fGnSOCovHOm+yhhiorKEqYLAfd525jWavunDJcx8rOW6i6ozAh+FbwcYMkL7b+3j4UR/30MpoQ==
 
-"@frigobar/animation@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@frigobar/animation/-/animation-2.1.1.tgz#fd495b95c971e6d280f94f9dff7986de869590e6"
-  integrity sha512-z4n5MZes+Yj+yyVrZMwWfjoGjkC/KgnKXrlAshkY9gbDpQk4tp+/l79sxXZFsNV5AE3DEQ8CkMmq1zJT2HuDNQ==
+"@frigobar/animation@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@frigobar/animation/-/animation-2.2.0.tgz#ad0bdecf6e3bfb77e7373acf716392b632f1f19a"
+  integrity sha512-t8E8zb6ygIeab0BswjphgfxtHyzBfybaqpBi49CxVcLwvJg2XsXKwY/vhTUGiTYxHSosNqlhTwBjb68CH7XmzA==
 
 "@frigobar/babel-plugin@^0.1.1":
   version "0.1.1"

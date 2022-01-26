@@ -8,7 +8,7 @@
     "url": "https://github.com/allyssonsantos/allyssonsantos.github.io/issues"
   },
   "dependencies": {
-    "@frigobar/animation": "^2.1.1",
+    "@frigobar/animation": "^2.2.0",
     "@frigobar/babel-plugin": "^0.1.1",
     "@frigobar/core": "^0.11.1",
     "@mdx-js/mdx": "^1.4.0",
