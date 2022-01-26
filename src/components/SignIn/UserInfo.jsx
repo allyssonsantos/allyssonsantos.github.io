@@ -5,7 +5,7 @@ import { useFade } from '@frigobar/animation';
 
 import { Subtitle } from '@components/Elements';
 
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth, logout, deleteAccount } from '../../contexts/AuthContext';
 
 const Button = styled.button`
   width: 32px;
@@ -35,7 +35,7 @@ const StyledModal = styled(Modal)`
 function UserInfo() {
   const [open, toggleOpen] = useState(false);
   const anchorRef = useRef(null);
-  const { currentUser, logout, deleteAccount } = useAuth();
+  const { currentUser } = useAuth();
 
   const [{ animation: modalAnimation, state: modalState }, toggleModal] =
     useFade({
