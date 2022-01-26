@@ -22,8 +22,6 @@ const PostBody = styled.div(
     padding-bottom: ${theme.spacings.xlarge}px;
 
     transition: background-color 300ms ease-in-out;
-
-    background: ${theme.colors.neutral[50]};
   `
 );
 

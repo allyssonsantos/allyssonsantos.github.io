@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `allysson.me`,
@@ -9,7 +13,6 @@ module.exports = {
     },
   },
   plugins: [
-    'gatsby-plugin-webpack-bundle-analyser-v2',
     {
       resolve: 'gatsby-plugin-transition-link',
       options: {
@@ -20,7 +23,7 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /icons/,
+          include: /icons|logos/,
         },
       },
     },
@@ -92,16 +95,15 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map((edge) => ({
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.edges.map((edge) => ({
                 ...edge.node.frontmatter,
                 description: edge.node.excerpt,
                 data: edge.node.frontmatter.date,
                 url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                 guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                 custom_elements: [{ 'content:encoded': edge.node.body }],
-              }));
-            },
+              })),
 
             query: `
             {

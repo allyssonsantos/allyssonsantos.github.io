@@ -6,7 +6,8 @@ const GlobalStyle = createGlobalStyle(
     :root {
       accent-color: ${theme.colors.neutral[900]};
 
-      transition: accent-color 300ms ease-in-out;
+      transition: accent-color 300ms ease-in-out,
+        background-color 300ms ease-in-out, font-size 300ms ease-in-out;
     }
 
     * {
@@ -17,11 +18,15 @@ const GlobalStyle = createGlobalStyle(
     body {
       font-family: 'Source Sans 3', serif;
 
+      height: 100%;
+
       margin: 0;
       padding: 0;
 
       transition: background-color 300ms ease-in-out,
         font-size 300ms ease-in-out;
+
+      color: ${theme.colors.neutral[900]};
 
       background-color: ${theme.colors.neutral[50]};
 
@@ -189,8 +194,6 @@ const GlobalStyle = createGlobalStyle(
     }
 
     svg {
-      stroke: ${theme.colors.neutral[900]};
-
       transition: stroke 300ms ease-in-out;
     }
 

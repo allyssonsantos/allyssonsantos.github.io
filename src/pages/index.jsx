@@ -7,7 +7,7 @@ import { SEO } from '@components/Layout';
 import { Link } from '@components/Elements';
 import { About, Title, Description, Me } from '@components/Home';
 
-import Posts from '@components/Posts';
+import { Posts } from '@components/Posts';
 
 function Home({
   transitionStatus,

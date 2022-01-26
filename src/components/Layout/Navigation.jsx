@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import TransitionLink from 'gatsby-plugin-transition-link';
 import styled, { css } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
-import TransitionLink from 'gatsby-plugin-transition-link';
-
 import { Sun, Moon, ExternalLink } from 'react-feather';
+import { useFade } from '@frigobar/animation';
+
+import Button from '@components/SignIn/Login';
+import UserInfo from '@components/SignIn/UserInfo';
 
 import rem from '@utils/rem';
 import { useDarkTheme } from '@utils/color-scheme';
+import { useAuth } from '../../contexts/AuthContext';
 
 import Menu from './Menu';
+import LoginModal from './LoginModal';
 
 const Nav = styled.nav(
   ({ opened, theme }) => css`
@@ -17,6 +22,9 @@ const Nav = styled.nav(
     top: 0;
     left: 0;
 
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
     flex-shrink: 0;
 
     width: 240px;
@@ -38,6 +46,10 @@ const Nav = styled.nav(
       box-shadow: none;
     }
 
+    svg {
+      stroke: ${theme.colors.neutral[900]};
+    }
+
     @media (max-width: 1024px) {
       position: fixed;
       z-index: 10;
@@ -54,7 +66,18 @@ const Nav = styled.nav(
   `
 );
 
-const Name = styled.p(
+const Header = styled.div(
+  ({ theme }) => css`
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: ${theme.spacings.medium}px;
+  `
+);
+
+const Name = styled(TransitionLink)(
   ({ theme }) => css`
     font-size: ${rem(16)};
 
@@ -63,20 +86,24 @@ const Name = styled.p(
     justify-content: space-between;
 
     margin: 0;
-    margin-bottom: ${theme.spacings.medium}px;
     padding-left: ${theme.spacings.xsmall}px;
+
+    text-decoration: none;
+
+    color: ${theme.colors.neutral[900]};
   `
 );
 
 const ChangeThemeButton = styled.button(
   ({ isDarkTheme, theme }) => css`
     display: flex;
-
     overflow: hidden;
+    flex-shrink: 0;
 
     width: ${rem(26)};
     height: ${rem(26)};
 
+    margin-top: auto;
     padding: 0;
 
     cursor: pointer;
@@ -149,6 +176,10 @@ const Link = styled(GatsbyLink)(
       background-color: ${theme.colors.neutral[200]};
     }
 
+    svg:nth-child(2) {
+      margin-left: auto;
+    }
+
     &.active {
       color: ${theme.colors.neutral[50]};
       background-color: ${theme.colors.neutral[900]};
@@ -156,10 +187,6 @@ const Link = styled(GatsbyLink)(
       svg {
         stroke: ${theme.colors.neutral[50]};
       }
-    }
-
-    svg:nth-child(2) {
-      margin-left: auto;
     }
   `
 );
@@ -178,26 +205,42 @@ const List = styled.ul`
 const Navigation = React.forwardRef(
   ({ items, socials, opened, onMenuClick }, ref) => {
     const { currentTheme, toggleDarkTheme } = useDarkTheme();
+    const [{ animation: modalAnimation, state: modalState }, toggleModal] =
+      useFade({
+        startOnRender: false,
+      });
     const buttonLabel = `Trocar para tema ${currentTheme}`;
+    const { currentUser } = useAuth();
+
+    useEffect(() => {
+      if (currentUser) {
+        toggleModal(false);
+      }
+    }, [currentUser]);
 
     return (
       <Nav opened={opened} ref={ref}>
         <Menu onClick={onMenuClick} close />
-        <Name>
-          allysson.me
-          <ChangeThemeButton
-            onClick={() =>
-              toggleDarkTheme(currentTheme === 'dark' ? 'light' : 'dark')
-            }
-            title={buttonLabel}
-            isDarkTheme={currentTheme === 'dark'}
+        <Header>
+          <Name
+            to="/"
+            entry={{ length: 0.11, delay: 0.11 }}
+            exit={{ length: 0.11 }}
           >
-            <div>
-              <Moon />
-              <Sun />
-            </div>
-          </ChangeThemeButton>
-        </Name>
+            allysson.me
+          </Name>
+          {currentUser ? (
+            <UserInfo />
+          ) : (
+            <Button
+              skin="neutral"
+              onClick={() => toggleModal(true)}
+              aria-label="Fazer login"
+            >
+              Entrar
+            </Button>
+          )}
+        </Header>
         <List>
           {items.map(({ title, href, icon: Icon }) => (
             <React.Fragment key={title}>
@@ -230,6 +273,24 @@ const Navigation = React.forwardRef(
             </React.Fragment>
           ))}
         </List>
+        <ChangeThemeButton
+          onClick={() =>
+            toggleDarkTheme(currentTheme === 'dark' ? 'light' : 'dark')
+          }
+          title={buttonLabel}
+          isDarkTheme={currentTheme === 'dark'}
+        >
+          <div>
+            <Moon />
+            <Sun />
+          </div>
+        </ChangeThemeButton>
+        {modalState && (
+          <LoginModal
+            animation={modalAnimation}
+            onClose={() => toggleModal(false)}
+          />
+        )}
       </Nav>
     );
   }

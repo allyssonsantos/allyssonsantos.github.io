@@ -5,5 +5,17 @@ import Layout from './Layout';
 import Wrapper from './Wrapper';
 import TableOfContents from './TableOfContents';
 import SEO from './SEO';
+import LoginModal from './LoginModal';
+import Modal from './Modal';
 
-export { Footer, GlobalStyle, Header, Layout, Wrapper, TableOfContents, SEO };
+export {
+  Footer,
+  GlobalStyle,
+  Header,
+  Layout,
+  Wrapper,
+  TableOfContents,
+  SEO,
+  LoginModal,
+  Modal,
+};

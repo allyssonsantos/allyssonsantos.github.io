@@ -22,7 +22,7 @@ const Wrapper = styled.div(
     transition: background-color 300ms ease-in-out;
 
     background-color: ${colors.neutral[50]};
-    box-shadow: 0px 0px 10px -5px #000;
+    box-shadow: 0 0 10px -5px #000;
 
     @media (max-width: 1024px) {
       display: flex;
