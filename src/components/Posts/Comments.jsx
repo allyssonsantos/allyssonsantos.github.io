@@ -222,6 +222,11 @@ function CommentsSection({ comments, slug }) {
 
   const handleForm = async (event) => {
     event.preventDefault();
+
+    if (!value) {
+      return;
+    }
+
     try {
       await createComment(currentUser, value, slug);
       dispatch({ type: 'CREATED' });
