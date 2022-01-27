@@ -21,25 +21,27 @@ function Post({ data: { mdx: post }, transitionStatus }) {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    const getComments = async () => {
-      const q = query(
-        collection(db, 'comments'),
-        where('slug', '==', post.slug),
-        orderBy('date', 'desc')
-      );
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        const posts = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
+    if (post.slug) {
+      const getComments = async () => {
+        const q = query(
+          collection(db, 'comments'),
+          where('slug', '==', post.slug),
+          orderBy('date', 'desc')
+        );
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          const posts = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
 
-        setComments(posts);
-      });
+          setComments(posts);
+        });
 
-      return () => unsubscribe();
-    };
+        return () => unsubscribe();
+      };
 
-    getComments();
+      getComments();
+    }
   }, [post.slug]);
 
   const animation = useTransition(transitionStatus);
