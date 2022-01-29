@@ -9,6 +9,7 @@ import Hr from './Hr';
 import Description from './Description';
 import Input from './Input';
 import Textarea from './Textarea';
+import Loading from './Loading';
 
 export {
   Code,
@@ -24,4 +25,5 @@ export {
   Description,
   Input,
   Textarea,
+  Loading,
 };
