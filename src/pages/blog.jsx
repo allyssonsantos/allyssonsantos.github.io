@@ -7,7 +7,7 @@ import { Input } from '@components/Elements';
 import { SEO } from '@components/Layout';
 import { Title } from '@components/Home';
 
-import { Posts } from '@components/Posts';
+import Posts from '@components/Posts';
 
 function Blog({
   transitionStatus,

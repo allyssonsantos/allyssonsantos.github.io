@@ -8,10 +8,11 @@ import { useFade } from '@frigobar/animation';
 
 import Button from '@components/SignIn/Login';
 import UserInfo from '@components/SignIn/UserInfo';
+import { Loading } from '@components/Elements';
 
 import rem from '@utils/rem';
 import { useDarkTheme } from '@utils/color-scheme';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '@contexts/AuthContext';
 
 import Menu from './Menu';
 import LoginModal from './LoginModal';
@@ -210,7 +211,7 @@ const Navigation = React.forwardRef(
         startOnRender: false,
       });
     const buttonLabel = `Trocar para tema ${currentTheme}`;
-    const { currentUser } = useAuth();
+    const { currentUser, loadingUser } = useAuth();
 
     useEffect(() => {
       if (currentUser) {
@@ -229,7 +230,9 @@ const Navigation = React.forwardRef(
           >
             allysson.me
           </Name>
-          {currentUser ? (
+          {loadingUser ? (
+            <Loading />
+          ) : currentUser ? (
             <UserInfo />
           ) : (
             <Button

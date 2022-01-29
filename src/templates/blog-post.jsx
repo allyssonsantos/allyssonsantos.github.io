@@ -11,11 +11,10 @@ import {
 } from 'firebase/firestore';
 
 import useTransition from '@utils/useTransition';
+import Comments from '@components/Comments';
 import { Title, Img, Description, Hr } from '@components/Elements';
 import { TableOfContents, SEO } from '@components/Layout';
-import { CommentsSection } from '@components/Posts';
-
-import { db } from '../services/firebase';
+import { db } from '@services/firebase';
 
 function Post({ data: { mdx: post }, transitionStatus }) {
   const [comments, setComments] = useState([]);
@@ -57,7 +56,7 @@ function Post({ data: { mdx: post }, transitionStatus }) {
 
       <MDXRenderer>{post.body}</MDXRenderer>
       <Hr style={{ marginTop: 40 }} />
-      <CommentsSection slug={post.slug} comments={comments} />
+      <Comments slug={post.slug} comments={comments} />
     </div>
   );
 }

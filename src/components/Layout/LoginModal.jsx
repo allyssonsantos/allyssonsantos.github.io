@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { Alert } from '@frigobar/core';
 
 import { Subtitle } from '@components/Elements';
+import { login } from '@contexts/AuthContext';
 
 import Modal from './Modal';
-import { login } from '../../contexts/AuthContext';
 import GoogleBtn from '../SignIn/Google';
 
 const POPUP_CLOSED_ERROR = 'auth/popup-closed-by-user';

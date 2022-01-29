@@ -14,7 +14,7 @@ import {
 import { useDarkTheme } from '@utils/color-scheme';
 import { lightTheme, darkTheme } from '@utils/themes';
 
-import { AuthProvider } from '../../contexts/AuthContext';
+import { AuthProvider } from '@contexts/AuthContext';
 
 import Wrapper from './Wrapper';
 import Menu from './Menu';

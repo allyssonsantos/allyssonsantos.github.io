@@ -19,11 +19,10 @@ import {
   where,
   getDocs,
 } from 'firebase/firestore';
-
 import { node } from 'prop-types';
 import { navigate } from 'gatsby';
 
-import { auth, db } from '../services/firebase';
+import { auth, db } from '@services/firebase';
 
 const AuthContext = createContext();
 
@@ -86,10 +85,13 @@ async function deleteAccount() {
 
 function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
+  const [loadingUser, toggleLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+
+      toggleLoading(false);
     });
 
     return unsubscribe;
@@ -98,8 +100,9 @@ function AuthProvider({ children }) {
   const value = useMemo(
     () => ({
       currentUser,
+      loadingUser,
     }),
-    [currentUser]
+    [currentUser, loadingUser]
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
