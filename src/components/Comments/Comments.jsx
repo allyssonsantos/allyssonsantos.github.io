@@ -1,6 +1,5 @@
 import React, { useRef, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
 import {
   collection,
   addDoc,
@@ -15,87 +14,21 @@ import { X } from 'react-feather';
 import { Alert, Button } from '@frigobar/core';
 import { useFade } from '@frigobar/animation';
 
-import { Modal } from '@components/Layout';
 import { Textarea } from '@components/Elements';
-import rem from '@utils/rem';
+import { db } from '@services/firebase';
+import { useAuth } from '@contexts/AuthContext';
 
-import { db } from '../../services/firebase';
-import { useAuth } from '../../contexts/AuthContext';
-
-const Title = styled.h2`
-  margin-top: 40px;
-`;
-
-const Form = styled.form`
-  margin-top: 24px;
-`;
-
-const Comment = styled.article`
-  display: flex;
-  justify-content: space-between;
-
-  & + & {
-    margin-top: 22px;
-  }
-`;
-
-const DeleteComment = styled.button(
-  ({ theme }) => css`
-    width: 24px;
-    height: 24px;
-
-    margin: 0;
-    padding: 0;
-
-    cursor: pointer;
-
-    border: none;
-    background-color: transparent;
-
-    svg {
-      stroke: ${theme.colors.neutral[900]};
-    }
-  `
-);
-
-const StyledModal = styled(Modal)`
-  section {
-    min-height: unset;
-
-    border: none;
-  }
-
-  button svg {
-    stroke: ${(props) => props.theme.colors.neutral[900]};
-  }
-`;
-
-const Author = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const Name = styled.strong`
-  font-size: ${rem(16)};
-`;
-
-const Datetime = styled.time`
-  margin-left: 4px;
-
-  &::before {
-    display: inline-block;
-
-    margin-right: 4px;
-
-    content: '·';
-  }
-`;
-
-const Message = styled.p`
-  margin: 0;
-
-  white-space: pre-line;
-`;
+import {
+  Author,
+  Name,
+  Datetime,
+  Title,
+  Comment,
+  Message,
+  DeleteComment,
+  Modal,
+  Form,
+} from './styles';
 
 function AuthorInfo({ name, date }) {
   const commentDate = date.toDate();
@@ -296,10 +229,7 @@ function CommentsSection({ comments, slug }) {
       </Alert>
 
       {modalState && (
-        <StyledModal
-          animation={modalAnimation}
-          onClose={() => toggleModal(false)}
-        >
+        <Modal animation={modalAnimation} onClose={() => toggleModal(false)}>
           <p>Você tem certeza que deseja deletar esse comentário?</p>
 
           <Button
@@ -317,7 +247,7 @@ function CommentsSection({ comments, slug }) {
           >
             Deletar
           </Button>
-        </StyledModal>
+        </Modal>
       )}
     </section>
   );
