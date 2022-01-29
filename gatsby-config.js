@@ -159,6 +159,7 @@ module.exports = {
           '@components': 'src/components',
           '@templates': 'src/templates',
           '@services': 'src/services',
+          '@contexts': 'src/contexts',
           '@utils': 'src/utils',
           '@static': 'static',
         },

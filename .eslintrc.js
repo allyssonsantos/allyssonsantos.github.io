@@ -34,6 +34,7 @@ module.exports = {
           ['@services', './src/services'],
           ['@utils', './src/utils'],
           ['@static', './static'],
+          ['@contexts', './src/contexts'],
         ],
         extensions: ['.js', '.jsx'],
       },
