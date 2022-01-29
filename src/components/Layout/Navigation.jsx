@@ -230,6 +230,7 @@ const Navigation = React.forwardRef(
           >
             allysson.me
           </Name>
+          {/* eslint-disable-next-line no-nested-ternary */}
           {loadingUser ? (
             <Loading />
           ) : currentUser ? (
