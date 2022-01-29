@@ -20,8 +20,8 @@ My personal website/blog to share some front-end ideas with everyone!
 Clone and install the dependencies:
 
 ```bash
-git clone git@github.com:allyssonsantos/allysson.me.git
-cd allysson.me
+git@github.com:allyssonsantos/allyssonsantos.github.io.git
+cd allyssonsantos.github.io.git
 yarn
 ```
 
