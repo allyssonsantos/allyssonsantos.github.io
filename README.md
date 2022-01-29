@@ -11,7 +11,9 @@ My personal website/blog to share some front-end ideas with everyone!
 - Framework: [Gatsby](https://github.com/gatsbyjs/gatsby)
 - Styling: [Styled-components](https://github.com/styled-components/styled-components)
 - Content: [MDX](https://mdxjs.com)
-- Animation: [Frigobar](https://github.com/frigobar/frigobar)
+- Animation: [frigobar](https://github.com/frigobar/frigobar)
+- Components: [frigobar](https://github.com/frigobar/frigobar)
+- Auth: [Firebase](https://firebase.google.com/docs/auth)
 
 ## Running
 
