@@ -2,8 +2,9 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    jest: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
+  extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -35,6 +36,7 @@ module.exports = {
           ['@utils', './src/utils'],
           ['@static', './static'],
           ['@contexts', './src/contexts'],
+          ['tests', './tests'],
         ],
         extensions: ['.js', '.jsx'],
       },
