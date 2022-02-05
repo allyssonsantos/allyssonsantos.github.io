@@ -1,21 +1,12 @@
 import React, { useRef, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import {
-  collection,
-  addDoc,
-  deleteDoc,
-  query,
-  where,
-  getDocs,
-  documentId,
-  serverTimestamp,
-} from 'firebase/firestore';
+
 import { X } from 'react-feather';
 import { Alert, Button } from '@frigobar/core';
 import { useFade } from '@frigobar/animation';
 
 import { Textarea } from '@components/Elements';
-import { db } from '@services/firebase';
+import { deleteComment, createComment } from '@services/comments';
 import { useAuth } from '@contexts/AuthContext';
 
 import {
@@ -102,40 +93,9 @@ function commentsReducer(state, action) {
     }
   }
 }
-
-async function deleteComment(id) {
-  const q = query(collection(db, 'comments'), where(documentId(), '==', id));
-  const querySnapshot = await getDocs(q);
-
-  querySnapshot.forEach(async (doc) => {
-    try {
-      await deleteDoc(doc.ref);
-      return true;
-    } catch (err) {
-      return Promise.reject(err);
-    }
-  });
-}
-
-async function createComment(currentUser, comment, slug) {
-  try {
-    const createdComment = await addDoc(collection(db, 'comments'), {
-      uid: currentUser.uid,
-      message: comment,
-      userName: currentUser.displayName,
-      date: new Date(),
-      timestamp: serverTimestamp(),
-      slug,
-    });
-
-    return createdComment;
-  } catch (err) {
-    return Promise.reject(err);
-  }
-}
-
 function CommentsSection({ comments, slug }) {
   const { currentUser } = useAuth();
+
   const fieldRef = useRef(null);
 
   const [{ animation: modalAnimation, state: modalState }, toggleModal] =
@@ -192,6 +152,7 @@ function CommentsSection({ comments, slug }) {
                   <DeleteComment
                     title="Deletar comentário"
                     onClick={handleSelect(id)}
+                    aria-label="deletar comentário"
                   >
                     <X width={16} height={16} />
                   </DeleteComment>
@@ -200,7 +161,6 @@ function CommentsSection({ comments, slug }) {
             </Comment>
           ))
         : 'Não há comentários nesse post.'}
-
       {currentUser && (
         <Form onSubmit={handleForm} aria-live="polite">
           {status === 'created' ? (
@@ -229,7 +189,11 @@ function CommentsSection({ comments, slug }) {
       </Alert>
 
       {modalState && (
-        <Modal animation={modalAnimation} onClose={() => toggleModal(false)}>
+        <Modal
+          animation={modalAnimation}
+          onClose={() => toggleModal(false)}
+          role="dialog"
+        >
           <p>Você tem certeza que deseja deletar esse comentário?</p>
 
           <Button
