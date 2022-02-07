@@ -1,3 +1,4 @@
+import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
@@ -25,3 +26,7 @@ jest.mock('@services/firebase', () => ({
   },
   db: jest.fn(),
 }));
+
+jest.mock('gatsby-plugin-transition-link', () => {
+  return ({ children }) => <div data-testid="transition-link">{children}</div>;
+});

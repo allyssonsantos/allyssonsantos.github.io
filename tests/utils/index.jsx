@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { render, fireEvent, waitFor } from '@testing-library/react';
+import InternalProvider from 'gatsby-plugin-transition-link/context/InternalProvider';
 import { ThemeProvider } from '@frigobar/core';
 import { DarkProvider } from '@utils/color-scheme';
 import { AuthProvider } from '@contexts/AuthContext';
@@ -10,7 +11,9 @@ const customRender = (ui, { currentUser, loadingUser, ...options } = {}) => {
     return (
       <DarkProvider>
         <AuthProvider currentUser={currentUser} loadingUser={loadingUser}>
-          <ThemeProvider>{children}</ThemeProvider>
+          <InternalProvider>
+            <ThemeProvider>{children}</ThemeProvider>
+          </InternalProvider>
         </AuthProvider>
       </DarkProvider>
     );
