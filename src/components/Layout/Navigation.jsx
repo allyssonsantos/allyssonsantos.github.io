@@ -293,6 +293,7 @@ const Navigation = React.forwardRef(
           <LoginModal
             animation={modalAnimation}
             onClose={() => toggleModal(false)}
+            role="dialog"
           />
         )}
       </Nav>

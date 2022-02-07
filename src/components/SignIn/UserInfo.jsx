@@ -66,6 +66,7 @@ function UserInfo() {
         <StyledModal
           animation={modalAnimation}
           onClose={() => toggleModal(false)}
+          role="dialog"
         >
           <Subtitle as="h3">Deletar conta</Subtitle>
           <p>
