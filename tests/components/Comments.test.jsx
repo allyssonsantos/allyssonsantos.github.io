@@ -142,8 +142,29 @@ describe('Comments component', () => {
         userEvent.click(screen.getByRole('button'));
       });
 
+      expect(screen.getByRole('alert')).toBeInTheDocument();
+      expect(screen.getByRole('alert').textContent).toMatchInlineSnapshot(
+        `"Seu comentário foi adicionado!"`
+      );
+
       expect(createComment).toHaveBeenCalledTimes(1);
       expect(createComment).toHaveBeenCalledWith(currentUser, newComment, '/');
+    });
+
+    it('should not create comment when submit form without value', async () => {
+      const currentUser = { uid: '1', displayName: 'foo' };
+
+      render(<Comments comments={[]} slug="/" />, {
+        currentUser,
+      });
+
+      await act(async () => {
+        userEvent.click(screen.getByRole('button'));
+      });
+
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+
+      expect(createComment).not.toHaveBeenCalled();
     });
   });
 });
