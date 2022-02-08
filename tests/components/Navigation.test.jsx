@@ -5,13 +5,7 @@ import Navigation from '@components/Layout/Navigation';
 import { login } from '@contexts/AuthContext';
 
 import { items, socials } from './fixtures/navigationLinks';
-import {
-  render,
-  screen,
-  within,
-  waitForElementToBeRemoved,
-  act,
-} from '../utils';
+import { render, screen, waitFor } from '../utils';
 
 jest.mock('@contexts/AuthContext', () => ({
   ...jest.requireActual('@contexts/AuthContext'),
@@ -22,6 +16,23 @@ jest.useFakeTimers();
 
 describe('Navigation component', () => {
   describe('Displaying', () => {
+    it('should show loading when loading user', () => {
+      const onMenuClickMock = jest.fn();
+      render(
+        <Navigation
+          items={items}
+          socials={socials}
+          onMenuClick={onMenuClickMock}
+          opened
+        />,
+        {
+          loadingUser: true,
+        }
+      );
+
+      expect(screen.getByRole('status')).toBeInTheDocument();
+    });
+
     it('should show login button', () => {
       const onMenuClickMock = jest.fn();
       render(
@@ -41,6 +52,32 @@ describe('Navigation component', () => {
   });
 
   describe('Actions', () => {
+    it('should change theme color when click on theme button', () => {
+      const onMenuClickMock = jest.fn();
+
+      render(
+        <Navigation
+          items={items}
+          socials={socials}
+          onMenuClick={onMenuClickMock}
+          opened
+        />,
+        {
+          loadingUser: false,
+        }
+      );
+
+      userEvent.click(screen.getByTitle(/trocar para tema light/i));
+
+      expect(screen.getByTitle(/trocar para tema dark/i)).toBeInTheDocument();
+      expect(
+        screen.queryByTitle(/trocar para tema light/i)
+      ).not.toBeInTheDocument();
+      waitFor(() =>
+        expect(window.localStorage.getItem('dark-theme')).toBe('dark')
+      );
+    });
+
     it('should close menu when click on close menu button', () => {
       const onMenuClickMock = jest.fn();
 
