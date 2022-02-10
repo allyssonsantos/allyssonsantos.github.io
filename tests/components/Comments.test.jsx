@@ -166,5 +166,32 @@ describe('Comments component', () => {
 
       expect(createComment).not.toHaveBeenCalled();
     });
+
+    it('should display an alert when comment creation throws an error', async () => {
+      const currentUser = { uid: '1', displayName: 'foo' };
+      const newComment = 'new comment';
+
+      render(<Comments comments={[]} slug="/" />, {
+        currentUser,
+      });
+
+      userEvent.type(screen.getByRole('textbox'), newComment);
+
+      createComment.mockImplementationOnce(() => {
+        throw new Error('error');
+      });
+
+      await act(async () => {
+        userEvent.click(screen.getByRole('button'));
+      });
+
+      expect(screen.queryByRole('alert')).toBeInTheDocument();
+      expect(screen.queryByRole('alert').textContent).toMatchInlineSnapshot(
+        `"Ocorreu algum erro inexperado ao criar seu comentário. Tente novamente daqui a pouco."`
+      );
+
+      userEvent.click(screen.getByLabelText('close'));
+      expect(screen.getByRole('textbox')).not.toHaveTextContent();
+    });
   });
 });
