@@ -83,9 +83,13 @@ async function deleteAccount() {
   }
 }
 
-function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
-  const [loadingUser, toggleLoading] = useState(true);
+function AuthProvider({
+  children,
+  currentUser: initialUser = null,
+  loadingUser: initialLoading = true,
+}) {
+  const [currentUser, setCurrentUser] = useState(initialUser);
+  const [loadingUser, toggleLoading] = useState(initialLoading);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {

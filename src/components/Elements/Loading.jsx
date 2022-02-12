@@ -20,7 +20,14 @@ const StyledLoader = styled(Loader)`
 `;
 
 function Loading() {
-  return <StyledLoader width={18} height={18} />;
+  return (
+    <StyledLoader
+      width={18}
+      height={18}
+      aria-label="carregando usuário"
+      role="status"
+    />
+  );
 }
 
 export default Loading;
