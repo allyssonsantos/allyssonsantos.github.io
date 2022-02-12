@@ -97,50 +97,51 @@ describe('Navigation component', () => {
 
       expect(onMenuClickMock).toHaveBeenCalledTimes(1);
     });
+    describe('unlogged', () => {
+      it('should open login modal when click on login button', () => {
+        const onMenuClickMock = jest.fn();
 
-    it('should open login modal when click on login button', () => {
-      const onMenuClickMock = jest.fn();
+        render(
+          <Navigation
+            items={items}
+            socials={socials}
+            onMenuClick={onMenuClickMock}
+            opened
+          />,
+          {
+            loadingUser: false,
+          }
+        );
 
-      render(
-        <Navigation
-          items={items}
-          socials={socials}
-          onMenuClick={onMenuClickMock}
-          opened
-        />,
-        {
-          loadingUser: false,
-        }
-      );
+        userEvent.click(screen.getByText(/entrar/i));
+        expect(screen.getByRole('dialog')).toBeInTheDocument();
+        expect(screen.getByRole('heading').textContent).toMatchInlineSnapshot(
+          `"Escolha uma forma de login:"`
+        );
+      });
 
-      userEvent.click(screen.getByText(/entrar/i));
-      expect(screen.getByRole('dialog')).toBeInTheDocument();
-      expect(screen.getByRole('heading').textContent).toMatchInlineSnapshot(
-        `"Escolha uma forma de login:"`
-      );
-    });
+      it('should login when click on login with google button', () => {
+        const onMenuClickMock = jest.fn();
 
-    it('should login when click on login with google button', () => {
-      const onMenuClickMock = jest.fn();
+        render(
+          <Navigation
+            items={items}
+            socials={socials}
+            onMenuClick={onMenuClickMock}
+            opened
+          />,
+          {
+            loadingUser: false,
+          }
+        );
 
-      render(
-        <Navigation
-          items={items}
-          socials={socials}
-          onMenuClick={onMenuClickMock}
-          opened
-        />,
-        {
-          loadingUser: false,
-        }
-      );
+        userEvent.click(screen.getByText(/entrar/i));
+        userEvent.click(
+          screen.getByLabelText(/entre utilizando sua conta do google/i)
+        );
 
-      userEvent.click(screen.getByText(/entrar/i));
-      userEvent.click(
-        screen.getByLabelText(/entre utilizando sua conta do google/i)
-      );
-
-      expect(login).toHaveBeenCalledTimes(1);
+        expect(login).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });
