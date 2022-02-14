@@ -301,6 +301,8 @@ const Navigation = React.forwardRef(
   }
 );
 
+Navigation.displayName = 'Navigation';
+
 Navigation.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({

@@ -54,9 +54,12 @@ function Code({ codeString, language, 'react-live': reactLive, metastring }) {
               }
 
               return (
-                <div {...lineProps}>
+                <div key={lineProps.key} {...lineProps}>
                   {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
+                    <span
+                      key={token.content}
+                      {...getTokenProps({ token, key })}
+                    />
                   ))}
                 </div>
               );

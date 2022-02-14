@@ -45,6 +45,8 @@ const Textarea = forwardRef(({ onChange, value, ...props }, ref) => (
   </Wrapper>
 ));
 
+Textarea.displayName = 'Textarea';
+
 Textarea.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string.isRequired,

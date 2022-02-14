@@ -19,7 +19,7 @@ import {
   where,
   getDocs,
 } from 'firebase/firestore';
-import { node } from 'prop-types';
+import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
 
 import { auth, db } from '@services/firebase';
@@ -112,7 +112,18 @@ function AuthProvider({
 }
 
 AuthProvider.propTypes = {
-  children: node.isRequired,
+  children: PropTypes.node.isRequired,
+  currentUser: PropTypes.shape({
+    uid: PropTypes.string,
+    photoURL: PropTypes.string,
+    displayName: PropTypes.string,
+  }),
+  loadingUser: PropTypes.bool,
+};
+
+AuthProvider.defaultProps = {
+  currentUser: undefined,
+  loadingUser: true,
 };
 
 export { useAuth, AuthProvider, login, logout, deleteAccount };
