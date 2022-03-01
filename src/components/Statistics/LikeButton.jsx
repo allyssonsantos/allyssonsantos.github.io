@@ -13,7 +13,9 @@ function LikeButton({ slug, likes, liked }) {
   const { currentUser } = useAuth();
 
   const handleClick = async () => {
-    await like(slug, currentUser.uid);
+    if (currentUser) {
+      await like(slug, currentUser.uid);
+    }
   };
 
   return (

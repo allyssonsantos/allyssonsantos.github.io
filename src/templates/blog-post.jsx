@@ -53,7 +53,7 @@ function Post({ data: { mdx: post }, transitionStatus }) {
   }, [post.slug]);
 
   const liked = Boolean(
-    likes?.userIds.some((user) => user === currentUser.uid)
+    likes?.userIds.some((user) => user === currentUser?.uid)
   );
 
   const animation = useTransition(transitionStatus);
