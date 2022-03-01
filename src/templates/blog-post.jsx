@@ -10,14 +10,19 @@ import {
   onSnapshot,
 } from 'firebase/firestore';
 
+import { useAuth } from '@contexts/AuthContext';
 import useTransition from '@utils/useTransition';
 import Comments from '@components/Comments';
+import Statistics from '@components/Statistics';
 import { Title, Img, Description, Hr } from '@components/Elements';
 import { TableOfContents, SEO } from '@components/Layout';
 import { db } from '@services/firebase';
+import { listenLikes } from '@services/likes';
 
 function Post({ data: { mdx: post }, transitionStatus }) {
   const [comments, setComments] = useState([]);
+  const [likes, setLikes] = useState(null);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     if (post.slug) {
@@ -39,9 +44,17 @@ function Post({ data: { mdx: post }, transitionStatus }) {
         return () => unsubscribe();
       };
 
+      listenLikes(post.slug, (likes) => {
+        setLikes(likes.data());
+      });
+
       getComments();
     }
   }, [post.slug]);
+
+  const liked = Boolean(
+    likes?.userIds.some((user) => user === currentUser.uid)
+  );
 
   const animation = useTransition(transitionStatus);
   return (
@@ -56,6 +69,12 @@ function Post({ data: { mdx: post }, transitionStatus }) {
 
       <MDXRenderer>{post.body}</MDXRenderer>
       <Hr style={{ marginTop: 40 }} />
+      <Statistics
+        slug={post.slug}
+        comments={comments.length}
+        liked={liked}
+        likes={likes?.count || 0}
+      />
       <Comments slug={post.slug} comments={comments} />
     </div>
   );

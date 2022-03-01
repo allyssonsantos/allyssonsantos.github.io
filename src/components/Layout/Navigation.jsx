@@ -320,4 +320,6 @@ Navigation.propTypes = {
   onMenuClick: PropTypes.func.isRequired,
 };
 
+Navigation.displayName = 'Navigation';
+
 export default Navigation;

@@ -35,6 +35,10 @@ const GlobalStyle = createGlobalStyle(
       }
     }
 
+    button {
+      font-family: 'Source Sans 3', serif;
+    }
+
     body {
       padding: 0 ${theme.spacings.medium}px ${theme.spacings.medium}px;
     }
