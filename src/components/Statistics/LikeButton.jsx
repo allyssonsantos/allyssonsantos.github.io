@@ -25,7 +25,7 @@ function LikeButton({ slug, likes, liked }) {
       onClick={handleClick}
     >
       <Heart fill={liked ? theme.colors.neutral[900] : 'none'} /> {likes}{' '}
-      curtidas
+      {`curtida${likes === 1 ? '' : 's'}`}
     </Button>
   );
 }
