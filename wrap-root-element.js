@@ -3,6 +3,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { Ul, Ol, Li, Link, Code, InlineCode } from '@components/Elements';
 import { preToCodeBlock } from 'mdx-utils';
 import { DarkProvider } from '@utils/color-scheme';
+import { AuthProvider } from '@contexts/AuthContext';
 
 const components = {
   pre: (preProps) => {
@@ -24,7 +25,9 @@ const components = {
   ),
 };
 export const wrapRootElement = ({ element }) => (
-  <DarkProvider>
-    <MDXProvider components={components}>{element}</MDXProvider>
-  </DarkProvider>
+  <AuthProvider>
+    <DarkProvider>
+      <MDXProvider components={components}>{element}</MDXProvider>
+    </DarkProvider>
+  </AuthProvider>
 );
