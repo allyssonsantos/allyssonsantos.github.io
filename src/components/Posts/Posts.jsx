@@ -4,6 +4,9 @@ import styled, { css } from 'styled-components';
 import Link from 'gatsby-plugin-transition-link';
 
 import rem from '@utils/rem';
+import trackingEvents from '@utils/trackingEvents';
+
+import { useTracking } from '@contexts/TrackingContext';
 
 import Hr from '../Elements/Hr';
 import Description from '../Elements/Description';
@@ -59,6 +62,8 @@ const PostDescription = styled.p(
 );
 
 function Posts({ posts }) {
+  const { track } = useTracking();
+
   return (
     <Wrapper>
       {posts.length ? (
@@ -70,6 +75,12 @@ function Posts({ posts }) {
               <Post
                 key={node.fields.slug}
                 to={`/blog${node.fields.slug}`}
+                onClick={() => {
+                  track(trackingEvents.BLOG_POST, {
+                    postTitle: title,
+                    slug: node.fields.slug,
+                  });
+                }}
                 entry={{ length: 0.11, delay: 0.11 }}
                 exit={{ length: 0.11 }}
               >
