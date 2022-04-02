@@ -1,3 +1,7 @@
-import { wrapRootElement as wrap } from './wrap-root-element';
+import React from 'react';
 
-export const wrapRootElement = wrap;
+import { wrapRootElement as Wrap } from './wrap-root-element';
+
+export const wrapRootElement = (props) => {
+  return <Wrap {...props} />;
+};

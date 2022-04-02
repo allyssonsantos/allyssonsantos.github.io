@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Alert } from '@frigobar/core';
 
+import trackingEvents from '@utils/trackingEvents';
 import { Subtitle } from '@components/Elements';
 import { login } from '@contexts/AuthContext';
+import { useTracking } from '@contexts/TrackingContext';
 
 import Modal from './Modal';
 import GoogleBtn from '../SignIn/Google';
@@ -31,8 +33,10 @@ const Content = styled.div`
 
 function LoginModal({ onClose, ...props }) {
   const [error, setError] = useState(false);
+  const { track } = useTracking();
 
   const handleLogin = useCallback(async () => {
+    track(trackingEvents.LOGIN_GOOGLE);
     try {
       await login();
     } catch (err) {
@@ -53,7 +57,7 @@ function LoginModal({ onClose, ...props }) {
           Ocorreu algum problema com o seu login, tente novamente.
         </Alert>
         <div>
-          <small>Seu nome será utilizado para exibir em comentários.</small>
+          <small>Seu nome será utilizado para exibir seus comentários.</small>
           <small>Você pode deletar seus dados a qualquer momento.</small>
         </div>
       </Content>

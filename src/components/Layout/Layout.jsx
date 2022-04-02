@@ -14,7 +14,8 @@ import {
 import { useDarkTheme } from '@utils/color-scheme';
 import { lightTheme, darkTheme } from '@utils/themes';
 
-import { AuthProvider } from '@contexts/AuthContext';
+import { useAuth } from '@contexts/AuthContext';
+import { useTracking } from '@contexts/TrackingContext';
 
 import Wrapper from './Wrapper';
 import Menu from './Menu';
@@ -27,6 +28,9 @@ function Layout({ children }) {
   const navRef = useRef(null);
   const [opened, setOpened] = useState(false);
 
+  const { currentUser } = useAuth();
+  const { identify, setUserInfo } = useTracking();
+
   const handleMenu = () => {
     setOpened(!opened);
   };
@@ -36,6 +40,13 @@ function Layout({ children }) {
       setOpened(false);
     }
   });
+
+  useEffect(() => {
+    if (currentUser) {
+      identify(currentUser.email);
+      setUserInfo({ name: currentUser.displayName });
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     if (opened) {
@@ -50,49 +61,47 @@ function Layout({ children }) {
   }, [opened]);
 
   return (
-    <AuthProvider>
-      <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
-        <Grid>
-          <Menu onClick={handleMenu} />
-          <Navigation
-            onMenuClick={handleMenu}
-            opened={opened}
-            ref={navRef}
-            items={[
-              { title: 'Home', href: '/', icon: Home },
-              { title: 'Artigos', href: '/blog', icon: Book },
-              { title: 'Sobre', href: '/about', icon: Info },
-            ]}
-            socials={[
-              {
-                title: 'Github',
-                href: 'https://github.com/allyssonsantos',
-                icon: GitHub,
-              },
-              {
-                title: 'Twitter',
-                href: 'https://twitter.com/_allyssonsantos',
-                icon: Twitter,
-              },
-              {
-                title: 'Instagram',
-                href: 'https://www.instagram.com/_allysson/',
-                icon: Instagram,
-              },
-              {
-                title: 'LinkedIn',
-                href: 'https://www.linkedin.com/in/allyssonsantos/',
-                icon: Linkedin,
-              },
-            ]}
-          />
-          <Wrapper menuOpened={opened}>
-            <GlobalStyle />
-            <main>{children}</main>
-          </Wrapper>
-        </Grid>
-      </ThemeProvider>
-    </AuthProvider>
+    <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
+      <Grid>
+        <Menu onClick={handleMenu} />
+        <Navigation
+          onMenuClick={handleMenu}
+          opened={opened}
+          ref={navRef}
+          items={[
+            { title: 'Home', href: '/', icon: Home },
+            { title: 'Artigos', href: '/blog', icon: Book },
+            { title: 'Sobre', href: '/about', icon: Info },
+          ]}
+          socials={[
+            {
+              title: 'Github',
+              href: 'https://github.com/allyssonsantos',
+              icon: GitHub,
+            },
+            {
+              title: 'Twitter',
+              href: 'https://twitter.com/_allyssonsantos',
+              icon: Twitter,
+            },
+            {
+              title: 'Instagram',
+              href: 'https://www.instagram.com/_allysson/',
+              icon: Instagram,
+            },
+            {
+              title: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/allyssonsantos/',
+              icon: Linkedin,
+            },
+          ]}
+        />
+        <Wrapper menuOpened={opened}>
+          <GlobalStyle />
+          <main>{children}</main>
+        </Wrapper>
+      </Grid>
+    </ThemeProvider>
   );
 }
 

@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { Menu, Button as FrigobarButton } from '@frigobar/core';
 import { useFade } from '@frigobar/animation';
 
+import trackingEvents from '@utils/trackingEvents';
 import { Subtitle } from '@components/Elements';
+import { useTracking } from '@contexts/TrackingContext';
+
 import Modal from '../Layout/Modal';
 
 import { useAuth, logout, deleteAccount } from '../../contexts/AuthContext';
@@ -31,6 +34,7 @@ function UserInfo() {
   const [open, toggleOpen] = useState(false);
   const anchorRef = useRef(null);
   const { currentUser } = useAuth();
+  const { track } = useTracking();
 
   const [{ animation: modalAnimation, state: modalState }, toggleModal] =
     useFade({
@@ -40,7 +44,10 @@ function UserInfo() {
   return (
     <>
       <Button
-        onClick={() => toggleOpen(!open)}
+        onClick={() => {
+          track(trackingEvents.USER_MENU);
+          toggleOpen(!open);
+        }}
         ref={anchorRef}
         aria-label="Exibir opções da sua conta"
         title="Exibir opções da sua conta"
@@ -52,9 +59,17 @@ function UserInfo() {
         open={open}
         handleClickAway={() => toggleOpen(false)}
       >
-        <Menu.Item onClick={logout}>Sair</Menu.Item>
         <Menu.Item
           onClick={() => {
+            track(trackingEvents.LOGOUT);
+            logout();
+          }}
+        >
+          Sair
+        </Menu.Item>
+        <Menu.Item
+          onClick={() => {
+            track(trackingEvents.DELETE_BUTTON);
             toggleModal(true);
             toggleOpen(false);
           }}
@@ -65,7 +80,10 @@ function UserInfo() {
       {modalState && (
         <StyledModal
           animation={modalAnimation}
-          onClose={() => toggleModal(false)}
+          onClose={() => {
+            track(trackingEvents.CLOSE_DELETE_MODAL);
+            toggleModal(false);
+          }}
           role="dialog"
         >
           <Subtitle as="h3">Deletar conta</Subtitle>
@@ -75,7 +93,10 @@ function UserInfo() {
           <FrigobarButton
             skin="neutral"
             style={{ marginRight: 12 }}
-            onClick={() => toggleModal(false)}
+            onClick={() => {
+              track(trackingEvents.CANCEL_DELETE_MODAL);
+              toggleModal(false);
+            }}
             outline
           >
             Cancelar
@@ -83,6 +104,7 @@ function UserInfo() {
           <FrigobarButton
             skin="danger"
             onClick={() => {
+              track(trackingEvents.CONFIRM_DELETE_ACCOUNT);
               deleteAccount();
             }}
           >

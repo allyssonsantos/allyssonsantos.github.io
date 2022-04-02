@@ -6,6 +6,8 @@ import useTransition from '@utils/useTransition';
 import { SEO } from '@components/Layout';
 import { Link } from '@components/Elements';
 import { About, Title, Description, Me } from '@components/Home';
+import { useTracking } from '@contexts/TrackingContext';
+import trackingEvents from '@utils/trackingEvents';
 
 import Posts from '@components/Posts';
 
@@ -16,6 +18,7 @@ function Home({
   },
 }) {
   const animation = useTransition(transitionStatus);
+  const { track } = useTracking();
 
   return (
     <div animation={animation}>
@@ -73,6 +76,9 @@ function Home({
       <Posts posts={posts} />
       <Link
         to="/blog"
+        onClick={() => {
+          track(trackingEvents.ALL_POSTS);
+        }}
         entry={{ length: 0.11, delay: 0.11 }}
         exit={{ length: 0.11 }}
       >

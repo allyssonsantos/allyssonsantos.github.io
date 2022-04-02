@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { X, Menu as MenuIcon } from 'react-feather';
 
+import { useTracking } from '@contexts/TrackingContext';
+import trackingEvents from '@utils/trackingEvents';
 import MenuButton from './MenuButton';
 
 const Wrapper = styled.div(
@@ -32,10 +34,17 @@ const Wrapper = styled.div(
 );
 
 function Menu({ onClick, close }) {
+  const { track } = useTracking();
+
+  const handleMenu = (e) => {
+    track(trackingEvents.MENU_BUTTON, { opened: !close });
+    onClick(e);
+  };
+
   const label = close ? 'Fechar menu' : 'Abrir menu';
   return (
     <Wrapper>
-      <MenuButton onClick={onClick} aria-label={label} title={label}>
+      <MenuButton onClick={handleMenu} aria-label={label} title={label}>
         {close ? (
           <X width={24} height={24} />
         ) : (

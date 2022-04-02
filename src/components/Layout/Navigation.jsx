@@ -11,8 +11,10 @@ import UserInfo from '@components/SignIn/UserInfo';
 import { Loading } from '@components/Elements';
 
 import rem from '@utils/rem';
+import trackingEvents from '@utils/trackingEvents';
 import { useDarkTheme } from '@utils/color-scheme';
 import { useAuth } from '@contexts/AuthContext';
+import { useTracking } from '@contexts/TrackingContext';
 
 import Menu from './Menu';
 import LoginModal from './LoginModal';
@@ -212,6 +214,15 @@ const Navigation = React.forwardRef(
       });
     const buttonLabel = `Trocar para tema ${currentTheme}`;
     const { currentUser, loadingUser } = useAuth();
+    const { track } = useTracking();
+
+    const trackLink = (title, href) => {
+      track(
+        trackingEvents.NAVIGATION_LINK,
+        { title, href },
+        { send_immediately: true }
+      );
+    };
 
     useEffect(() => {
       if (currentUser) {
@@ -238,7 +249,10 @@ const Navigation = React.forwardRef(
           ) : (
             <Button
               skin="neutral"
-              onClick={() => toggleModal(true)}
+              onClick={() => {
+                track(trackingEvents.LOGIN_BUTTON);
+                toggleModal(true);
+              }}
               aria-label="Fazer login"
             >
               Entrar
@@ -256,7 +270,10 @@ const Navigation = React.forwardRef(
                   partiallyActive={href !== '/'}
                   entry={{ length: 0.11, delay: 0.11 }}
                   exit={{ length: 0.11 }}
-                  onClick={onMenuClick}
+                  onClick={(e) => {
+                    trackLink(title, href);
+                    onMenuClick(e);
+                  }}
                 >
                   <Icon width={14} height={14} />
                   {title}
@@ -268,7 +285,7 @@ const Navigation = React.forwardRef(
           {socials.map(({ title, href, icon: Icon }) => (
             <React.Fragment key={title}>
               <li>
-                <Link as="a" href={href}>
+                <Link as="a" href={href} onClick={() => trackLink(title, href)}>
                   <Icon width={14} height={14} />
                   {title}
                   <ExternalLink width={14} height={14} />
@@ -278,9 +295,11 @@ const Navigation = React.forwardRef(
           ))}
         </List>
         <ChangeThemeButton
-          onClick={() =>
-            toggleDarkTheme(currentTheme === 'dark' ? 'light' : 'dark')
-          }
+          onClick={() => {
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            toggleDarkTheme(newTheme);
+            track(trackingEvents.CHANGE_THEME, { currentTheme: newTheme });
+          }}
           title={buttonLabel}
           isDarkTheme={currentTheme === 'dark'}
         >

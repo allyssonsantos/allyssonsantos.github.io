@@ -1,8 +1,11 @@
 import React from 'react';
+import mixpanel from 'mixpanel-browser';
 import { MDXProvider } from '@mdx-js/react';
 import { Ul, Ol, Li, Link, Code, InlineCode } from '@components/Elements';
 import { preToCodeBlock } from 'mdx-utils';
 import { DarkProvider } from '@utils/color-scheme';
+import { AuthProvider } from '@contexts/AuthContext';
+import { TrackingProvider } from '@contexts/TrackingContext';
 
 const components = {
   pre: (preProps) => {
@@ -23,8 +26,18 @@ const components = {
     </h2>
   ),
 };
-export const wrapRootElement = ({ element }) => (
-  <DarkProvider>
-    <MDXProvider components={components}>{element}</MDXProvider>
-  </DarkProvider>
-);
+export const wrapRootElement = ({ element }) => {
+  mixpanel.init(process.env.GATSBY_MIXPANEL_TOKEN, {
+    debug: process.env.NODE_ENV !== 'production',
+  });
+
+  return (
+    <TrackingProvider tracking={mixpanel}>
+      <AuthProvider>
+        <DarkProvider>
+          <MDXProvider components={components}>{element}</MDXProvider>
+        </DarkProvider>
+      </AuthProvider>
+    </TrackingProvider>
+  );
+};
