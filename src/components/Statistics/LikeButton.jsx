@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { useTheme } from 'styled-components';
 import { Heart } from 'react-feather';
 
+import trackingEvents from '@utils/trackingEvents';
 import { useAuth } from '@contexts/AuthContext';
+import { useTracking } from '@contexts/TrackingContext';
 import { like } from '@services/likes';
 
 import { LikeButton as Button } from './styles';
@@ -11,9 +13,11 @@ import { LikeButton as Button } from './styles';
 function LikeButton({ slug, likes, liked }) {
   const theme = useTheme();
   const { currentUser } = useAuth();
+  const { track } = useTracking();
 
   const handleClick = async () => {
     if (currentUser) {
+      track(trackingEvents.LIKE_BUTTON, { action: liked ? 'dislike' : 'like' });
       await like(slug, currentUser.uid);
     }
   };

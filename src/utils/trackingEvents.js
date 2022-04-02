@@ -12,6 +12,10 @@ const trackingEvents = {
   ALL_POSTS: 'clicked in see all posts link',
   BLOG_POST: 'clicked in a blog post',
   NAVIGATION_LINK: 'clicked in navigation link',
+  LIKE_BUTTON: 'clicked in like button',
+  CREATE_COMMENT: 'created comment',
+  CREATE_COMMENT_ERROR: 'failed to create comment',
+  DELETE_COMMENT: 'deteled comment',
 };
 
 export default trackingEvents;

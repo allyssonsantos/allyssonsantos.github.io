@@ -5,9 +5,11 @@ import { X } from 'react-feather';
 import { Alert, Button } from '@frigobar/core';
 import { useFade } from '@frigobar/animation';
 
+import trackingEvents from '@utils/trackingEvents';
 import { Textarea } from '@components/Elements';
 import { deleteComment, createComment } from '@services/comments';
 import { useAuth } from '@contexts/AuthContext';
+import { useTracking } from '@contexts/TrackingContext';
 
 import {
   Author,
@@ -95,6 +97,7 @@ function commentsReducer(state, action) {
 }
 function CommentsSection({ comments, slug }) {
   const { currentUser } = useAuth();
+  const { track } = useTracking();
 
   const fieldRef = useRef(null);
 
@@ -124,8 +127,10 @@ function CommentsSection({ comments, slug }) {
 
     try {
       await createComment(currentUser, value, slug);
+      track(trackingEvents.CREATE_COMMENT, { slug, value });
       dispatch({ type: 'CREATED' });
     } catch (err) {
+      track(trackingEvents.CREATE_COMMENT_ERROR, { slug, value });
       dispatch({ type: 'FAILED', action: 'criar' });
     }
 
@@ -205,7 +210,8 @@ function CommentsSection({ comments, slug }) {
           <Button
             skin="danger"
             onClick={async () => {
-              deleteComment(selected);
+              await deleteComment(selected);
+              track(trackingEvents.DELETE_COMMENT, { slug });
               toggleModal(false);
             }}
           >

@@ -12,6 +12,7 @@ const Wrapper = styled.div(
 
     @media (max-width: 1024px) {
       width: 100%;
+      padding-left: 0;
 
       ${menuOpened
         ? css`

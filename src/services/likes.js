@@ -22,6 +22,7 @@ const like = async (slug, userId) => {
   if (currentLikes.exists()) {
     const currentUsers = currentLikes.data().userIds;
     const alreadyLiked = currentUsers.includes(userId);
+
     if (alreadyLiked) {
       const decrementedLike = await updateDoc(likesRef, {
         count: increment(-1),
@@ -30,6 +31,7 @@ const like = async (slug, userId) => {
 
       return decrementedLike;
     }
+
     const incrementedLike = await updateDoc(likesRef, {
       count: increment(1),
       userIds: [...currentUsers, userId],
