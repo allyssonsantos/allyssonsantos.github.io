@@ -5,15 +5,27 @@ import InternalProvider from 'gatsby-plugin-transition-link/context/InternalProv
 import { ThemeProvider } from '@frigobar/core';
 import { DarkProvider } from '@utils/color-scheme';
 import { AuthProvider } from '@contexts/AuthContext';
+import { TrackingProvider } from '@contexts/TrackingContext';
 
-const customRender = (ui, { currentUser, loadingUser, ...options } = {}) => {
+const customRender = (
+  ui,
+  { currentUser, loadingUser, tracking, ...options } = {}
+) => {
+  const defaultTracking = {
+    track: () => {},
+    identify: () => {},
+    people: { set: () => {} },
+  };
+
   function Providers({ children }) {
     return (
       <DarkProvider>
         <AuthProvider currentUser={currentUser} loadingUser={loadingUser}>
-          <InternalProvider>
-            <ThemeProvider>{children}</ThemeProvider>
-          </InternalProvider>
+          <TrackingProvider tracking={tracking || defaultTracking}>
+            <InternalProvider>
+              <ThemeProvider>{children}</ThemeProvider>
+            </InternalProvider>
+          </TrackingProvider>
         </AuthProvider>
       </DarkProvider>
     );
