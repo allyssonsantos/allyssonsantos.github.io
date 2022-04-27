@@ -27,7 +27,7 @@ function DeleteCommentModal({ selected, slug, ...props }) {
   };
 
   return (
-    <Modal {...props}>
+    <Modal role="dialog" {...props}>
       <p>Você tem certeza que deseja deletar esse comentário?</p>
       <Button onClick={handleCancel} style={{ marginRight: 12 }}>
         Cancelar

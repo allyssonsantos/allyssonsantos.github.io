@@ -6,6 +6,7 @@ import { ThemeProvider } from '@frigobar/core';
 import { DarkProvider } from '@utils/color-scheme';
 import { AuthProvider } from '@contexts/AuthContext';
 import { TrackingProvider } from '@contexts/TrackingContext';
+import { ModalProvider } from '@contexts/ModalContext';
 
 const customRender = (
   ui,
@@ -23,7 +24,9 @@ const customRender = (
         <AuthProvider currentUser={currentUser} loadingUser={loadingUser}>
           <TrackingProvider tracking={tracking || defaultTracking}>
             <InternalProvider>
-              <ThemeProvider>{children}</ThemeProvider>
+              <ThemeProvider>
+                <ModalProvider>{children}</ModalProvider>
+              </ThemeProvider>
             </InternalProvider>
           </TrackingProvider>
         </AuthProvider>

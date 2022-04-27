@@ -51,7 +51,7 @@ function LoginModal({ onClose, ...props }) {
   }, []);
 
   return (
-    <Modal onClose={onClose} {...props}>
+    <Modal role="dialog" onClose={onClose} {...props}>
       <Content>
         <Subtitle as="h3">Escolha uma forma de login:</Subtitle>
         <GoogleBtn onClick={handleLogin} />
