@@ -31,6 +31,8 @@ const Content = styled.div`
   }
 `;
 
+export const LOGIN_MODAL_KEY = 'LOGIN_MODAL';
+
 function LoginModal({ onClose, ...props }) {
   const [error, setError] = useState(false);
   const { track } = useTracking();
