@@ -2,14 +2,18 @@ import React, { useRef, useReducer } from 'react';
 import PropTypes from 'prop-types';
 
 import { X } from 'react-feather';
-import { Alert, Button } from '@frigobar/core';
-import { useFade } from '@frigobar/animation';
+import { Alert } from '@frigobar/core';
 
 import trackingEvents from '@utils/trackingEvents';
 import { Textarea } from '@components/Elements';
-import { deleteComment, createComment } from '@services/comments';
+import { createComment } from '@services/comments';
 import { useAuth } from '@contexts/AuthContext';
 import { useTracking } from '@contexts/TrackingContext';
+import { useModal } from '@contexts/ModalContext';
+
+import DeleteCommentModal, {
+  DELETE_COMMENT_MODAL_KEY,
+} from './DeleteCommentModal';
 
 import {
   Author,
@@ -19,7 +23,6 @@ import {
   Comment,
   Message,
   DeleteComment,
-  Modal,
   Form,
 } from './styles';
 
@@ -98,11 +101,9 @@ function commentsReducer(state, action) {
 function CommentsSection({ comments, slug }) {
   const { currentUser } = useAuth();
   const { track } = useTracking();
+  const { open } = useModal();
 
   const fieldRef = useRef(null);
-
-  const [{ animation: modalAnimation, state: modalState }, toggleModal] =
-    useFade({ startOnRender: false });
 
   const [state, dispatch] = useReducer(commentsReducer, {
     status: null,
@@ -111,7 +112,7 @@ function CommentsSection({ comments, slug }) {
     value: '',
   });
 
-  const { status, action, selected, value } = state;
+  const { status, action, value } = state;
 
   const handleOnChange = (event) => {
     dispatch({ type: 'WRITTING', value: event.target.value });
@@ -138,8 +139,12 @@ function CommentsSection({ comments, slug }) {
   };
 
   const handleSelect = (id) => () => {
-    toggleModal(true);
     dispatch({ type: 'SELECTED', selected: id });
+    open({
+      component: DeleteCommentModal,
+      key: DELETE_COMMENT_MODAL_KEY,
+      props: { selected: id, slug },
+    });
   };
 
   return (
@@ -166,6 +171,7 @@ function CommentsSection({ comments, slug }) {
             </Comment>
           ))
         : 'Não há comentários nesse post.'}
+
       {currentUser && (
         <Form onSubmit={handleForm} aria-live="polite">
           {status === 'created' ? (
@@ -192,33 +198,6 @@ function CommentsSection({ comments, slug }) {
         Ocorreu algum erro inexperado ao {action} seu comentário. Tente
         novamente daqui a pouco.
       </Alert>
-
-      {modalState && (
-        <Modal
-          animation={modalAnimation}
-          onClose={() => toggleModal(false)}
-          role="dialog"
-        >
-          <p>Você tem certeza que deseja deletar esse comentário?</p>
-
-          <Button
-            onClick={() => toggleModal(false)}
-            style={{ marginRight: 12 }}
-          >
-            Cancelar
-          </Button>
-          <Button
-            skin="danger"
-            onClick={async () => {
-              await deleteComment(selected);
-              track(trackingEvents.DELETE_COMMENT, { slug });
-              toggleModal(false);
-            }}
-          >
-            Deletar
-          </Button>
-        </Modal>
-      )}
     </section>
   );
 }
