@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useMemo,
 } from 'react';
+import PropTypes from 'prop-types';
 import { useFade } from '@frigobar/animation';
 
 const ModalContext = createContext({});
@@ -12,6 +13,10 @@ const ModalContext = createContext({});
 function ModalComponent({ Component, ...props }) {
   return <Component {...props} />;
 }
+
+ModalComponent.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+};
 
 function ModalRender({ Component, props, opened, onClose, ...rest }) {
   const [{ animation: modalAnimation, state: modalState }, toggleModal] =
@@ -28,6 +33,8 @@ function ModalRender({ Component, props, opened, onClose, ...rest }) {
   return (
     modalState && (
       <ModalComponent
+        {...props}
+        {...rest}
         animation={modalAnimation}
         Component={Component}
         onClose={() => {
@@ -35,12 +42,17 @@ function ModalRender({ Component, props, opened, onClose, ...rest }) {
           onClose && onClose();
           props?.onClose && props?.onClose();
         }}
-        {...props}
-        {...rest}
       />
     )
   );
 }
+
+ModalRender.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  props: PropTypes.any,
+  opened: PropTypes.bool,
+  onClose: PropTypes.func,
+};
 
 function ModalProvider({ children }) {
   const [modals, setModals] = useState([]);
@@ -83,6 +95,10 @@ function ModalProvider({ children }) {
     </ModalContext.Provider>
   );
 }
+
+ModalProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 function useModal() {
   const context = useContext(ModalContext);
