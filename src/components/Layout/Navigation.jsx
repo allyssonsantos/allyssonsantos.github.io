@@ -4,7 +4,6 @@ import TransitionLink from 'gatsby-plugin-transition-link';
 import styled, { css } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 import { Sun, Moon, ExternalLink } from 'react-feather';
-import { useFade } from '@frigobar/animation';
 
 import Button from '@components/SignIn/Login';
 import UserInfo from '@components/SignIn/UserInfo';
@@ -13,11 +12,13 @@ import { Loading } from '@components/Elements';
 import rem from '@utils/rem';
 import trackingEvents from '@utils/trackingEvents';
 import { useDarkTheme } from '@utils/color-scheme';
+
 import { useAuth } from '@contexts/AuthContext';
 import { useTracking } from '@contexts/TrackingContext';
+import { useModal } from '@contexts/ModalContext';
 
 import Menu from './Menu';
-import LoginModal from './LoginModal';
+import LoginModal, { LOGIN_MODAL_KEY } from './LoginModal';
 
 const Nav = styled.nav(
   ({ opened, theme }) => css`
@@ -208,13 +209,21 @@ const List = styled.ul`
 const Navigation = React.forwardRef(
   ({ items, socials, opened, onMenuClick }, ref) => {
     const { currentTheme, toggleDarkTheme } = useDarkTheme();
-    const [{ animation: modalAnimation, state: modalState }, toggleModal] =
-      useFade({
-        startOnRender: false,
-      });
+    const { open, close } = useModal();
     const buttonLabel = `Trocar para tema ${currentTheme}`;
     const { currentUser, loadingUser } = useAuth();
     const { track } = useTracking();
+
+    const handleDoLogin = () => {
+      track(trackingEvents.LOGIN_BUTTON);
+      open({ component: LoginModal, key: LOGIN_MODAL_KEY });
+    };
+
+    const handleChangeTheme = () => {
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      toggleDarkTheme(newTheme);
+      track(trackingEvents.CHANGE_THEME, { currentTheme: newTheme });
+    };
 
     const trackLink = (title, href) => {
       track(
@@ -226,7 +235,7 @@ const Navigation = React.forwardRef(
 
     useEffect(() => {
       if (currentUser) {
-        toggleModal(false);
+        close({ key: LOGIN_MODAL_KEY });
       }
     }, [currentUser]);
 
@@ -249,10 +258,7 @@ const Navigation = React.forwardRef(
           ) : (
             <Button
               skin="neutral"
-              onClick={() => {
-                track(trackingEvents.LOGIN_BUTTON);
-                toggleModal(true);
-              }}
+              onClick={handleDoLogin}
               aria-label="Fazer login"
             >
               Entrar
@@ -295,11 +301,7 @@ const Navigation = React.forwardRef(
           ))}
         </List>
         <ChangeThemeButton
-          onClick={() => {
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            toggleDarkTheme(newTheme);
-            track(trackingEvents.CHANGE_THEME, { currentTheme: newTheme });
-          }}
+          onClick={handleChangeTheme}
           title={buttonLabel}
           isDarkTheme={currentTheme === 'dark'}
         >
@@ -308,13 +310,6 @@ const Navigation = React.forwardRef(
             <Sun />
           </div>
         </ChangeThemeButton>
-        {modalState && (
-          <LoginModal
-            animation={modalAnimation}
-            onClose={() => toggleModal(false)}
-            role="dialog"
-          />
-        )}
       </Nav>
     );
   }
