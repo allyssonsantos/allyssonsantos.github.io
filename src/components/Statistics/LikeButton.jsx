@@ -5,13 +5,16 @@ import { Heart } from 'react-feather';
 
 import trackingEvents from '@utils/trackingEvents';
 import { useAuth } from '@contexts/AuthContext';
+import { useModal } from '@contexts/ModalContext';
 import { useTracking } from '@contexts/TrackingContext';
 import { like } from '@services/likes';
 
 import { LikeButton as Button } from './styles';
+import LoginModal, { LOGIN_MODAL_KEY } from '../Layout/LoginModal';
 
 function LikeButton({ slug, likes, liked }) {
   const theme = useTheme();
+  const { open } = useModal();
   const { currentUser } = useAuth();
   const { track } = useTracking();
 
@@ -19,6 +22,8 @@ function LikeButton({ slug, likes, liked }) {
     if (currentUser) {
       track(trackingEvents.LIKE_BUTTON, { action: liked ? 'dislike' : 'like' });
       await like(slug, currentUser.uid);
+    } else {
+      open({ component: LoginModal, key: LOGIN_MODAL_KEY });
     }
   };
 
