@@ -13,7 +13,7 @@ import {
 
 import { useDarkTheme } from '@utils/color-scheme';
 import { lightTheme, darkTheme } from '@utils/themes';
-
+import { ModalProvider } from '@contexts/ModalContext';
 import { useAuth } from '@contexts/AuthContext';
 import { useTracking } from '@contexts/TrackingContext';
 
@@ -62,45 +62,47 @@ function Layout({ children }) {
 
   return (
     <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
-      <Grid>
-        <Menu onClick={handleMenu} />
-        <Navigation
-          onMenuClick={handleMenu}
-          opened={opened}
-          ref={navRef}
-          items={[
-            { title: 'Home', href: '/', icon: Home },
-            { title: 'Artigos', href: '/blog', icon: Book },
-            { title: 'Sobre', href: '/about', icon: Info },
-          ]}
-          socials={[
-            {
-              title: 'Github',
-              href: 'https://github.com/allyssonsantos',
-              icon: GitHub,
-            },
-            {
-              title: 'Twitter',
-              href: 'https://twitter.com/_allyssonsantos',
-              icon: Twitter,
-            },
-            {
-              title: 'Instagram',
-              href: 'https://www.instagram.com/_allysson/',
-              icon: Instagram,
-            },
-            {
-              title: 'LinkedIn',
-              href: 'https://www.linkedin.com/in/allyssonsantos/',
-              icon: Linkedin,
-            },
-          ]}
-        />
-        <Wrapper menuOpened={opened}>
-          <GlobalStyle />
-          <main>{children}</main>
-        </Wrapper>
-      </Grid>
+      <ModalProvider>
+        <Grid>
+          <Menu onClick={handleMenu} />
+          <Navigation
+            onMenuClick={handleMenu}
+            opened={opened}
+            ref={navRef}
+            items={[
+              { title: 'Home', href: '/', icon: Home },
+              { title: 'Artigos', href: '/blog', icon: Book },
+              { title: 'Sobre', href: '/about', icon: Info },
+            ]}
+            socials={[
+              {
+                title: 'Github',
+                href: 'https://github.com/allyssonsantos',
+                icon: GitHub,
+              },
+              {
+                title: 'Twitter',
+                href: 'https://twitter.com/_allyssonsantos',
+                icon: Twitter,
+              },
+              {
+                title: 'Instagram',
+                href: 'https://www.instagram.com/_allysson/',
+                icon: Instagram,
+              },
+              {
+                title: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/allyssonsantos/',
+                icon: Linkedin,
+              },
+            ]}
+          />
+          <Wrapper menuOpened={opened}>
+            <GlobalStyle />
+            <main>{children}</main>
+          </Wrapper>
+        </Grid>
+      </ModalProvider>
     </ThemeProvider>
   );
 }
