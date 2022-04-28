@@ -12,6 +12,9 @@ const Button = styled.button`
 
   width: 240px;
   height: 50px;
+
+  margin-top: auto;
+  margin-bottom: auto;
   padding: 1px;
 
   cursor: pointer;

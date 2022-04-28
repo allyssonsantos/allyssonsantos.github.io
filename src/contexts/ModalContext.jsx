@@ -10,8 +10,8 @@ import { useFade } from '@frigobar/animation';
 
 const ModalContext = createContext({});
 
-function ModalComponent({ Component, props, rest, ...spread }) {
-  return <Component {...props} {...rest} {...spread} />;
+function ModalComponent({ Component, ...props }) {
+  return <Component {...props} />;
 }
 
 ModalComponent.propTypes = {
@@ -37,13 +37,13 @@ function ModalRender({ Component, props, opened, onClose, ...rest }) {
       <ModalComponent
         Component={Component}
         animation={modalAnimation}
-        props={props}
-        rest={rest}
         onClose={() => {
           toggleModal(false);
           onClose && onClose();
           props?.onClose && props?.onClose();
         }}
+        {...props}
+        {...rest}
       />
     )
   );

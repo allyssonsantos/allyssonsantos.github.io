@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Alert } from '@frigobar/core';
 
 import trackingEvents from '@utils/trackingEvents';
-import { Subtitle } from '@components/Elements';
 import { login } from '@contexts/AuthContext';
 import { useTracking } from '@contexts/TrackingContext';
 
@@ -17,7 +16,6 @@ const Content = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
 
   min-width: 300px;
   min-height: 200px;
@@ -25,7 +23,7 @@ const Content = styled.div`
   small {
     display: block;
 
-    text-align: center;
+    text-align: left;
 
     color: ${(props) => props.theme.colors.neutral[900]};
   }
@@ -51,9 +49,8 @@ function LoginModal({ onClose, ...props }) {
   }, []);
 
   return (
-    <Modal role="dialog" onClose={onClose} {...props}>
+    <Modal onClose={onClose} title="Escolha uma forma de login:" {...props}>
       <Content>
-        <Subtitle as="h3">Escolha uma forma de login:</Subtitle>
         <GoogleBtn onClick={handleLogin} />
         <Alert show={error} type="warning">
           Ocorreu algum problema com o seu login, tente novamente.

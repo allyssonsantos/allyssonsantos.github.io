@@ -117,7 +117,7 @@ describe('Comments component', () => {
       userEvent.click(screen.getByLabelText(/deletar comentário/i));
 
       const modal = getByRole('dialog');
-      const [, , deleteButton] = within(modal).getAllByRole('button');
+      const [, deleteButton] = within(modal).getAllByRole('button');
 
       userEvent.click(deleteButton);
       await waitForElementToBeRemoved(modal);

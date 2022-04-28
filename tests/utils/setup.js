@@ -1,6 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
+import 'intersection-observer';
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

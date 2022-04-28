@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { Button } from '@frigobar/core';
 
 import trackingEvents from '@utils/trackingEvents';
-import { Subtitle } from '@components/Elements';
 import { useTracking } from '@contexts/TrackingContext';
 import { useModal } from '@contexts/ModalContext';
 import { deleteAccount } from '@contexts/AuthContext';
@@ -14,6 +13,10 @@ import Modal from '../Layout/Modal';
 const StyledModal = styled(Modal)`
   section {
     min-height: unset;
+
+    p {
+      margin-top: 0;
+    }
   }
 `;
 
@@ -40,8 +43,7 @@ function DeleteAccountModal({ ...props }) {
   };
 
   return (
-    <StyledModal {...props} onClose={handleOnClose} role="dialog">
-      <Subtitle as="h3">Deletar conta</Subtitle>
+    <StyledModal title="Deletar conta" {...props} onClose={handleOnClose}>
       <p>Ao deletar sua conta todos os comentários também serão apagados.</p>
       <Button
         skin="neutral"
