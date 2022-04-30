@@ -13,7 +13,6 @@ import Wrapper from './Wrapper';
 import MenuButton from './MenuButton';
 import GlobalStyle from './GlobalStyle';
 import Navigation from './Navigation';
-import Grid from './Grid';
 
 function Layout({ children }) {
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -56,7 +55,7 @@ function Layout({ children }) {
   return (
     <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
       <ModalProvider>
-        <Grid>
+        <div style={{ display: 'flex' }}>
           <MenuButton onClick={handleMenu} />
           <Navigation
             onMenuClick={handleMenu}
@@ -67,7 +66,7 @@ function Layout({ children }) {
             <GlobalStyle />
             <main>{children}</main>
           </Wrapper>
-        </Grid>
+        </div>
       </ModalProvider>
     </ThemeProvider>
   );
