@@ -32,7 +32,7 @@ function UserInfo() {
   const anchorRef = useRef(null);
   const { currentUser, loadingUser } = useAuth();
   const { track } = useTracking();
-  const { open: openModal } = useModal();
+  const { open: openModal, close } = useModal();
 
   const handleMenu = () => {
     track(trackingEvents.USER_MENU);

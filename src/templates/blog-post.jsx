@@ -44,8 +44,8 @@ function Post({ data: { mdx: post }, transitionStatus }) {
         return () => unsubscribe();
       };
 
-      listenLikes(post.slug, (likes) => {
-        setLikes(likes.data());
+      listenLikes(post.slug, (likeds) => {
+        setLikes(likeds.data());
       });
 
       getComments();

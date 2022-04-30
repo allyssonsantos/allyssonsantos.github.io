@@ -16,8 +16,6 @@ function ModalComponent({ Component, ...props }) {
 
 ModalComponent.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  props: PropTypes.any,
-  rest: PropTypes.any,
 };
 
 function ModalRender({ Component, props, opened, onClose, ...rest }) {
@@ -32,16 +30,18 @@ function ModalRender({ Component, props, opened, onClose, ...rest }) {
     }
   }, [opened]);
 
+  const handleOnClose = () => {
+    toggleModal(false);
+    if (onClose) onClose();
+    if (props?.onClose) props?.onClose();
+  };
+
   return (
     modalState && (
       <ModalComponent
         Component={Component}
         animation={modalAnimation}
-        onClose={() => {
-          toggleModal(false);
-          onClose && onClose();
-          props?.onClose && props?.onClose();
-        }}
+        onClose={handleOnClose}
         {...props}
         {...rest}
       />
@@ -51,9 +51,9 @@ function ModalRender({ Component, props, opened, onClose, ...rest }) {
 
 ModalRender.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  props: PropTypes.any,
-  opened: PropTypes.bool,
-  onClose: PropTypes.func,
+  props: PropTypes.shape({}).isRequired,
+  opened: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 function ModalProvider({ children }) {
