@@ -40,8 +40,6 @@ const Nav = styled.nav(
     width: 240px;
     height: calc(100vh - ${theme.spacings.medium}px);
 
-    grid-area: nav;
-
     margin-left: -${theme.spacings.medium}px;
     padding: ${theme.spacings.medium}px;
 
@@ -243,8 +241,9 @@ const socialLinks = [
 
 const Navigation = React.forwardRef(({ opened, onMenuClick }, ref) => {
   const { currentTheme, toggleDarkTheme } = useDarkTheme();
-  const buttonLabel = `Trocar para tema ${currentTheme}`;
   const { track } = useTracking();
+
+  const changeThemeLabel = `Trocar para tema ${currentTheme}`;
 
   const handleChangeTheme = () => {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -311,7 +310,7 @@ const Navigation = React.forwardRef(({ opened, onMenuClick }, ref) => {
       </List>
       <ChangeThemeButton
         onClick={handleChangeTheme}
-        title={buttonLabel}
+        title={changeThemeLabel}
         isDarkTheme={currentTheme === 'dark'}
       >
         <div>
