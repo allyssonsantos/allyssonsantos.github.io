@@ -1,8 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Menu } from '@frigobar/core';
 
+import LoginButton from '@components/SignIn/Login';
+import LoginModal, { LOGIN_MODAL_KEY } from '@components/Layout/LoginModal';
+import { Loading } from '@components/Elements';
+
 import trackingEvents from '@utils/trackingEvents';
+
 import { useTracking } from '@contexts/TrackingContext';
 import { useAuth, logout } from '@contexts/AuthContext';
 import { useModal } from '@contexts/ModalContext';
@@ -23,28 +28,55 @@ const Button = styled.button`
 `;
 
 function UserInfo() {
-  const [open, toggleOpen] = useState(false);
+  const [menuOpen, toggleMenuOpen] = useState(false);
   const anchorRef = useRef(null);
-  const { currentUser } = useAuth();
+  const { currentUser, loadingUser } = useAuth();
   const { track } = useTracking();
   const { open: openModal } = useModal();
 
   const handleMenu = () => {
     track(trackingEvents.USER_MENU);
-    toggleOpen(!open);
+    toggleMenuOpen(!menuOpen);
+  };
+
+  const handleDoLogin = () => {
+    track(trackingEvents.LOGIN_BUTTON);
+    openModal({ component: LoginModal, key: LOGIN_MODAL_KEY });
   };
 
   const handleLogout = () => {
     track(trackingEvents.LOGOUT);
-    toggleOpen(false);
+    toggleMenuOpen(false);
     logout();
   };
 
   const handleDelete = () => {
     track(trackingEvents.DELETE_BUTTON);
     openModal({ component: DeleteAccountModal, key: DELETE_MODAL_KEY });
-    toggleOpen(false);
+    toggleMenuOpen(false);
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      close({ key: LOGIN_MODAL_KEY });
+    }
+  }, [currentUser]);
+
+  if (loadingUser) {
+    return <Loading />;
+  }
+
+  if (!currentUser) {
+    return (
+      <LoginButton
+        skin="neutral"
+        onClick={handleDoLogin}
+        aria-label="Fazer login"
+      >
+        Entrar
+      </LoginButton>
+    );
+  }
 
   return (
     <>
@@ -58,8 +90,8 @@ function UserInfo() {
       </Button>
       <Menu
         anchorElement={anchorRef}
-        open={open}
-        handleClickAway={() => toggleOpen(false)}
+        open={menuOpen}
+        handleClickAway={() => toggleMenuOpen(false)}
       >
         <Menu.Item onClick={handleLogout}>Sair</Menu.Item>
         <Menu.Item onClick={handleDelete}>Deletar conta</Menu.Item>

@@ -1,3 +1,3 @@
-const rem = valueInPx => `${valueInPx / 16}rem`;
+const rem = (valueInPx) => `${valueInPx / 16}rem`;
 
 export default rem;

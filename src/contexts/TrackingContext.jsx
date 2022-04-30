@@ -10,17 +10,18 @@ function TrackingProvider({ children, tracking }) {
       { ...properties, environment: process.env.NODE_ENV },
       ...opts
     );
-  const identify = (userIdentification) =>
-    tracking.identify(userIdentification);
-  const setUserInfo = ({ name }) => tracking.people.set({ name });
+
+  const identify = ({ email, name }) => {
+    tracking.identify(email);
+    tracking.people.set({ name });
+  };
 
   const value = useMemo(
     () => ({
       track,
       identify,
-      setUserInfo,
     }),
-    [track, identify, setUserInfo]
+    [track, identify]
   );
 
   return (

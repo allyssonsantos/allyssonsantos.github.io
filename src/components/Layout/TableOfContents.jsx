@@ -8,16 +8,18 @@ const Wrapper = styled.section`
 `;
 
 function TableOfContents({ headings }) {
-  return <Wrapper>
-    <h2>Índice</h2>
-    <Ol>
-      {headings.map(({ value }) => (
-        <li key={value}>
-          <a href={`#${value.toLowerCase().replaceAll(' ', '-')}`}>{value}</a>
-        </li>
-      ))}
-    </Ol>
-  </Wrapper>
+  return (
+    <Wrapper>
+      <h2>Índice</h2>
+      <Ol>
+        {headings.map(({ value }) => (
+          <li key={value}>
+            <a href={`#${value.toLowerCase().replaceAll(' ', '-')}`}>{value}</a>
+          </li>
+        ))}
+      </Ol>
+    </Wrapper>
+  );
 }
 
 TableOfContents.propTypes = {
