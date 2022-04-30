@@ -1,18 +1,10 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from '@frigobar/core';
-import {
-  Home,
-  Book,
-  Info,
-  GitHub,
-  Instagram,
-  Twitter,
-  Linkedin,
-} from 'react-feather';
 
 import { useDarkTheme } from '@utils/color-scheme';
 import { lightTheme, darkTheme } from '@utils/themes';
+
 import { ModalProvider } from '@contexts/ModalContext';
 import { useAuth } from '@contexts/AuthContext';
 import { useTracking } from '@contexts/TrackingContext';
@@ -24,32 +16,33 @@ import Navigation from './Navigation';
 import Grid from './Grid';
 
 function Layout({ children }) {
+  const [navigationOpen, setNavigationOpen] = useState(false);
+  const { identify } = useTracking();
   const { currentTheme } = useDarkTheme();
-  const navRef = useRef(null);
-  const [opened, setOpened] = useState(false);
-
   const { currentUser } = useAuth();
-  const { identify, setUserInfo } = useTracking();
+  const navRef = useRef(null);
 
   const handleMenu = () => {
-    setOpened(!opened);
+    setNavigationOpen(!navigationOpen);
   };
 
-  const clickAway = useCallback((event) => {
-    if (navRef.current && !navRef.current.contains(event.target)) {
-      setOpened(false);
-    }
-  });
+  const clickAway = useCallback(
+    (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setNavigationOpen(false);
+      }
+    },
+    [navRef.current]
+  );
 
   useEffect(() => {
     if (currentUser) {
-      identify(currentUser.email);
-      setUserInfo({ name: currentUser.displayName });
+      identify({ name: currentUser.displayName, email: currentUser.email });
     }
   }, [currentUser]);
 
   useEffect(() => {
-    if (opened) {
+    if (navigationOpen) {
       window.addEventListener('click', clickAway);
     } else {
       window.removeEventListener('click', clickAway);
@@ -58,7 +51,7 @@ function Layout({ children }) {
     return () => {
       window.removeEventListener('click', clickAway);
     };
-  }, [opened]);
+  }, [navigationOpen]);
 
   return (
     <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
@@ -67,37 +60,10 @@ function Layout({ children }) {
           <Menu onClick={handleMenu} />
           <Navigation
             onMenuClick={handleMenu}
-            opened={opened}
+            opened={navigationOpen}
             ref={navRef}
-            items={[
-              { title: 'Home', href: '/', icon: Home },
-              { title: 'Artigos', href: '/blog', icon: Book },
-              { title: 'Sobre', href: '/about', icon: Info },
-            ]}
-            socials={[
-              {
-                title: 'Github',
-                href: 'https://github.com/allyssonsantos',
-                icon: GitHub,
-              },
-              {
-                title: 'Twitter',
-                href: 'https://twitter.com/_allyssonsantos',
-                icon: Twitter,
-              },
-              {
-                title: 'Instagram',
-                href: 'https://www.instagram.com/_allysson/',
-                icon: Instagram,
-              },
-              {
-                title: 'LinkedIn',
-                href: 'https://www.linkedin.com/in/allyssonsantos/',
-                icon: Linkedin,
-              },
-            ]}
           />
-          <Wrapper menuOpened={opened}>
+          <Wrapper menuOpened={navigationOpen}>
             <GlobalStyle />
             <main>{children}</main>
           </Wrapper>
