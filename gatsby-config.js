@@ -148,7 +148,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Source Sans 3\:300,300i,400,400i,700,700i`],
+        fonts: [`Source Sans 3:300,300i,400,400i,700,700i`],
         display: 'swap',
       },
     },
