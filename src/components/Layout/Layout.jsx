@@ -10,7 +10,7 @@ import { useAuth } from '@contexts/AuthContext';
 import { useTracking } from '@contexts/TrackingContext';
 
 import Wrapper from './Wrapper';
-import Menu from './Menu';
+import MenuButton from './MenuButton';
 import GlobalStyle from './GlobalStyle';
 import Navigation from './Navigation';
 import Grid from './Grid';
@@ -57,7 +57,7 @@ function Layout({ children }) {
     <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
       <ModalProvider>
         <Grid>
-          <Menu onClick={handleMenu} />
+          <MenuButton onClick={handleMenu} />
           <Navigation
             onMenuClick={handleMenu}
             opened={navigationOpen}

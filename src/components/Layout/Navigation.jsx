@@ -1,24 +1,30 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TransitionLink from 'gatsby-plugin-transition-link';
 import styled, { css } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
-import { Sun, Moon, ExternalLink } from 'react-feather';
+import {
+  Sun,
+  Moon,
+  ExternalLink,
+  GitHub,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Home,
+  Book,
+  Info,
+} from 'react-feather';
 
-import Button from '@components/SignIn/Login';
 import UserInfo from '@components/SignIn/UserInfo';
-import { Loading } from '@components/Elements';
 
 import rem from '@utils/rem';
 import trackingEvents from '@utils/trackingEvents';
 import { useDarkTheme } from '@utils/color-scheme';
 
-import { useAuth } from '@contexts/AuthContext';
 import { useTracking } from '@contexts/TrackingContext';
-import { useModal } from '@contexts/ModalContext';
 
-import Menu from './Menu';
-import LoginModal, { LOGIN_MODAL_KEY } from './LoginModal';
+import MenuButton, { Wrapper as MenuWrapper } from './MenuButton';
 
 const Nav = styled.nav(
   ({ opened, theme }) => css`
@@ -46,7 +52,7 @@ const Nav = styled.nav(
 
     background-color: ${theme.colors.neutral[50]};
 
-    > div {
+    ${MenuWrapper} {
       box-shadow: none;
     }
 
@@ -132,7 +138,7 @@ const ChangeThemeButton = styled.button(
     div {
       transition: transform 300ms cubic-bezier(0.21, 0.54, 0.29, 0.92);
 
-      transform: translateY(${isDarkTheme ? `-${rem(16)}` : rem(5)});
+      transform: translateY(${isDarkTheme ? `-${rem(19)}` : rem(5)});
     }
   `
 );
@@ -206,130 +212,120 @@ const List = styled.ul`
   }
 `;
 
-const Navigation = React.forwardRef(
-  ({ items, socials, opened, onMenuClick }, ref) => {
-    const { currentTheme, toggleDarkTheme } = useDarkTheme();
-    const { open, close } = useModal();
-    const buttonLabel = `Trocar para tema ${currentTheme}`;
-    const { currentUser, loadingUser } = useAuth();
-    const { track } = useTracking();
+const siteLinks = [
+  { title: 'Home', href: '/', icon: Home },
+  { title: 'Artigos', href: '/blog', icon: Book },
+  { title: 'Sobre', href: '/about', icon: Info },
+];
 
-    const handleDoLogin = () => {
-      track(trackingEvents.LOGIN_BUTTON);
-      open({ component: LoginModal, key: LOGIN_MODAL_KEY });
-    };
+const socialLinks = [
+  {
+    title: 'Github',
+    href: 'https://github.com/allyssonsantos',
+    icon: GitHub,
+  },
+  {
+    title: 'Twitter',
+    href: 'https://twitter.com/_allyssonsantos',
+    icon: Twitter,
+  },
+  {
+    title: 'Instagram',
+    href: 'https://www.instagram.com/_allysson/',
+    icon: Instagram,
+  },
+  {
+    title: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/allyssonsantos/',
+    icon: Linkedin,
+  },
+];
 
-    const handleChangeTheme = () => {
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      toggleDarkTheme(newTheme);
-      track(trackingEvents.CHANGE_THEME, { currentTheme: newTheme });
-    };
+const Navigation = React.forwardRef(({ opened, onMenuClick }, ref) => {
+  const { currentTheme, toggleDarkTheme } = useDarkTheme();
+  const buttonLabel = `Trocar para tema ${currentTheme}`;
+  const { track } = useTracking();
 
-    const trackLink = (title, href) => {
-      track(
-        trackingEvents.NAVIGATION_LINK,
-        { title, href },
-        { send_immediately: true }
-      );
-    };
+  const handleChangeTheme = () => {
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-    useEffect(() => {
-      if (currentUser) {
-        close({ key: LOGIN_MODAL_KEY });
-      }
-    }, [currentUser]);
+    toggleDarkTheme(newTheme);
+    track(trackingEvents.CHANGE_THEME, { currentTheme: newTheme });
+  };
 
-    return (
-      <Nav opened={opened} ref={ref}>
-        <Menu onClick={onMenuClick} close />
-        <Header>
-          <Name
-            to="/"
-            entry={{ length: 0.11, delay: 0.11 }}
-            exit={{ length: 0.11 }}
-          >
-            allysson.me
-          </Name>
-          {/* eslint-disable-next-line no-nested-ternary */}
-          {loadingUser ? (
-            <Loading />
-          ) : currentUser ? (
-            <UserInfo />
-          ) : (
-            <Button
-              skin="neutral"
-              onClick={handleDoLogin}
-              aria-label="Fazer login"
-            >
-              Entrar
-            </Button>
-          )}
-        </Header>
-        <List>
-          {items.map(({ title, href, icon: Icon }) => (
-            <React.Fragment key={title}>
-              <li>
-                <Link
-                  as={TransitionLink}
-                  to={href}
-                  activeClassName="active"
-                  partiallyActive={href !== '/'}
-                  entry={{ length: 0.11, delay: 0.11 }}
-                  exit={{ length: 0.11 }}
-                  onClick={(e) => {
-                    trackLink(title, href);
-                    onMenuClick(e);
-                  }}
-                >
-                  <Icon width={14} height={14} />
-                  {title}
-                </Link>
-              </li>
-            </React.Fragment>
-          ))}
-          <Category>Redes sociais</Category>
-          {socials.map(({ title, href, icon: Icon }) => (
-            <React.Fragment key={title}>
-              <li>
-                <Link as="a" href={href} onClick={() => trackLink(title, href)}>
-                  <Icon width={14} height={14} />
-                  {title}
-                  <ExternalLink width={14} height={14} />
-                </Link>
-              </li>
-            </React.Fragment>
-          ))}
-        </List>
-        <ChangeThemeButton
-          onClick={handleChangeTheme}
-          title={buttonLabel}
-          isDarkTheme={currentTheme === 'dark'}
-        >
-          <div>
-            <Moon />
-            <Sun />
-          </div>
-        </ChangeThemeButton>
-      </Nav>
+  const trackLink = (title, href) =>
+    track(
+      trackingEvents.NAVIGATION_LINK,
+      { title, href },
+      { send_immediately: true }
     );
-  }
-);
+
+  return (
+    <Nav opened={opened} ref={ref}>
+      <MenuButton onClick={onMenuClick} close />
+      <Header>
+        <Name
+          to="/"
+          entry={{ length: 0.11, delay: 0.11 }}
+          exit={{ length: 0.11 }}
+        >
+          allysson.me
+        </Name>
+
+        <UserInfo />
+      </Header>
+      <List>
+        {siteLinks.map(({ title, href, icon: Icon }) => (
+          <React.Fragment key={title}>
+            <li>
+              <Link
+                as={TransitionLink}
+                to={href}
+                activeClassName="active"
+                partiallyActive={href !== '/'}
+                entry={{ length: 0.11, delay: 0.11 }}
+                exit={{ length: 0.11 }}
+                onClick={(e) => {
+                  trackLink(title, href);
+                  onMenuClick(e);
+                }}
+              >
+                <Icon width={14} height={14} />
+                {title}
+              </Link>
+            </li>
+          </React.Fragment>
+        ))}
+        <Category>Redes sociais</Category>
+        {socialLinks.map(({ title, href, icon: Icon }) => (
+          <React.Fragment key={title}>
+            <li>
+              <Link as="a" href={href} onClick={() => trackLink(title, href)}>
+                <Icon width={14} height={14} />
+                {title}
+                <ExternalLink width={14} height={14} />
+              </Link>
+            </li>
+          </React.Fragment>
+        ))}
+      </List>
+      <ChangeThemeButton
+        onClick={handleChangeTheme}
+        title={buttonLabel}
+        isDarkTheme={currentTheme === 'dark'}
+      >
+        <div>
+          <Moon />
+          <Sun />
+        </div>
+      </ChangeThemeButton>
+    </Nav>
+  );
+});
 
 Navigation.displayName = 'Navigation';
 
 Navigation.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ).isRequired,
-  socials: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ).isRequired,
   opened: PropTypes.bool.isRequired,
   onMenuClick: PropTypes.func.isRequired,
 };
