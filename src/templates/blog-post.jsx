@@ -57,9 +57,13 @@ function Post({ data: { mdx: post }, transitionStatus }) {
   );
 
   const animation = useTransition(transitionStatus);
+
   return (
     <div animation={animation}>
-      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+      />
       <Title>{post.frontmatter.title}</Title>
       <Description>{post.frontmatter.description}</Description>
       <time>Publicado em {post.frontmatter.date}</time>
@@ -92,7 +96,6 @@ export const pageQuery = graphql`
     }
     mdx(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
       slug
       frontmatter {
         title
@@ -125,7 +128,6 @@ Post.propTypes = {
         img: PropTypes.string,
       }),
       slug: PropTypes.string,
-      excerpt: PropTypes.string,
       headings: PropTypes.arrayOf(
         PropTypes.shape({
           value: PropTypes.string,
@@ -133,7 +135,6 @@ Post.propTypes = {
       ).isRequired,
       body: PropTypes.string,
     }),
-    excerpt: PropTypes.string,
   }).isRequired,
 };
 

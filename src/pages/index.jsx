@@ -99,7 +99,6 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
@@ -127,7 +126,6 @@ Home.propTypes = {
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
-            excerpt: PropTypes.string,
             fields: PropTypes.shape({
               slug: PropTypes.string,
             }),
