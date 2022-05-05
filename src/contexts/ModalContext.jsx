@@ -51,9 +51,13 @@ function ModalRender({ Component, props, opened, onClose, ...rest }) {
 
 ModalRender.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  props: PropTypes.shape({}).isRequired,
+  props: PropTypes.shape({}),
   opened: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+};
+
+ModalRender.defaultProps = {
+  props: {},
 };
 
 function ModalProvider({ children }) {

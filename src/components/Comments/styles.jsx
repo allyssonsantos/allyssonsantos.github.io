@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Modal as FrigobarModal } from '@components/Layout';
+import { Modal as FrigobarModal } from '@components/Elements';
 import rem from '@utils/rem';
 
 const Title = styled.h2`

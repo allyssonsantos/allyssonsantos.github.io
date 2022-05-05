@@ -10,6 +10,7 @@ import Description from './Description';
 import Input from './Input';
 import Textarea from './Textarea';
 import Loading from './Loading';
+import Modal from './Modal';
 
 export {
   Code,
@@ -26,4 +27,5 @@ export {
   Input,
   Textarea,
   Loading,
+  Modal,
 };

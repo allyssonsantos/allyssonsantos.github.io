@@ -2,8 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Menu } from '@frigobar/core';
 
-import LoginButton from '@components/SignIn/Login';
-import LoginModal, { LOGIN_MODAL_KEY } from '@components/Layout/LoginModal';
 import { Loading } from '@components/Elements';
 
 import trackingEvents from '@utils/trackingEvents';
@@ -12,6 +10,8 @@ import { useTracking } from '@contexts/TrackingContext';
 import { useAuth, logout } from '@contexts/AuthContext';
 import { useModal } from '@contexts/ModalContext';
 
+import LoginButton from './Login';
+import LoginModal, { LOGIN_MODAL_KEY } from './LoginModal';
 import DeleteAccountModal, { DELETE_MODAL_KEY } from './DeleteAccountModal';
 
 const Button = styled.button`

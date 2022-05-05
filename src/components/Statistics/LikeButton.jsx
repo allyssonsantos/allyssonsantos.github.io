@@ -10,13 +10,15 @@ import { useTracking } from '@contexts/TrackingContext';
 import { like } from '@services/likes';
 
 import { LikeButton as Button } from './styles';
-import LoginModal, { LOGIN_MODAL_KEY } from '../Layout/LoginModal';
+import LoginModal, { LOGIN_MODAL_KEY } from '../SignIn/LoginModal';
 
 function LikeButton({ slug, likes, liked }) {
   const theme = useTheme();
   const { open } = useModal();
   const { currentUser } = useAuth();
   const { track } = useTracking();
+
+  const deslikeOrLike = liked ? 'descurtir' : 'curtir';
 
   const handleClick = async () => {
     if (currentUser) {
@@ -29,10 +31,8 @@ function LikeButton({ slug, likes, liked }) {
 
   return (
     <Button
-      title={`Clique para ${liked ? 'descurtir' : 'curtir'}`}
-      aria-label={`${likes} comentários. Clique para ${
-        liked ? 'descurtir' : 'curtir'
-      }`}
+      title={`Clique para ${deslikeOrLike}`}
+      aria-label={`${likes} comentários. Clique para ${deslikeOrLike}`}
       onClick={handleClick}
     >
       <Heart fill={liked ? theme.colors.neutral[900] : 'none'} /> {likes}{' '}

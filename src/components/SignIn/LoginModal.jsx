@@ -7,8 +7,8 @@ import trackingEvents from '@utils/trackingEvents';
 import { login } from '@contexts/AuthContext';
 import { useTracking } from '@contexts/TrackingContext';
 
-import Modal from './Modal';
-import GoogleBtn from '../SignIn/Google';
+import Modal from '../Elements/Modal';
+import GoogleBtn from './Google';
 
 const POPUP_CLOSED_ERROR = 'auth/popup-closed-by-user';
 

@@ -8,7 +8,7 @@ import { useTracking } from '@contexts/TrackingContext';
 import { useModal } from '@contexts/ModalContext';
 import { deleteAccount } from '@contexts/AuthContext';
 
-import Modal from '../Layout/Modal';
+import Modal from '../Elements/Modal';
 
 const StyledModal = styled(Modal)`
   section {
