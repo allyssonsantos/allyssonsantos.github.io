@@ -15,6 +15,7 @@ My personal website/blog to share some front-end ideas with everyone!
 - Components: [frigobar](https://github.com/frigobar/frigobar)
 - Auth: [Firebase](https://firebase.google.com/docs/auth)
 - Events Tracking: [Mixpanel](https://mixpanel.com/)
+- Error Tracking: [Sentry](https://sentry.io/)
 
 ## Running
 

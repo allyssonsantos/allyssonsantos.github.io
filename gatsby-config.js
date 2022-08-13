@@ -14,6 +14,9 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "@sentry/gatsby",
+    },
+    {
       resolve: 'gatsby-plugin-transition-link',
       options: {
         layout: require.resolve('./src/components/Layout/Layout.jsx'),
