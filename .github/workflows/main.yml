@@ -44,7 +44,7 @@ jobs:
           GATSBY_APP_ID: ${{ secrets.GATSBY_APP_ID }}
           GATSBY_MEASUREMENT_ID: ${{ secrets.GATSBY_MEASUREMENT_ID }}
           GATSBY_MIXPANEL_TOKEN: ${{ secrets.GATSBY_MIXPANEL_TOKEN }}
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          GATSBY_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           GIT_AUTHOR_NAME: Allysson Santos
           GIT_AUTHOR_EMAIL: aallysson0@gmail.com
           GIT_COMMITTER_NAME: Allysson Santos
