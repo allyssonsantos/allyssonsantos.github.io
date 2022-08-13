@@ -2,7 +2,7 @@
   "name": "allysson.me",
   "private": true,
   "description": "My personal website/blog",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Allysson Santos <aallysson0@gmail.com>",
   "bugs": {
     "url": "https://github.com/allyssonsantos/allyssonsantos.github.io/issues"
@@ -132,7 +132,9 @@
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/github",
-      "@semantic-release/git",
+      ["@semantic-release/git", {
+        "assets": ["package.json"]
+      }],
       [
         "@semantic-release/exec",
         {
