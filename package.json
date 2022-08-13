@@ -2,7 +2,7 @@
   "name": "allysson.me",
   "private": true,
   "description": "My personal website/blog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Allysson Santos <aallysson0@gmail.com>",
   "bugs": {
     "url": "https://github.com/allyssonsantos/allyssonsantos.github.io/issues"
@@ -66,6 +66,7 @@
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.5",
+    "@semantic-release/npm": "^9.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@testing-library/dom": "^8.11.3",
@@ -131,10 +132,9 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
       "@semantic-release/github",
-      ["@semantic-release/git", {
-        "assets": ["package.json"]
-      }],
       [
         "@semantic-release/exec",
         {
