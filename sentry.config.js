@@ -6,7 +6,7 @@ import { version } from './package.json';
 const isProduction = process.env.NODE_ENV === 'production';
 
 Sentry.init({
-    dsn: process.env.SENTRY_DSN,
+    dsn: process.env.GATSBY_SENTRY_DSN,
     sampleRate: 1.0,
     environment: process.env.NODE_ENV || 'development',
     debug: !isProduction,
