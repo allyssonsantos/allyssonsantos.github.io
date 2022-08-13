@@ -34,6 +34,7 @@ jobs:
       - name: deploy
         run: yarn semantic-release
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_PERSONAL_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
           GATSBY_API_KEY: ${{ secrets.GATSBY_API_KEY }}
           GATSBY_AUTH_DOMAIN: ${{ secrets.GATSBY_AUTH_DOMAIN }}
