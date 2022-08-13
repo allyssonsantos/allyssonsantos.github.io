@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.1.0...v1.2.0) (2022-08-13)
+
+
+### Features
+
+* **sentry:** rename gatsby dsn environment variable ([46662ae](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/46662aedc50e57cc9b16cb98e5d1af400deb8859))
+
 # [1.1.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.0.2...v1.1.0) (2022-08-13)
 
 
