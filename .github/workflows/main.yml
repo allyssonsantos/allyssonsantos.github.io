@@ -32,7 +32,7 @@ jobs:
         run: yarn test
 
       - name: deploy
-        run: yarn deploy
+        run: yarn semantic-release
         env:
           GH_PERSONAL_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
           GATSBY_API_KEY: ${{ secrets.GATSBY_API_KEY }}

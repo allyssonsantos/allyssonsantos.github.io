@@ -61,6 +61,12 @@
   "devDependencies": {
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.5",
+    "@semantic-release/release-notes-generator": "^10.0.3",
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@testing-library/dom": "^8.11.3",
     "@testing-library/jest-dom": "^5.16.1",
@@ -86,6 +92,7 @@
     "postcss-syntax": "^0.36.2",
     "prettier": "^2.5.0",
     "remark-slug": "^7.0.1",
+    "semantic-release": "^19.0.3",
     "stylelint": "^14.3.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^6.0.0",
@@ -93,7 +100,7 @@
     "stylelint-order": "^5.0.0",
     "stylelint-order-config-csscomb": "^0.1.2"
   },
-  "homepage": "https://github.com/allyssonsantos/allyssonsantos.github.io-starter-blog#readme",
+  "homepage": "https://github.com/allyssonsantos/allyssonsantos.github.io",
   "keywords": [
     "gatsby"
   ],
@@ -101,20 +108,37 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/allyssonsantos/allyssonsantos.github.io-starter-blog.git"
+    "url": "https://github.com/allyssonsantos/allyssonsantos.github.io.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "gatsby develop -o",
     "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -d public -b gh-pages",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d public -b gh-pages",
     "commit": "git-cz",
     "lint:css": "stylelint './src/**/*.jsx'",
     "lint": "eslint ./src --ext .js,.jsx",
-    "test": "jest"
+    "test": "jest",
+    "semantic-release": "semantic-release"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      "@semantic-release/git",
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "yarn deploy"
+        }
+      ]
+    ]
   }
 }
