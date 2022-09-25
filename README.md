@@ -1,6 +1,5 @@
 # allysson.me
 
-![Gatsby](https://github.com/allyssonsantos/allyssonsantos.github.io/workflows/Gatsby/badge.svg)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
@@ -8,7 +7,7 @@ My personal website/blog to share some front-end ideas with everyone!
 
 ## Made with
 
-- Framework: [Gatsby](https://github.com/gatsbyjs/gatsby)
+- Framework: [NextJS](https://nextjs.org/)
 - Styling: [Styled-components](https://github.com/styled-components/styled-components)
 - Content: [MDX](https://mdxjs.com)
 - Animation: [frigobar](https://github.com/frigobar/frigobar)
