@@ -6,9 +6,7 @@ function SideBar() {
     <aside className={styles.sidebar}>
       <div>
         <Link href="/">allysson.me</Link>
-        <button>Entrar</button>
       </div>
-      <nav></nav>
     </aside>
   );
 }
