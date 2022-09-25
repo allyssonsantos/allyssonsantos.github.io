@@ -15,7 +15,8 @@
     "export": "next export",
     "prettier": "prettier --write .",
     "lint": "next lint",
-    "postbuild": "NODE_OPTIONS='--experimental-json-modules' node ./scripts/generate-rss.mjs && next-sitemap"
+    "postbuild": "NODE_OPTIONS='--experimental-json-modules' node ./scripts/generate-rss.mjs && next-sitemap",
+    "commit": "cz"
   },
   "dependencies": {
     "@types/rss": "^0.0.29",
@@ -45,12 +46,19 @@
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.1",
     "eslint-config-prettier": "^8.5.0",
     "jest": "^29.0.3",
     "jest-environment-jsdom": "^29.0.3",
+    "lefthook": "^1.1.1",
     "prettier": "^2.7.1",
     "typescript": "4.8.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
