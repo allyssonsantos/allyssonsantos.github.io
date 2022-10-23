@@ -4,14 +4,14 @@
         <description><![CDATA[Allysson Santos]]></description>
         <link>https://allysson.me</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 24 Sep 2022 22:50:51 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 26 Sep 2022 20:59:21 GMT</lastBuildDate>
         <atom:link href="https://allysson.me/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
-            <title><![CDATA[Blog One🚀]]></title>
-            <description><![CDATA[Learn how to build a Next.js blog with MDX and Contentlayer!]]></description>
+            <title><![CDATA[First post 🚀]]></title>
+            <description><![CDATA[First post with NextJS, MDX and Contentlayer!]]></description>
             <link>https://allysson.me/blog/hello</link>
             <guid isPermaLink="true">https://allysson.me/blog/hello</guid>
-            <pubDate>Fri, 24 Dec 2021 00:00:00 GMT</pubDate>
+            <pubDate>Sat, 24 Sep 2022 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
