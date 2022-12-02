@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import { Source_Sans_3 } from '@next/font/google';
 import { DefaultSeo } from 'next-seo';
 
 import { SITE_BASE_URL, SITE_NAME, TWITTER_HANDLE } from 'src/constants';
@@ -6,9 +7,11 @@ import { SITE_BASE_URL, SITE_NAME, TWITTER_HANDLE } from 'src/constants';
 import '../../styles/globals.css';
 import '../../styles/highlight.css';
 
+const sourceSans = Source_Sans_3({ subsets: ['latin'] });
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className={sourceSans.className}>
       <DefaultSeo
         titleTemplate={`%s | ${SITE_NAME}`}
         title="Allysson Santos"
@@ -26,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <Component {...pageProps} />
-    </>
+    </div>
   );
 }
 
