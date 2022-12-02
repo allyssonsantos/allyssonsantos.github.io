@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 
 import { compareDesc, format, parseISO } from 'date-fns';
 import { allBlogs, Blog } from 'contentlayer/generated';
+import { SideBar } from 'src/components/SideBar';
 
 export async function getStaticProps() {
   const posts = allBlogs.sort((a, b) => {
@@ -13,6 +14,7 @@ export async function getStaticProps() {
 const Home: NextPage<{ posts: Blog[] }> = ({ posts }) => {
   return (
     <>
+      <SideBar />
       <div>
         <ul>
           {posts.map(({ publishedAt, readingTime, title, description }) => (
