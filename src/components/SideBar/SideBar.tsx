@@ -96,10 +96,14 @@ function SideBar() {
   return (
     <aside className={styles.sidebar}>
       <header className={styles.sidebar__header}>
-        <Link href="/" aria-label="voltar para página inicial">
+        <Link
+          href="/"
+          aria-label="voltar para página inicial"
+          className={styles.sidebar__logo}
+        >
           allysson.me
         </Link>
-        <button>Entrar</button>
+        <button className={styles.sidebar__login}>Entrar</button>
       </header>
       <nav className={styles.sidebar__navigation}>
         <ul className={styles.sidebar__list}>
@@ -110,7 +114,7 @@ function SideBar() {
           ))}
         </ul>
         <div>
-          <small>Redes sociais</small>
+          <small className={styles.sidebar__category}>Redes sociais</small>
           <ul className={styles.sidebar__list}>
             {socialLinks.map((link) => (
               <li key={link.title}>
