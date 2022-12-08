@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import classnames from 'classnames';
 import {
   Home,
   Book,
@@ -14,6 +15,7 @@ import {
   type Icon,
 } from 'react-feather';
 
+import { ActiveLink } from '../ActiveLink';
 import styles from './SideBar.module.css';
 
 interface ILinks {
@@ -73,16 +75,17 @@ const socialLinks: Array<ILinks> = [
 
 function SideBarLink({ title, href, external, icon: Icon }: ILinks) {
   return (
-    <a
+    <ActiveLink
       href={href}
       target={external ? '_blank' : '_self'}
       rel="noopener nofollow noreferrer"
       className={styles.sidebar__link}
+      activeClassName={styles['sidebar__link--active']}
     >
       <Icon />
       {title}
       {external && <ExternalLink />}
-    </a>
+    </ActiveLink>
   );
 }
 
@@ -125,11 +128,15 @@ function SideBar() {
         </div>
       </nav>
       <button
+        className={classnames(styles['sidebar__theme-button'], {
+          [styles['sidebar__theme-button--active']]: isDarkTheme,
+        })}
         type="button"
         aria-label="alterar tema"
         onClick={handleThemeChange}
       >
-        {isDarkTheme ? <Sun /> : <Moon />}
+        <Sun />
+        <Moon />
       </button>
     </aside>
   );
