@@ -6,7 +6,7 @@ import { allBlogs, type Blog as BlogType } from 'contentlayer/generated';
 
 import { SITE_BASE_URL } from 'src/constants';
 
-import { Blog as BlogLayout } from 'src/components/Blog';
+import { BlogLayout } from 'src/layouts';
 
 const H1 = (props: any) => <h1 style={{ backgroundColor: 'red' }} {...props} />;
 
