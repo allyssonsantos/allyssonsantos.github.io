@@ -14,7 +14,6 @@ export async function getStaticProps() {
 const Home: NextPage<{ posts: Blog[] }> = ({ posts }) => {
   return (
     <>
-      <SideBar />
       <div>
         <ul>
           {posts.map(({ publishedAt, readingTime, title, description }) => (

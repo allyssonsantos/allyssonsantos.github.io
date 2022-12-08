@@ -1,0 +1,15 @@
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+.base {
+  display: grid;
+  height: 100%;
+  grid-template-areas: 'sidebar content';
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 100%;
+}
+
+.main {
+  width: 100%;
+  max-width: 50rem;
+  padding: 16px;
+  margin: 0 auto;
+}
