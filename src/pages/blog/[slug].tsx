@@ -6,8 +6,6 @@ import { allBlogs, type Blog as BlogType } from 'contentlayer/generated';
 
 import { SITE_BASE_URL } from 'src/constants';
 
-import { BlogLayout } from 'src/layouts';
-
 const H1 = (props: any) => <h1 style={{ backgroundColor: 'red' }} {...props} />;
 
 const components = {
@@ -24,7 +22,7 @@ export default function Blog({ blog }: BlogProps) {
   const IMAGE_URL = `${SITE_BASE_URL}/public/articles/${blog.cover}`;
 
   return (
-    <BlogLayout>
+    <>
       <NextSeo
         title={blog.title}
         description={blog.description}
@@ -68,7 +66,7 @@ export default function Blog({ blog }: BlogProps) {
         height={600}
       />
       <Component components={components} />
-    </BlogLayout>
+    </>
   );
 }
 
