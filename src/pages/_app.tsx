@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'next-themes';
 import { Source_Sans_3 } from '@next/font/google';
 import { DefaultSeo } from 'next-seo';
 
@@ -13,25 +14,27 @@ const sourceSans = Source_Sans_3({ subsets: ['latin'] });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <BaseLayout className={sourceSans.className}>
-      <DefaultSeo
-        titleTemplate={`%s | ${SITE_NAME}`}
-        title="Allysson Santos"
-        canonical={SITE_BASE_URL}
-        openGraph={{
-          type: 'website',
-          locale: 'pt_BR',
-          url: SITE_BASE_URL,
-          site_name: SITE_NAME,
-        }}
-        twitter={{
-          handle: TWITTER_HANDLE,
-          cardType: 'summary_large_image',
-          site: TWITTER_HANDLE,
-        }}
-      />
-      <Component {...pageProps} />
-    </BaseLayout>
+    <ThemeProvider attribute="class">
+      <BaseLayout className={sourceSans.className}>
+        <DefaultSeo
+          titleTemplate={`%s | ${SITE_NAME}`}
+          title="Allysson Santos"
+          canonical={SITE_BASE_URL}
+          openGraph={{
+            type: 'website',
+            locale: 'pt_BR',
+            url: SITE_BASE_URL,
+            site_name: SITE_NAME,
+          }}
+          twitter={{
+            handle: TWITTER_HANDLE,
+            cardType: 'summary_large_image',
+            site: TWITTER_HANDLE,
+          }}
+        />
+        <Component {...pageProps} />
+      </BaseLayout>
+    </ThemeProvider>
   );
 }
 

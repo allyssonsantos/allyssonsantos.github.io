@@ -5,12 +5,11 @@
   padding: 8px;
   border: none;
   border-radius: 8px;
-  background-color: var(--white);
+  background-color: transparent;
   color: var(--neutral-400);
   font-family: inherit;
   font-size: 0.875rem;
-  transition-property: color, background-color;
-  transition-timing-function: ease-in-out;
+  transition: background-color var(--transition);
 }
 
 .button-icon {

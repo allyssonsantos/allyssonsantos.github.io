@@ -1,6 +1,7 @@
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 import FocusTrap from 'focus-trap-react';
-import { useState } from 'react';
 import classnames from 'classnames';
 import {
   X,
@@ -17,7 +18,7 @@ import {
   type Icon,
 } from 'react-feather';
 
-import { useIsLowerResolution, useLocalStorage } from 'src/hooks';
+import { useIsLowerResolution } from 'src/hooks';
 import { ActiveLink } from '../ActiveLink';
 import { Button } from '..';
 
@@ -100,12 +101,18 @@ function SideBarLink({ title, href, external, icon: Icon }: ILinks) {
 }
 
 function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
-  const [theme, setTheme] = useLocalStorage('theme');
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const isDarkTheme = theme === 'dark';
   const isLowerResolution = useIsLowerResolution();
 
   function handleThemeChange() {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    setTheme(isDarkTheme ? 'light' : 'dark');
   }
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <FocusTrap active={isLowerResolution && isOpen}>
@@ -151,17 +158,19 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
             </ul>
           </div>
         </nav>
-        <button
-          className={classnames(styles['sidebar__theme-button'], {
-            [styles['sidebar__theme-button--active']]: isDarkTheme,
-          })}
-          type="button"
-          aria-label="alterar tema"
-          onClick={handleThemeChange}
-        >
-          <Sun />
-          <Moon />
-        </button>
+        {mounted && (
+          <button
+            className={classnames(styles['sidebar__theme-button'], {
+              [styles['sidebar__theme-button--active']]: isDarkTheme,
+            })}
+            type="button"
+            aria-label="alterar tema"
+            onClick={handleThemeChange}
+          >
+            <Sun />
+            <Moon />
+          </button>
+        )}
       </aside>
     </FocusTrap>
   );

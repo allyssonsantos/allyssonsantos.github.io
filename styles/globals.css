@@ -7,6 +7,7 @@
 body {
   background-color: var(--white);
   color: var(--neutral-300);
+  transition: background-color var(--transition), color var(--transition);
 }
 
 body,

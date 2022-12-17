@@ -10,7 +10,6 @@ export default function Document() {
         <link rel="icon" href="/favicon-16.png" sizes="16x16"></link>
         <link rel="icon" href="/favicon-32.png" sizes="32x32"></link>
         <meta name="theme-color" content="#025050" />
-        <Script strategy="beforeInteractive" src="/theme.js" />
       </Head>
       <body>
         <Main />
