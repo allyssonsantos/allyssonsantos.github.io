@@ -1,14 +1,23 @@
 /* stylelint-disable no-descending-specificity */
 .sidebar {
-  position: sticky;
+  position: absolute;
   top: 0;
   left: 0;
   display: flex;
-  max-width: 400px;
+  width: 100%;
+  max-width: 240px;
   height: 100%;
   flex-direction: column;
   padding: 16px;
-  border-right: 1px solid #f2f2f2;
+  border-right: 1px solid var(--neutral-100);
+  background-color: var(--white);
+  grid-area: sidebar;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar--opened {
+  transform: translateX(0);
 }
 
 .sidebar__header {
@@ -18,24 +27,20 @@
   margin-bottom: 16px;
 }
 
-.sidebar__login {
-  padding: 8px;
-  border: none;
-  border-radius: 8px;
-  background-color: transparent;
-  font-family: inherit;
-  font-size: 0.875rem;
-  transition-property: color, background-color;
-  transition-timing-function: ease-in-out;
-}
+@media (min-width: 768px) {
+  .sidebar {
+    position: sticky;
+    transform: translateX(0);
+  }
 
-.sidebar__login:hover {
-  background-color: #f2f2f2;
+  .sidebar__close-button {
+    display: none;
+  }
 }
 
 .sidebar__logo {
   margin-left: 8px;
-  color: #111;
+  color: var(--neutral-400);
   font-size: 1rem;
   text-decoration: none;
 }
@@ -60,7 +65,7 @@
   display: inline-block;
   margin-bottom: 8px;
   margin-left: 12px;
-  color: #111;
+  color: var(--neutral-400);
   font-size: 0.75rem;
 }
 
@@ -69,8 +74,8 @@
   align-items: center;
   padding: 8px;
   border-radius: 4px;
-  background-color: #fff;
-  color: #111;
+  background-color: var(--white);
+  color: var(--neutral-400);
   font-size: 0.875rem;
   gap: 12px;
   line-height: 0.875rem;
@@ -84,11 +89,11 @@
 .sidebar__link svg {
   width: 0.875rem;
   height: 0.875rem;
-  stroke: #111;
+  stroke: var(--neutral-400);
 }
 
 .sidebar__link--active svg {
-  stroke: #fff;
+  stroke: var(--white);
 }
 
 .sidebar__link svg:nth-child(2) {
@@ -96,12 +101,12 @@
 }
 
 .sidebar__link:hover {
-  background-color: #ccc;
+  background-color: var(--neutral-200);
 }
 
 .sidebar__link--active {
-  background-color: #111;
-  color: #fff;
+  background-color: var(--neutral-400);
+  color: var(--white);
 }
 
 .sidebar__theme-button {
@@ -113,6 +118,7 @@
   border-radius: 50%;
   margin-top: auto;
   background-color: transparent;
+  color: var(--neutral-400);
   transform: translateY(0);
   transition-duration: 200ms;
   transition-property: color, background-color;
@@ -125,7 +131,7 @@
 }
 
 .sidebar__theme-button:hover {
-  background-color: #f2f2f2;
+  background-color: var(--neutral-100);
 }
 
 .sidebar__theme-button svg {

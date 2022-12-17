@@ -1,0 +1,24 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--neutral-400);
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition-property: color, background-color;
+  transition-timing-function: ease-in-out;
+}
+
+.button-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: 50%;
+}
+
+.button:hover {
+  background-color: var(--neutral-100);
+}

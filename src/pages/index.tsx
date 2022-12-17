@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import { compareDesc, format, parseISO } from 'date-fns';
 import { allBlogs, Blog } from 'contentlayer/generated';
 
-import { PostPreview } from 'src/components/PostPreview';
+import { PostPreview } from 'src/components/Posts/PostPreview';
 
 const POSTS_TO_SHOW_ON_HOME_PAGE = 3;
 

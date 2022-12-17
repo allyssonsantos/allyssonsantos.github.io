@@ -5,7 +5,8 @@
 }
 
 body {
-  color: #333;
+  background-color: var(--white);
+  color: var(--neutral-300);
 }
 
 body,

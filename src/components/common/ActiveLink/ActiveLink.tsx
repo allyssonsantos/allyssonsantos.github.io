@@ -5,7 +5,6 @@ import React, { PropsWithChildren, useState, useEffect } from 'react';
 interface ActiveLinkProps
   extends LinkProps,
     Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
-  href?: string;
   className?: string;
   activeClassName: string;
 }

@@ -1,0 +1,16 @@
+:root {
+  --white: #fff;
+  --neutral-100: #f2f2f2;
+  --neutral-200: #ccc;
+  --neutral-300: #333;
+  --neutral-400: #111;
+  --icon-size: 3rem;
+}
+
+:root.dark {
+  --white: #111;
+  --neutral-100: #333;
+  --neutral-200: #ccc;
+  --neutral-300: #f2f2f2;
+  --neutral-400: #fff;
+}

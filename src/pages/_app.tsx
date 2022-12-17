@@ -5,6 +5,7 @@ import { DefaultSeo } from 'next-seo';
 import { SITE_BASE_URL, SITE_NAME, TWITTER_HANDLE } from 'src/constants';
 import { BaseLayout } from 'src/layouts';
 
+import '../../styles/theme.css';
 import '../../styles/globals.css';
 import '../../styles/highlight.css';
 
