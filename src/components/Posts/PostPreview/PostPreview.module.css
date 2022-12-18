@@ -1,8 +1,6 @@
 .post {
   display: flex;
   flex-direction: column;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--neutral-100);
   color: var(--neutral-300);
   gap: 8px;
   text-decoration: none;

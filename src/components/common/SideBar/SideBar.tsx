@@ -161,7 +161,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
         {mounted && (
           <button
             className={classnames(styles['sidebar__theme-button'], {
-              [styles['sidebar__theme-button--active']]: isDarkTheme,
+              [styles['sidebar__theme-button--active']]: !isDarkTheme,
             })}
             type="button"
             aria-label="alterar tema"

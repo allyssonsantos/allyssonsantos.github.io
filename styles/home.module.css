@@ -1,0 +1,44 @@
+.home__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  gap: 72px;
+}
+
+.home__image {
+  border-radius: 50%;
+}
+
+.home__name {
+  font-size: 2.25rem;
+}
+
+.home__description,
+.home__role {
+  font-size: 1rem;
+}
+
+.home__description {
+  margin-top: 26px;
+  margin-bottom: 0;
+}
+
+.home__post-list {
+  list-style: none;
+}
+
+.home__title {
+  margin-bottom: 18px;
+  font-size: 1.75rem;
+}
+
+.home__post {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.home__post + .home__post {
+  padding-top: 24px;
+  border-top: 1px solid var(--neutral-100);
+}

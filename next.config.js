@@ -8,9 +8,9 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 });
 
-module.exports = withPWA(
-  withSentryConfig(
-    withContentlayer({
+module.exports = withSentryConfig(
+  withContentlayer(
+    withPWA({
       reactStrictMode: true,
       swcMinify: true,
       images: {

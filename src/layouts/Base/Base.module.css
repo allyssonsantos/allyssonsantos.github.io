@@ -16,7 +16,7 @@
 
 .main {
   width: 100%;
-  max-width: 50rem;
+  max-width: 48rem;
   padding: 16px;
   margin: 0 auto;
   grid-area: content;
