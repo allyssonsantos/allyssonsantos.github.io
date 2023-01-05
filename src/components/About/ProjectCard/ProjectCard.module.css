@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--neutral-200);
+  border-radius: 4px;
+  gap: 16px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.card__description {
+  margin: 0;
+  font-size: 1rem;
+}

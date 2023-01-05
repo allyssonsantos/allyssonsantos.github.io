@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 
+import { ProjectCard } from 'src/components/About';
 import styles from '../../styles/about.module.css';
 
 const Home: NextPage = () => {
@@ -266,43 +267,20 @@ const Home: NextPage = () => {
       <h2 className={styles.about__subtitle}>
         Projects I&apos;m proud to have been a part of
       </h2>
-      <div>
-        <h3>Quantum</h3>
-        <p>
-          A react component library that was created in 2018 and is still used
-          nowadays
-        </p>
-      </div>
-      <div>
-        <h3>Yoga</h3>
-        <p>
-          The Gympass multi-platform design-system (React & React-Native), with
-          support for multiple themes and with a great tokenization.
-        </p>
-      </div>
-      <div>
-        <h3>React95</h3>
-        <p>
-          A component library with the Windows 95 UI. With it I started to learn
-          what is and how to handle and maintain a open-source project, here I
-          learned what tree-shaking and semantic-versioning is, that a good
-          documentation and a contribution guide is super important!
-        </p>
-        <p>
-          Also this project gave me a super experience, it was nominated as the
-          &quot;Fun side project of the year&quot; in 2019 at the GitNation open
-          source awards, and it won!!! You can check the moment{' '}
-          <a
-            href="https://youtu.be/4KfAS3zrvX8?t=25484"
-            target="_blank"
-            rel="noreferrer"
-            title="A link to the video of the git nation award where React95 won"
-          >
-            here
-          </a>
-          .
-        </p>
-      </div>
+      <ProjectCard
+        name="Quantum"
+        description="A react component library that was created in 2018 and is still used
+          nowadays"
+      />
+      <ProjectCard
+        name="Yoga"
+        description="The Gympass multi-platform design-system (React & React-Native), with
+        support for multiple themes and with a great tokenization."
+      />
+      <ProjectCard
+        name="React95"
+        description="A component library with the Windows 95 UI."
+      />
     </section>
   );
 };
