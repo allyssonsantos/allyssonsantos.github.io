@@ -11,12 +11,6 @@ body {
 }
 
 body,
-html,
-#__next {
-  height: 100%;
-}
-
-body,
 ul,
 h1,
 h2,

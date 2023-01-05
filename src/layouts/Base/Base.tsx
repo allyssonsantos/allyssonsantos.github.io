@@ -2,8 +2,7 @@ import { PropsWithChildren, HTMLAttributes, useState } from 'react';
 import classnames from 'classnames';
 import { Menu } from 'react-feather';
 
-import { SideBar } from 'src/components/common/SideBar';
-import { Button } from 'src/components/common';
+import { Button, SideBar } from 'src/components/common';
 
 import styles from './Base.module.css';
 

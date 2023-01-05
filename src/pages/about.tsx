@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         open)
       </p>
       <details className={styles.about__details}>
-        <summary className={styles['about__details--summary']}>HTML</summary>
+        <summary className={styles['about__details-summary']}>HTML</summary>
         <ul className={styles.about__list}>
           <li>Semantic HTML</li>
           <li>SEO</li>
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
         </ul>
       </details>
       <details className={styles.about__details}>
-        <summary className={styles.about__details}>CSS</summary>
+        <summary className={styles['about__details-summary']}>CSS</summary>
         <ul className={styles.about__list}>
           <li>
             <a
@@ -138,7 +138,9 @@ const Home: NextPage = () => {
         </ul>
       </details>
       <details className={styles.about__details}>
-        <summary className={styles.about__details}>Javascript</summary>
+        <summary className={styles['about__details-summary']}>
+          Javascript
+        </summary>
         <ul className={styles.about__list}>
           <li>Vanilla Javascript</li>
           <li>jQuery</li>
@@ -223,7 +225,7 @@ const Home: NextPage = () => {
             >
               Yoga design system
             </a>
-            , and worked with several teams. Here I&apos;ve
+            , and worked with a bunch of different teams.
           </blockquote>
         </li>
         <li>
@@ -238,7 +240,7 @@ const Home: NextPage = () => {
             Salesforce integration or the redesign of the recruiter area to when
             the company decided to migrate from the legacy PHP coupled
             applications to SPA&apos;s built with React. I&apos;ve also
-            participated in the company react component library creation called
+            participated in the company react component library creation called{' '}
             <a
               href="https://github.com/catho/quantum"
               target="_blank"

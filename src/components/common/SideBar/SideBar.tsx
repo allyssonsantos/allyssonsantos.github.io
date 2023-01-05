@@ -19,8 +19,7 @@ import {
 } from 'react-feather';
 
 import { useIsLowerResolution } from 'src/hooks';
-import { ActiveLink } from '../ActiveLink';
-import { Button } from '..';
+import { ActiveLink, Button } from '..';
 
 import styles from './SideBar.module.css';
 
@@ -44,13 +43,13 @@ const mainLinks: Array<ILinks> = [
     icon: Home,
   },
   {
-    title: 'artigos',
+    title: 'blog',
     href: '/blog',
     external: false,
     icon: Book,
   },
   {
-    title: 'sobre',
+    title: 'about',
     href: '/about',
     external: false,
     icon: Info,
@@ -137,7 +136,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
           >
             allysson.me
           </Link>
-          <Button className={styles.sidebar__login}>Entrar</Button>
+          <Button className={styles.sidebar__login}>Sign In</Button>
         </header>
         <nav className={styles.sidebar__navigation}>
           <ul className={styles.sidebar__list}>
