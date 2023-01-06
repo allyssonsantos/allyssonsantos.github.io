@@ -18,6 +18,7 @@ export function ProjectCard({ name, description, onClick }: IProjectCardProps) {
         className={styles['card__see-more']}
         onClick={onClick}
         type="button"
+        variant="inverted"
       >
         I want to know more about it!
       </Button>

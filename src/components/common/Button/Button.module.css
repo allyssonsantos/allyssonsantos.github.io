@@ -18,6 +18,15 @@
   border-radius: 50%;
 }
 
+.button-inverted {
+  background-color: var(--neutral-400);
+  color: var(--white);
+}
+
 .button:hover {
   background-color: var(--neutral-100);
+}
+
+.button-inverted:hover {
+  background-color: var(--neutral-300);
 }

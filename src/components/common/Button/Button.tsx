@@ -6,7 +6,7 @@ import styles from './Button.module.css';
 interface IButtonProps
   extends PropsWithChildren,
     ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'icon';
+  variant?: 'icon' | 'inverted';
 }
 
 export function Button({
@@ -20,6 +20,7 @@ export function Button({
       type="button"
       className={classnames(className, styles.button, {
         [styles['button-icon']]: variant === 'icon',
+        [styles['button-inverted']]: variant === 'inverted',
       })}
       {...props}
     >
