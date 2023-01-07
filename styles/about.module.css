@@ -10,16 +10,3 @@
   margin-top: 24px;
   margin-bottom: 24px;
 }
-
-.about__details + .about__details {
-  margin-top: 8px;
-}
-
-.about__details-summary {
-  cursor: pointer;
-}
-
-.about__list {
-  margin-top: 0;
-  margin-left: 30px;
-}

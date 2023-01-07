@@ -1,0 +1,7 @@
+.skill__details + .skill__details {
+  margin-top: 8px;
+}
+
+.skill__details-summary {
+  cursor: pointer;
+}
