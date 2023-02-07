@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Blog } from 'contentlayer/generated';
 import styles from './PostPreview.module.css';
 
@@ -14,12 +15,12 @@ export function PostPreview({
   publishedAt,
 }: IPostPreview) {
   return (
-    <a href={slug} className={styles.post}>
+    <Link href={`/blog/${slug}`} className={styles.post} prefetch>
       <h2 className={styles.post__title}>
         {title} - <small>{readingTime}</small>
       </h2>
       <p className={styles.post__description}>{description}</p>
       <time>{publishedAt}</time>
-    </a>
+    </Link>
   );
 }

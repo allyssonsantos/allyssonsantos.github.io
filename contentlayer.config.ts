@@ -25,7 +25,7 @@ export const Blog = defineDocumentType(() => ({
     },
     slug: {
       type: 'string',
-      resolve: (doc) => `/blog/${doc._raw.sourceFileName.replace('.mdx', '')}`,
+      resolve: (doc) => doc._raw.sourceFileName.replace('.mdx', ''),
     },
   },
 }));
