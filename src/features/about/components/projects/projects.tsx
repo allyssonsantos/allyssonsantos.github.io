@@ -1,11 +1,7 @@
-import { ProjectCard } from '../ProjectCard';
-import type { IProjects } from 'src/data/projects';
+import { projects } from '../../data/projects';
+import { ProjectCard } from './project-card';
 
-interface IProjectViewProps {
-  projects: Array<IProjects>;
-}
-
-export function ProjectView({ projects }: IProjectViewProps) {
+export function Projects() {
   return (
     <section>
       {projects.map((project) => (

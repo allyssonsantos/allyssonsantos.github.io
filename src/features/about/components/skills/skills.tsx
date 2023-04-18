@@ -1,8 +1,8 @@
-import { html, css, javascript } from 'src/data/skills';
+import { html, css, javascript } from '../../data/skills';
 
-import { SkillDetails } from '../SkillDetails';
+import { SkillDetails } from './skill-details';
 
-export function SkillsView() {
+export function Skills() {
   return (
     <section>
       <SkillDetails name="HTML" skills={html} />

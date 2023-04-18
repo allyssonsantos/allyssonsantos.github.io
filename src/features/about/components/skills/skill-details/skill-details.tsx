@@ -1,7 +1,7 @@
 import { ISkills } from 'src/data/skills';
-import { SkillsList } from '../SkillsList';
+import { SkillsList } from '../skills-list';
 
-import styles from './SkillDetails.module.css';
+import styles from './skill-details.module.css';
 
 interface IProps {
   name: string;

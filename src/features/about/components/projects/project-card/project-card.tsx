@@ -1,15 +1,15 @@
 import type { MouseEventHandler } from 'react';
 
-import { Button } from 'src/components/common';
-import styles from './ProjectCard.module.css';
+import { Button } from 'src/components';
+import styles from './project-card.module.css';
 
-interface IProjectCardProps {
+type ProjectCardProps = {
   name: string;
   description: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-}
+};
 
-export function ProjectCard({ name, description, onClick }: IProjectCardProps) {
+export function ProjectCard({ name, description, onClick }: ProjectCardProps) {
   return (
     <div className={styles.card}>
       <h3 className={styles.card__title}>{name}</h3>

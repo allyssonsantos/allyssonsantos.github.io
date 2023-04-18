@@ -1,6 +1,6 @@
 import type { ISkills } from 'src/data/skills';
 
-import styles from './SkillsList.module.css';
+import styles from './skills-list.module.css';
 
 interface IProps {
   skills: Array<ISkills>;

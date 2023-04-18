@@ -15,7 +15,7 @@ export function PostPreview({
   publishedAt,
 }: IPostPreview) {
   return (
-    <Link href={`/blog/${slug}`} className={styles.post} prefetch>
+    <Link href={`/blog/${slug}`} className={styles.post}>
       <h2 className={styles.post__title}>
         {title} - <small>{readingTime}</small>
       </h2>
