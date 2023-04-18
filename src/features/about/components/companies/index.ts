@@ -1,1 +1,1 @@
-export { Companies } from './Companies';
+export { Companies } from './companies';
