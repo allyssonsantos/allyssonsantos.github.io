@@ -23,7 +23,7 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
           </h2>
           <p className={styles.home__description}>
             Working with front-end stuff such as design systems, React /
-            Next.js, and micro frontends in exceptional companies.
+            Next.js, and micro frontends.
           </p>
         </div>
         <Image
