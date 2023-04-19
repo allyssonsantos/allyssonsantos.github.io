@@ -1,4 +1,4 @@
-import { ISkills } from 'src/data/skills';
+import type { ISkills } from '../../../data/skills';
 import { SkillsList } from '../skills-list';
 
 import styles from './skill-details.module.css';

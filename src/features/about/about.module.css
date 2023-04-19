@@ -1,12 +1,23 @@
 .about__title {
-  font-size: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  font-size: 4rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.about__title + p {
+  margin: 0;
 }
 
 .about__subtitle {
-  font-size: 1.725rem;
+  margin-bottom: 4rem;
+  font-size: 3rem;
+  line-height: 1;
+  text-align: center;
 }
 
 .about__divider {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
