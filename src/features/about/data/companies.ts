@@ -1,9 +1,14 @@
+import CathoLogo from './logos/catho.svg';
+import EncontraLogo from './logos/encontra.svg';
+import GympassLogo from './logos/gympass.svg';
+import OlistLogo from './logos/olist.svg';
+
 export interface ICompanies {
   name: string;
   startYear: number;
   endYear?: number;
   description: string;
-  logo: string;
+  logo: React.ComponentType<any> | React.ComponentType<any>;
 }
 
 export const companies: Array<ICompanies> = [
@@ -13,7 +18,7 @@ export const companies: Array<ICompanies> = [
     endYear: 2015,
     description:
       'It was a small company where I started to get in touch with the base of HTML, CSS, and Javascript.',
-    logo: 'encontra-brasil.jpg',
+    logo: EncontraLogo,
   },
   {
     name: 'Catho',
@@ -21,7 +26,7 @@ export const companies: Array<ICompanies> = [
     endYear: 2019,
     description:
       "In Catho was where I discovered my passion for the front-end development world. Here I was able to work in so many teams. With different projects and different people, from projects like Salesforce integration or the redesign of the recruiter area to when the company decided to migrate from the legacy PHP coupled applications to SPA's built with React. I've also participated in the company react component library creation called Quantum",
-    logo: 'catho.svg',
+    logo: CathoLogo,
   },
   {
     name: 'Gympass',
@@ -29,7 +34,7 @@ export const companies: Array<ICompanies> = [
     endYear: 2021,
     description:
       "I've developed the initial version of the Gympass Wellness product, created the multi-platform Yoga design system, and worked with a bunch of different teams.",
-    logo: 'gympass.svg',
+    logo: GympassLogo,
   },
   {
     name: 'Olist',
@@ -37,6 +42,6 @@ export const companies: Array<ICompanies> = [
     endYear: undefined,
     description:
       "Here I'm working on developing the Olist Design System and splitting the company's front-end into small micro frontends applications. (where makes sense)",
-    logo: 'olist.png',
+    logo: OlistLogo,
   },
 ];
