@@ -28,7 +28,7 @@
   margin-bottom: 16px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .sidebar {
     position: sticky;
     transform: translateX(0);
@@ -74,8 +74,8 @@
   display: flex;
   align-items: center;
   padding: 8px;
-  border-radius: 4px;
   background-color: var(--white);
+  border-radius: 4px;
   color: var(--neutral-400);
   font-size: 0.875rem;
   gap: 12px;
@@ -115,9 +115,9 @@
   height: 1.625rem;
   padding: 0;
   border: none;
-  border-radius: 50%;
   margin-top: auto;
   background-color: transparent;
+  border-radius: 50%;
   color: var(--neutral-400);
   transform: translateY(0);
   transition: background-color var(--transition);
