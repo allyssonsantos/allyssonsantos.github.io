@@ -8,6 +8,7 @@
 
 .about-centralized {
   max-width: var(--content-max-width);
+  padding: 16px;
   margin: 0 auto;
 }
 
@@ -16,7 +17,6 @@
 }
 
 .about__subtitle {
-  padding-top: 4rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
   font-size: 3rem;
