@@ -6,6 +6,7 @@
   --neutral-400: #111;
   --icon-size: 3rem;
   --transition: 100ms ease-in-out;
+  --content-max-width: 48rem;
 }
 
 :root.dark {

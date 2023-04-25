@@ -6,18 +6,26 @@
   text-align: center;
 }
 
+.about-centralized {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
 .about__title + p {
   margin: 0;
 }
 
 .about__subtitle {
+  padding-top: 4rem;
+  margin-top: 4rem;
   margin-bottom: 4rem;
   font-size: 3rem;
   line-height: 1;
   text-align: center;
 }
 
-.about__divider {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+.about__experiences {
+  padding-bottom: 4rem;
+  background-color: var(--neutral-100);
+  transition: background-color var(--transition);
 }

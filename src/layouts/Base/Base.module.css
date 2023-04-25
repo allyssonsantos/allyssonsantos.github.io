@@ -15,10 +15,13 @@
 
 .main {
   width: 100%;
-  max-width: 48rem;
-  padding: 16px;
   margin: 0 auto;
   grid-area: content;
+}
+
+.main--centralized {
+  max-width: var(--content-max-width);
+  padding: 16px;
 }
 
 @media (min-width: 768px) {

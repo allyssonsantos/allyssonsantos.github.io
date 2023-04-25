@@ -1,5 +1,6 @@
+import type { ReactElement, ReactNode } from 'react';
+import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'next-themes';
 import { Source_Sans_3 } from '@next/font/google';
 import { DefaultSeo } from 'next-seo';
 
@@ -10,31 +11,43 @@ import '../../styles/theme.css';
 import '../../styles/globals.css';
 import '../../styles/highlight.css';
 
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
 const sourceSans = Source_Sans_3({ subsets: ['latin'] });
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider attribute="class">
-      <BaseLayout className={sourceSans.className}>
-        <DefaultSeo
-          titleTemplate={`%s | ${SITE_NAME}`}
-          title="Allysson Santos"
-          canonical={SITE_BASE_URL}
-          openGraph={{
-            type: 'website',
-            locale: 'pt_BR',
-            url: SITE_BASE_URL,
-            site_name: SITE_NAME,
-          }}
-          twitter={{
-            handle: TWITTER_HANDLE,
-            cardType: 'summary_large_image',
-            site: TWITTER_HANDLE,
-          }}
-        />
-        <Component {...pageProps} />
-      </BaseLayout>
-    </ThemeProvider>
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout =
+    Component.getLayout ??
+    ((page) => (
+      <BaseLayout className={sourceSans.className}>{page}</BaseLayout>
+    ));
+
+  return getLayout(
+    <>
+      <DefaultSeo
+        titleTemplate={`%s | ${SITE_NAME}`}
+        title="Allysson Santos"
+        canonical={SITE_BASE_URL}
+        openGraph={{
+          type: 'website',
+          locale: 'pt_BR',
+          url: SITE_BASE_URL,
+          site_name: SITE_NAME,
+        }}
+        twitter={{
+          handle: TWITTER_HANDLE,
+          cardType: 'summary_large_image',
+          site: TWITTER_HANDLE,
+        }}
+      />
+      <Component {...pageProps} />
+    </>,
   );
 }
 

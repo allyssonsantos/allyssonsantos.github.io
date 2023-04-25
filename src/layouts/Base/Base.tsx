@@ -1,16 +1,29 @@
 import { PropsWithChildren, HTMLAttributes, useState } from 'react';
-import classnames from 'classnames';
+import { ThemeProvider } from 'next-themes';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { Menu } from 'react-feather';
 
 import { Button, SideBar } from 'src/components';
 
 import styles from './Base.module.css';
 
-interface IBaseLayout
-  extends PropsWithChildren,
-    HTMLAttributes<HTMLDivElement> {}
+const baseAlign = cva(styles.main, {
+  variants: {
+    centralize: {
+      true: styles['main--centralized'],
+    },
+  },
+});
 
-function BaseLayout({ children, className }: IBaseLayout) {
+type BaseLayoutProps = PropsWithChildren &
+  HTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof baseAlign>;
+
+function BaseLayout({
+  children,
+  className,
+  centralize = true,
+}: BaseLayoutProps) {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
   function handleSideBar() {
@@ -18,19 +31,21 @@ function BaseLayout({ children, className }: IBaseLayout) {
   }
 
   return (
-    <div className={classnames(className, styles.base)}>
-      <SideBar isOpen={isSideBarOpen} onSideBarClose={handleSideBar} />
-      <main className={styles.main}>
-        <Button
-          onClick={handleSideBar}
-          variant="icon"
-          className={styles['main__menu-button']}
-        >
-          <Menu />
-        </Button>
-        {children}
-      </main>
-    </div>
+    <ThemeProvider attribute="class">
+      <div className={`${className} ${styles.base}`}>
+        <SideBar isOpen={isSideBarOpen} onSideBarClose={handleSideBar} />
+        <main className={baseAlign({ centralize })}>
+          <Button
+            onClick={handleSideBar}
+            variant="icon"
+            className={styles['main__menu-button']}
+          >
+            <Menu />
+          </Button>
+          {children}
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
 
