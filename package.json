@@ -43,7 +43,7 @@
     "gatsby-remark-smartypants": "^5.2.0",
     "gatsby-remark-table-of-contents": "^1.0.0",
     "gatsby-source-filesystem": "^4.2.0",
-    "gatsby-transformer-remark": "^5.2.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^4.2.0",
     "gh-pages": "^3.2.3",
     "mdx-utils": "^0.2.0",
