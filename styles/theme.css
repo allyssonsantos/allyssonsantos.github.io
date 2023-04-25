@@ -10,9 +10,9 @@
 }
 
 :root.dark {
-  --white: #111;
-  --neutral-100: #333;
-  --neutral-200: #ccc;
-  --neutral-300: #f2f2f2;
-  --neutral-400: #fff;
+  --white: #0d0d0d;
+  --neutral-100: #111;
+  --neutral-200: #333;
+  --neutral-300: #ccc;
+  --neutral-400: #f2f2f2;
 }
