@@ -31,8 +31,10 @@ export function AboutFeature() {
         </div>
       </section>
       <section className={styles['about-centralized']}>
-        <h2 className={styles.about__subtitle}>
-          Projects I&apos;m proud to have been a part of
+        <h2
+          className={`${styles.about__subtitle} ${styles['about__subtitle--without-padding']}`}
+        >
+          Projects I&apos;m that I&apos;ve worked on
         </h2>
         <Projects />
       </section>

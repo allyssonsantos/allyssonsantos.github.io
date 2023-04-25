@@ -3,15 +3,32 @@ import type { MouseEventHandler } from 'react';
 import { Button } from 'src/components';
 import styles from './project-card.module.css';
 
-type ProjectCardProps = {
+type ProjectCardProps = React.HTMLAttributes<HTMLDivElement> & {
   name: string;
   description: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  borderPrimaryColor: string;
+  borderSecondaryColor: string;
 };
 
-export function ProjectCard({ name, description, onClick }: ProjectCardProps) {
+export function ProjectCard({
+  name,
+  description,
+  onClick,
+  className,
+  borderPrimaryColor,
+  borderSecondaryColor,
+}: ProjectCardProps) {
   return (
-    <div className={styles.card}>
+    <div
+      className={`${styles.card} ${className}`}
+      style={
+        {
+          '--color-primary': borderPrimaryColor,
+          '--color-secondary': borderSecondaryColor,
+        } as React.CSSProperties
+      }
+    >
       <h3 className={styles.card__title}>{name}</h3>
       <p className={styles.card__description}>{description}</p>
       <Button
@@ -20,7 +37,7 @@ export function ProjectCard({ name, description, onClick }: ProjectCardProps) {
         type="button"
         variant="inverted"
       >
-        I want to know more about it!
+        see more
       </Button>
     </div>
   );

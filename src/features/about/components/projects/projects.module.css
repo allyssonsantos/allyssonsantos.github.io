@@ -1,0 +1,8 @@
+.projects {
+  display: flex;
+  gap: 16px;
+}
+
+.projects__project {
+  flex-basis: 33%;
+}
