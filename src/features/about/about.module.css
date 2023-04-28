@@ -29,7 +29,7 @@
   padding-top: 0;
 }
 
-.about__experiences {
+.about__highlighted {
   padding-bottom: 4rem;
   background-color: var(--neutral-100);
   transition: background-color var(--transition);

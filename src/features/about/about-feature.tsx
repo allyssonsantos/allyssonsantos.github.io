@@ -24,19 +24,21 @@ export function AboutFeature() {
           implementations.
         </p>
       </section>
-      <section className={styles.about__experiences}>
+      <section className={styles.about__highlighted}>
         <div className={styles['about-centralized']}>
-          <h2 className={styles.about__subtitle}>My previous experiences</h2>
-          <Companies />
+          <h2 className={`${styles.about__subtitle}`}>
+            Open source projects that I&apos;ve worked on
+          </h2>
+          <Projects />
         </div>
       </section>
       <section className={styles['about-centralized']}>
         <h2
-          className={`${styles.about__subtitle} ${styles['about__subtitle--without-padding']}`}
+          className={`${styles.about__subtitle}  ${styles['about__subtitle--without-padding']}`}
         >
-          Projects I&apos;m that I&apos;ve worked on
+          My previous experiences
         </h2>
-        <Projects />
+        <Companies />
       </section>
     </div>
   );
