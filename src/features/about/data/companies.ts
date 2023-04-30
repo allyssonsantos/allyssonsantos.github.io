@@ -13,20 +13,12 @@ export interface ICompanies {
 
 export const companies: Array<ICompanies> = [
   {
-    name: 'Encontra Brasil',
-    startYear: 2014,
-    endYear: 2015,
+    name: 'Olist',
+    startYear: 2021,
+    endYear: undefined,
     description:
-      'It was a small company where I started to get in touch with the base of HTML, CSS, and Javascript.',
-    logo: EncontraLogo,
-  },
-  {
-    name: 'Catho',
-    startYear: 2015,
-    endYear: 2019,
-    description:
-      "In Catho was where I discovered my passion for the front-end development world. Here I was able to work in so many teams. With different projects and different people, from projects like Salesforce integration or the redesign of the recruiter area to when the company decided to migrate from the legacy PHP coupled applications to SPA's built with React. I've also participated in the company react component library creation called Quantum",
-    logo: CathoLogo,
+      "Here I'm working on developing the Olist Design System and splitting the company's front-end into small micro frontends applications. (where makes sense)",
+    logo: OlistLogo,
   },
   {
     name: 'Gympass',
@@ -37,11 +29,19 @@ export const companies: Array<ICompanies> = [
     logo: GympassLogo,
   },
   {
-    name: 'Olist',
-    startYear: 2021,
-    endYear: undefined,
+    name: 'Catho',
+    startYear: 2015,
+    endYear: 2019,
     description:
-      "Here I'm working on developing the Olist Design System and splitting the company's front-end into small micro frontends applications. (where makes sense)",
-    logo: OlistLogo,
+      "In Catho was where I discovered my passion for the front-end development world. Here I was able to work in so many teams. With different projects and different people, from projects like Salesforce integration or the redesign of the recruiter area to when the company decided to migrate from the legacy PHP coupled applications to SPA's built with React. I've also participated in the company react component library creation called Quantum",
+    logo: CathoLogo,
+  },
+  {
+    name: 'Encontra Brasil',
+    startYear: 2014,
+    endYear: 2015,
+    description:
+      'It was a small company where I started to get in touch with the base of HTML, CSS, and Javascript.',
+    logo: EncontraLogo,
   },
 ];
