@@ -5,6 +5,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { allBlogs, type Blog as BlogType } from 'contentlayer/generated';
 
 import { SITE_BASE_URL } from 'src/constants';
+import { BlogFeature } from 'src/features/blog';
 
 const H1 = (props: any) => <h1 style={{ backgroundColor: 'red' }} {...props} />;
 
@@ -57,6 +58,7 @@ export default function Blog({ blog }: BlogProps) {
         authorName="Allysson Santos"
         description={blog.description}
       />
+      <BlogFeature post={blog} />
       <h1>{blog.title}</h1>
       <small>{blog.readingTime.minutes} min</small>
       <Image
