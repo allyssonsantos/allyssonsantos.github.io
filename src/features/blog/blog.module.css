@@ -1,0 +1,23 @@
+.blog__title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.blog__header {
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.blog__cover-wrapper {
+  position: relative;
+  height: 500px;
+}
+
+.blog__cover {
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
