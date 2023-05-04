@@ -1,24 +1,11 @@
 import { GetStaticProps } from 'next';
-import Image from 'next/image';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
-import { useMDXComponent } from 'next-contentlayer/hooks';
 import { allBlogs, type Blog as BlogType } from 'contentlayer/generated';
 
 import { SITE_BASE_URL } from 'src/constants';
 import { BlogFeature } from 'src/features/blog';
 
-const H1 = (props: any) => <h1 style={{ backgroundColor: 'red' }} {...props} />;
-
-const components = {
-  h1: H1,
-};
-
-type BlogProps = {
-  blog: BlogType;
-};
-
-export default function Blog({ blog }: BlogProps) {
-  const Component = useMDXComponent(blog.body.code);
+export default function Blog({ blog }: { blog: BlogType }) {
   const POST_URL = `${SITE_BASE_URL}/blog/${blog.slug}`;
   const IMAGE_URL = `${SITE_BASE_URL}/public/articles/${blog.cover}`;
 
@@ -59,15 +46,6 @@ export default function Blog({ blog }: BlogProps) {
         description={blog.description}
       />
       <BlogFeature post={blog} />
-      <h1>{blog.title}</h1>
-      <small>{blog.readingTime.minutes} min</small>
-      <Image
-        src={`/articles/${blog.cover}`}
-        alt={blog.altCover}
-        width={800}
-        height={600}
-      />
-      <Component components={components} />
     </>
   );
 }
