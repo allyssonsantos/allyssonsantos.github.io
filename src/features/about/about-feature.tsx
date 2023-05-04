@@ -6,7 +6,7 @@ export function AboutFeature() {
   return (
     <div>
       <section className={styles['about-centralized']}>
-        <h1 className={styles.about__title}>Hi! I&apos;m Allysson Santos</h1>
+        <h1 className={styles.about__title}>About Me</h1>
         <p>
           This space is where I test new things I want to learn and write about
           thoughts and technology in general but mainly about front-end stuff.

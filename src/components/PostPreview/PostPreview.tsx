@@ -16,9 +16,9 @@ export function PostPreview({
 }: IPostPreview) {
   return (
     <Link href={`/blog/${slug}`} className={styles.post}>
-      <h2 className={styles.post__title}>
+      <h3 className={styles.post__title}>
         {title} - <small>{readingTime}</small>
-      </h2>
+      </h3>
       <p className={styles.post__description}>{description}</p>
       <time>{publishedAt}</time>
     </Link>

@@ -11,11 +11,12 @@
 }
 
 .home__name {
-  font-size: 2.25rem;
+  margin-bottom: 1rem;
 }
 
 .home__description,
 .home__role {
+  margin: 0;
   font-size: 1rem;
 }
 
@@ -29,16 +30,11 @@
 }
 
 .home__title {
+  margin-top: 0;
   margin-bottom: 18px;
   font-size: 1.75rem;
 }
 
 .home__post {
   margin-top: 24px;
-  margin-bottom: 24px;
-}
-
-.home__post + .home__post {
-  padding-top: 24px;
-  border-top: 1px solid var(--neutral-100);
 }
