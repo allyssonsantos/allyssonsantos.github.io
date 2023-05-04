@@ -9,7 +9,7 @@
   height: 100vh;
   flex-direction: column;
   padding: 16px;
-  border-right: 1px solid var(--neutral-100);
+  border-right: 1px solid var(--neutral-200);
   background-color: var(--white);
   grid-area: sidebar;
   transform: translateX(-100%);
