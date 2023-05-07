@@ -9,11 +9,14 @@ export function BlogFeature({ post }: { post: Blog }) {
   const readingTime = Math.ceil(post.readingTime.minutes);
 
   return (
-    <div>
+    <div className={styles.blog}>
       <div className={styles.blog__header}>
         <h1 className={styles.blog__title}>{post.title}</h1>
         <small>
-          <abbr title={`estimated time to read: ${readingTime} minute`}>
+          <abbr
+            title={`estimated time to read: ${readingTime} minute`}
+            className={styles['blog__reading-time']}
+          >
             {readingTime} min
           </abbr>
         </small>

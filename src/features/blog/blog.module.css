@@ -1,6 +1,16 @@
-.blog__title {
-  margin-top: 0;
-  margin-bottom: 0;
+.blog ul {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  list-style-position: inside;
+}
+
+.blog li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog li::marker {
+  color: var(--neutral-200);
 }
 
 .blog__header {
@@ -9,6 +19,16 @@
   margin-top: 4rem;
   margin-bottom: 1rem;
   gap: 1rem;
+}
+
+.blog__title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.blog__reading-time {
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .blog__cover-wrapper {

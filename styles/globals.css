@@ -1,4 +1,7 @@
-/* stylelint-disable selector-id-pattern */
+::selection {
+  background-color: var(--primary-300);
+  color: var(--white);
+}
 
 * {
   box-sizing: border-box;
@@ -33,4 +36,30 @@ h2 {
   margin-bottom: 2rem;
   font-size: 2rem;
   line-height: 1;
+}
+
+p {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+a {
+  color: var(--primary-300);
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--primary-400);
+}
+
+code:not(.code-highlight) {
+  padding: 2px 4px;
+  border: 1px solid var(--neutral-200);
+  background-color: var(--neutral-100);
+  border-radius: 8px;
+  color: var(--neutral-400);
+  font-family: monospace;
+  font-size: 0.875rem;
+  font-weight: bold;
 }
