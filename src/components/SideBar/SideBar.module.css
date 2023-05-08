@@ -101,6 +101,7 @@
 
 .sidebar__link:hover {
   background-color: var(--neutral-100);
+  color: var(--neutral-300);
 }
 
 .sidebar__link--active,

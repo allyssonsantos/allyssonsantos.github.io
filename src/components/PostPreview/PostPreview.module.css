@@ -6,6 +6,10 @@
   text-decoration: none;
 }
 
+.post:hover {
+  color: var(--neutral-400);
+}
+
 .post__title {
   font-size: 1.375rem;
   font-weight: 700;
