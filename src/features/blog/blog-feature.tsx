@@ -12,11 +12,8 @@ export function BlogFeature({ post }: { post: Blog }) {
     <div className={styles.blog}>
       <div className={styles.blog__header}>
         <h1 className={styles.blog__title}>{post.title}</h1>
-        <small>
-          <abbr
-            title={`estimated time to read: ${readingTime} minute`}
-            className={styles['blog__reading-time']}
-          >
+        <small className={styles['blog__reading-time']}>
+          <abbr title={`estimated time to read: ${readingTime} minute`}>
             {readingTime} min
           </abbr>
         </small>
