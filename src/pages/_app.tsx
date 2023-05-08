@@ -8,8 +8,8 @@ import { SITE_BASE_URL, SITE_NAME, TWITTER_HANDLE } from 'src/constants';
 import { BaseLayout } from 'src/layouts';
 
 import '../../styles/theme.css';
-import '../../styles/globals.css';
 import '../../styles/highlight.css';
+import '../../styles/globals.css';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
