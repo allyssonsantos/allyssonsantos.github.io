@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <>
           <DefaultSeo
             titleTemplate={`%s | ${SITE_NAME}`}
-            title="Allysson Santos"
+            defaultTitle="Allysson Santos"
             canonical={SITE_BASE_URL}
             openGraph={{
               type: 'website',
