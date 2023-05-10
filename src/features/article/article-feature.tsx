@@ -26,7 +26,9 @@ export function ArticleFeature({ post }: { post: Blog }) {
           fill
         />
       </div>
-      <PostBody />
+      <article>
+        <PostBody />
+      </article>
     </div>
   );
 }
