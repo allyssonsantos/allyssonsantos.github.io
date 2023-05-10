@@ -1,54 +1,69 @@
+import type { ReactElement } from 'react';
 import { GetStaticProps } from 'next';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
-import { allBlogs, type Blog as BlogType } from 'contentlayer/generated';
+import { allBlogs, type Blog } from 'contentlayer/generated';
 
 import { SITE_BASE_URL } from 'src/constants';
-import { BlogFeature } from 'src/features/blog';
+import { ArticleFeature } from 'src/features/article';
+import { ArticleLayout } from 'src/layouts/article';
+import { BaseLayout } from 'src/layouts/Base';
 
-export default function Blog({ blog }: { blog: BlogType }) {
-  const POST_URL = `${SITE_BASE_URL}/blog/${blog.slug}`;
-  const IMAGE_URL = `${SITE_BASE_URL}/public/articles/${blog.cover}`;
+import type { NextPageWithLayout } from '../_app';
+
+export default function Article({
+  article,
+}: NextPageWithLayout & { article: Blog }) {
+  const POST_URL = `${SITE_BASE_URL}/blog/${article.slug}`;
+  const IMAGE_URL = `${SITE_BASE_URL}/public/articles/${article.cover}`;
 
   return (
     <>
       <NextSeo
-        title={blog.title}
-        description={blog.description}
+        title={article.title}
+        description={article.description}
         canonical={POST_URL}
         openGraph={{
           url: POST_URL,
-          title: blog.title,
-          description: blog.description,
+          title: article.title,
+          description: article.description,
           type: 'article',
           images: [
             {
               url: IMAGE_URL,
               width: 800,
               height: 600,
-              alt: blog.title,
+              alt: article.title,
               type: 'image/jpeg',
             },
           ],
           article: {
-            publishedTime: blog.publishedAt,
+            publishedTime: article.publishedAt,
             authors: ['https://twitter.com/_allyssonsantos'],
-            tags: blog.tags,
+            tags: article.tags,
           },
         }}
       />
       <ArticleJsonLd
-        type="Blog"
+        type="Article"
         url={POST_URL}
-        title={blog.title}
-        images={[`${SITE_BASE_URL}/${blog.cover}`]}
-        datePublished={blog.publishedAt}
+        title={article.title}
+        images={[`${SITE_BASE_URL}/${article.cover}`]}
+        datePublished={article.publishedAt}
         authorName="Allysson Santos"
-        description={blog.description}
+        description={article.description}
       />
-      <BlogFeature post={blog} />
+      <ArticleFeature post={article} />
     </>
   );
 }
+
+Article.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <BaseLayout>
+      <ArticleLayout>{page}</ArticleLayout>
+    </BaseLayout>
+  );
+};
 
 export async function getStaticPaths() {
   return {
@@ -58,6 +73,6 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const blog = allBlogs.find((blog) => blog.slug === params?.slug);
-  return { props: { blog } };
+  const article = allBlogs.find((blog) => blog.slug === params?.slug);
+  return { props: { article } };
 };

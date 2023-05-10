@@ -1,0 +1,46 @@
+.blog ul {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  list-style-position: inside;
+}
+
+.blog li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog li::marker {
+  color: var(--neutral-200);
+}
+
+.blog__header {
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.blog__title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.blog__reading-time {
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.blog__cover-wrapper {
+  position: relative;
+  height: 500px;
+  margin-bottom: 3rem;
+}
+
+.blog__cover {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: contain;
+}

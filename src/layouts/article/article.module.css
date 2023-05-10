@@ -1,0 +1,13 @@
+.article {
+  font-size: 1.125rem;
+}
+
+.article h1 a,
+.article h2 a,
+.article h3 a,
+.article h4 a,
+.article h5 a,
+.article h6 a {
+  color: var(--neutral-400);
+  text-decoration: none;
+}
