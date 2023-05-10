@@ -1,4 +1,5 @@
-import { PropsWithChildren, HTMLAttributes, useState } from 'react';
+import { type PropsWithChildren, type HTMLAttributes, useState } from 'react';
+import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Menu } from 'react-feather';
@@ -21,10 +22,15 @@ type BaseLayoutProps = PropsWithChildren &
 
 function BaseLayout({
   children,
-  className,
+  className = '',
   centralize = true,
 }: BaseLayoutProps) {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const router = useRouter();
+
+  router.events?.on('routeChangeStart', () => {
+    setIsSideBarOpen(false);
+  });
 
   function handleSideBar() {
     setIsSideBarOpen(!isSideBarOpen);

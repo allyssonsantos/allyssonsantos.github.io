@@ -23,7 +23,15 @@
 
 .main--centralized {
   max-width: var(--content-max-width);
-  padding: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.main__menu-button {
+  position: fixed;
+  z-index: 1;
+  backdrop-filter: blur(2px);
+  background-color: var(--backdrop-color);
 }
 
 @media (width >= 768px) {
