@@ -46,11 +46,17 @@ p {
 
 a {
   color: var(--primary-300);
-  transition: color var(--transition);
+  text-decoration-color: transparent;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0;
+  transition: color var(--transition), text-decoration-color var(--transition),
+    text-underline-offset var(--transition);
 }
 
 a:hover {
   color: var(--primary-400);
+  text-decoration-color: inherit;
+  text-underline-offset: 8px;
 }
 
 code:not(.code-highlight) {
@@ -62,9 +68,21 @@ code:not(.code-highlight) {
   font-family: monospace;
   font-size: 0.875rem;
   font-weight: bold;
+  transition: color var(--transition), background-color var(--transition);
+}
+
+pre {
+  border-radius: 8px;
 }
 
 pre[class*='language-'] {
   margin-right: -1rem;
   margin-left: -1rem;
+  font-size: 1rem;
+}
+
+@media (width <= 768px) {
+  pre {
+    border-radius: 0;
+  }
 }

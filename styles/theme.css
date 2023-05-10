@@ -1,6 +1,5 @@
 :root {
-  --primary-200: #008686;
-  --primary-300: #025050;
+  --primary-300: #007a7a;
   --primary-400: #003030;
   --white: #fff;
   --neutral-100: #f2f2f2;
@@ -8,13 +7,15 @@
   --neutral-300: #333;
   --neutral-400: #111;
   --icon-size: 3rem;
-  --transition: 100ms ease-in-out;
+  --transition-duration: 100ms;
+  --transition-timing-function: ease-in-out;
+  --transition: var(--transition-duration) var(--transition-timing-function);
   --content-max-width: 48rem;
 }
 
 :root.dark {
-  --primary-300: #008686;
-  --primary-400: #025050;
+  --primary-300: #00c7c7;
+  --primary-400: #007a7a;
   --white: #0d0d0d;
   --neutral-100: #111;
   --neutral-200: #333;
