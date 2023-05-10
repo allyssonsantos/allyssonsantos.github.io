@@ -23,31 +23,32 @@ const sourceSans = Source_Sans_3({ subsets: ['latin'] });
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =
-    Component.getLayout ??
-    ((page) => (
-      <BaseLayout className={sourceSans.className}>{page}</BaseLayout>
-    ));
+    Component.getLayout ?? ((page) => <BaseLayout>{page}</BaseLayout>);
 
-  return getLayout(
-    <>
-      <DefaultSeo
-        titleTemplate={`%s | ${SITE_NAME}`}
-        title="Allysson Santos"
-        canonical={SITE_BASE_URL}
-        openGraph={{
-          type: 'website',
-          locale: 'pt_BR',
-          url: SITE_BASE_URL,
-          site_name: SITE_NAME,
-        }}
-        twitter={{
-          handle: TWITTER_HANDLE,
-          cardType: 'summary_large_image',
-          site: TWITTER_HANDLE,
-        }}
-      />
-      <Component {...pageProps} />
-    </>,
+  return (
+    <div className={sourceSans.className}>
+      {getLayout(
+        <>
+          <DefaultSeo
+            titleTemplate={`%s | ${SITE_NAME}`}
+            title="Allysson Santos"
+            canonical={SITE_BASE_URL}
+            openGraph={{
+              type: 'website',
+              locale: 'pt_BR',
+              url: SITE_BASE_URL,
+              site_name: SITE_NAME,
+            }}
+            twitter={{
+              handle: TWITTER_HANDLE,
+              cardType: 'summary_large_image',
+              site: TWITTER_HANDLE,
+            }}
+          />
+          <Component {...pageProps} />
+        </>,
+      )}
+    </div>
   );
 }
 
