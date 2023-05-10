@@ -1,19 +1,35 @@
 import type { ReactElement } from 'react';
-import { Source_Sans_3 } from '@next/font/google';
+import { NextSeo } from 'next-seo';
 
 import { BlogFeature } from 'src/features/blog';
+import { SITE_BASE_URL } from 'src/constants';
 
 import type { NextPageWithLayout } from '../_app';
 import { BaseLayout } from 'src/layouts';
 
-const sourceSans = Source_Sans_3({ subsets: ['latin'] });
-
 const Blog: NextPageWithLayout = () => {
-  return <BlogFeature />;
+  const URL = `${SITE_BASE_URL}/blog`;
+  const description =
+    'Tutorials and ideas for front-end developers. I write about JavaScript, TypeScript, CSS, HTML, and more.';
+  return (
+    <>
+      <NextSeo
+        title="Blog"
+        description="Tutorials and ideas for front-end developers. I write about JavaScript, TypeScript, CSS, HTML, and more."
+        canonical={URL}
+        openGraph={{
+          url: URL,
+          title: 'Blog | allysson.me',
+          description: description,
+        }}
+      />
+      <BlogFeature />
+    </>
+  );
 };
 
 Blog.getLayout = function getLayout(page: ReactElement) {
-  return <BaseLayout className={sourceSans.className}>{page}</BaseLayout>;
+  return <BaseLayout>{page}</BaseLayout>;
 };
 
 export default Blog;

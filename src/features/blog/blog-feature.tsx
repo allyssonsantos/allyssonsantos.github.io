@@ -1,4 +1,7 @@
 import { allBlogs, Blog } from 'contentlayer/generated';
+import { PostPreview } from 'src/components';
+
+import styles from './blog.module.css';
 
 export function BlogFeature() {
   const posts = allBlogs.reduce((acc, post) => {
@@ -9,15 +12,23 @@ export function BlogFeature() {
 
   return (
     <section>
-      <h1>Blog</h1>
-      <ul>
+      <ul className={styles['blog__category-list']}>
         {Object.entries(posts).map(([category, post]) => (
           <li key={category}>
-            <h2>{category}</h2>
-            <ul>
+            <div className={styles['blog__category-header']}>
+              <h2 className={styles['blog__category-title']}>{category}</h2>
+              <small>{post.length} Articles</small>
+            </div>
+            <ul className={styles['blog__post-list']}>
               {post.map((post) => (
-                <li key={post.slug}>
-                  <a href={`/blog/${post.slug}`}>{post.title}</a>
+                <li className={styles['blog__post-item']} key={post.slug}>
+                  <PostPreview
+                    slug={post.slug}
+                    title={post.title}
+                    description={post.description}
+                    publishedAt={post.publishedAt}
+                    readingTime={post.readingTime.text}
+                  />
                 </li>
               ))}
             </ul>
