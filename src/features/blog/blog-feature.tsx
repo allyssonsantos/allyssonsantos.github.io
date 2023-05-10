@@ -1,32 +1,29 @@
-import Image from 'next/image';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import { type Blog } from 'contentlayer/generated';
+import { allBlogs, Blog } from 'contentlayer/generated';
 
-import styles from './blog.module.css';
+export function BlogFeature() {
+  const posts = allBlogs.reduce((acc, post) => {
+    acc[post.category] = [...(acc[post.category] || []), post];
 
-export function BlogFeature({ post }: { post: Blog }) {
-  const PostBody = useMDXComponent(post.body.code);
-  const readingTime = Math.ceil(post.readingTime.minutes);
+    return acc;
+  }, {} as Record<string, Blog[]>);
 
   return (
-    <div className={styles.blog}>
-      <div className={styles.blog__header}>
-        <h1 className={styles.blog__title}>{post.title}</h1>
-        <small className={styles['blog__reading-time']}>
-          <abbr title={`estimated time to read: ${readingTime} minute`}>
-            {readingTime} min
-          </abbr>
-        </small>
-      </div>
-      <div className={styles['blog__cover-wrapper']}>
-        <Image
-          className={styles.blog__cover}
-          src={`/articles/${post.cover}`}
-          alt={post.altCover}
-          fill
-        />
-      </div>
-      <PostBody />
-    </div>
+    <section>
+      <h1>Blog</h1>
+      <ul>
+        {Object.entries(posts).map(([category, post]) => (
+          <li key={category}>
+            <h2>{category}</h2>
+            <ul>
+              {post.map((post) => (
+                <li key={post.slug}>
+                  <a href={`/blog/${post.slug}`}>{post.title}</a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
