@@ -1,6 +1,7 @@
 /* stylelint-disable no-descending-specificity */
 .sidebar {
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   display: flex;

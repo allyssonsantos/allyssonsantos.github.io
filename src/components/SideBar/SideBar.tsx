@@ -11,7 +11,6 @@ import {
   ExternalLink,
   GitHub,
   Twitter,
-  Instagram,
   Linkedin,
   Sun,
   Moon,
@@ -70,12 +69,6 @@ const socialLinks: Array<ILinks> = [
     icon: Twitter,
   },
   {
-    title: 'Instagram',
-    href: 'https://www.instagram.com/_allysson/',
-    external: true,
-    icon: Instagram,
-  },
-  {
     title: 'LinkedIn',
     href: 'https://www.linkedin.com/in/allyssonsantos/',
     external: true,
@@ -114,7 +107,12 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
   }, []);
 
   return (
-    <FocusTrap active={isLowerResolution && isOpen}>
+    <FocusTrap
+      active={isLowerResolution && isOpen}
+      focusTrapOptions={{
+        allowOutsideClick: true,
+      }}
+    >
       <aside
         className={classnames(styles.sidebar, {
           [styles['sidebar--opened']]: isOpen,
