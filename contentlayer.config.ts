@@ -17,6 +17,7 @@ export const Blog = defineDocumentType(() => ({
     cover: { type: 'string', required: true },
     altCover: { type: 'string', required: true },
     tags: { type: 'list', required: true, of: { type: 'string' } },
+    category: { type: 'string', required: true },
   },
   computedFields: {
     readingTime: {
