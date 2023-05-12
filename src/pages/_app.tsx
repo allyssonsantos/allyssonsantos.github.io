@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import { Source_Sans_3 } from '@next/font/google';
 import { DefaultSeo } from 'next-seo';
 
+import { ModalProvider } from 'src/components';
 import { SITE_BASE_URL, SITE_NAME, TWITTER_HANDLE } from 'src/constants';
 import { BaseLayout } from 'src/layouts';
 
@@ -27,27 +28,29 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <div className={sourceSans.className}>
-      {getLayout(
-        <>
-          <DefaultSeo
-            titleTemplate={`%s | ${SITE_NAME}`}
-            defaultTitle="Allysson Santos"
-            canonical={SITE_BASE_URL}
-            openGraph={{
-              type: 'website',
-              locale: 'pt_BR',
-              url: SITE_BASE_URL,
-              site_name: SITE_NAME,
-            }}
-            twitter={{
-              handle: TWITTER_HANDLE,
-              cardType: 'summary_large_image',
-              site: TWITTER_HANDLE,
-            }}
-          />
-          <Component {...pageProps} />
-        </>,
-      )}
+      <ModalProvider>
+        {getLayout(
+          <>
+            <DefaultSeo
+              titleTemplate={`%s | ${SITE_NAME}`}
+              defaultTitle="Allysson Santos"
+              canonical={SITE_BASE_URL}
+              openGraph={{
+                type: 'website',
+                locale: 'pt_BR',
+                url: SITE_BASE_URL,
+                site_name: SITE_NAME,
+              }}
+              twitter={{
+                handle: TWITTER_HANDLE,
+                cardType: 'summary_large_image',
+                site: TWITTER_HANDLE,
+              }}
+            />
+            <Component {...pageProps} />
+          </>,
+        )}
+      </ModalProvider>
     </div>
   );
 }
