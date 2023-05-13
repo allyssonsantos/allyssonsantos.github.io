@@ -7,11 +7,13 @@ interface IButtonProps
   extends PropsWithChildren,
     ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'icon' | 'inverted';
+  size?: 'small';
 }
 
 export function Button({
   children,
   variant,
+  size,
   className,
   ...props
 }: IButtonProps) {
@@ -21,6 +23,7 @@ export function Button({
       className={classnames(className, styles.button, {
         [styles['button-icon']]: variant === 'icon',
         [styles['button-inverted']]: variant === 'inverted',
+        [styles['button--small']]: size === 'small',
       })}
       {...props}
     >

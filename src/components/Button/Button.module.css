@@ -12,6 +12,11 @@
   transition: background-color var(--transition);
 }
 
+.button-icon.button--small {
+  width: calc(var(--icon-size) / 1.5);
+  height: calc(var(--icon-size) / 1.5);
+}
+
 .button-icon {
   width: var(--icon-size);
   height: var(--icon-size);
