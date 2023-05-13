@@ -18,9 +18,10 @@ import {
 } from 'react-feather';
 
 import { useIsLowerResolution } from 'src/hooks';
-import { SIGN_UP_MODAL_KEY } from 'src/contants/modals';
-import { ActiveLink, Button, Modal, useModals } from '..';
+import { SIGN_IN_MODAL_KEY } from 'src/constants/modals';
+import { ActiveLink, Button, useModals } from '..';
 
+import { SignInModal } from './components/sign-in-modal';
 import styles from './SideBar.module.css';
 
 interface ILinks {
@@ -94,24 +95,18 @@ function SideBarLink({ title, href, external, icon: Icon }: ILinks) {
 }
 
 function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
-  const { openedModals, openModal, closeModal } = useModals();
   const [mounted, setMounted] = useState(false);
+  const { openModal } = useModals();
   const { theme, setTheme } = useTheme();
   const isDarkTheme = theme === 'dark';
   const isLowerResolution = useIsLowerResolution();
-
-  const isSignUpModalOpen = openedModals.includes(SIGN_UP_MODAL_KEY);
 
   function handleThemeChange() {
     setTheme(isDarkTheme ? 'light' : 'dark');
   }
 
   function openSignInModal() {
-    openModal(SIGN_UP_MODAL_KEY);
-  }
-
-  function closeSignInModal() {
-    closeModal(SIGN_UP_MODAL_KEY);
+    openModal(SIGN_IN_MODAL_KEY);
   }
 
   useEffect(() => {
@@ -149,14 +144,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
           <Button className={styles.sidebar__login} onClick={openSignInModal}>
             Sign In
           </Button>
-          <Modal
-            isOpen={isSignUpModalOpen}
-            title="title"
-            onClose={closeSignInModal}
-            closeOnClickOutside
-          >
-            texto interno
-          </Modal>
+          <SignInModal />
         </header>
         <nav className={styles.sidebar__navigation}>
           <ul className={styles.sidebar__list}>
