@@ -3,3 +3,4 @@ export { Button } from './Button';
 export { PostPreview } from './PostPreview';
 export { SideBar } from './SideBar';
 export { Modal, ModalProvider, useModals } from './modal';
+export { GoogleButton } from './google-button';
