@@ -1,0 +1,25 @@
+.modal {
+  padding: 16px;
+  border: none;
+  background-color: var(--neutral-100);
+  border-radius: 8px;
+}
+
+.modal::backdrop {
+  background-color: var(--backdrop-color);
+  opacity: 0.8;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 32px;
+}
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}

@@ -8,6 +8,9 @@ import {
 
 import { X } from 'react-feather';
 
+import { Button } from '../Button';
+import styles from './modal.module.css';
+
 type ModalProps = PropsWithChildren<{
   title: string;
   closeOnClickOutside?: boolean;
@@ -60,11 +63,21 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
         ref={dialogRef}
         aria-labelledby="modal-title"
         onClick={handleClickOutside}
+        className={styles.modal}
       >
-        <button onClick={handleClose} aria-label="close modal">
-          <X aria-hidden />
-        </button>
-        <h2 id="modal-title">Title</h2>
+        <div className={styles.modal__header}>
+          <h2 id="modal-title" className={styles.modal__title}>
+            {title}
+          </h2>
+          <Button
+            onClick={handleClose}
+            aria-label="close modal"
+            variant="icon"
+            size="small"
+          >
+            <X aria-hidden />
+          </Button>
+        </div>
         {children}
       </dialog>
     );
