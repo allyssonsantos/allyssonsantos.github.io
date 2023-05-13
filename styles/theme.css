@@ -1,4 +1,5 @@
-:root {
+:root,
+::backdrop {
   --primary-300: #007a7a;
   --primary-400: #003030;
   --white: #fff;
@@ -6,7 +7,8 @@
   --neutral-200: #ccc;
   --neutral-300: #333;
   --neutral-400: #111;
-  --backdrop-color: #ffffffc7;
+  --blur-backdrop-color: #ffffffc7;
+  --backdrop-color: #0d0d0d;
   --icon-size: 3rem;
   --transition-duration: 100ms;
   --transition-timing-function: ease-in-out;
@@ -14,7 +16,8 @@
   --content-max-width: 48rem;
 }
 
-:root.dark {
+:root.dark,
+.dark ::backdrop {
   --primary-300: #00c7c7;
   --primary-400: #007a7a;
   --white: #0d0d0d;
@@ -22,5 +25,6 @@
   --neutral-200: #333;
   --neutral-300: #ccc;
   --neutral-400: #f2f2f2;
-  --backdrop-color: #0d0d0dc7;
+  --blur-backdrop-color: #0d0d0dc7;
+  --backdrop-color: #0d0d0d;
 }
