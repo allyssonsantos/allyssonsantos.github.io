@@ -1,19 +1,19 @@
-.blog ul {
+.article ul {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
   list-style-position: inside;
 }
 
-.blog li {
+.article li {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-.blog li::marker {
+.article li::marker {
   color: var(--neutral-200);
 }
 
-.blog__header {
+.article__header {
   display: flex;
   align-items: center;
   margin-top: 4rem;
@@ -21,26 +21,70 @@
   gap: 1rem;
 }
 
-.blog__title {
+.article__title {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-.blog__reading-time {
+.article__reading-time {
   flex-shrink: 0;
   font-size: 1rem;
   font-weight: bold;
 }
 
-.blog__cover-wrapper {
+.article__cover-wrapper {
   position: relative;
   height: 500px;
   margin-bottom: 3rem;
 }
 
-.blog__cover {
+.article__cover {
   width: 100%;
   max-width: 100%;
   border-radius: 8px;
   object-fit: contain;
+}
+
+.article__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.article__actions__comments {
+  display: flex;
+  align-items: center;
+}
+
+.article__actions__comments svg,
+.like-button svg {
+  margin-right: 8px;
+}
+
+.like-button {
+  font-size: 1rem;
+}
+
+.like-button--liked svg {
+  fill: var(--neutral-400);
+  transition: fill var(--transition);
+}
+
+.article__comment-author,
+.article__comment-date {
+  font-size: 1rem;
+}
+
+.article__comment-date {
+  margin-left: 4px;
+}
+
+.article__comment-date::before {
+  margin-right: 4px;
+  content: '·';
+}
+
+.article__comment-message {
+  margin-top: 0;
+  font-size: 1rem;
 }
