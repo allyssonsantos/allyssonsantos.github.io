@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import classnames from 'classnames';
 
-import styles from './Button.module.css';
+import styles from './button.module.css';
 
 interface IButtonProps
   extends PropsWithChildren,

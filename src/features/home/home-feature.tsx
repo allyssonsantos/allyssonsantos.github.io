@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { format, parseISO } from 'date-fns';
 import type { Blog } from 'contentlayer/generated';
 
-import { PostPreview } from 'src/components/PostPreview';
+import { PostPreview } from 'src/components/post-preview';
 import styles from './home.module.css';
 
 type HomeFeatureProps = {

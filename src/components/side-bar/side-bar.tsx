@@ -22,7 +22,7 @@ import { SIGN_IN_MODAL_KEY } from 'src/constants/modals';
 import { ActiveLink, Button, useModals } from '..';
 
 import { SignInModal } from './components/sign-in-modal';
-import styles from './SideBar.module.css';
+import styles from './side-bar.module.css';
 
 interface ILinks {
   title: string;

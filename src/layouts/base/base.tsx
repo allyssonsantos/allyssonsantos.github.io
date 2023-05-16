@@ -6,7 +6,7 @@ import { Menu } from 'react-feather';
 
 import { Button, SideBar } from 'src/components';
 
-import styles from './Base.module.css';
+import styles from './base.module.css';
 
 const baseAlign = cva(styles.main, {
   variants: {

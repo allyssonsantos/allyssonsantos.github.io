@@ -8,7 +8,7 @@ import {
 
 import { X } from 'react-feather';
 
-import { Button } from '../Button';
+import { Button } from '../button';
 import styles from './modal.module.css';
 
 type ModalProps = PropsWithChildren<{

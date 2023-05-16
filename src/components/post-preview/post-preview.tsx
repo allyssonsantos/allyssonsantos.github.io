@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Blog } from 'contentlayer/generated';
-import styles from './PostPreview.module.css';
+import styles from './post-preview.module.css';
 
 interface IPostPreview extends Pick<Blog, 'title' | 'slug' | 'description'> {
   readingTime: string;

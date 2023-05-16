@@ -6,7 +6,7 @@ import { allBlogs, type Blog } from 'contentlayer/generated';
 import { SITE_BASE_URL } from 'src/constants';
 import { ArticleFeature } from 'src/features/article';
 import { ArticleLayout } from 'src/layouts/article';
-import { BaseLayout } from 'src/layouts/Base';
+import { BaseLayout } from 'src/layouts/base';
 
 import type { NextPageWithLayout } from '../_app';
 
