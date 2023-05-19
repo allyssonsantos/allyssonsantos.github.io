@@ -1,4 +1,4 @@
-import { Card, Button } from '@catho/quantum';
+import { Card, Button, Alert } from '@catho/quantum';
 import { cva } from 'class-variance-authority';
 
 import { quantumCard } from '../../../../data/projects';
@@ -12,9 +12,10 @@ export function QuantumCard({
   return (
     <Card className={quantumCardStyles({ className })}>
       <Card.Header>
-        <Card.HeaderText>
-          <Card.Title>{quantumCard.name}</Card.Title>
-        </Card.HeaderText>
+        <Card.Thumbnail
+          src="/images/about-me/quantum_logo.svg"
+          alt="quantum logo"
+        />
       </Card.Header>
       <Card.Content>{quantumCard.description}</Card.Content>
       <Card.Footer

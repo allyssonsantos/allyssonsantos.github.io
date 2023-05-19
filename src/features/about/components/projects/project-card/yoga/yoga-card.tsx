@@ -7,7 +7,7 @@ export function YogaCard({ ...props }) {
     <ThemeProvider>
       <Card {...props}>
         <Card.Header>
-          <Text.H3>{yogaCard.name}</Text.H3>
+          <Text.H3 color="primary">{yogaCard.name}</Text.H3>
         </Card.Header>
         <Card.Content style={{ marginTop: 8 }}>
           <Text.Small>{yogaCard.description}</Text.Small>

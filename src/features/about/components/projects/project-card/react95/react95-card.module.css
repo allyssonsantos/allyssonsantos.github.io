@@ -6,6 +6,10 @@
 }
 
 .react95 > div {
+  height: 100%;
+}
+
+.react95 > div > div {
   position: static;
   height: 100%;
   transform: none !important;
@@ -14,4 +18,8 @@
 .react95 p {
   height: 100%;
   margin: 0;
+}
+
+.react95 button {
+  font-family: inherit;
 }
