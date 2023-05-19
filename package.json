@@ -23,10 +23,15 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "@catho/quantum": "^9.13.1",
+    "@gympass/yoga": "^7.75.0",
     "@next/font": "^13.0.5",
+    "@react95/core": "^6.0.7",
+    "@react95/icons": "^2.0.6",
     "@sentry/nextjs": "^7.26.0",
     "@svgr/webpack": "^7.0.0",
     "@types/rss": "^0.0.29",
+    "@xstyled/styled-components": "^3.8.0",
     "class-variance-authority": "^0.5.2",
     "classnames": "^2.3.2",
     "contentlayer": "^0.3.2",
@@ -35,6 +40,7 @@
     "gh-pages": "^4.0.0",
     "next": "^13.0.6",
     "next-contentlayer": "^0.3.2",
+    "next-images": "^1.8.5",
     "next-pwa": "^5.6.0",
     "next-seo": "^5.14.1",
     "next-sitemap": "^3.1.32",
@@ -50,7 +56,8 @@
     "rehype-prism-plus": "^1.5.0",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "styled-components": "^6.0.0-rc.1"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
@@ -72,6 +79,8 @@
     "jest": "^29.0.3",
     "jest-environment-jsdom": "^29.0.3",
     "lefthook": "^1.1.1",
+    "next-fonts": "^1.5.1",
+    "next-transpile-modules": "^10.0.0",
     "prettier": "^2.7.1",
     "semantic-release": "^21.0.1",
     "stylelint": "^15.6.0",

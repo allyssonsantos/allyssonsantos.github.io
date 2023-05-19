@@ -9,6 +9,10 @@ export default function Document() {
         <link rel="icon" href="/favicon-16.png" sizes="16x16"></link>
         <link rel="icon" href="/favicon-32.png" sizes="32x32"></link>
         <meta name="theme-color" content="#025050" />
+        <link
+          rel="stylesheet"
+          href={`https://fonts.googleapis.com/css?family=Rubik:400,500,700`}
+        />
       </Head>
       <body>
         <Main />

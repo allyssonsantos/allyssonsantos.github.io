@@ -1,0 +1,17 @@
+.react95 {
+  position: relative;
+  width: 100%;
+  color: #000;
+  font-size: 12px;
+}
+
+.react95 > div {
+  position: static;
+  height: 100%;
+  transform: none !important;
+}
+
+.react95 p {
+  height: 100%;
+  margin: 0;
+}

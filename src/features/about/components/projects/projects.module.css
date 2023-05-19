@@ -5,6 +5,9 @@
 }
 
 .projects__project {
-  flex-basis: 234px;
+  display: flex;
+  min-height: 240px;
+  flex-basis: 230px;
+  flex-direction: column;
   flex-grow: 1;
 }
