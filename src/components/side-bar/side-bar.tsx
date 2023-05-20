@@ -18,8 +18,9 @@ import {
 } from 'react-feather';
 
 import { useIsLowerResolution } from 'src/hooks';
+import { useAuth } from 'src/contexts/auth';
 import { SIGN_IN_MODAL_KEY } from 'src/constants/modals';
-import { ActiveLink, Button, useModals } from '..';
+import { ActiveLink, Button, useModals, Avatar } from '..';
 
 import { SignInModal } from './components/sign-in-modal';
 import styles from './side-bar.module.css';
@@ -99,7 +100,10 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
   const { openModal } = useModals();
   const { theme, setTheme } = useTheme();
   const isDarkTheme = theme === 'dark';
+  const { currentUser, isLoadingUser } = useAuth();
   const isLowerResolution = useIsLowerResolution();
+
+  console.log({ currentUser, isLoadingUser });
 
   function handleThemeChange() {
     setTheme(isDarkTheme ? 'light' : 'dark');
@@ -141,9 +145,13 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
           >
             allysson.me
           </Link>
-          <Button className={styles.sidebar__login} onClick={openSignInModal}>
-            Sign In
-          </Button>
+          {currentUser ? (
+            <Avatar src={currentUser.photoURL} name={currentUser.displayName} />
+          ) : (
+            <Button className={styles.sidebar__login} onClick={openSignInModal}>
+              Sign In
+            </Button>
+          )}
           <SignInModal />
         </header>
         <nav className={styles.sidebar__navigation}>

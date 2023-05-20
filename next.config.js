@@ -30,6 +30,12 @@ module.exports = withSentryConfig(
             },
             images: {
               disableStaticImages: true,
+              remotePatterns: [
+                {
+                  protocol: 'https',
+                  hostname: '*.googleusercontent.com',
+                },
+              ],
             },
             webpack(config) {
               const fileLoaderRule = config.module.rules.find((rule) =>
