@@ -49,5 +49,5 @@ next-env.d.ts
 **/public/workbox-*.js.map
 **/public/worker-*.js.map
 
-.env
+.env*
 
