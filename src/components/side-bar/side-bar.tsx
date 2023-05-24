@@ -19,11 +19,14 @@ import {
 
 import { useIsLowerResolution } from 'src/hooks';
 import { useAuth, logout } from 'src/contexts/auth';
-import { SIGN_IN_MODAL_KEY } from 'src/constants/modals';
-import { ActiveLink, Button, useModals, Avatar, Menu } from '..';
+import {
+  SIGN_IN_MODAL_KEY,
+  DELETE_ACCOUNT_MODAL_KEY,
+} from 'src/constants/modals';
+import { ActiveLink, Button, useModals, Avatar, Menu, SignInModal } from '..';
 
-import { SignInModal } from './components/sign-in-modal';
 import styles from './side-bar.module.css';
+import { DeleteAccountModal } from '../delete-account-modal';
 
 interface ILinks {
   title: string;
@@ -112,6 +115,10 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
     openModal(SIGN_IN_MODAL_KEY);
   }
 
+  function openDeleteAccountModal() {
+    openModal(DELETE_ACCOUNT_MODAL_KEY);
+  }
+
   function handleMenuOpen() {
     setIsMenuOpen(!isMenuOpen);
   }
@@ -157,6 +164,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
               />
               <Menu
                 isOpen={isMenuOpen}
+                onClose={() => setIsMenuOpen(false)}
                 items={[
                   {
                     text: 'Logout',
@@ -164,7 +172,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
                   },
                   {
                     text: 'Delete account',
-                    onClick: () => {},
+                    onClick: openDeleteAccountModal,
                   },
                 ]}
               />
@@ -175,6 +183,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
             </Button>
           )}
           <SignInModal />
+          <DeleteAccountModal />
         </header>
         <nav className={styles.sidebar__navigation}>
           <ul className={styles.sidebar__list}>

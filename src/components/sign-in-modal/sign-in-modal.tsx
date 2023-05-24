@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { SIGN_IN_MODAL_KEY } from 'src/constants/modals';
 import { login } from 'src/contexts/auth';
-import { Modal, GoogleButton, useModals } from '../..';
+import { Modal, GoogleButton, useModals } from '..';
 
 import styles from './sign-in-modal.module.css';
 import { type AuthError } from 'firebase/auth';

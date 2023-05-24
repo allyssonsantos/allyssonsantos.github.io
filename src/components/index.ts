@@ -8,3 +8,4 @@ export { Textarea } from './textarea';
 export { Alert } from './alert';
 export { Avatar } from './avatar';
 export { Menu } from './menu';
+export { SignInModal } from './sign-in-modal';
