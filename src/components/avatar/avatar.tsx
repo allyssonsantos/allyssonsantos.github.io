@@ -5,16 +5,13 @@ import styles from './avatar.module.css';
 type AvatarProps = {
   src?: string | null;
   name?: string | null;
+  onClick?: () => void;
 };
 
-export function Avatar({ src = '', name }: AvatarProps) {
+export function Avatar({ src = '', name, onClick }: AvatarProps) {
   return (
-    <Image
-      width={20}
-      height={20}
-      src={src || ''}
-      alt={name || ''}
-      className={styles.avatar}
-    />
+    <button className={styles.avatar} onClick={onClick}>
+      <Image width={32} height={32} src={src || ''} alt={name || ''} />
+    </button>
   );
 }
