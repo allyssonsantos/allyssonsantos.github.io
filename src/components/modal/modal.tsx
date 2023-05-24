@@ -42,17 +42,8 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
     }
 
     function handleClickOutside(event: React.MouseEvent<HTMLDialogElement>) {
-      const measure = dialogRef.current?.getBoundingClientRect();
-      if (measure) {
-        if (
-          closeOnClickOutside &&
-          (event.clientX < measure!.left ||
-            event.clientX > measure!.right ||
-            event.clientY < measure!.top ||
-            event.clientY > measure!.bottom)
-        ) {
-          handleClose();
-        }
+      if ((event.target as HTMLElement).nodeName === 'DIALOG') {
+        handleClose();
       }
     }
 
@@ -65,20 +56,22 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
         onClick={handleClickOutside}
         className={styles.modal}
       >
-        <div className={styles.modal__header}>
-          <h2 id="modal-title" className={styles.modal__title}>
-            {title}
-          </h2>
-          <Button
-            onClick={handleClose}
-            aria-label="close modal"
-            variant="icon"
-            size="small"
-          >
-            <X aria-hidden />
-          </Button>
+        <div className={styles.modal__wrapper}>
+          <div className={styles.modal__header}>
+            <h2 id="modal-title" className={styles.modal__title}>
+              {title}
+            </h2>
+            <Button
+              onClick={handleClose}
+              aria-label="close modal"
+              variant="icon"
+              size="small"
+            >
+              <X aria-hidden />
+            </Button>
+          </div>
+          {children}
         </div>
-        {children}
       </dialog>
     );
   },

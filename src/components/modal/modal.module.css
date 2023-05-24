@@ -1,8 +1,12 @@
 .modal {
-  padding: 16px;
+  padding: 0;
   border: none;
-  background-color: var(--neutral-100);
   border-radius: 8px;
+}
+
+.modal__wrapper {
+  padding: 16px;
+  background-color: var(--neutral-100);
 }
 
 .modal::backdrop {
