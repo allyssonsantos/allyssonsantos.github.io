@@ -91,7 +91,6 @@ function AuthProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      console.log({ user });
       setCurrentUser(user);
 
       toggleLoading(false);
