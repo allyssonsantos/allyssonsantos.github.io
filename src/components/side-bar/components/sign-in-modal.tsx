@@ -22,6 +22,7 @@ export function SignInModal() {
     try {
       await login();
       setLoginError(false);
+      closeModal(SIGN_IN_MODAL_KEY);
     } catch (err) {
       const error = err as AuthError;
       if (error.code === POPUP_CLOSED_ERROR) {

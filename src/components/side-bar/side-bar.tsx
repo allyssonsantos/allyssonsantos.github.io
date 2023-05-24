@@ -18,9 +18,9 @@ import {
 } from 'react-feather';
 
 import { useIsLowerResolution } from 'src/hooks';
-import { useAuth } from 'src/contexts/auth';
+import { useAuth, logout } from 'src/contexts/auth';
 import { SIGN_IN_MODAL_KEY } from 'src/constants/modals';
-import { ActiveLink, Button, useModals, Avatar } from '..';
+import { ActiveLink, Button, useModals, Avatar, Menu } from '..';
 
 import { SignInModal } from './components/sign-in-modal';
 import styles from './side-bar.module.css';
@@ -97,13 +97,12 @@ function SideBarLink({ title, href, external, icon: Icon }: ILinks) {
 
 function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
   const [mounted, setMounted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openModal } = useModals();
   const { theme, setTheme } = useTheme();
   const isDarkTheme = theme === 'dark';
-  const { currentUser, isLoadingUser } = useAuth();
+  const { currentUser } = useAuth();
   const isLowerResolution = useIsLowerResolution();
-
-  console.log({ currentUser, isLoadingUser });
 
   function handleThemeChange() {
     setTheme(isDarkTheme ? 'light' : 'dark');
@@ -111,6 +110,10 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
 
   function openSignInModal() {
     openModal(SIGN_IN_MODAL_KEY);
+  }
+
+  function handleMenuOpen() {
+    setIsMenuOpen(!isMenuOpen);
   }
 
   useEffect(() => {
@@ -146,7 +149,26 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
             allysson.me
           </Link>
           {currentUser ? (
-            <Avatar src={currentUser.photoURL} name={currentUser.displayName} />
+            <>
+              <Avatar
+                src={currentUser.photoURL}
+                name={currentUser.displayName}
+                onClick={handleMenuOpen}
+              />
+              <Menu
+                isOpen={isMenuOpen}
+                items={[
+                  {
+                    text: 'Logout',
+                    onClick: logout,
+                  },
+                  {
+                    text: 'Delete account',
+                    onClick: () => {},
+                  },
+                ]}
+              />
+            </>
           ) : (
             <Button className={styles.sidebar__login} onClick={openSignInModal}>
               Sign In
