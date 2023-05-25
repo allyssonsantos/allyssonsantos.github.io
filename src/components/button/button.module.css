@@ -28,6 +28,10 @@
   color: var(--white);
 }
 
+.button-ghost {
+  border: 1px solid var(--neutral-400);
+}
+
 .button:hover {
   background-color: var(--neutral-100);
 }

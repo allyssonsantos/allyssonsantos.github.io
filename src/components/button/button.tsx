@@ -1,14 +1,23 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
-import classnames from 'classnames';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 import styles from './button.module.css';
 
-interface IButtonProps
-  extends PropsWithChildren,
-    ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'icon' | 'inverted';
-  size?: 'small';
-}
+const button = cva(styles.button, {
+  variants: {
+    variant: {
+      icon: styles['button-icon'],
+      inverted: styles['button-inverted'],
+      ghost: styles['button-ghost'],
+    },
+    size: {
+      small: styles['button--small'],
+    },
+  },
+});
+
+type ButtonProps = PropsWithChildren<VariantProps<typeof button>> &
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function Button({
   children,
@@ -16,15 +25,11 @@ export function Button({
   size,
   className,
   ...props
-}: IButtonProps) {
+}: ButtonProps) {
   return (
     <button
       type="button"
-      className={classnames(className, styles.button, {
-        [styles['button-icon']]: variant === 'icon',
-        [styles['button-inverted']]: variant === 'inverted',
-        [styles['button--small']]: size === 'small',
-      })}
+      className={button({ variant, size, className })}
       {...props}
     >
       {children}
