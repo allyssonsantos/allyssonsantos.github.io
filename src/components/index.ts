@@ -9,3 +9,4 @@ export { Alert } from './alert';
 export { Avatar } from './avatar';
 export { Menu } from './menu';
 export { SignInModal } from './sign-in-modal';
+export { DeleteCommentModal } from './delete-comment-modal';

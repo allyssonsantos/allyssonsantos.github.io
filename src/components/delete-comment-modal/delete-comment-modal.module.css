@@ -1,0 +1,12 @@
+.modal__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__message {
+  border-left: 1px solid var(--neutral-300);
+  margin: 16px 0 24px;
+  color: var(--neutral-300);
+  font-size: 0.875rem;
+  padding-inline-start: 16px;
+}
