@@ -8,7 +8,7 @@ import { ArticleFeature } from 'src/features/article';
 import { ArticleLayout } from 'src/layouts/article';
 import { BaseLayout } from 'src/layouts/base';
 
-import type { NextPageWithLayout } from '../_app';
+import type { NextPageWithLayout } from '../../_app';
 
 export default function Article({
   article,

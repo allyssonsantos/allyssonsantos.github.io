@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import FocusTrap from 'focus-trap-react';
 import classnames from 'classnames';
@@ -23,7 +22,7 @@ import {
   SIGN_IN_MODAL_KEY,
   DELETE_ACCOUNT_MODAL_KEY,
 } from 'src/constants/modals';
-import { ActiveLink, Button, useModals, Avatar, Menu, SignInModal } from '..';
+import { ActiveLink, Button, useModals, Avatar, Menu, SignInModal, Link } from '..';
 
 import styles from './side-bar.module.css';
 import { DeleteAccountModal } from '../delete-account-modal';

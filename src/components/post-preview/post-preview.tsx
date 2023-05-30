@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import type { Blog } from 'contentlayer/generated';
+import { Link } from '../link';
 import styles from './post-preview.module.css';
 
 interface IPostPreview extends Pick<Blog, 'title' | 'slug' | 'description'> {
