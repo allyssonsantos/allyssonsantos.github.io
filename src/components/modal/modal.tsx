@@ -14,24 +14,12 @@ import { Button } from '../button';
 import styles from './modal.module.css';
 
 const modal = cva(styles.modal, {
-  compoundVariants: [
-    {
-      fadeIn: true,
-      fadeOut: false,
-      class: 'fade-in slide-in-mobile',
-    },
-    {
-      fadeIn: false,
-      fadeOut: true,
-      class: 'fade-out slide-out-mobile',
-    },
-  ],
   variants: {
     fadeIn: {
-      true: 'fade-in',
+      true: 'fade-in slide-in-mobile',
     },
     fadeOut: {
-      true: 'fade-out',
+      true: 'fade-out slide-out-mobile',
     },
   },
 });
@@ -53,7 +41,6 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
     useEffect(() => {
       if (isOpen && !dialogRef.current?.open) {
         dialogRef.current?.showModal();
-        setInternalClosed(false);
       }
     }, [isOpen]);
 
@@ -80,6 +67,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
         onAnimationEnd={() => {
           if (!isOpen || internalClosed) {
             dialogRef.current?.close();
+            setInternalClosed(false);
           }
         }}
         className={modal({
