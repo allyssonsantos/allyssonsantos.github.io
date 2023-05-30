@@ -12,6 +12,7 @@ import { BaseLayout } from 'src/layouts';
 import '../../styles/theme.css';
 import '../../styles/highlight.css';
 import '../../styles/globals.css';
+import '../../styles/animations.css';
 import '@react95/icons/icons.css';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {

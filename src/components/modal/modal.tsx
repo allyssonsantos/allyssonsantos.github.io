@@ -3,47 +3,70 @@ import {
   useImperativeHandle,
   useRef,
   useEffect,
+  useState,
   type PropsWithChildren,
 } from 'react';
 
+import { cva } from 'class-variance-authority';
 import { X } from 'react-feather';
 
 import { Button } from '../button';
 import styles from './modal.module.css';
 
+const modal = cva(styles.modal, {
+  compoundVariants: [
+    {
+      fadeIn: true,
+      fadeOut: false,
+      class: 'fade-in slide-in-mobile',
+    },
+    {
+      fadeIn: false,
+      fadeOut: true,
+      class: 'fade-out slide-out-mobile',
+    },
+  ],
+  variants: {
+    fadeIn: {
+      true: 'fade-in',
+    },
+    fadeOut: {
+      true: 'fade-out',
+    },
+  },
+});
+
 type ModalProps = PropsWithChildren<{
   title: string;
-  closeOnClickOutside?: boolean;
+  onClickOutside?: () => void;
   isOpen: boolean;
 }> &
   React.DialogHTMLAttributes<HTMLDialogElement>;
 
 export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
-  (
-    { title, children, closeOnClickOutside, isOpen, onClose, ...props },
-    ref,
-  ) => {
+  ({ title, children, onClickOutside, isOpen, onClose, ...props }, ref) => {
     const dialogRef = useRef<HTMLDialogElement | null>(null);
+    const [internalClosed, setInternalClosed] = useState(false);
 
     useImperativeHandle(ref, () => dialogRef.current!);
 
     useEffect(() => {
       if (isOpen && !dialogRef.current?.open) {
         dialogRef.current?.showModal();
-      }
-
-      if (!isOpen && dialogRef.current?.open) {
-        dialogRef.current?.close();
+        setInternalClosed(false);
       }
     }, [isOpen]);
 
     function handleClose() {
-      dialogRef.current?.close();
+      setInternalClosed(true);
     }
 
     function handleClickOutside(event: React.MouseEvent<HTMLDialogElement>) {
-      if ((event.target as HTMLElement).nodeName === 'DIALOG') {
-        handleClose();
+      if (
+        (event.target as HTMLElement).nodeName === 'DIALOG' &&
+        onClickOutside
+      ) {
+        onClickOutside();
       }
     }
 
@@ -54,7 +77,15 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
         ref={dialogRef}
         aria-labelledby="modal-title"
         onClick={handleClickOutside}
-        className={styles.modal}
+        onAnimationEnd={() => {
+          if (!isOpen || internalClosed) {
+            dialogRef.current?.close();
+          }
+        }}
+        className={modal({
+          fadeIn: isOpen && !internalClosed,
+          fadeOut: !isOpen || internalClosed,
+        })}
       >
         <div className={styles.modal__wrapper}>
           <div className={styles.modal__header}>

@@ -31,6 +31,7 @@ export function DeleteCommentModal({
       isOpen={isDeleteCommentModalOpen}
       title="Delete comment"
       onClose={handleCancel}
+      onClickOutside={handleCancel}
     >
       <p>Are you sure that you want to delete this comment?</p>
       <blockquote className={styles.modal__message}>{message}</blockquote>

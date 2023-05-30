@@ -1,0 +1,103 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+@keyframes fade-in-backdrop {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fade-out-backdrop {
+  from {
+    opacity: 0.8;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.fade-in {
+  animation: fade-in var(--animation);
+}
+
+.fade-in::backdrop {
+  animation: fade-in-backdrop var(--animation);
+}
+
+.fade-out {
+  animation: fade-out var(--animation);
+}
+
+.fade-out::backdrop {
+  animation: fade-out-backdrop var(--animation);
+}
+
+.slide-in {
+  animation: slide-in var(--animation);
+}
+
+.slide-out {
+  animation: slide-out var(--animation);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .fade-out,
+  .slide-in,
+  .slide-out {
+    animation: none;
+  }
+}
+
+@media (width <= 768px) {
+  .slide-in-mobile {
+    animation: slide-in var(--animation);
+  }
+
+  .slide-out-mobile {
+    animation: slide-out var(--animation);
+  }
+}

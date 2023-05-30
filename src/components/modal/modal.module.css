@@ -2,6 +2,7 @@
   padding: 0;
   border: none;
   border-radius: 8px;
+  color: inherit;
 }
 
 .modal__wrapper {
@@ -26,4 +27,16 @@
   margin-top: 0;
   margin-bottom: 0;
   font-size: 1.5rem;
+}
+
+@media (width <= 768px) {
+  .modal {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }

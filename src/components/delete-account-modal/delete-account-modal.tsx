@@ -24,6 +24,7 @@ export function DeleteAccountModal() {
       isOpen={isDeleteAccountModalOpen}
       title="Delete my account"
       onClose={handleCancel}
+      onClickOutside={handleCancel}
     >
       <p>All your comments will be deleted as well.</p>
       <div className={styles.modal__footer}>

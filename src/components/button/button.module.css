@@ -33,7 +33,7 @@
 }
 
 .button:hover {
-  background-color: var(--neutral-100);
+  background-color: var(--neutral-200);
 }
 
 .button-inverted:hover {

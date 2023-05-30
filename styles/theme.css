@@ -13,6 +13,9 @@
   --transition-duration: 100ms;
   --transition-timing-function: ease-in-out;
   --transition: var(--transition-duration) var(--transition-timing-function);
+  --animation-duration: 250ms;
+  --animation-timing-function: ease-in-out;
+  --animation: var(--animation-duration) var(--animation-timing-function);
   --content-max-width: 48rem;
 }
 

@@ -5,7 +5,7 @@ import { login } from 'src/contexts/auth';
 import { Modal, GoogleButton, useModals } from '..';
 
 import styles from './sign-in-modal.module.css';
-import { type AuthError } from 'firebase/auth';
+import type { AuthError } from 'firebase/auth';
 
 const POPUP_CLOSED_ERROR = 'auth/popup-closed-by-user';
 
@@ -38,7 +38,7 @@ export function SignInModal() {
       isOpen={isSignUpModalOpen}
       title="Escolha uma forma de login:"
       onClose={closeSignInModal}
-      closeOnClickOutside
+      onClickOutside={closeSignInModal}
     >
       <div className={styles['sign-in-modal']}>
         <GoogleButton

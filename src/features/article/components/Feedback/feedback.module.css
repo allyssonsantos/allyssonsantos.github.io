@@ -3,7 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 16px;
+  margin-top: 48px;
+}
+
+.feedback__comment-title {
+  margin-top: 48px;
+  margin-bottom: 24px;
 }
 
 .feedback__actions__comments {

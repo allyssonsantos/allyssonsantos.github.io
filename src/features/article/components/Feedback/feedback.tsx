@@ -102,7 +102,7 @@ export function Feedback({ slug }: FeedbackProps) {
         </div>
       </section>
       <section>
-        <h2>Comments</h2>
+        <h2 className={styles['feedback__comment-title']}>Comments</h2>
         {comments.length ? (
           comments.map(({ id, userName, date, message, uid }) => (
             <div key={id} className={styles.feedback__comment}>

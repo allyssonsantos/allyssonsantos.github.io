@@ -64,7 +64,7 @@ export function AddComment({ slug }: { slug: string }) {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!currentUser) {
+    if (!currentUser || !state.value) {
       return;
     }
 
