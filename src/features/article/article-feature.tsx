@@ -1,20 +1,9 @@
 import Image from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { Heart, MessageCircle } from 'react-feather';
-import { cva } from 'class-variance-authority';
 import { type Blog } from 'contentlayer/generated';
 
-import { Button } from 'src/components';
+import { Feedback } from './components';
 import styles from './article.module.css';
-import { AddComment } from './components/add-comment';
-
-const likeButton = cva(styles['like-button'], {
-  variants: {
-    liked: {
-      true: styles['like-button--liked'],
-    },
-  },
-});
 
 export function ArticleFeature({ post }: { post: Blog }) {
   const PostBody = useMDXComponent(post.body.code);
@@ -41,30 +30,7 @@ export function ArticleFeature({ post }: { post: Blog }) {
       <article>
         <PostBody />
       </article>
-      <section className={styles.article__actions}>
-        <Button className={likeButton({ liked: true })}>
-          <Heart aria-hidden /> 2 likes
-        </Button>
-        <div className={styles.article__actions__comments}>
-          <MessageCircle /> 0 comments
-        </div>
-      </section>
-      <section>
-        <h2>Comments</h2>
-        <p>No comments in this post.</p>
-        <div>
-          <div>
-            <strong className={styles['article__comment-author']}>
-              allysson santos
-            </strong>
-            <time className={styles['article__comment-date']}>
-              30 de janeiro de 2022
-            </time>
-          </div>
-          <p className={styles['article__comment-message']}>Comment message</p>
-        </div>
-        <AddComment />
-      </section>
+      <Feedback slug={post.slug} />
     </div>
   );
 }
