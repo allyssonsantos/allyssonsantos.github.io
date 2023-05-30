@@ -1,5 +1,6 @@
 :root,
 ::backdrop {
+  --primary-200: #00f7f7;
   --primary-300: #007a7a;
   --primary-400: #003030;
   --white: #fff;
@@ -21,6 +22,7 @@
 
 :root.dark,
 .dark ::backdrop {
+  --primary-200: #00f7f7;
   --primary-300: #00c7c7;
   --primary-400: #007a7a;
   --white: #0d0d0d;

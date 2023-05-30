@@ -47,14 +47,14 @@ p {
 a {
   color: var(--primary-300);
   text-decoration-color: transparent;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
   text-underline-offset: 0;
   transition: color var(--transition), text-decoration-color var(--transition),
     text-underline-offset var(--transition);
 }
 
 a:hover {
-  color: var(--primary-400);
+  color: var(--primary-200);
   text-decoration-color: inherit;
   text-underline-offset: 8px;
 }
