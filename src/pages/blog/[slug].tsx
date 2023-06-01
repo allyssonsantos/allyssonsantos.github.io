@@ -1,4 +1,4 @@
-import { allBlogs, type Blog } from 'contentlayer/generated';
+import { allBlogs } from 'contentlayer/generated';
 
 import Slug, { getStaticProps } from '../[locale]/blog/[slug]';
 

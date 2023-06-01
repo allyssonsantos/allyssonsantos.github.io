@@ -28,7 +28,7 @@ export function ArticleFeature({ post }: { post: Blog }) {
       <div className={styles['article__cover-wrapper']}>
         <Image
           className={styles.article__cover}
-          src={`/articles/${post.cover}`}
+          src={`/articles/${post.slug}/${post.cover}`}
           alt={post.altCover}
           fill
         />
