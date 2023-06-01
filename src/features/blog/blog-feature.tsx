@@ -1,14 +1,16 @@
-import { allBlogs, Blog } from 'contentlayer/generated';
+import { useTranslation } from 'next-i18next';
+
+import type { Blog } from 'contentlayer/generated';
 import { PostPreview } from 'src/components';
 
 import styles from './blog.module.css';
 
-export function BlogFeature() {
-  const posts = allBlogs.reduce((acc, post) => {
-    acc[post.category] = [...(acc[post.category] || []), post];
+type BlogFeatureProps = {
+  posts: Record<string, Blog[]>;
+};
 
-    return acc;
-  }, {} as Record<string, Blog[]>);
+export function BlogFeature({ posts }: BlogFeatureProps) {
+  const { t } = useTranslation('common');
 
   return (
     <section>
@@ -17,7 +19,7 @@ export function BlogFeature() {
           <li key={category}>
             <div className={styles['blog__category-header']}>
               <h2 className={styles['blog__category-title']}>{category}</h2>
-              <small>{post.length} Articles</small>
+              <small>{t('article', { count: post.length })}</small>
             </div>
             <ul className={styles['blog__post-list']}>
               {post.map((post) => (

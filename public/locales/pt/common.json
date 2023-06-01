@@ -1,3 +1,9 @@
 {
-  "sign-in": "Entrar"
+  "close-modal": "Fechar modal",
+  "open-modal": "Abrir modal",
+  "present": "presente",
+  "article_one": "{{count}} artigo",
+  "article_other": "{{count}} artigos",
+  "cancel": "Cancelar",
+  "delete": "Apagar"
 }

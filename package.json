@@ -17,7 +17,7 @@
     "test": "jest",
     "prettier": "prettier --write .",
     "commit": "cz",
-    "export": "next export",
+    "export": "next build && next export",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d out -b gh-pages",
     "semantic-release": "semantic-release"
@@ -28,7 +28,7 @@
     "@next/font": "^13.0.5",
     "@react95/core": "^6.0.7",
     "@react95/icons": "^2.0.6",
-    "@sentry/nextjs": "^7.26.0",
+    "@sentry/nextjs": "^7.53.1",
     "@svgr/webpack": "^7.0.0",
     "@types/rss": "^0.0.29",
     "@xstyled/styled-components": "^3.8.0",

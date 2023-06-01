@@ -1,7 +1,9 @@
+import { useTranslation } from 'next-i18next';
+
 import { DELETE_COMMENT_MODAL_KEY } from 'src/constants/modals';
-import { Button, Modal, useModals } from '../';
 import { deleteComment } from 'src/services/comments';
 
+import { Button, Modal, useModals } from '../';
 import styles from './delete-comment-modal.module.css';
 
 type DeleteCommentModalProps = {
@@ -13,8 +15,10 @@ export function DeleteCommentModal({
   commentId,
   message,
 }: DeleteCommentModalProps) {
-  const modalId = `${DELETE_COMMENT_MODAL_KEY}-${commentId}`;
+  const { t, i18n } = useTranslation(['delete-comment-modal', 'common']);
   const { openedModals, closeModal } = useModals();
+
+  const modalId = `${DELETE_COMMENT_MODAL_KEY}-${commentId}`;
   const isDeleteCommentModalOpen = openedModals.includes(modalId);
 
   function handleCancel() {
@@ -29,18 +33,18 @@ export function DeleteCommentModal({
   return (
     <Modal
       isOpen={isDeleteCommentModalOpen}
-      title="Delete comment"
+      title={t('delete-comment-modal:title')}
       onClose={handleCancel}
       onClickOutside={handleCancel}
     >
-      <p>Are you sure that you want to delete this comment?</p>
+      <p>{t('delete-comment-modal:description')}</p>
       <blockquote className={styles.modal__message}>{message}</blockquote>
       <div className={styles.modal__footer}>
         <Button variant="inverted" onClick={handleCancel}>
-          Cancel
+          {t('common:cancel')}
         </Button>
         <Button variant="ghost" onClick={handleDelete}>
-          Delete
+          {t('common:delete')}
         </Button>
       </div>
     </Modal>

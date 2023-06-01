@@ -24,6 +24,10 @@ export const Blog = defineDocumentType(() => ({
       type: 'json',
       resolve: (doc) => readingTime(doc.body.raw),
     },
+    locale: {
+      type: 'string',
+      resolve: (doc) => doc._raw.sourceFileDir,
+    },
     slug: {
       type: 'string',
       resolve: (doc) => doc._raw.sourceFileName.replace('.mdx', ''),

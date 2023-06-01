@@ -1,8 +1,11 @@
-import { companies } from '../../data/companies';
+import { useTranslation } from 'next-i18next';
 
+import { companies } from '../../data/companies';
 import styles from './companies.module.css';
 
 export function Companies() {
+  const { t } = useTranslation(['about', 'common']);
+
   return (
     <ul className={styles.companies}>
       {companies.map(
@@ -12,12 +15,12 @@ export function Companies() {
               <Logo />
             </div>
             <div className={styles['companies__company-description']}>
-              {description}
+              {t(`about:${description}`)}
               <div>
                 {name}{' '}
                 <small>
                   <em>
-                    {startYear} - {endYear || 'present'}
+                    {startYear} - {endYear || t('common:present')}
                   </em>
                 </small>
               </div>

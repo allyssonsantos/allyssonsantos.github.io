@@ -3,6 +3,7 @@ import localFont from '@next/font/local';
 import { Mailnews13 } from '@react95/icons';
 import { cva } from 'class-variance-authority';
 import styled from 'styled-components';
+import { useTranslation } from 'next-i18next';
 
 import { react95Card } from '../../../../data/projects';
 
@@ -44,6 +45,8 @@ function openDocumentation() {
 export function React95Card({
   className,
 }: React.HTMLAttributes<HTMLDivElement>) {
+  const { t } = useTranslation('about');
+
   return (
     <ThemeProvider>
       <div
@@ -79,7 +82,7 @@ export function React95Card({
             ]}
           >
             <Frame bg="white" boxShadow="in" h="100%" padding="0px 5px">
-              <p>{react95Card.description}</p>
+              <p>{t(react95Card.description)}</p>
             </Frame>
           </Modal>
         </CursorAuto>

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Menu } from 'react-feather';
+import { useTranslation } from 'next-i18next';
 
 import { Button, SideBar } from 'src/components';
 
@@ -27,6 +28,7 @@ function BaseLayout({
 }: BaseLayoutProps) {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const router = useRouter();
+  const { t } = useTranslation('sidebar');
 
   router.events?.on('routeChangeStart', () => {
     setIsSideBarOpen(false);
@@ -45,6 +47,7 @@ function BaseLayout({
             onClick={handleSideBar}
             variant="icon"
             className={styles['main__menu-button']}
+            aria-label={t('sidebar:open-menu') as string}
           >
             <Menu />
           </Button>

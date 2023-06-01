@@ -1,0 +1,14 @@
+{
+  "estimated-time-to-read_one": "tempo estimado de leitura: {{count}} minuto",
+  "estimated-time-to-read_other": "tempo estimado de leitura: {{count}} minutos",
+  "like_one": "{{count}} curtida",
+  "like_other": "{{count}} curtidas",
+  "comment_one": "{{count}} comentário",
+  "comment_other": "{{count}} comentários",
+  "add-comment": "adicione um comentário",
+  "comment-button": "Comentar",
+  "comments-title": "Comentários",
+  "comment-error": "algo deu errado ao adicionar seu comentário, tente novamente.",
+  "delete-comment-aria-label": "apagar comentário",
+  "no-comments": "Sem comentários ainda, seja o primeiro a comentar!"
+}

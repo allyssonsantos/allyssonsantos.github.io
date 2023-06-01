@@ -9,6 +9,7 @@ import {
 import { useState, useEffect } from 'react';
 import { ThumbsUp, MessageCircle, X } from 'react-feather';
 import { cva } from 'class-variance-authority';
+import { useTranslation } from 'next-i18next';
 
 import { Button, DeleteCommentModal, useModals } from 'src/components';
 import {
@@ -47,6 +48,9 @@ type Comments = {
 };
 
 export function Feedback({ slug }: FeedbackProps) {
+  const { t, i18n } = useTranslation('article');
+  const locale = i18n.resolvedLanguage;
+
   const [likes, setLikes] = useState<DocumentData | undefined>(undefined);
   const [comments, setComments] = useState<Comments[]>([]);
 
@@ -95,14 +99,16 @@ export function Feedback({ slug }: FeedbackProps) {
           className={likeButton({ liked: isPostLiked })}
           onClick={handleLike}
         >
-          <ThumbsUp aria-hidden /> {likes?.count || 0} likes
+          <ThumbsUp aria-hidden /> {t('like', { count: likes?.count || 0 })}
         </Button>
         <div className={styles.feedback__actions__comments}>
-          <MessageCircle /> {comments.length || 0} comments
+          <MessageCircle /> {t('comment', { count: comments.length || 0 })}
         </div>
       </section>
       <section>
-        <h2 className={styles['feedback__comment-title']}>Comments</h2>
+        <h2 className={styles['feedback__comment-title']}>
+          {t('comments-title')}
+        </h2>
         {comments.length ? (
           comments.map(({ id, userName, date, message, uid }) => (
             <div key={id} className={styles.feedback__comment}>
@@ -111,7 +117,7 @@ export function Feedback({ slug }: FeedbackProps) {
                   {userName}
                 </strong>
                 <time className={styles['feedback__comment-date']}>
-                  {date.toDate().toLocaleDateString(undefined, {
+                  {date.toDate().toLocaleDateString(locale, {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
@@ -125,7 +131,7 @@ export function Feedback({ slug }: FeedbackProps) {
                     className={styles['feedback__delete-comment']}
                     variant="icon"
                     size="small"
-                    title="Delete comment"
+                    title={t('delete-comment-aria-label') as string}
                     onClick={() =>
                       openModal(`${DELETE_COMMENT_MODAL_KEY}-${id}`)
                     }
@@ -138,7 +144,7 @@ export function Feedback({ slug }: FeedbackProps) {
             </div>
           ))
         ) : (
-          <p>No comments in this post.</p>
+          <p>{t('no-comments')}</p>
         )}
         {currentUser && <AddComment slug={slug} />}
       </section>

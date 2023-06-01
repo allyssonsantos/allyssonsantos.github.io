@@ -1,17 +1,21 @@
 import { useState } from 'react';
 
+import type { AuthError } from 'firebase/auth';
+import { useTranslation } from 'next-i18next';
+
 import { SIGN_IN_MODAL_KEY } from 'src/constants/modals';
 import { login } from 'src/contexts/auth';
-import { Modal, GoogleButton, useModals } from '..';
 
 import styles from './sign-in-modal.module.css';
-import type { AuthError } from 'firebase/auth';
+import { Modal, GoogleButton, useModals } from '..';
 
 const POPUP_CLOSED_ERROR = 'auth/popup-closed-by-user';
 
 export function SignInModal() {
   const [loginError, setLoginError] = useState(false);
   const { openedModals, closeModal } = useModals();
+  const { t } = useTranslation('sign-in-modal');
+
   const isSignUpModalOpen = openedModals.includes(SIGN_IN_MODAL_KEY);
 
   function closeSignInModal() {
@@ -36,7 +40,7 @@ export function SignInModal() {
   return (
     <Modal
       isOpen={isSignUpModalOpen}
-      title="Escolha uma forma de login:"
+      title={t('title')}
       onClose={closeSignInModal}
       onClickOutside={closeSignInModal}
     >
@@ -47,8 +51,8 @@ export function SignInModal() {
         />
         {loginError && <div>something went wrong</div>}
         <div className={styles['sign-in-modal__disclaimer']}>
-          <small>Seu nome será utilizado para exibir seus comentários.</small>
-          <small>Você pode deletar seus dados a qualquer momento.</small>
+          <small>{t('disclaimer-1')}</small>
+          <small>{t('disclaimer-2')}</small>
         </div>
       </div>
     </Modal>

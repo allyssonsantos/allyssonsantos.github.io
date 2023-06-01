@@ -7,6 +7,7 @@ import { SITE_BASE_URL } from 'src/constants';
 import { ArticleFeature } from 'src/features/article';
 import { ArticleLayout } from 'src/layouts/article';
 import { BaseLayout } from 'src/layouts/base';
+import { getI18nProps, getI18nPaths } from 'src/utils/getI18n';
 
 import type { NextPageWithLayout } from '../../_app';
 
@@ -67,12 +68,25 @@ Article.getLayout = function getLayout(page: ReactElement) {
 
 export async function getStaticPaths() {
   return {
-    paths: allBlogs.map((blog) => ({ params: { slug: blog.slug } })),
+    paths: allBlogs.map(({ slug, locale }) => ({
+      params: { slug: slug, locale: locale },
+    })),
     fallback: false,
   };
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params } = context;
   const article = allBlogs.find((blog) => blog.slug === params?.slug);
-  return { props: { article } };
+
+  const i18nProps = await getI18nProps(context, [
+    'common',
+    'article',
+    'sign-in-modal',
+    'delete-account-modal',
+    'delete-comment-modal',
+    'sidebar',
+  ]);
+
+  return { props: { article, ...i18nProps } };
 };

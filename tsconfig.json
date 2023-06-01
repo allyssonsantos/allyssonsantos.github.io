@@ -24,7 +24,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".contentlayer/generated",
-    "./deps.d.ts"
+    "./deps.d.ts",
+    "next-i18next.config.js"
   ],
   "exclude": ["node_modules"]
 }

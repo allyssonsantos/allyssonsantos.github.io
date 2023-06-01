@@ -1,8 +1,11 @@
 import { ThemeProvider, Card, Text, Button } from '@gympass/yoga';
+import { useTranslation } from 'next-i18next';
 
 import { yogaCard } from '../../../../data/projects';
 
 export function YogaCard({ ...props }) {
+  const { t } = useTranslation('about');
+
   return (
     <ThemeProvider>
       <Card {...props}>
@@ -10,7 +13,7 @@ export function YogaCard({ ...props }) {
           <Text.H3 color="primary">{yogaCard.name}</Text.H3>
         </Card.Header>
         <Card.Content style={{ marginTop: 8 }}>
-          <Text.Small>{yogaCard.description}</Text.Small>
+          <Text.Small>{t(yogaCard.description)}</Text.Small>
         </Card.Content>
         <Card.Actions
           style={{

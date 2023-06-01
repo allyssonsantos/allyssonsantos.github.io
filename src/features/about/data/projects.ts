@@ -11,8 +11,7 @@ export interface IProjects {
 
 export const quantumCard = {
   name: 'Quantum',
-  description:
-    'A react component library that was created in 2018 and is still used nowadays',
+  description: 'quantum-description',
   githubUrl: 'https://github.com/catho/quantum',
   website: 'https://catho.github.io/quantum/',
   colors: {
@@ -23,8 +22,7 @@ export const quantumCard = {
 
 export const yogaCard = {
   name: 'Yoga',
-  description:
-    'The Gympass multi-platform design-system (React & React-Native), with support for multiple themes and with a great tokenization.',
+  description: 'yoga-description',
   githubUrl: 'https://github.com/gympass/yoga',
   website: 'https://gympass.github.io/yoga/',
   colors: {
@@ -35,8 +33,7 @@ export const yogaCard = {
 
 export const react95Card = {
   name: 'React95',
-  description:
-    'React95 is a component library inspired on the Windows 95 UI design.',
+  description: 'react95-description',
   githubUrl: 'https://github.com/react95/react95',
   website: 'https://react95.github.io/React95/',
   colors: {

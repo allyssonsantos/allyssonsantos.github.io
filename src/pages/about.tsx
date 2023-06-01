@@ -1,3 +1,4 @@
-import { Redirect } from '../utils/redirect';
+import About, { getStaticProps } from './[locale]/about';
 
-export default Redirect
+export default About;
+export { getStaticProps };

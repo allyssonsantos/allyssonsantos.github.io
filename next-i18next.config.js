@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   debug: process.env.NODE_ENV === 'development',
   i18n: {
     defaultLocale: 'pt',
@@ -6,5 +6,3 @@ const config = {
   },
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 };
-
-export default config;

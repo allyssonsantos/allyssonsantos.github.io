@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { useTranslation } from 'next-i18next';
 
 import { Button, Textarea, Alert } from 'src/components';
 import { createComment } from 'src/services/comments';
@@ -51,6 +52,7 @@ function commentsReducer(state: CommentState, action: CommentAction) {
 }
 
 export function AddComment({ slug }: { slug: string }) {
+  const { t } = useTranslation('article');
   const { currentUser } = useAuth();
   const [state, dispatch] = useReducer(commentsReducer, {
     status: null,
@@ -79,7 +81,7 @@ export function AddComment({ slug }: { slug: string }) {
   return (
     <form onSubmit={handleSubmit}>
       <Textarea
-        placeholder="add a comment"
+        placeholder={t('add-comment') as string}
         onChange={handleCommentChange}
         value={state.value}
         rows={5}
@@ -90,12 +92,10 @@ export function AddComment({ slug }: { slug: string }) {
         type="submit"
         className={styles.comment__button}
       >
-        Comment
+        {t('comment-button')}
       </Button>
       {state.status === 'ERROR' && (
-        <Alert className={styles.comment__alert}>
-          something went wrong when adding your comment, please try again.
-        </Alert>
+        <Alert className={styles.comment__alert}>{t('comment-error')}</Alert>
       )}
     </form>
   );

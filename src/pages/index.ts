@@ -1,3 +1,4 @@
-import { Redirect } from '../utils/redirect';
+import Home, { getStaticProps } from './[locale]/index';
 
-export default Redirect
+export default Home;
+export { getStaticProps };

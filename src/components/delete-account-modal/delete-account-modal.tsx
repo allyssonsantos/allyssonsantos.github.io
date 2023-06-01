@@ -1,10 +1,13 @@
+import { useTranslation } from 'next-i18next';
+
 import { DELETE_ACCOUNT_MODAL_KEY } from 'src/constants/modals';
-import { Button, Modal, useModals } from '../';
 import { deleteAccount } from 'src/contexts/auth';
+import { Button, Modal, useModals } from '../';
 
 import styles from './delete-account-modal.module.css';
 
 export function DeleteAccountModal() {
+  const { t } = useTranslation(['delete-account-modal', 'common']);
   const { openedModals, closeModal } = useModals();
   const isDeleteAccountModalOpen = openedModals.includes(
     DELETE_ACCOUNT_MODAL_KEY,
@@ -22,17 +25,17 @@ export function DeleteAccountModal() {
   return (
     <Modal
       isOpen={isDeleteAccountModalOpen}
-      title="Delete my account"
+      title={t('delete-account-modal:title')}
       onClose={handleCancel}
       onClickOutside={handleCancel}
     >
-      <p>All your comments will be deleted as well.</p>
+      <p>{t('delete-account-modal:description')}</p>
       <div className={styles.modal__footer}>
         <Button variant="inverted" onClick={handleCancel}>
-          Cancel
+          {t('common:cancel')}
         </Button>
         <Button variant="ghost" onClick={handleDelete}>
-          Delete account
+          {t('delete-account-modal:button')}
         </Button>
       </div>
     </Modal>
