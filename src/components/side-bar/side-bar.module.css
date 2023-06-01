@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   display: flex;
+  overflow: auto;
   width: 100%;
   max-width: 240px;
   height: 100vh;
@@ -50,6 +51,7 @@
 .sidebar__navigation {
   display: flex;
   flex-direction: column;
+  margin-bottom: 36px;
   gap: 36px;
 }
 
@@ -115,6 +117,7 @@
   overflow: hidden;
   width: 1.625rem;
   height: 1.625rem;
+  flex-shrink: 0;
   padding: 0;
   border: none;
   margin-top: auto;
