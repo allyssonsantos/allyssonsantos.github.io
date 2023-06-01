@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
+import { useTranslation } from 'next-i18next';
 import FocusTrap from 'focus-trap-react';
 import classnames from 'classnames';
 import {
@@ -22,7 +23,16 @@ import {
   SIGN_IN_MODAL_KEY,
   DELETE_ACCOUNT_MODAL_KEY,
 } from 'src/constants/modals';
-import { ActiveLink, Button, useModals, Avatar, Menu, SignInModal, Link } from '..';
+import {
+  ActiveLink,
+  Button,
+  useModals,
+  Avatar,
+  Menu,
+  SignInModal,
+  Link,
+  LanguageSwitcher,
+} from '..';
 
 import styles from './side-bar.module.css';
 import { DeleteAccountModal } from '../delete-account-modal';
@@ -98,6 +108,7 @@ function SideBarLink({ title, href, external, icon: Icon }: ILinks) {
 }
 
 function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
+  const { t } = useTranslation(['common', 'sidebar']);
   const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openModal } = useModals();
@@ -139,7 +150,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
         })}
       >
         <Button
-          aria-label="fechar menu"
+          aria-label={t('sidebar:close-menu') as string}
           onClick={onSideBarClose}
           variant="icon"
           className={styles['sidebar__close-button']}
@@ -149,7 +160,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
         <header className={styles.sidebar__header}>
           <Link
             href="/"
-            aria-label="voltar para página inicial"
+            aria-label={t('sidebar:back-home-page') as string}
             className={styles.sidebar__logo}
           >
             allysson.me
@@ -166,11 +177,11 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
                 onClose={() => setIsMenuOpen(false)}
                 items={[
                   {
-                    text: 'Logout',
+                    text: t('sidebar:sign-out'),
                     onClick: logout,
                   },
                   {
-                    text: 'Delete account',
+                    text: t('sidebar:delete-account'),
                     onClick: openDeleteAccountModal,
                   },
                 ]}
@@ -178,7 +189,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
             </>
           ) : (
             <Button className={styles.sidebar__login} onClick={openSignInModal}>
-              Sign In
+              {t('sidebar:sign-in')}
             </Button>
           )}
           <SignInModal />
@@ -186,14 +197,19 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
         </header>
         <nav className={styles.sidebar__navigation}>
           <ul className={styles.sidebar__list}>
-            {mainLinks.map((link) => (
-              <li key={link.title}>
-                <SideBarLink {...link} />
-              </li>
-            ))}
+            {mainLinks.map(({ title, ...rest }) => {
+              const tTitle = t(`sidebar:${title}`);
+              return (
+                <li key={title}>
+                  <SideBarLink title={tTitle} {...rest} />
+                </li>
+              );
+            })}
           </ul>
           <div>
-            <small className={styles.sidebar__category}>Redes sociais</small>
+            <small className={styles.sidebar__category}>
+              {t('sidebar:socials')}
+            </small>
             <ul className={styles.sidebar__list}>
               {socialLinks.map((link) => (
                 <li key={link.title}>
@@ -202,6 +218,12 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
               ))}
             </ul>
           </div>
+          <div>
+            <small className={styles.sidebar__category}>
+              {t('sidebar:language')}
+            </small>
+            <LanguageSwitcher />
+          </div>
         </nav>
         {mounted && (
           <button
@@ -209,7 +231,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
               [styles['sidebar__theme-button--active']]: !isDarkTheme,
             })}
             type="button"
-            aria-label="alterar tema"
+            aria-label={t('sidebar:change-theme') as string}
             onClick={handleThemeChange}
           >
             <Sun />

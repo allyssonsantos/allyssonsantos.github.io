@@ -2,7 +2,7 @@
   left: 30px;
   overflow: hidden;
   padding: 0;
-  border: none;
+  border: 1px solid var(--neutral-200);
   border-radius: 4px;
   box-shadow: rgba(0 0 0 / 30%) 1px 1px 3px;
   transform: translateY(25%);
@@ -22,5 +22,5 @@
 }
 
 .menu__item:hover {
-  background-color: var(--neutral-100);
+  background-color: var(--neutral-200);
 }

@@ -64,7 +64,7 @@
 }
 
 .sidebar__category {
-  display: inline-block;
+  display: block;
   margin-bottom: 8px;
   margin-left: 12px;
   color: var(--neutral-400);
@@ -101,7 +101,7 @@
 }
 
 .sidebar__link:hover {
-  background-color: var(--neutral-100);
+  background-color: var(--neutral-200);
   color: var(--neutral-300);
 }
 
@@ -131,7 +131,7 @@
 }
 
 .sidebar__theme-button:hover {
-  background-color: var(--neutral-100);
+  background-color: var(--neutral-200);
 }
 
 .sidebar__theme-button svg {
