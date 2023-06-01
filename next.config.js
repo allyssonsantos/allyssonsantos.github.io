@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const { withContentlayer } = require('next-contentlayer');
-const { withSentryConfig } = require('@sentry/nextjs');
 const withImages = require('next-images');
 const withFonts = require('next-fonts');
 const withPWA = require('next-pwa')({
@@ -14,55 +13,85 @@ const withTM = require('next-transpile-modules')([
   '@react95/icons',
 ]);
 
-module.exports = withSentryConfig(
-  withContentlayer(
-    withFonts(
-      withImages(
-        withTM(
-          withPWA({
-            reactStrictMode: true,
-            swcMinify: true,
-            images: {
-              unoptimized: true,
-            },
-            sentry: {
-              hideSourceMaps: true,
-            },
-            images: {
-              disableStaticImages: true,
-              remotePatterns: [
-                {
-                  protocol: 'https',
-                  hostname: '*.googleusercontent.com',
-                },
-              ],
-            },
-            webpack(config) {
-              const fileLoaderRule = config.module.rules.find((rule) =>
-                rule.test?.test?.('.svg'),
-              );
+module.exports = withContentlayer(
+  withFonts(
+    withImages(
+      withTM(
+        withPWA({
+          reactStrictMode: true,
+          swcMinify: true,
+          images: {
+            unoptimized: true,
+            disableStaticImages: true,
+            remotePatterns: [
+              {
+                protocol: 'https',
+                hostname: '*.googleusercontent.com',
+              },
+            ],
+          },
+          webpack(config) {
+            const fileLoaderRule = config.module.rules.find((rule) =>
+              rule.test?.test?.('.svg'),
+            );
 
-              config.module.rules.push(
-                {
-                  ...fileLoaderRule,
-                  test: /\.svg$/i,
-                  resourceQuery: /url/,
-                },
-                {
-                  test: /\.svg$/i,
-                  issuer: /\.[jt]sx?$/,
-                  resourceQuery: { not: /url/ },
-                  use: ['@svgr/webpack'],
-                },
-              );
+            config.module.rules.push(
+              {
+                ...fileLoaderRule,
+                test: /\.svg$/i,
+                resourceQuery: /url/,
+              },
+              {
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                resourceQuery: { not: /url/ },
+                use: ['@svgr/webpack'],
+              },
+            );
 
-              fileLoaderRule.exclude = /\.svg$/i;
+            fileLoaderRule.exclude = /\.svg$/i;
 
-              return config;
-            },
-          }),
-        ),
+            return config;
+          },
+        }),
       ),
     ),
   ),
+);
+
+// Injected content via Sentry wizard below
+
+const { withSentryConfig } = require('@sentry/nextjs');
+
+module.exports = withSentryConfig(
+  module.exports,
+  {
+    // For all available options, see:
+    // https://github.com/getsentry/sentry-webpack-plugin#options
+
+    // Suppresses source map uploading logs during build
+    silent: true,
+
+    org: 'allyssonme',
+    project: 'allyssonme',
+  },
+  {
+    // For all available options, see:
+    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+
+    // Upload a larger set of source maps for prettier stack traces (increases build time)
+    widenClientFileUpload: true,
+
+    // Transpiles SDK to be compatible with IE11 (increases bundle size)
+    transpileClientSDK: true,
+
+    // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
+    tunnelRoute: '/monitoring',
+
+    // Hides source maps from generated client bundles
+    hideSourceMaps: true,
+
+    // Automatically tree-shake Sentry logger statements to reduce bundle size
+    disableLogger: true,
+  },
 );
