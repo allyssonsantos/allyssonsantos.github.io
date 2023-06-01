@@ -5,5 +5,6 @@
   "article_one": "{{count}} artigo",
   "article_other": "{{count}} artigos",
   "cancel": "Cancelar",
-  "delete": "Apagar"
+  "delete": "Apagar",
+  "no-posts-yet": "Ainda não há posts, volte em breve!"
 }
