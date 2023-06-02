@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "contentlayer build && next build",
     "postbuild": "NODE_OPTIONS='--experimental-json-modules' node ./scripts/generate-rss.mjs && next-sitemap",
     "start": "next start",
     "lint": "next lint",
@@ -17,7 +17,7 @@
     "test": "jest",
     "prettier": "prettier --write .",
     "commit": "cz",
-    "export": "next build && next export",
+    "export": "npm run build && next export",
     "predeploy": "npm run export",
     "deploy": "gh-pages -d out -b gh-pages",
     "semantic-release": "semantic-release"
