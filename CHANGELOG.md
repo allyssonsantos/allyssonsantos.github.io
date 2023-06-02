@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.2...v1.3.3) (2023-06-02)
+
+
+### Bug Fixes
+
+* next build ([c7bb179](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/c7bb179fdc64ebee381559489beda1eee19f4d50))
+
 ## [1.3.2](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.1...v1.3.2) (2023-06-02)
 
 
