@@ -1,6 +1,6 @@
 {
   "name": "allyssonsantos.github.io",
-  "version": "1.3.3",
+  "version": "1.3.5",
   "description": "My personal website/blog",
   "private": true,
   "author": "Allysson Santos <contato@allysson.me>",
@@ -19,7 +19,7 @@
     "commit": "cz",
     "export": "npm run build && next export",
     "predeploy": "npm run export",
-    "deploy": "gh-pages -d out -b gh-pages",
+    "deploy": "gh-pages -d out -b gh-pages --dotfiles",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
