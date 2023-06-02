@@ -38,7 +38,7 @@ export function BlogFeature({ posts }: BlogFeatureProps) {
             </li>
           ))
         ) : (
-          <p>{t('no-posts-yet')}</p>
+          <h1>{t('no-posts-yet')}</h1>
         )}
       </ul>
     </section>
