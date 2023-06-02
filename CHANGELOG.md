@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.5...v1.4.0) (2023-06-02)
+
+
+### Features
+
+* add responsive styles and change theme color ([c3bbeda](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/c3bbeda3fd930a56e07f79195230409324606616))
+
 ## [1.3.5](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.4...v1.3.5) (2023-06-02)
 
 
