@@ -1,3 +1,15 @@
+@property --gradient-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
+}
+
+@keyframes border-animation {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -5,9 +17,59 @@
 }
 
 .projects__project {
+  position: relative;
+  z-index: 0;
   display: flex;
-  min-height: 240px;
   flex-basis: 230px;
-  flex-direction: column;
   flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: none;
+  background-color: transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color var(--transition);
+}
+
+.projects__project:hover {
+  background-color: var(--neutral-200);
+}
+
+.projects__project::before {
+  position: absolute;
+  z-index: -1;
+  padding: 2px;
+  animation: border-animation 4s infinite linear;
+  background: linear-gradient(
+    var(--gradient-angle),
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  border-radius: 16px;
+  content: '';
+  inset: 0;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.projects__project-logo {
+  width: 50px;
+  height: 50px;
+  transition: filter var(--transition);
+}
+
+
+:global(.dark) .projects__project-logo {
+  filter: invert(1) grayscale(1);
+}
+
+.projects__project-title {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
 }

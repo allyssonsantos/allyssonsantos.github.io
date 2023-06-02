@@ -32,7 +32,10 @@ type ModalProps = PropsWithChildren<{
   React.DialogHTMLAttributes<HTMLDialogElement>;
 
 export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
-  ({ title, children, onClickOutside, isOpen, onClose, ...props }, ref) => {
+  (
+    { title, children, onClickOutside, isOpen, onClose, className, ...props },
+    ref,
+  ) => {
     const dialogRef = useRef<HTMLDialogElement | null>(null);
     const [internalClosed, setInternalClosed] = useState(false);
 
@@ -71,6 +74,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
           }
         }}
         className={modal({
+          className,
           fadeIn: isOpen && !internalClosed,
           fadeOut: !isOpen || internalClosed,
         })}

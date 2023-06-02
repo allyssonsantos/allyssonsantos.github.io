@@ -23,11 +23,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "@catho/quantum": "^9.13.1",
-    "@gympass/yoga": "^7.75.0",
     "@next/font": "^13.0.5",
-    "@react95/core": "^6.0.7",
-    "@react95/icons": "^2.0.6",
     "@sentry/nextjs": "^7.53.1",
     "@svgr/webpack": "^7.0.0",
     "@types/rss": "^0.0.29",
