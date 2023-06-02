@@ -1,5 +1,4 @@
 import { ThemeProvider, Modal, Frame, List, Cursor } from '@react95/core';
-import localFont from '@next/font/local';
 import { Mailnews13 } from '@react95/icons';
 import { cva } from 'class-variance-authority';
 import styled from 'styled-components';
@@ -9,16 +8,6 @@ import { react95Card } from '../../../../data/projects';
 
 import styles from './react95-card.module.css';
 import React from 'react';
-
-const msSansSerif = localFont({
-  src: [
-    {
-      path: '../../../../../../../node_modules/@react95/core/cjs/GlobalStyle/font/MS-Sans-Serif.woff2',
-      weight: '400',
-    },
-  ],
-  variable: '--font-ms-sans-serif',
-});
 
 const CursorAuto = styled.div`
   ${Cursor.Auto};
@@ -50,7 +39,7 @@ export function React95Card({
   return (
     <ThemeProvider>
       <div
-        className={`${msSansSerif.className} ${react95CardStyles({
+        className={`${react95CardStyles({
           className,
         })}`}
       >

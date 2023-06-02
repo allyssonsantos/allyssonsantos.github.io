@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
-import { Source_Sans_3 } from '@next/font/google';
+import { useTranslation } from 'next-i18next';
 
 import { getI18nProps, getI18nPaths } from 'src/utils/getI18n';
 import { AboutFeature } from 'src/features/about';
@@ -10,20 +10,19 @@ import { BaseLayout } from 'src/layouts';
 
 import type { NextPageWithLayout } from '../_app';
 
-const sourceSans = Source_Sans_3({ subsets: ['latin'] });
-
 const About: NextPageWithLayout = () => {
+  const { t } = useTranslation('about');
   const URL = `${SITE_BASE_URL}/about`;
   const description = 'Senior Front-end Developer.';
   return (
     <>
       <NextSeo
-        title="About Me"
+        title={t('title') as string}
         description={description}
         canonical={URL}
         openGraph={{
           url: URL,
-          title: 'About Me | allysson.me',
+          title: `${t('title')} | allysson.me`,
           description: description,
         }}
       />
@@ -34,7 +33,7 @@ const About: NextPageWithLayout = () => {
 
 About.getLayout = function getLayout(page: ReactElement) {
   return (
-    <BaseLayout className={sourceSans.className} centralize={false}>
+    <BaseLayout centralize={false}>
       {page}
     </BaseLayout>
   );
