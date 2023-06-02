@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.4...v1.3.5) (2023-06-02)
+
+
+### Bug Fixes
+
+* add dotfiles flag to gh-pages ([4a4c79b](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/4a4c79b014e7321c3672c11a0cbc7ff374a723d0))
+
 ## [1.3.4](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.3...v1.3.4) (2023-06-02)
 
 
