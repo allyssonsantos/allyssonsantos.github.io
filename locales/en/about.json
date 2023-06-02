@@ -11,5 +11,6 @@
   "encontra-description": "It was a small company where I started to get in touch with the base of HTML, CSS, and Javascript.",
   "quantum-description": "A react component library that was created in 2018 and is still used nowadays",
   "react95-description": "React95 is a component library inspired on the Windows 95 UI design.",
-  "yoga-description": "The Gympass multi-platform design-system (React & React-Native), with support for multiple themes and with a great tokenization."
+  "yoga-description": "The Gympass multi-platform design-system (React & React-Native), with support for multiple themes and with a great tokenization.",
+  "technologies": "Technologies"
 }

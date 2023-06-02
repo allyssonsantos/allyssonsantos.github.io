@@ -11,5 +11,6 @@
   "encontra-description": "Uma pequena empresa onde tive contato com a base, HTML, CSS e JavaScript",
   "quantum-description": "Uma biblioteca de componentes React criada em 2018 e em uso até hoje. Foi criada com o objetivo de ser uma biblioteca de componentes para ser usada em todos os produtos da Catho.",
   "react95-description": "React95 é uma biblioteca de componentes com a cara do Windows95.",
-  "yoga-description": "O Design System multi plataforma (React & React Native) do Gympass. Com suporte para multiplos temas e com uma boa tokenização."
+  "yoga-description": "O Design System multi plataforma (React & React Native) do Gympass. Com suporte para multiplos temas e com uma boa tokenização.",
+  "technologies": "Tecnologias utilizadas"
 }
