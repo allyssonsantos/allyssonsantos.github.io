@@ -120,7 +120,6 @@
   flex-shrink: 0;
   padding: 0;
   border: none;
-  margin-top: auto;
   background-color: transparent;
   border-radius: 50%;
   color: var(--neutral-400);

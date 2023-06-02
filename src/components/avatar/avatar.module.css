@@ -6,6 +6,7 @@
   border: 1px solid var(--neutral-200);
   background-color: transparent;
   border-radius: 9999px;
+  color: inherit;
   gap: 12px;
 }
 

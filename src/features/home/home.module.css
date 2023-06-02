@@ -6,6 +6,13 @@
   gap: 72px;
 }
 
+@media (width <= 480px) {
+  .home__container {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
 .home__image {
   border-radius: 50%;
 }
@@ -18,6 +25,7 @@
 .home__role {
   margin: 0;
   font-size: 1rem;
+  line-height: 1.5;
 }
 
 .home__description {

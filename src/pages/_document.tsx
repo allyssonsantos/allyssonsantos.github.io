@@ -50,7 +50,8 @@ export default class MyDocument extends Document {
           <link rel="apple-touch-icon" href="/icon.png"></link>
           <link rel="icon" href="/favicon-16.png" sizes="16x16"></link>
           <link rel="icon" href="/favicon-32.png" sizes="32x32"></link>
-          <meta name="theme-color" content="#025050" />
+          <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)" />
+          <meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)" />
           <link
             rel="stylesheet"
             href={`https://fonts.googleapis.com/css?family=Rubik:400,500,700`}
