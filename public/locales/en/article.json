@@ -1,0 +1,14 @@
+{
+  "estimated-time-to-read_one": "estimated time to read: {{count}} minute",
+  "estimated-time-to-read_other": "estimated time to read: {{count}} minutes",
+  "like_one": "{{count}} like",
+  "like_other": "{{count}} likes",
+  "comment_one": "{{count}} comment",
+  "comment_other": "{{count}} comments",
+  "add-comment": "add a comment",
+  "comment-button": "Comment",
+  "comments-title": "Comments",
+  "comment-error": "something went wrong when adding your comment, please try again.",
+  "delete-comment-aria-label": "delete comment",
+  "no-comments": "No comments yet, be the first to comment!"
+}

@@ -1,0 +1,18 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 4px 4px 8px;
+  border: 1px solid var(--neutral-200);
+  background-color: transparent;
+  border-radius: 9999px;
+  gap: 12px;
+}
+
+.avatar:hover {
+  background-color: var(--neutral-200);
+}
+
+.avatar img {
+  border-radius: 50px;
+}

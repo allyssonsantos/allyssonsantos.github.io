@@ -1,0 +1,59 @@
+
+.feedback__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48px;
+}
+
+.feedback__comment-title {
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.feedback__actions__comments {
+  display: flex;
+  align-items: center;
+}
+
+.feedback__actions__comments svg,
+.like-button svg {
+  margin-right: 8px;
+}
+
+.like-button {
+  font-size: 1rem;
+}
+
+.like-button--liked svg {
+  fill: var(--neutral-400);
+  transition: fill var(--transition);
+}
+
+.feedback__comment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.feedback__comment-author,
+.feedback__comment-date {
+  font-size: 1rem;
+}
+
+.feedback__comment-date {
+  margin-left: 4px;
+}
+
+.feedback__comment-date::before {
+  margin-right: 4px;
+  content: '·';
+}
+
+.feedback__comment-message {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+

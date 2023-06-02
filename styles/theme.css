@@ -1,0 +1,35 @@
+:root,
+::backdrop {
+  --primary-200: #00f7f7;
+  --primary-300: #007a7a;
+  --primary-400: #003030;
+  --white: #fff;
+  --neutral-100: #f2f2f2;
+  --neutral-200: #ccc;
+  --neutral-300: #333;
+  --neutral-400: #111;
+  --blur-backdrop-color: #ffffffc7;
+  --backdrop-color: #0d0d0d;
+  --icon-size: 3rem;
+  --transition-duration: 100ms;
+  --transition-timing-function: ease-in-out;
+  --transition: var(--transition-duration) var(--transition-timing-function);
+  --animation-duration: 250ms;
+  --animation-timing-function: ease-in-out;
+  --animation: var(--animation-duration) var(--animation-timing-function);
+  --content-max-width: 48rem;
+}
+
+:root.dark,
+.dark ::backdrop {
+  --primary-200: #00f7f7;
+  --primary-300: #00c7c7;
+  --primary-400: #007a7a;
+  --white: #0d0d0d;
+  --neutral-100: #111;
+  --neutral-200: #333;
+  --neutral-300: #ccc;
+  --neutral-400: #f2f2f2;
+  --blur-backdrop-color: #0d0d0dc7;
+  --backdrop-color: #0d0d0d;
+}

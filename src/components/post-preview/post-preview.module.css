@@ -1,0 +1,25 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--neutral-100);
+  border-radius: 8px;
+  color: var(--neutral-300);
+  gap: 8px;
+  text-decoration: none;
+  transition: background-color var(--transition);
+}
+
+.post:hover {
+  color: var(--neutral-400);
+}
+
+.post__title {
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.post__description {
+  margin: 0;
+  font-size: 1rem;
+}

@@ -1,0 +1,41 @@
+.base {
+  display: grid;
+  height: 100%;
+  grid-template-areas: 'content';
+  grid-template-columns: 1fr;
+}
+
+@media (width >= 48rem) {
+  .base {
+    grid-template-areas: 'sidebar content';
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+.main {
+  overflow: hidden;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+  margin: 0 auto;
+  grid-area: content;
+}
+
+.main--centralized {
+  max-width: var(--content-max-width);
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.main__menu-button {
+  position: fixed;
+  z-index: 1;
+  backdrop-filter: blur(2px);
+  background-color: var(--blur-backdrop-color);
+}
+
+@media (width >= 768px) {
+  .main__menu-button {
+    display: none;
+  }
+}

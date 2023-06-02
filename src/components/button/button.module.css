@@ -1,0 +1,41 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  background-color: var(--white);
+  border-radius: 8px;
+  color: var(--neutral-400);
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: background-color var(--transition);
+}
+
+.button-icon.button--small {
+  width: calc(var(--icon-size) / 1.5);
+  height: calc(var(--icon-size) / 1.5);
+}
+
+.button-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: 50%;
+}
+
+.button-inverted {
+  background-color: var(--neutral-400);
+  color: var(--white);
+}
+
+.button-ghost {
+  border: 1px solid var(--neutral-400);
+}
+
+.button:hover {
+  background-color: var(--neutral-200);
+}
+
+.button-inverted:hover {
+  background-color: var(--neutral-300);
+}

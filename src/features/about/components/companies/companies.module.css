@@ -1,0 +1,41 @@
+.companies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+}
+
+.companies__company {
+  display: flex;
+  flex: 1 0 calc(50% - 1rem);
+  flex-direction: column;
+  border: 1px solid var(--neutral-200);
+  margin-bottom: 1rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  gap: 1rem;
+  transition: background-color var(--transition);
+}
+
+.companies__company-description {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.companies__company-logo {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-100);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: background-color var(--transition);
+}
+
+.companies__company-logo svg {
+  fill: var(--neutral-400);
+  transition: fill var(--transition);
+}

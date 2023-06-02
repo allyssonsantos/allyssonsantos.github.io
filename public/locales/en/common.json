@@ -1,0 +1,11 @@
+{
+  "close-modal": "Close modal",
+  "open-modal": "Open modal",
+  "present": "present",
+  "article_one": "{{count}} article",
+  "article_other": "{{count}} articles",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "no-posts-yet": "No posts yet, come back soon!",
+  "404-message": "404 - Page Not Found"
+}

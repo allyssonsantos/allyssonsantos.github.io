@@ -1,0 +1,13 @@
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.projects__project {
+  display: flex;
+  min-height: 240px;
+  flex-basis: 230px;
+  flex-direction: column;
+  flex-grow: 1;
+}

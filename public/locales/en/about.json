@@ -1,0 +1,15 @@
+{
+  "title": "About me",
+  "description-1": "This space is where I test new things I want to learn and write about thoughts and technology in general but mainly about front-end stuff.",
+  "description-2": "I've worked with several front-end tools, from the basics to the most recent frameworks and libraries, such as: (click in the language to open)",
+  "description-3": "Today I'm working with design-systems and micro frontends implementations.",
+  "projects-title": "Open source projects that I've worked on",
+  "experiences-title": "My previous experiences",
+  "olist-description": "Here I'm working on developing the Olist Design System and splitting the company's front-end into small micro frontends applications. (where makes sense)",
+  "gympass-description": "I've developed the initial version of the Gympass Wellness product, created the multi-platform Yoga design system, and worked with a bunch of different teams.",
+  "catho-description": "In Catho was where I discovered my passion for the front-end development world. Here I was able to work in so many teams. With different projects and different people, from projects like Salesforce integration or the redesign of the recruiter area to when the company decided to migrate from the legacy PHP coupled applications to SPA's built with React. I've also participated in the company react component library creation called Quantum",
+  "encontra-description": "It was a small company where I started to get in touch with the base of HTML, CSS, and Javascript.",
+  "quantum-description": "A react component library that was created in 2018 and is still used nowadays",
+  "react95-description": "React95 is a component library inspired on the Windows 95 UI design.",
+  "yoga-description": "The Gympass multi-platform design-system (React & React-Native), with support for multiple themes and with a great tokenization."
+}

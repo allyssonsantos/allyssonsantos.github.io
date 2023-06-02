@@ -1,0 +1,23 @@
+.about-centralized {
+  max-width: var(--content-max-width);
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.about__title + p {
+  margin: 0;
+}
+
+.about__subtitle {
+  padding-top: 4rem;
+}
+
+.about__subtitle--without-padding {
+  padding-top: 0;
+}
+
+.about__highlighted {
+  padding-bottom: 4rem;
+  background-color: var(--neutral-100);
+  transition: background-color var(--transition);
+}
