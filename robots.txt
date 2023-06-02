@@ -1,2 +1,9 @@
+# *
 User-agent: *
-Disallow:
+Allow: /
+
+# Host
+Host: https://allysson.me
+
+# Sitemaps
+Sitemap: https://allysson.me/sitemap.xml

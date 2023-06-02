@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-pages-index-jsx",
-    "path": "/",
-    "result": {"data":{"allMdx":{"edges":[{"node":{"fields":{"slug":"/criando-uma-lib-de-componentes-react-parte-1/"},"frontmatter":{"date":"02/06/2020","title":"Criando uma lib de componentes React, Parte 1","description":"Introdução ao projeto, criação do repositório no github e a instação e configuração do storybook","tags":["React","Design System","styled-components"]}}},{"node":{"fields":{"slug":"/a-evolucao-na-escrita-do-css/"},"frontmatter":{"date":"28/05/2019","title":"A evolução na escrita do CSS.","description":"Como o CSS saiu da tag style, seguiu metodologias, criou pré-processadores e chegou ao javascript","tags":["CSS"]}}},{"node":{"fields":{"slug":"/critical-rendering-path/"},"frontmatter":{"date":"17/06/2017","title":"Critical rendering path - Renderização no browser.","description":"Como o browser renderiza? quais os passos que ele segue até exibir a página na tela?","tags":["Web"]}}}]}},"pageContext":{}},
-    "staticQueryHashes": ["3128451518"]}
