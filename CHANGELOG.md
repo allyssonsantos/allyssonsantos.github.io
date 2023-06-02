@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.4.0...v1.5.0) (2023-06-02)
+
+
+### Features
+
+* new style to open-source projects ([9f882ca](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/9f882ca282bc95e6aaa86e061dce452d2cd7e1d8))
+
 # [1.4.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.5...v1.4.0) (2023-06-02)
 
 
