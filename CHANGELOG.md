@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.0...v1.3.1) (2023-06-02)
+
+
+### Bug Fixes
+
+* build npm script ([97395df](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/97395df44eb7fc9de0283a814a08ee7a063d0599))
+
 # [1.3.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.2.0...v1.3.0) (2023-06-02)
 
 
