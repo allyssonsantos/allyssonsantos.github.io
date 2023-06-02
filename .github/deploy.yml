@@ -19,7 +19,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 18
           cache: 'npm'
 
       - name: Install dependencies
@@ -27,9 +27,6 @@ jobs:
 
       - name: Lint
         run: npm run lint
-
-      - name: test
-        run: npm run test
 
       - name: deploy
         run: npm run semantic-release

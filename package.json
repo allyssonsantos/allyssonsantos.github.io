@@ -18,7 +18,7 @@
     "prettier": "prettier --write .",
     "commit": "cz",
     "export": "next build && next export",
-    "predeploy": "npm run build",
+    "predeploy": "npm run export",
     "deploy": "gh-pages -d out -b gh-pages",
     "semantic-release": "semantic-release"
   },
