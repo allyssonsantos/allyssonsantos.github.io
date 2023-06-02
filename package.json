@@ -19,7 +19,7 @@
     "commit": "cz",
     "export": "npm run build && next export",
     "predeploy": "npm run export",
-    "deploy": "gh-pages -d out -b gh-pages",
+    "deploy": "touch ./out/.nojekyll && gh-pages -d out -b gh-pages",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
