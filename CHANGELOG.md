@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.1...v1.3.2) (2023-06-02)
+
+
+### Bug Fixes
+
+* add CNAME ([cb4b115](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/cb4b115c428b34ebfc2ec686ce4f5c039fa0afcd))
+
 ## [1.3.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.3.0...v1.3.1) (2023-06-02)
 
 
