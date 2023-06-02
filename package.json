@@ -19,7 +19,7 @@
     "commit": "cz",
     "export": "npm run build && next export",
     "predeploy": "npm run export",
-    "deploy": "gh-pages -d out -b gh-pages",
+    "deploy": "gh-pages -d out -b gh-pages --dotfiles",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
