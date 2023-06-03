@@ -36,6 +36,13 @@
   border-right: 1px solid var(--neutral-200);
 }
 
+@media (width <= 768px) {
+  .modal__info {
+    padding-right: 0;
+    border-right: none;
+  }
+}
+
 .modal__info img {
   margin-right: 16px;
   float: left;

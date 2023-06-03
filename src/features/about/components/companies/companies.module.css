@@ -17,6 +17,12 @@
   transition: background-color var(--transition);
 }
 
+@media (width <= 768px) {
+  .companies__company {
+    flex-basis: 100%;
+  }
+}
+
 .companies__company-description {
   display: flex;
   flex-direction: column;
