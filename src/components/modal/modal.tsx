@@ -88,7 +88,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
             </h2>
             <Button
               onClick={handleClose}
-              aria-label={t('close-modal')}
+              aria-label={t('close-modal') as string}
               variant="icon"
               size="small"
             >
