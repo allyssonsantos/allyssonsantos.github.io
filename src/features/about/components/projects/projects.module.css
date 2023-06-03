@@ -28,6 +28,7 @@
   border: none;
   background-color: transparent;
   border-radius: 16px;
+  color: inherit;
   cursor: pointer;
   font-family: inherit;
   transition: background-color var(--transition);

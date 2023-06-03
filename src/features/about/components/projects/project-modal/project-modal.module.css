@@ -25,6 +25,12 @@
   gap: 16px;
 }
 
+@media (width <= 768px) {
+  .modal__content {
+    flex-direction: column;
+  }
+}
+
 .modal__info {
   padding-right: 16px;
   border-right: 1px solid var(--neutral-200);
@@ -49,6 +55,19 @@
 
 .modal__technologies li:first-child {
   list-style: none;
+}
+
+@media (width <= 768px) {
+  .modal__technologies {
+    display: initial;
+    list-style: initial;
+    list-style-position: inside;
+  }
+
+  .modal__technologies li:first-child {
+    list-style: disc;
+    list-style-position: inside;
+  }
 }
 
 .modal__links {
