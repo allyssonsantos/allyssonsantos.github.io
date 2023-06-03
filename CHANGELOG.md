@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.5.1...v1.5.2) (2023-06-03)
+
+
+### Bug Fixes
+
+* adjust mobile style in project modal and companies card ([28c9036](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/28c90366224b90209624d2835eaac7c35b50f04a))
+
 ## [1.5.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.5.0...v1.5.1) (2023-06-03)
 
 
