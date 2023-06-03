@@ -9,6 +9,7 @@ import {
 
 import { cva } from 'class-variance-authority';
 import { X } from 'react-feather';
+import { useTranslation } from 'next-i18next';
 
 import { Button } from '../button';
 import styles from './modal.module.css';
@@ -35,9 +36,10 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
   (
     { title, children, onClickOutside, isOpen, onClose, className, ...props },
     ref,
-  ) => {
-    const dialogRef = useRef<HTMLDialogElement | null>(null);
-    const [internalClosed, setInternalClosed] = useState(false);
+    ) => {
+      const dialogRef = useRef<HTMLDialogElement | null>(null);
+      const [internalClosed, setInternalClosed] = useState(false);
+      const { t } = useTranslation('common');
 
     useImperativeHandle(ref, () => dialogRef.current!);
 
@@ -86,7 +88,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
             </h2>
             <Button
               onClick={handleClose}
-              aria-label="close modal"
+              aria-label={t('close-modal')}
               variant="icon"
               size="small"
             >
