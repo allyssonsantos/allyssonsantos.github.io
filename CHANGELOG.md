@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.5.0...v1.5.1) (2023-06-03)
+
+
+### Bug Fixes
+
+* adjust mobile style in project modal ([8ef1d57](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/8ef1d572aa4f752fe531246ff5839f95cfdecc29))
+
 # [1.5.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.4.0...v1.5.0) (2023-06-02)
 
 
