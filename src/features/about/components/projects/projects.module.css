@@ -41,7 +41,7 @@
 .projects__project::before {
   position: absolute;
   z-index: -1;
-  padding: 2px;
+  padding: 1px;
   animation: border-animation 4s infinite linear;
   background: linear-gradient(
     var(--gradient-angle),

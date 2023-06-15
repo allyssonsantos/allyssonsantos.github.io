@@ -4,6 +4,7 @@ import type { Blog } from 'contentlayer/generated';
 import { PostPreview } from 'src/components';
 
 import styles from './blog.module.css';
+import Image from 'next/image';
 
 type BlogFeatureProps = {
   posts: Record<string, Blog[]>;
@@ -38,7 +39,11 @@ export function BlogFeature({ posts }: BlogFeatureProps) {
             </li>
           ))
         ) : (
-          <h1>{t('no-posts-yet')}</h1>
+          <div className={styles['blog__no-posts']}>
+            <Image src="/images/blog/empty-state.svg" alt="" aria-hidden width={150} height={150} />
+            <h1 className={styles['blog__no-posts-title']}>{t('no-posts-yet-title')}</h1>
+            <p className={styles['blog__no-posts-description']}>{t('no-posts-yet-description')}</p>
+          </div>
         )}
       </ul>
     </section>

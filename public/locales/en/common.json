@@ -6,6 +6,7 @@
   "article_other": "{{count}} articles",
   "cancel": "Cancel",
   "delete": "Delete",
-  "no-posts-yet": "No posts yet, come back soon!",
+  "no-posts-yet-title": "No posts yet",
+  "no-posts-yet-description": "Come back soon.",
   "404-message": "404 - Page Not Found"
 }

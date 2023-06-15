@@ -30,6 +30,8 @@
 .main__menu-button {
   position: fixed;
   z-index: 1;
+  left: 16px;
+  border: 1px solid var(--neutral-200);
   backdrop-filter: blur(2px);
   background-color: var(--blur-backdrop-color);
 }

@@ -51,7 +51,7 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
             ),
           )
         ) : (
-          <p className={styles.home__description}>{t('common:no-posts-yet')}</p>
+          <p className={styles.home__description}>{t('common:no-posts-yet-title')}. {t('common:no-posts-yet-description')}</p>
         )}
       </ul>
     </section>
