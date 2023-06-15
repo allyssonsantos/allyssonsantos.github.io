@@ -61,6 +61,7 @@ export function ProjectModal({
       </ul>
       <div
         className={styles['modal__colored-border']}
+        aria-hidden
         style={
           {
             '--color-primary': project.colors.primary,

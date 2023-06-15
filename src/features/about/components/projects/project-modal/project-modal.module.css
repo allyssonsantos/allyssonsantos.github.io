@@ -1,12 +1,16 @@
 .modal {
   max-width: 680px;
+  padding-left: 5px;
 }
 
 .modal__colored-border {
-  height: 5px;
-  margin: 24px -16px -16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
   background-image: linear-gradient(
-    to right,
+    to bottom,
     var(--color-primary),
     var(--color-secondary)
     );
