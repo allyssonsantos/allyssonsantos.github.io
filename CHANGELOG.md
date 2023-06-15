@@ -1,3 +1,11 @@
+# [1.6.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.5.4...v1.6.0) (2023-06-15)
+
+
+### Features
+
+* **about:** change colored border to left side ([811ac6b](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/811ac6b7e3e5a99bc1e3e042d94fabafe155933a))
+* **blog:** change empty state message and add an illustration to that ([3dacfc9](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/3dacfc9b45507503d2735e2bb8ff015fd69d5150))
+
 ## [1.5.4](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.5.3...v1.5.4) (2023-06-03)
 
 
