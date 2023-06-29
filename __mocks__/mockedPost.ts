@@ -5,6 +5,8 @@ export const mockedPost = {
   cover: 'github_captions.jpeg',
   altCover: 'Antiga interface da página inicial do github',
   tags: ['css', 'javascript'],
+  category: 'react',
+  locale: 'pt',
   body: {
     raw:
       '\n' +
