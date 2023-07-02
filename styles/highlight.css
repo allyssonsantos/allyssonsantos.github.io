@@ -158,3 +158,16 @@ pre[class*='language-'] {
 .token.italic {
   font-style: italic;
 }
+
+.sp-wrapper.sp-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.sp-tab-button[data-active='true'] {
+  border-bottom: 1px solid currentColor;
+}
+
+.sp-layout.sp-layout {
+  border-radius: 0px 0px 8px 8px;
+}

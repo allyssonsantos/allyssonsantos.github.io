@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns';
 import { useTranslation } from 'next-i18next';
 import type { Blog } from 'contentlayer/generated';
 
-import { PostPreview } from 'src/components/post-preview';
+import { PostPreview, CodeEditor } from 'src/components';
 import styles from './home.module.css';
 
 type HomeFeatureProps = {
@@ -51,9 +51,13 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
             ),
           )
         ) : (
-          <p className={styles.home__description}>{t('common:no-posts-yet-title')}. {t('common:no-posts-yet-description')}</p>
+          <p className={styles.home__description}>
+            {t('common:no-posts-yet-title')}.{' '}
+            {t('common:no-posts-yet-description')}
+          </p>
         )}
       </ul>
+      <CodeEditor />
     </section>
   );
 }

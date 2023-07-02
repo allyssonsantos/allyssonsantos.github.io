@@ -3,6 +3,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { useTranslation } from 'next-i18next';
 import type { Blog } from 'contentlayer/generated';
 
+import { CodeEditor } from 'src/components';
 import { Feedback } from './components';
 import styles from './article.module.css';
 
@@ -34,7 +35,11 @@ export function ArticleFeature({ post }: { post: Blog }) {
         />
       </div>
       <article>
-        <PostBody />
+        <PostBody
+          components={{
+            CodeEditor,
+          }}
+        />
       </article>
       <Feedback slug={post.slug} />
     </div>

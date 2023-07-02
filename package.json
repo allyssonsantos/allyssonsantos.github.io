@@ -23,6 +23,8 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.6.7",
+    "@codesandbox/sandpack-themes": "^2.0.21",
     "@next/font": "^13.0.5",
     "@sentry/nextjs": "^7.53.1",
     "@svgr/webpack": "^7.0.0",
