@@ -32,6 +32,7 @@ export function ProjectModal({
       title={project.name}
       onClickOutside={onClickOutside}
       className={styles.modal}
+      id={`project-modal-${project.name}`}
     >
       <div className={styles.modal__content}>
         <div className={styles.modal__info}>

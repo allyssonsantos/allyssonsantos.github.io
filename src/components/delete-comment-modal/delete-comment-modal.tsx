@@ -36,6 +36,7 @@ export function DeleteCommentModal({
       title={t('delete-comment-modal:title')}
       onClose={handleCancel}
       onClickOutside={handleCancel}
+      id="delete-comment-modal"
     >
       <p>{t('delete-comment-modal:description')}</p>
       <blockquote className={styles.modal__message}>{message}</blockquote>

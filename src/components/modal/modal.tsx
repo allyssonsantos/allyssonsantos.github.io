@@ -34,12 +34,21 @@ type ModalProps = PropsWithChildren<{
 
 export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
   (
-    { title, children, onClickOutside, isOpen, onClose, className, ...props },
+    {
+      title,
+      children,
+      onClickOutside,
+      isOpen,
+      onClose,
+      className,
+      id = 'modal-title',
+      ...props
+    },
     ref,
-    ) => {
-      const dialogRef = useRef<HTMLDialogElement | null>(null);
-      const [internalClosed, setInternalClosed] = useState(false);
-      const { t } = useTranslation('common');
+  ) => {
+    const dialogRef = useRef<HTMLDialogElement | null>(null);
+    const [internalClosed, setInternalClosed] = useState(false);
+    const { t } = useTranslation('common');
 
     useImperativeHandle(ref, () => dialogRef.current!);
 
@@ -67,7 +76,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
         {...props}
         onClose={onClose}
         ref={dialogRef}
-        aria-labelledby="modal-title"
+        aria-labelledby={id}
         onClick={handleClickOutside}
         onAnimationEnd={() => {
           if (!isOpen || internalClosed) {
@@ -83,7 +92,7 @@ export const Modal = forwardRef<HTMLDialogElement, ModalProps>(
       >
         <div className={styles.modal__wrapper}>
           <div className={styles.modal__header}>
-            <h2 id="modal-title" className={styles.modal__title}>
+            <h2 id={id} className={styles.modal__title}>
               {title}
             </h2>
             <Button

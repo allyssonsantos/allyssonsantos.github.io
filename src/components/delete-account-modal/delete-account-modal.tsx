@@ -28,6 +28,7 @@ export function DeleteAccountModal() {
       title={t('delete-account-modal:title')}
       onClose={handleCancel}
       onClickOutside={handleCancel}
+      id="delete-account-modal"
     >
       <p>{t('delete-account-modal:description')}</p>
       <div className={styles.modal__footer}>
