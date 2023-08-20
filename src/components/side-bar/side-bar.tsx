@@ -219,10 +219,12 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
             </ul>
           </div>
           <div>
-            <small className={styles.sidebar__category}>
-              {t('sidebar:language')}
-            </small>
-            <LanguageSwitcher />
+            <label>
+              <small className={styles.sidebar__category}>
+                {t('sidebar:language')}
+              </small>
+              <LanguageSwitcher />
+            </label>
           </div>
         </nav>
         {mounted && (
