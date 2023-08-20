@@ -1,3 +1,18 @@
+# [1.7.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.6.0...v1.7.0) (2023-08-20)
+
+
+### Bug Fixes
+
+* add id to all modal components ([b3d7449](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/b3d7449d1f454002d1c34294902d2877b4d19e91))
+* add missing label to associate language select ([cb6a539](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/cb6a53947e3cb490bd2094fc0a8cbcb1beb57187))
+* remove unnecessary rubik font ([2a5fab1](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/2a5fab16b519e22f5b6dd59e0968274afc25e4f0))
+* remove unnecessary ul elements from home and blog pages ([c7ccca9](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/c7ccca96ada0cbf029b1a3b309598057adf38c39))
+
+
+### Features
+
+* add missing description in home page ([ec77dcc](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/ec77dcc7c18d130471e7032ddebe098b4e506fe9))
+
 # [1.6.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.5.4...v1.6.0) (2023-06-15)
 
 
