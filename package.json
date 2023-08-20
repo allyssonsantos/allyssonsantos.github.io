@@ -18,6 +18,7 @@
     "prettier": "prettier --write .",
     "commit": "cz",
     "export": "npm run build && next export",
+    "analyze": "ANALYZE=true next build",
     "predeploy": "npm run export",
     "deploy": "gh-pages -d out -b gh-pages --dotfiles",
     "semantic-release": "semantic-release"
@@ -59,6 +60,7 @@
     "rss": "^1.2.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.19",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^10.0.1",
     "@semantic-release/exec": "^6.0.3",
