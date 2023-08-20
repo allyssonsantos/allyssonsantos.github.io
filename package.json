@@ -24,7 +24,6 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "@next/font": "^13.4.7",
     "@sentry/nextjs": "^7.57.0",
     "@svgr/webpack": "^8.0.1",
     "@types/rss": "^0.0.29",
