@@ -24,10 +24,6 @@ export default class MyDocument extends Document {
             content="#0d0d0d"
             media="(prefers-color-scheme: dark)"
           />
-          <link
-            rel="stylesheet"
-            href={`https://fonts.googleapis.com/css?family=Rubik:400,500,700`}
-          />
         </Head>
         <body>
           <Main />
