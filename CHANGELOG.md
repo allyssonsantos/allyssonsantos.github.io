@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.7.0...v1.7.1) (2023-08-20)
+
+
+### Bug Fixes
+
+* remove unnecessary aria-label ([b20e9e7](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/b20e9e7aee7447ebf88493808e2d7c11dc1800f0))
+
 # [1.7.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.6.0...v1.7.0) (2023-08-20)
 
 
