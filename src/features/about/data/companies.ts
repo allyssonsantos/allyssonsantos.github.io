@@ -2,6 +2,7 @@ import CathoLogo from './logos/catho.svg';
 import EncontraLogo from './logos/encontra.svg';
 import GympassLogo from './logos/gympass.svg';
 import OlistLogo from './logos/olist.svg';
+import BoticarioLogo from './logos/boticario.svg';
 
 export interface ICompanies {
   name: string;
@@ -13,9 +14,16 @@ export interface ICompanies {
 
 export const companies: Array<ICompanies> = [
   {
+    name: 'O Boticário',
+    startYear: 2023,
+    endYear: undefined,
+    description: 'boticario-description',
+    logo: BoticarioLogo,
+  },
+  {
     name: 'Olist',
     startYear: 2021,
-    endYear: undefined,
+    endYear: 2023,
     description: 'olist-description',
     logo: OlistLogo,
   },
