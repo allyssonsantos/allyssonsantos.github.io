@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.7.1...v1.8.0) (2023-09-23)
+
+
+### Features
+
+* update company informations and current company ([972be0c](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/972be0ce620890f85f4782c8b32d9e13df92124d))
+
 ## [1.7.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.7.0...v1.7.1) (2023-08-20)
 
 
