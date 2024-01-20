@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const { withContentlayer } = require('next-contentlayer');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 const withImages = require('next-images');
 const withFonts = require('next-fonts');
 const withPWA = require('next-pwa')({
@@ -9,46 +12,48 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 });
 
-module.exports = withContentlayer(
-  withFonts(
-    withImages(
-      withPWA({
-        reactStrictMode: true,
-        swcMinify: true,
-        images: {
-          unoptimized: true,
-          disableStaticImages: true,
-          remotePatterns: [
-            {
-              protocol: 'https',
-              hostname: '*.googleusercontent.com',
-            },
-          ],
-        },
-        webpack(config) {
-          const fileLoaderRule = config.module.rules.find((rule) =>
-            rule.test?.test?.('.svg'),
-          );
+module.exports = withBundleAnalyzer(
+  withContentlayer(
+    withFonts(
+      withImages(
+        withPWA({
+          reactStrictMode: true,
+          swcMinify: true,
+          images: {
+            unoptimized: true,
+            disableStaticImages: true,
+            remotePatterns: [
+              {
+                protocol: 'https',
+                hostname: '*.googleusercontent.com',
+              },
+            ],
+          },
+          webpack(config) {
+            const fileLoaderRule = config.module.rules.find((rule) =>
+              rule.test?.test?.('.svg'),
+            );
 
-          config.module.rules.push(
-            {
-              ...fileLoaderRule,
-              test: /\.svg$/i,
-              resourceQuery: /url/,
-            },
-            {
-              test: /\.svg$/i,
-              issuer: /\.[jt]sx?$/,
-              resourceQuery: { not: /url/ },
-              use: ['@svgr/webpack'],
-            },
-          );
+            config.module.rules.push(
+              {
+                ...fileLoaderRule,
+                test: /\.svg$/i,
+                resourceQuery: /url/,
+              },
+              {
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                resourceQuery: { not: /url/ },
+                use: ['@svgr/webpack'],
+              },
+            );
 
-          fileLoaderRule.exclude = /\.svg$/i;
+            fileLoaderRule.exclude = /\.svg$/i;
 
-          return config;
-        },
-      }),
+            return config;
+          },
+        }),
+      ),
     ),
   ),
 );

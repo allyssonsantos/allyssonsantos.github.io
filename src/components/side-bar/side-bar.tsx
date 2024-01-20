@@ -158,11 +158,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
           <X />
         </Button>
         <header className={styles.sidebar__header}>
-          <Link
-            href="/"
-            aria-label={t('sidebar:back-home-page') as string}
-            className={styles.sidebar__logo}
-          >
+          <Link href="/" className={styles.sidebar__logo}>
             allysson.me
           </Link>
           {currentUser ? (
@@ -219,10 +215,12 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
             </ul>
           </div>
           <div>
-            <small className={styles.sidebar__category}>
-              {t('sidebar:language')}
-            </small>
-            <LanguageSwitcher />
+            <label>
+              <small className={styles.sidebar__category}>
+                {t('sidebar:language')}
+              </small>
+              <LanguageSwitcher />
+            </label>
           </div>
         </nav>
         {mounted && (

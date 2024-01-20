@@ -43,6 +43,7 @@ export function SignInModal() {
       title={t('title')}
       onClose={closeSignInModal}
       onClickOutside={closeSignInModal}
+      id="sign-in-modal"
     >
       <div className={styles['sign-in-modal']}>
         <GoogleButton

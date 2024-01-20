@@ -20,8 +20,12 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
           <h1 className={styles.home__name}>Allysson Santos</h1>
           <h2 className={styles.home__role}>
             {t('home:role')}
-            <a href="https://olist.com" target="_blank" rel="noreferrer">
-              Olist
+            <a
+              href="https://www.boticario.com.br/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              O Boticário
             </a>
           </h2>
           <p className={styles.home__description}>{t('home:description')}</p>
@@ -51,10 +55,12 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
             ),
           )
         ) : (
-          <p className={styles.home__description}>
-            {t('common:no-posts-yet-title')}.{' '}
-            {t('common:no-posts-yet-description')}
-          </p>
+          <li>
+            <p className={styles.home__description}>
+              {t('common:no-posts-yet-title')}.{' '}
+              {t('common:no-posts-yet-description')}
+            </p>
+          </li>
         )}
       </ul>
       <CodeEditor />

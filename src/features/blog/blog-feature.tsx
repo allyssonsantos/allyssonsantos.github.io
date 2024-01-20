@@ -15,9 +15,9 @@ export function BlogFeature({ posts }: BlogFeatureProps) {
 
   return (
     <section>
-      <ul className={styles['blog__category-list']}>
-        {Boolean(Object.entries(posts).length) ? (
-          Object.entries(posts).map(([category, post]) => (
+      {Boolean(Object.entries(posts).length) ? (
+        <ul className={styles['blog__category-list']}>
+          {Object.entries(posts).map(([category, post]) => (
             <li key={category}>
               <div className={styles['blog__category-header']}>
                 <h2 className={styles['blog__category-title']}>{category}</h2>
@@ -37,15 +37,25 @@ export function BlogFeature({ posts }: BlogFeatureProps) {
                 ))}
               </ul>
             </li>
-          ))
-        ) : (
-          <div className={styles['blog__no-posts']}>
-            <Image src="/images/blog/empty-state.svg" alt="" aria-hidden width={150} height={150} />
-            <h1 className={styles['blog__no-posts-title']}>{t('no-posts-yet-title')}</h1>
-            <p className={styles['blog__no-posts-description']}>{t('no-posts-yet-description')}</p>
-          </div>
-        )}
-      </ul>
+          ))}
+        </ul>
+      ) : (
+        <div className={styles['blog__no-posts']}>
+          <Image
+            src="/images/blog/empty-state.svg"
+            alt=""
+            aria-hidden
+            width={150}
+            height={150}
+          />
+          <h1 className={styles['blog__no-posts-title']}>
+            {t('no-posts-yet-title')}
+          </h1>
+          <p className={styles['blog__no-posts-description']}>
+            {t('no-posts-yet-description')}
+          </p>
+        </div>
+      )}
     </section>
   );
 }

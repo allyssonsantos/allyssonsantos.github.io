@@ -1,6 +1,8 @@
 import type { NextPage, GetStaticProps } from 'next';
 import { compareDesc } from 'date-fns';
 import { allBlogs, Blog } from 'contentlayer/generated';
+import { NextSeo } from 'next-seo';
+import { useTranslation } from 'next-i18next';
 
 import nextI18nextConfig from 'next-i18next.config';
 import { HomeFeature } from 'src/features/home';
@@ -26,9 +28,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { props: { posts, ...i18nProps } };
 };
 
-const Home: NextPage<{ posts: Blog[] }> = ({ posts }) => (
-  <HomeFeature posts={posts} />
-);
+const Home: NextPage<{ posts: Blog[] }> = ({ posts }) => {
+  const { t } = useTranslation('home');
+
+  return (
+    <>
+      <HomeFeature posts={posts} />
+      <NextSeo description={t('description')} />
+    </>
+  );
+};
 
 export const getStaticPaths = () => ({
   fallback: false,
