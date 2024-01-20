@@ -26,7 +26,6 @@
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.6.7",
     "@codesandbox/sandpack-themes": "^2.0.21",
-    "@next/font": "^13.4.7",
     "@sentry/nextjs": "^7.57.0",
     "@svgr/webpack": "^8.0.1",
     "@types/rss": "^0.0.29",
