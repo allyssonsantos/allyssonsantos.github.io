@@ -24,7 +24,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^2.6.7",
+    "@codesandbox/sandpack-react": "^2.11.3",
     "@codesandbox/sandpack-themes": "^2.0.21",
     "@sentry/nextjs": "^7.57.0",
     "@svgr/webpack": "^8.0.1",

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   SandpackProvider,
   SandpackCodeEditor,
@@ -5,42 +6,60 @@ import {
   SandpackFileExplorer,
   SandpackConsole,
   SandpackLayout,
+  type SandpackProviderProps,
 } from '@codesandbox/sandpack-react';
 import { cobalt2 } from '@codesandbox/sandpack-themes';
 
 type CodeEditorProps = {
+  showConsole?: boolean;
   showFileExplorer?: boolean;
   visibleFiles?: string[];
-};
+} & SandpackProviderProps;
 
 export function CodeEditor({
+  showConsole,
   showFileExplorer,
   visibleFiles,
+  template = 'react',
+  ...props
 }: CodeEditorProps) {
-  return (
+  const [primaryColor, setPrimaryColor] = useState<string>();
+
+  useEffect(() => {
+    const color = getComputedStyle(document.documentElement).getPropertyValue(
+      '--primary-200',
+    );
+
+    setPrimaryColor(color);
+  }, []);
+
+  return primaryColor ? (
     <SandpackProvider
       options={{ visibleFiles }}
+      {...props}
       theme={{
         ...cobalt2,
         colors: {
           ...cobalt2.colors,
-          accent: '#00c7c7',
+          accent: primaryColor,
         },
         syntax: {
           ...cobalt2.syntax,
-          keyword: '#00c7c7',
-          property: '#00c7c7',
+          keyword: primaryColor,
+          property: primaryColor,
         },
         font: {
           size: '14px',
         },
       }}
-      template="vanilla"
+      template={template}
     >
-      <SandpackCodeEditor showTabs />
+      <SandpackCodeEditor showTabs closableTabs />
       <SandpackLayout>
         <SandpackPreview showOpenInCodeSandbox={false} />
+        {showFileExplorer && <SandpackFileExplorer />}
+        {showConsole && <SandpackConsole />}
       </SandpackLayout>
     </SandpackProvider>
-  );
+  ) : null;
 }

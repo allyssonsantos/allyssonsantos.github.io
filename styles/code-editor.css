@@ -1,0 +1,26 @@
+.sp-wrapper.sp-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sp-tab-button[data-active='false'] {
+  border-bottom-width: 0;
+  transition: border-width 50ms ease;
+}
+
+.sp-tab-button[data-active='true'] {
+  border-style: solid;
+  border-color: currentcolor;
+  border-bottom-width: 2px;
+  transition: border-width 50ms ease;
+}
+
+.sp-layout.sp-layout {
+  border-radius: 0 0 8px 8px;
+}
+
+.sp-code-editor {
+  max-height: 400px;
+}
