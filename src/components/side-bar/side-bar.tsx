@@ -10,12 +10,12 @@ import {
   Info,
   ExternalLink,
   GitHub,
-  Twitter,
   Linkedin,
   Sun,
   Moon,
   type Icon,
 } from 'react-feather';
+import Xlogo from './x-logo.svg';
 
 import { useIsLowerResolution } from 'src/hooks';
 import { useAuth, logout } from 'src/contexts/auth';
@@ -78,10 +78,10 @@ const socialLinks: Array<ILinks> = [
     icon: GitHub,
   },
   {
-    title: 'Twitter',
+    title: 'X (Twitter)',
     href: 'https://twitter.com/_allyssonsantos',
     external: true,
-    icon: Twitter,
+    icon: Xlogo,
   },
   {
     title: 'LinkedIn',
