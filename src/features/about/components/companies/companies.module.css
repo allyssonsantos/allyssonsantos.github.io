@@ -10,9 +10,9 @@
   flex: 1 0 calc(50% - 1rem);
   flex-direction: column;
   border: 1px solid var(--neutral-200);
+  border-radius: 8px;
   margin-bottom: 1rem;
   background-color: var(--white);
-  border-radius: 8px;
   gap: 1rem;
   transition: background-color var(--transition);
 }
@@ -43,5 +43,6 @@
 
 .companies__company-logo svg {
   fill: var(--neutral-400);
+  filter: grayscale(1);
   transition: fill var(--transition);
 }
