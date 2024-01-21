@@ -63,7 +63,6 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
           </li>
         )}
       </ul>
-      <CodeEditor />
     </section>
   );
 }
