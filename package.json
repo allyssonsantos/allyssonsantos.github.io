@@ -4,6 +4,7 @@
   "description": "My personal website/blog",
   "private": true,
   "author": "Allysson Santos <contato@allysson.me>",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/allyssonsantos/allyssonsantos.github.io/issues"
   },
