@@ -7,7 +7,7 @@ import { SITE_BASE_URL } from 'src/constants';
 import { ArticleFeature } from 'src/features/article';
 import { ArticleLayout } from 'src/layouts/article';
 import { BaseLayout } from 'src/layouts/base';
-import { getI18nProps, getI18nPaths } from 'src/utils/getI18n';
+import { getI18nProps } from 'src/utils/getI18n';
 
 import type { NextPageWithLayout } from '../../_app';
 

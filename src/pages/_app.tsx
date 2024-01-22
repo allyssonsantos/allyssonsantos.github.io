@@ -2,7 +2,7 @@ import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
-import { Source_Sans_3 } from "next/font/google";
+import { Source_Sans_3 } from 'next/font/google';
 import { DefaultSeo } from 'next-seo';
 
 import { AuthProvider } from 'src/contexts/auth';
@@ -14,6 +14,7 @@ import '../../styles/theme.css';
 import '../../styles/highlight.css';
 import '../../styles/globals.css';
 import '../../styles/animations.css';
+import '../../styles/code-editor.css';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
