@@ -1,3 +1,18 @@
+# [1.9.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.8.0...v1.9.0) (2024-01-22)
+
+
+### Bug Fixes
+
+* generate contentlayer before test ([84d8187](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/84d8187eb53fd0ed1911a6082e7122fe01baf828))
+
+
+### Features
+
+* add code-editor component ([a7f19ba](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/a7f19ba87eeb00786e200a37faee62f175e59974))
+* start development of the code editor ([f0828e2](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/f0828e23f7389f10593b491a4484a71b83e563cf))
+* update boticario logo ([f418cd1](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/f418cd11b87ecb13e6b4eb855b1432dbfc109c43))
+* update twitter logo ([d538edd](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/d538edd7d9e27a0cc9309d920e06623a147cd7e8))
+
 # [1.8.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.7.1...v1.8.0) (2023-09-23)
 
 
