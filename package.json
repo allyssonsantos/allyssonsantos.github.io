@@ -14,7 +14,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:css": "npx stylelint '**/*.css'",
-    "test": "vitest run",
+    "test": "contentlayer build && vitest run",
     "prettier": "prettier --write .",
     "commit": "cz",
     "export": "npm run build && next export",
