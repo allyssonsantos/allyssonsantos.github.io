@@ -2,7 +2,7 @@ name: Website
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
       - name: Configure CI Git User
         run: |
           git remote set-url origin https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          git checkout master
+          git checkout main
           git config --global user.email aallysson0@gmail.com
           git config --global user.name Allysson Santos
         env:
