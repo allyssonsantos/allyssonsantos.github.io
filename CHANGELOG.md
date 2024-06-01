@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.9.0...v1.10.0) (2024-05-24)
+
+
+### Features
+
+* **deps:** update all dependencies ([04f13a4](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/04f13a4444fbafe16a65f32058c47d5a7282191a))
+
 # [1.9.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.8.0...v1.9.0) (2024-01-22)
 
 

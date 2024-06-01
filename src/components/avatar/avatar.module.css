@@ -4,8 +4,8 @@
   justify-content: space-between;
   padding: 4px 4px 4px 8px;
   border: 1px solid var(--neutral-200);
-  background-color: transparent;
   border-radius: 9999px;
+  background-color: transparent;
   color: inherit;
   gap: 12px;
 }

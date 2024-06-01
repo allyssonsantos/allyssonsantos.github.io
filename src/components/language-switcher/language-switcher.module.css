@@ -1,11 +1,10 @@
 .language-switcher {
   width: 100%;
   padding: 8px;
-  background-color: var(--white);
   border-radius: 4px;
+  background-color: var(--white);
   color: var(--neutral-400);
   font-size: 0.875rem;
   text-transform: capitalize;
   transition: background-color var(--transition);
 }
-
