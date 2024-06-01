@@ -26,8 +26,8 @@
   justify-content: space-between;
   padding: 16px;
   border: none;
-  background-color: transparent;
   border-radius: 16px;
+  background-color: transparent;
   color: inherit;
   cursor: pointer;
   font-family: inherit;
@@ -42,16 +42,18 @@
   position: absolute;
   z-index: -1;
   padding: 1px;
+  border-radius: 16px;
   animation: border-animation 4s infinite linear;
   background: linear-gradient(
     var(--gradient-angle),
     var(--color-primary),
     var(--color-secondary)
   );
-  border-radius: 16px;
   content: '';
   inset: 0;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   mask-composite: exclude;
 }
 
@@ -60,7 +62,6 @@
   height: 50px;
   transition: filter var(--transition);
 }
-
 
 :global(.dark) .projects__project-logo {
   filter: invert(1) grayscale(1);
