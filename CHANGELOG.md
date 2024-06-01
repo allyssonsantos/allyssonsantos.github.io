@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.10.0...v1.11.0) (2024-06-01)
+
+
+### Features
+
+* **styles:** change primary-200 hex color ([e7cd692](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/e7cd6921bffd113af5e482a6dc58461250ab7a1a))
+
 # [1.10.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.9.0...v1.10.0) (2024-05-24)
 
 
