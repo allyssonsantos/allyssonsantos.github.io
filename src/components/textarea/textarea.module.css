@@ -2,11 +2,13 @@
   width: 100%;
   padding: 12px;
   border: none;
-  background-color: var(--neutral-100);
   border-radius: 4px;
+  background-color: var(--neutral-100);
   color: var(--neutral-400);
   font-family: inherit;
   font-size: 1rem;
   resize: none;
-  transition: background-color var(--transition), color var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
