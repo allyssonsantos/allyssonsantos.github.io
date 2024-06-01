@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.11.0...v1.11.1) (2024-06-01)
+
+
+### Bug Fixes
+
+* **deploy:** nextjs output to export and remove some npm scripts ([6cbc282](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/6cbc28261a4adb01ce606d591f429dae966508a2))
+
 # [1.11.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.10.0...v1.11.0) (2024-06-01)
 
 
