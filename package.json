@@ -17,9 +17,8 @@
     "test": "contentlayer build && vitest run",
     "prettier": "prettier --write .",
     "commit": "cz",
-    "export": "npm run build && next export",
     "analyze": "ANALYZE=true next build",
-    "predeploy": "npm run export",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d out -b gh-pages --dotfiles",
     "semantic-release": "semantic-release"
   },

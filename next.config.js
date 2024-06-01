@@ -15,6 +15,7 @@ module.exports = withBundleAnalyzer(
   withContentlayer(
     withImages(
       withPWA({
+        output: 'export',
         reactStrictMode: true,
         swcMinify: true,
         images: {
