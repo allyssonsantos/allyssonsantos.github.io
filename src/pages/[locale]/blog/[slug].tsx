@@ -15,7 +15,7 @@ export default function Article({
   article,
 }: NextPageWithLayout & { article: Blog }) {
   const POST_URL = `${SITE_BASE_URL}/blog/${article.slug}`;
-  const IMAGE_URL = `${SITE_BASE_URL}/public/articles/${article.cover}`;
+  const IMAGE_URL = `${SITE_BASE_URL}/images/articles/${article.slug}/${article.cover}`;
 
   return (
     <>

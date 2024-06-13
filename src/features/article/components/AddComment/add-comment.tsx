@@ -79,7 +79,7 @@ export function AddComment({ slug }: { slug: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.comment} onSubmit={handleSubmit}>
       <Textarea
         placeholder={t('add-comment') as string}
         onChange={handleCommentChange}

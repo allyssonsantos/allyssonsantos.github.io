@@ -1,1 +1,1 @@
-export { CodeEditor } from './code-editor';
+export { CodeEditor, GoToFile } from './code-editor';
