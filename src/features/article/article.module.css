@@ -44,3 +44,16 @@
   border-radius: 8px;
   object-fit: contain;
 }
+
+@media (width <= 768px) {
+  .article__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .article__cover-wrapper {
+    height: 300px;
+    margin-bottom: 1rem;
+  }
+}
