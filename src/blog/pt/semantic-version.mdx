@@ -1,0 +1,325 @@
+---
+title: 'Versionamento semântico (SemVer)'
+publishedAt: '2024-06-13'
+description: 'Explicando o tal do semantic versioning, também conhecido como SemVer.'
+cover: 'cover.png'
+altCover: 'Imagem com números repesentando o versionamento semântico'
+tags:
+  - semantic version
+  - semver
+  - versionamento
+category: Versionamento
+---
+
+Muito provavelmente, você já precisou instalar uma biblioteca para utilizar em
+seu projeto e, ao fazer isso, deve ter percebido que ela vem com um
+número de versão. Esse número pode aparecer no nome do arquivo que
+você está referenciando no `src` da tag `script` ou dentro de um arquivo
+`package.json`, por exemplo. Esse número nos ajuda em diversas coisas: a achar a
+documentação correta para a versão que estamos utilizando, a saber se estamos na
+mais atual, etc. Mas o mais importante é que ele nos ajuda a entender o que
+mudou entre uma versão e outra. E é aí que o _semantic versioning_ entra.
+
+## O que é o versionamento semântico?
+
+O versionamento semântico (_semantic versioning_ em inglês),
+ou **[SemVer](https://semver.org/)**, é uma convenção de versionamento
+utilizada para definir como as versões de um software devem ser incrementadas.
+
+Essa convenção é baseada em três números, separados por pontos, que
+representam, respectivamente, a versão **major** <small>(1.)</small>,
+**minor** <small>(2.)</small> e **patch** <small>(3)</small>. Exemplo: `1.2.3`.
+
+### Patch
+
+O número do patch é incrementado quando correções de bugs são feitas na
+biblioteca. Ou seja, quando a mudança não adiciona novas funcionalidades e não
+quebra a compatibilidade com a versão anterior; o que funcionava antes
+continua funcionando.
+
+**Exemplo:**
+
+Quando a versão do React DOM foi atualizada de `17.0.0` para `17.0.1`:
+
+> **17.0.1 (October 22, 2020)** <br />
+> React DOM <br />
+> Fix a crash in IE11. ([@gaearon](https://github.com/gaearon) in [#20071](https://github.com/facebook/react/pull/20071))<br />
+> _<small>trecho do changelog do react</small>_
+
+Podemos ver, através de um [trecho do changelog do React](https://github.com/facebook/react/blob/20b6f4c0e8a1f40ee61735201645e0395ff08f94/CHANGELOG.md#1701-october-22-2020)
+, que a versão `17.0.1` foi lançada para corrigir um bug que estava causando um
+crash no Internet Explorer 11 (<abbr title="vá com Deus">RIP</abbr>).
+
+### Minor
+
+O número _minor_ é incrementado quando **novas funcionalidades** são adicionadas
+à biblioteca. Essas novas funcionalidades não devem afetar o funcionamento do
+que já existia, ou seja, não devem quebrar a compatibilidade com a versão
+anterior.
+
+**Durante a publicação dessa nova versão, o número do _patch_ é resetado para
+`0`.**
+
+Um ponto importante é que, durante a publicação de uma nova versão _minor_,
+também é possível que correções de bugs sejam incluídas. Mas mesmo que isso
+aconteça, devemos manter o _reset_ do _patch_ para o número `0`.
+
+**Exemplo:**
+
+Podemos pegar outra biblioteca como exemplo, o `Jest`. Quando a versão foi
+atualizada de `29.6.4` para `29.7.0`, vemos que novas funcionalidades
+adicionadas, mas também houve correções de bugs.
+
+> #### **29.7.0**
+> ##### Features
+> `[create-jest]` Add `npm init` / `yarn create` initialiser for Jest projects ([#14453](https://github.com/jestjs/jest/pull/14453))<br />
+> `[jest-validate]` Allow deprecation warnings for unknown options ([#14499](https://github.com/jestjs/jest/pull/14499))<br />
+> ##### Fixes
+> `[jest-resolver]` Replace unmatched capture groups in `moduleNameMapper` with empty string instead of `undefined` ([#14507](https://github.com/jestjs/jest/pull/14507))<br />
+> `[jest-snapshot]` Allow for strings as well as template literals in inline snapshots ([#14465](https://github.com/jestjs/jest/pull/14465))<br />
+> `[@jest/test-sequencer]` Calculate test runtime if `perStats.duration` is missing [(#14473](https://github.com/jestjs/jest/pull/14473))<br />
+> _<small>trecho do changelog do jest</small>_
+
+Não vamos nos apegar ao o que mudou, mas podemos ver que a versão `29.7.0` foi
+lançada com novas funcionalidades e também com bug fixes, ela
+avançou de `29.6.4` para `29.7.0`. Se somente as correções de bugs fossem
+incluídas, a versão seria `29.6.5`, pois somente o _patch_ deveria ser
+incrementado.
+
+### Major
+
+O número _major_ é incrementado quando **mudanças que quebram a compatibilidade**
+com a versão anterior são feitas. Ou seja, quando mudanças que afetam a forma
+como a biblioteca é utilizada são realizadas e, com isso o desenvolvedor que
+utiliza a biblioteca precisa fazer alterações em seu código para que ele
+continue funcionando. Essas mudanças são conhecidas como _**breaking-changes**_.
+
+Resumindo, mudanças que quebram a compatibilidade com a versão anterior
+são mudanças que fazem com que o **código que funcionava antes não funcione mais
+com a nova versão**.
+
+Quando isso acontece o mantenedor da biblioteca deve incrementar o número
+_major_ e resetar os números _minor_ e _patch_ para `0`.
+
+Assim como na _minor_, é possível que novas funcionalidades e correções de bugs
+sejam incluídas em uma nova versão _major_, mas mesmo que isso aconteça, devemos
+manter o _reset_ dos números _minor_ e _patch_ para `0`.
+
+#### Guia de migração
+
+É bem comum que os desenvolvedores das bibliotecas forneçam um guia de migração
+para ajudar os usuários a migrarem de uma versão para outra. Bibliotecas como
+o React, Next.js e Jest, por exemplo, possuem guias de migração bem detalhados:
+
+- [Guia de migração do Next.js 13](https://nextjs.org/docs/pages/building-your-application/upgrading/version-13)
+- [Guia de migração para o React 18](https://react.dev/blog/2022/03/08/react-18-upgrade-guide)
+
+### Changelogs
+
+Além do guia de migração, também existe um tal de "_**changelog**_", que é um
+documento que lista todas as mudanças feitas em uma biblioteca/aplicação, desde
+a primeira versão até a atual.
+
+- [Changelog do React](https://github.com/facebook/react/blob/main/CHANGELOG.md)
+- [Changelog do Jest](https://github.com/jestjs/jest/blob/main/CHANGELOG.md#2970)
+
+Com esse arquivo, conseguimos atualizar a versão da biblioteca mesmo que ela não
+forneça um guia de migração, pois, se bem escrito, ele deve conter todas as
+mudanças e, principalmente, todas as _breaking-changes_ que ocorreram.
+
+Também podemos encontrar esse tipo de informação dentro das _releases_ no
+repositório da biblioteca, como, por exemplo, no [repositório do React](https://github.com/facebook/react/releases)
+
+## Exemplo na prática:
+
+Aqui teremos uma simulação de biblioteca que provém funções matemáticas básicas
+e que segue o **SemVer**.
+
+<CodeEditor
+  closableTabs={false}
+  activeFile="/lib/1.0.0.js"
+  visibleFiles={['/lib/1.0.0.js', '/lib/1.0.1.js', '/lib/1.1.0.js', '/lib/2.0.0.js', '/CHANGELOG.md']}
+  customSetup={{ 
+    dependencies: { 
+      "react-markdown": "latest" 
+    }
+  }}
+  files={{
+    '/App.js': `import { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import changelog from './CHANGELOG.md';
+
+export default function App() {
+  const [markdown, setMarkdown] = useState("");
+
+  useEffect(() => {
+    fetch(changelog)
+      .then((res) => res.text())
+      .then((text) => setMarkdown(text));
+  }, []);
+
+  const css = \`
+    body {
+      margin: 0;
+      padding: 16px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 4px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    li {
+      line-height: 1.5;
+    }
+  \`;
+
+  return (
+    <div>
+    <style>{css}</style>
+      <ReactMarkdown>
+        {markdown}
+      </ReactMarkdown>
+    </div>
+  )
+}
+`,
+    '/lib/1.0.0.js': `export function sum(a, b) {
+  return a + b;
+}
+
+// temos um bug aqui, a subtração está somando
+export function subtract(a, b) {
+  return a + b;
+}`,
+    '/lib/1.0.1.js': `export function sum(a, b) {
+  return a + b;
+}
+
+// bug corrigido
+export function subtract(a, b) {
+  return a - b;
+}`,
+    '/lib/1.1.0.js': `export function sum(a, b) {
+  return a + b;
+}
+
+export function subtract(a, b) {
+  return a - b;
+}
+
+// nova funcionalidade sem impactar as anteriores
+export function multiply(a, b) {
+  return a * b;
+}`,
+    '/lib/2.0.0.js': `export function sum({a, b}) {
+  return a + b;
+}
+
+export function subtract({a, b}) {
+  return a - b;
+}
+
+export function multiply({a, b}) {
+  return a * b;
+}`,
+    '/CHANGELOG.md': `# Changelog
+
+## 2.0.0
+
+### Breaking changes:
+
+- Refatora funções \`sum\`, \`subtract\` e \`multiply\` para receberem um único argumento,
+um objeto com propriedades a e b ao invés de dois argumentos
+
+## 1.1.0
+
+### Features:
+- Adiciona função de \`multiply\`
+
+## 1.0.1
+
+### Fixes:
+- Corrige bug na função \`subtract\`
+
+## 1.0.0
+
+### Features: 
+- Adiciona funções de \`sum\` e \`subtract\``
+  }}
+/>
+
+No exemplo acima, temos uma simulação de _lib_ onde, a cada nova versão, o número
+de versão é incrementado seguindo o _semantic versioning_.
+
+Além disso, temos um arquivo `CHANGELOG.md` que lista todas as mudanças feitas
+em cada versão, desde a primeira até a última.
+
+## Versões 0.y.z
+
+Uma biblioteca com versão `0.3.0`, por exemplo, indica que ela ainda está em fase
+de desenvolvimento, isso significa que ela pode ter _breaking changes_ a
+qualquer momento, e essas _breaking changes_ não irão incrementar o número
+_major_.
+
+O desenvolvedor da biblioteca deve seguir o _SemVer_ a partir da versão `1.0.0`.
+A versão `1.0.0` deve ser lançada quando a biblioteca estiver pronta para ser
+utilizada em produção e sua _API_ (métodos/funções/classes que ela disponibiliza
+) estiver estável.
+
+Um grande exemplo disso é o _React Native_, que está por aí há anos e ainda
+continua em uma versão de desenvolvimento. Quem já precisou atualizar a versão
+do _React Native_ sabe o trabalho que isso pode causar com tantas _breaking
+changes_ possíveis 🙁
+
+- [Changelog do React Native](github.com/facebook/react-native/blob/main/changelog.md#breaking)
+
+Portanto, **tenha cuidado a atualizar as dependências do seu projeto que estão
+em versões de desenvolvimento** (0.y.z), pois podem ocorrer inconsistências.
+Sempre leia o changelog e procure por guias de migração na documentação da
+biblioteca.
+
+#### Ponto importante:
+
+> Caso você venha a desenvolver uma biblioteca, tome cuidado ao utilizar ferramentas como
+o _semantic-release_, _lerna_, para gerenciar o release da primeira versão
+`1.0.0`. Caso sua biblioteca esteja em alguma versão `0.x.y`, essas ferramentas
+**podem não modificar** a versão para a primeira _major_ `1.0.0`, mesmo que você
+informe a elas que ocorreram _breaking changes_, pois elas seguem o
+_semantic version_ e não irão incrementar o _major_ enquanto a versão for
+`0.x.y`.
+
+## Prereleases
+
+Além das versões `0.y.z`, também temos as _prereleases_, que são versões
+lançadas antes da versão final proposta, para testes e feedbacks da comunidade.
+
+Essas versões são identificadas por um sufixo, como `1.0.0-alpha.1`,
+`1.0.0-beta.1`, `1.0.0-rc.1`, etc. Quando os testes são finalizados e a versão
+estiver pronta para ser lançada, a versão final será lançada sem o sufixo.
+
+Podemos ver que o _Next.js_ utiliza bastante as versões _prereleases_ para
+testar novas funcionalidades antes de lançar a versão final.
+
+- [Releases do Next.js](https://github.com/vercel/next.js/releases)
+
+Tais sufixos não seguem nenhuma regra específica, ficando a cargo do mantenedor
+da biblioteca decidir como irá nomear essas versões. Porém é comum vermos
+`alpha`, `beta`, `next`, `rc` e `canary` sendo utilizados.
+
+Elas não são instaladas por padrão ao utilizar o comando `npm install`, sendo
+necessário informar o sufixo para instalar uma versão _prerelease_.
+
+**Exemplo:**
+
+```bash
+npm install minha-lib@1.0.0-alpha.1
+```
+
+E para terminar, vale mencionar que o _SemVer_ é uma convenção e não uma regra.
+Portanto, é possível que algumas bibliotecas não sigam essa convenção, mas é
+importante que o desenvolvedor da biblioteca informe isso em sua documentação.
+
+Por fim, quem criou o _SemVer_ foi [Tom Preston-Werner](https://tom.preston-werner.com/)
+e sua documentação pode ser encontrada em [semver.org](https://semver.org/)
