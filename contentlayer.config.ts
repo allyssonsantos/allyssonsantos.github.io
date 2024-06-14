@@ -1,4 +1,6 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import { format, parseISO } from 'date-fns';
+import { ptBR, enUS } from 'date-fns/locale';
 import readingTime from 'reading-time';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -20,13 +22,20 @@ export const Blog = defineDocumentType(() => ({
     category: { type: 'string', required: true },
   },
   computedFields: {
-    readingTime: {
-      type: 'json',
-      resolve: (doc) => readingTime(doc.body.raw),
-    },
     locale: {
       type: 'string',
       resolve: (doc) => doc._raw.sourceFileDir,
+    },
+    localizedPublishedAt: {
+      type: 'string',
+      resolve: (doc) =>
+        format(parseISO(doc.publishedAt), 'd LLLL - yyyy', {
+          locale: doc._raw.sourceFileDir === 'pt' ? ptBR : enUS,
+        }),
+    },
+    readingTime: {
+      type: 'json',
+      resolve: (doc) => readingTime(doc.body.raw),
     },
     slug: {
       type: 'string',

@@ -34,17 +34,9 @@ export function CodeEditor({
   template = 'react',
   ...props
 }: CodeEditorProps) {
-  const [primaryColor, setPrimaryColor] = useState<string>();
+  const editorPrimaryColor = '#00fdfd';
 
-  useEffect(() => {
-    const color = getComputedStyle(document.documentElement).getPropertyValue(
-      '--primary-200',
-    );
-
-    setPrimaryColor(color);
-  }, []);
-
-  return primaryColor ? (
+  return (
     <SandpackProvider
       customSetup={customSetup}
       options={{ visibleFiles, activeFile }}
@@ -53,12 +45,12 @@ export function CodeEditor({
         ...cobalt2,
         colors: {
           ...cobalt2.colors,
-          accent: primaryColor,
+          accent: editorPrimaryColor,
         },
         syntax: {
           ...cobalt2.syntax,
-          keyword: primaryColor,
-          property: primaryColor,
+          keyword: editorPrimaryColor,
+          property: editorPrimaryColor,
         },
         font: {
           size: '14px',
@@ -73,7 +65,7 @@ export function CodeEditor({
         {showConsole && <SandpackConsole />}
       </SandpackLayout>
     </SandpackProvider>
-  ) : null;
+  );
 }
 
 export function GoToFile({

@@ -30,8 +30,8 @@ export function BlogFeature({ posts }: BlogFeatureProps) {
                       slug={post.slug}
                       title={post.title}
                       description={post.description}
-                      publishedAt={post.publishedAt}
-                      readingTime={post.readingTime.text}
+                      publishedAt={post.localizedPublishedAt}
+                      readingTime={post.readingTime.minutes}
                     />
                   </li>
                 ))}

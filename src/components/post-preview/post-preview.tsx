@@ -1,9 +1,10 @@
 import type { Blog } from 'contentlayer/generated';
+import { useTranslation } from 'next-i18next';
 import { Link } from '../link';
 import styles from './post-preview.module.css';
 
 interface IPostPreview extends Pick<Blog, 'title' | 'slug' | 'description'> {
-  readingTime: string;
+  readingTime: number;
   publishedAt: string;
 }
 
@@ -14,11 +15,16 @@ export function PostPreview({
   description,
   publishedAt,
 }: IPostPreview) {
+  const { t } = useTranslation(['common']);
+  const readingTimeText = `${Math.floor(readingTime)} ${t('common:reading-time')}`;
+
   return (
     <Link href={`/blog/${slug}`} className={styles.post}>
-      <h3 className={styles.post__title}>
-        {title} - <small>{readingTime}</small>
-      </h3>
+      <div>
+        <h3 className={styles.post__title}>{title}</h3>
+        <span className={styles.post__separator}> - </span>
+        <small>{readingTimeText}</small>
+      </div>
       <p className={styles.post__description}>{description}</p>
       <time>{publishedAt}</time>
     </Link>

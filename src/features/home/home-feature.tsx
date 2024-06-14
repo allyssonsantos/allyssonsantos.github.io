@@ -43,14 +43,20 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
       <ul className={styles['home__post-list']}>
         {Boolean(posts.length) ? (
           posts.map(
-            ({ publishedAt, readingTime, title, description, slug }) => (
+            ({
+              localizedPublishedAt,
+              readingTime,
+              title,
+              description,
+              slug,
+            }) => (
               <li key={title} className={styles.home__post}>
                 <PostPreview
                   slug={slug}
                   title={title}
                   description={description}
-                  readingTime={readingTime.text}
-                  publishedAt={format(parseISO(publishedAt), 'LLLL d, yyyy')}
+                  readingTime={readingTime.minutes}
+                  publishedAt={localizedPublishedAt}
                 />
               </li>
             ),

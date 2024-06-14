@@ -8,5 +8,6 @@
   "delete": "Delete",
   "no-posts-yet-title": "No posts yet",
   "no-posts-yet-description": "Come back soon.",
-  "404-message": "404 - Page Not Found"
+  "404-message": "404 - Page Not Found",
+  "reading-time": "min read"
 }
