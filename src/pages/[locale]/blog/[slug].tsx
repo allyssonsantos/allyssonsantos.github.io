@@ -48,8 +48,8 @@ export default function Article({
         type="Article"
         url={POST_URL}
         title={article.title}
-        images={[`${SITE_BASE_URL}/${article.cover}`]}
-        datePublished={article.publishedAt}
+        images={[IMAGE_URL]}
+        datePublished={`${article.publishedAt}T12:00:00-03:00`}
         authorName="Allysson Santos"
         description={article.description}
       />
