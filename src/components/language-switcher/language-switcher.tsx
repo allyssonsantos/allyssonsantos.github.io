@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { allBlogs } from 'contentlayer/generated';
 
 import nextI18nextConfig from 'next-i18next.config';
 import styles from './language-switcher.module.css';
@@ -16,9 +17,15 @@ const languageMap = {
 };
 
 export function LanguageSwitcher() {
+  const posts = allBlogs;
+
   const router = useRouter();
   const currentLocale = router.query.locale;
   const [selectedLocale, setSelectedLocale] = useState(currentLocale || 'pt');
+
+  const splited = router.asPath.split('/blog');
+
+  const isBlogPage = splited.length > 1 && splited[1] !== '';
 
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const choosedLocale = event.target.value;
@@ -26,7 +33,6 @@ export function LanguageSwitcher() {
 
     if (choosedLocale === 'pt') {
       const regex = new RegExp(`${currentLocale}\/?`);
-      console.log(router.asPath.replace(regex, ''));
       router.push(`${router.asPath.replace(regex, '')}`);
       return;
     }
@@ -44,7 +50,11 @@ export function LanguageSwitcher() {
       value={selectedLocale}
     >
       {nextI18nextConfig.i18n.locales.map((locale) => (
-        <option key={locale} value={locale}>
+        <option
+          key={locale}
+          value={locale}
+          disabled={isBlogPage && !posts.some((post) => post.locale === locale)}
+        >
           {languageMap[locale as keyof typeof languageMap].flag}{' '}
           {languageMap[locale as keyof typeof languageMap].name}
         </option>

@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns';
 import { useTranslation } from 'next-i18next';
 import type { Blog } from 'contentlayer/generated';
 
-import { PostPreview, CodeEditor } from 'src/components';
+import { PostPreview } from 'src/components';
 import styles from './home.module.css';
 
 type HomeFeatureProps = {
@@ -31,10 +31,11 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
           <p className={styles.home__description}>{t('home:description')}</p>
         </div>
         <Image
-          src="/images/me.jpg"
+          src="/images/me.jpeg"
           alt={t('home:me-alt-text')}
           width={120}
           height={120}
+          priority
           className={styles.home__image}
         />
       </div>

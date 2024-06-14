@@ -22,7 +22,24 @@ cd allyssonsantos.github.io.git
 npm install
 ```
 
+Create a `.env` file with the following content:
+
+```bash
+GH_PERSONAL_TOKEN=your-github-personal-token
+NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-firebase-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=your-firebase-app-id
+SENTRY_DSN=your-sentry-dsn
+NEXT_PUBLIC_SENTRY_DSN=your-sentry-dsn
+```
+
 Just type `npm run dev` on your terminal.
+
+If you plan to deploy this project, make sure to update the `deploy.yml` file
+with your own information.
 
 ## Contributing
 
