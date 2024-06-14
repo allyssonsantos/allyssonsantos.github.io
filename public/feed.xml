@@ -4,7 +4,14 @@
         <description><![CDATA[Allysson Santos]]></description>
         <link>https://allysson.me</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 01 Jun 2024 17:41:41 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 14 Jun 2024 01:56:41 GMT</lastBuildDate>
         <atom:link href="https://allysson.me/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Versionamento semântico (SemVer)]]></title>
+            <description><![CDATA[Explicando o tal do semantic versioning, também conhecido como SemVer.]]></description>
+            <link>https://allysson.me/blog/semantic-version</link>
+            <guid isPermaLink="true">https://allysson.me/blog/semantic-version</guid>
+            <pubDate>Thu, 13 Jun 2024 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
