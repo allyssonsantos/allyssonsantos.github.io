@@ -1,8 +1,7 @@
 {
   "title": "Sobre mim",
-  "description-1": "Esse espaço é onde eu testo coisas novas que quero aprender, além de escrever sobre meus pensamentos e técnologia, principalmente sobre front-end.",
+  "description-1": "Esse espaço é onde eu testo coisas novas que quero aprender, além de escrever sobre meus pensamentos e tecnologia, principalmente sobre front-end.",
   "description-2": "Já trabalhei com diversas ferramentas no mundo do front-end, do básico até os frameworks mais atuais de hoje em dia, como por exemplo: (clique na linguagem para abrir mais detalhes)",
-  "description-3": "Hoje estou trabalhando com design systems e micro frontends.",
   "projects-title": "Projetos open source que trabalhei",
   "experiences-title": "Minhas experiências passadas",
   "boticario-description": "Faço parte do time de autoatendimento, onde cuido das aplicações front-end que contemplam autenticação, dados do usuário, como histórico dos pedidos, favoritos, cadastro, endereço, etc. Além de também cuidar da aplicação responsável pela FAQ.",
