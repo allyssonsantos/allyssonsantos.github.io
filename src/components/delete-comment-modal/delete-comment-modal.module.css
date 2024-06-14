@@ -4,9 +4,9 @@
 }
 
 .modal__message {
-  border-left: 1px solid var(--neutral-300);
+  padding: 1rem;
+  border-left: 3px solid var(--neutral-300);
   margin: 16px 0 24px;
   color: var(--neutral-300);
   font-size: 0.875rem;
-  padding-inline-start: 16px;
 }

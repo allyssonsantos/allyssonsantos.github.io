@@ -36,7 +36,32 @@
   font-size: 1rem;
 }
 
-.article table td, .article table th {
+.article table td,
+.article table th {
   padding: 12px;
   border: 1px solid var(--neutral-200);
+}
+
+.article blockquote h4,
+.article blockquote h5 {
+  margin: 0;
+}
+
+.article blockquote h4 {
+  margin-bottom: 0.875rem;
+  font-size: 1.25rem;
+}
+
+.article blockquote h5 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.article blockquote p {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.article blockquote p + .article blockquote p {
+  margin-top: 0.5rem;
 }

@@ -15,7 +15,6 @@ export function AboutFeature() {
       </section>
       <section className={styles['about-centralized']}>
         <Skills />
-        <p>{t('description-3')}</p>
       </section>
       <section className={styles.about__highlighted}>
         <div className={styles['about-centralized']}>

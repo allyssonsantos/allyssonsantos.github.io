@@ -3,7 +3,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { useTranslation } from 'next-i18next';
 import type { Blog } from 'contentlayer/generated';
 
-import { CodeEditor } from 'src/components';
+import { CodeEditor, GoToFile } from 'src/components';
 import { Feedback } from './components';
 import styles from './article.module.css';
 
@@ -29,15 +29,17 @@ export function ArticleFeature({ post }: { post: Blog }) {
       <div className={styles['article__cover-wrapper']}>
         <Image
           className={styles.article__cover}
-          src={`/articles/${post.slug}/${post.cover}`}
+          src={`/images/articles/${post.slug}/${post.cover}`}
           alt={post.altCover}
           fill
+          priority
         />
       </div>
       <article>
         <PostBody
           components={{
             CodeEditor,
+            GoToFile,
           }}
         />
       </article>

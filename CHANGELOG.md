@@ -1,3 +1,14 @@
+# [1.12.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.11.1...v1.12.0) (2024-06-14)
+
+
+### Features
+
+* **blog:** add semantic-versioning blog post ([2643f96](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/2643f965b932f240412ecc5860010b5ac2b881ec))
+* change my image ([b491583](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/b4915838ca49f62a008a4cfff94765744420c83e))
+* create GoToFile component, fix some styles and meta data ([3ee6a09](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/3ee6a096191095727118984d8f537dbb7e916b5b))
+* **i18n:** update translations ([55c35fe](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/55c35febcfa2a7a664f7596fa23b749deb6fbf5b))
+* **sidebar:** disable language switcher option if article is not available ([0e2c3bf](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/0e2c3bfce32589b55cc7fe1bd11aee93050465b9))
+
 ## [1.11.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.11.0...v1.11.1) (2024-06-01)
 
 
