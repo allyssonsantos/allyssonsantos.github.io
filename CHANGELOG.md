@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.1...v1.12.2) (2024-06-14)
+
+
+### Bug Fixes
+
+* **article:** some mobile css fixes ([cb554ed](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/cb554ed2d0ddf7da97d2aa4ce3a2ebfeea957f9a))
+
 ## [1.12.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.0...v1.12.1) (2024-06-14)
 
 
