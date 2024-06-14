@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.0...v1.12.1) (2024-06-14)
+
+
+### Bug Fixes
+
+* **seo:** jsonld image and date ([13aa668](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/13aa66884e050b04cd4bdace34481d8b64e00281))
+
 # [1.12.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.11.1...v1.12.0) (2024-06-14)
 
 
