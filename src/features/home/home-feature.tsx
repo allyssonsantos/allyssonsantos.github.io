@@ -31,10 +31,11 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
           <p className={styles.home__description}>{t('home:description')}</p>
         </div>
         <Image
-          src="/images/me.jpg"
+          src="/images/me.jpeg"
           alt={t('home:me-alt-text')}
           width={120}
           height={120}
+          priority
           className={styles.home__image}
         />
       </div>
