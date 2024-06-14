@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns';
 import { useTranslation } from 'next-i18next';
 import type { Blog } from 'contentlayer/generated';
 
-import { PostPreview, CodeEditor } from 'src/components';
+import { PostPreview } from 'src/components';
 import styles from './home.module.css';
 
 type HomeFeatureProps = {
