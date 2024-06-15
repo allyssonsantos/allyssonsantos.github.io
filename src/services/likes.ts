@@ -5,11 +5,16 @@ import {
   setDoc,
   increment,
   updateDoc,
+  DocumentSnapshot,
 } from 'firebase/firestore';
 
 import { db } from './firebase';
 
-export function listenLikes(slug: string, callback: () => void) {
+export function listenLikes(
+  slug: string,
+  // eslint-disable-next-line no-unused-vars
+  callback: (snapshot: DocumentSnapshot) => void,
+) {
   const docRef = doc(db, 'likes', slug.replace('/', ''));
   const stream = onSnapshot(docRef, callback);
 
