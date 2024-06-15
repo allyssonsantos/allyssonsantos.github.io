@@ -1,3 +1,4 @@
+import type React from 'react';
 import { forwardRef, useImperativeHandle, useRef, useEffect } from 'react';
 
 import styles from './menu.module.css';

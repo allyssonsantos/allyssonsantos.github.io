@@ -17,7 +17,7 @@ import '../../styles/animations.css';
 import '../../styles/code-editor.css';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode;
+  getLayout?: () => ReactNode;
 };
 
 type AppPropsWithLayout = AppProps & {
@@ -28,7 +28,8 @@ const sourceSans = Source_Sans_3({ subsets: ['latin'] });
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =
-    Component.getLayout ?? ((page) => <BaseLayout>{page}</BaseLayout>);
+    Component.getLayout ??
+    ((page: ReactElement) => <BaseLayout>{page}</BaseLayout>);
 
   return (
     <div className={sourceSans.className}>

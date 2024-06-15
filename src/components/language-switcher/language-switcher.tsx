@@ -1,3 +1,4 @@
+import type React from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { allBlogs } from 'contentlayer/generated';
@@ -32,7 +33,7 @@ export function LanguageSwitcher() {
     setSelectedLocale(choosedLocale);
 
     if (choosedLocale === 'pt') {
-      const regex = new RegExp(`${currentLocale}\/?`);
+      const regex = new RegExp(`${currentLocale}/?`);
       router.push(`${router.asPath.replace(regex, '')}`);
       return;
     }

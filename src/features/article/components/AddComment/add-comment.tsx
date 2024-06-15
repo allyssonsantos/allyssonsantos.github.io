@@ -1,3 +1,4 @@
+import type React from 'react';
 import { useReducer } from 'react';
 import { useTranslation } from 'next-i18next';
 

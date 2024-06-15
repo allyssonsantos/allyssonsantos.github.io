@@ -5,18 +5,16 @@ import {
   setDoc,
   increment,
   updateDoc,
-  type DocumentSnapshot,
-  type DocumentData,
 } from 'firebase/firestore';
 
 import { db } from './firebase';
 
-export function listenLikes(slug: string, callback: (doc: DocumentSnapshot<DocumentData>) => void) {
+export function listenLikes(slug: string, callback: () => void) {
   const docRef = doc(db, 'likes', slug.replace('/', ''));
   const stream = onSnapshot(docRef, callback);
 
   return stream;
-};
+}
 
 export async function like(slug: string, userId: string) {
   const likesRef = doc(db, 'likes', slug.replace('/', ''));
@@ -49,4 +47,4 @@ export async function like(slug: string, userId: string) {
   });
 
   return createdLike;
-};
+}

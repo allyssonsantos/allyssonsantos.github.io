@@ -1,3 +1,4 @@
+import type React from 'react';
 import CathoLogo from './logos/catho.svg';
 import EncontraLogo from './logos/encontra.svg';
 import GympassLogo from './logos/gympass.svg';

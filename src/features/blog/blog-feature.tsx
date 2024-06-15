@@ -15,7 +15,7 @@ export function BlogFeature({ posts }: BlogFeatureProps) {
 
   return (
     <section>
-      {Boolean(Object.entries(posts).length) ? (
+      {Object.entries(posts).length ? (
         <ul className={styles['blog__category-list']}>
           {Object.entries(posts).map(([category, post]) => (
             <li key={category}>

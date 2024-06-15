@@ -16,7 +16,7 @@ export function DeleteCommentModal({
   commentId,
   message,
 }: DeleteCommentModalProps) {
-  const { t, i18n } = useTranslation(['delete-comment-modal', 'common']);
+  const { t } = useTranslation(['delete-comment-modal', 'common']);
   const { openedModals, closeModal } = useModals();
 
   const modalId = `${DELETE_COMMENT_MODAL_KEY}-${commentId}`;

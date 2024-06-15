@@ -40,7 +40,7 @@ export function HomeFeature({ posts }: HomeFeatureProps) {
       </div>
       <h2 className={styles.home__title}>{t('home:latest-posts')}</h2>
       <ul className={styles['home__post-list']}>
-        {Boolean(posts.length) ? (
+        {posts.length ? (
           posts.map(
             ({
               localizedPublishedAt,
