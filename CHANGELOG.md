@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.5...v1.13.0) (2024-06-15)
+
+
+### Features
+
+* **feedbacks:** change css and add message to login if not logged in ([4a6c982](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/4a6c9826b16ae72b1329d3df60a2f421100a002d))
+
 ## [1.12.5](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.4...v1.12.5) (2024-06-15)
 
 
