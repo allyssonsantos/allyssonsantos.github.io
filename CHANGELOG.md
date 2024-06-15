@@ -1,3 +1,10 @@
+## [1.12.3](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.2...v1.12.3) (2024-06-14)
+
+
+### Bug Fixes
+
+* reading time format and style / editor color ([f0bb827](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/f0bb827dc590eb77164ecfeabe329a44f0e606e5))
+
 ## [1.12.2](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.1...v1.12.2) (2024-06-14)
 
 
