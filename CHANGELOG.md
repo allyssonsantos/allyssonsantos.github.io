@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.13.1...v1.13.2) (2024-06-15)
+
+
+### Bug Fixes
+
+* **_app:** typing ([7d99df7](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/7d99df72e4f21d6441ae628820d888ec37d6b657))
+
 ## [1.13.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.13.0...v1.13.1) (2024-06-15)
 
 
