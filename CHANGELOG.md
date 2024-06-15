@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.13.0...v1.13.1) (2024-06-15)
+
+
+### Bug Fixes
+
+* **likes:** fix typing ([c524137](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/c524137b69642a97dd554f76e8fcc98e10f06532))
+
 # [1.13.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.5...v1.13.0) (2024-06-15)
 
 
