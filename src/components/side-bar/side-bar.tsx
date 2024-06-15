@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useTheme } from 'next-themes';
 import { useTranslation } from 'next-i18next';
 import FocusTrap from 'focus-trap-react';
@@ -23,19 +24,27 @@ import {
   SIGN_IN_MODAL_KEY,
   DELETE_ACCOUNT_MODAL_KEY,
 } from 'src/constants/modals';
-import {
-  ActiveLink,
-  Button,
-  useModals,
-  Avatar,
-  Menu,
-  SignInModal,
-  Link,
-  LanguageSwitcher,
-} from '..';
+import { ActiveLink, Button, useModals, Link } from '..';
 
 import styles from './side-bar.module.css';
-import { DeleteAccountModal } from '../delete-account-modal';
+
+const Avatar = dynamic(() =>
+  import('../avatar/avatar').then((mod) => mod.Avatar),
+);
+const Menu = dynamic(() => import('../menu/menu').then((mod) => mod.Menu));
+const LanguageSwitcher = dynamic(() =>
+  import('../language-switcher/language-switcher').then(
+    (mod) => mod.LanguageSwitcher,
+  ),
+);
+const SignInModal = dynamic(() =>
+  import('../sign-in-modal/sign-in-modal').then((mod) => mod.SignInModal),
+);
+const DeleteAccountModal = dynamic(() =>
+  import('../delete-account-modal/delete-account-modal').then(
+    (mod) => mod.DeleteAccountModal,
+  ),
+);
 
 interface ILinks {
   title: string;

@@ -1,16 +1,21 @@
+import dynamic from 'next/dynamic';
+
 import Image from 'next/image';
-import { useMDXComponent } from 'next-contentlayer/hooks';
 import { useTranslation } from 'next-i18next';
 import type { Blog } from 'contentlayer/generated';
 
-import { CodeEditor, GoToFile } from 'src/components';
-import { Feedback } from './components';
 import styles from './article.module.css';
+
+const Feedback = dynamic(() =>
+  import('./components').then((mod) => mod.Feedback),
+);
+const PostBody = dynamic(() =>
+  import('./components').then((mod) => mod.PostBody),
+);
 
 export function ArticleFeature({ post }: { post: Blog }) {
   const { t } = useTranslation('article');
-  const PostBody = useMDXComponent(post.body.code);
-  const readingTime = Math.ceil(post.readingTime.minutes);
+  const readingTime = Math.floor(post.readingTime.minutes);
 
   return (
     <div className={styles.article}>
@@ -36,12 +41,7 @@ export function ArticleFeature({ post }: { post: Blog }) {
         />
       </div>
       <article>
-        <PostBody
-          components={{
-            CodeEditor,
-            GoToFile,
-          }}
-        />
+        <PostBody code={post.body.code} />
       </article>
       <Feedback slug={post.slug} />
     </div>

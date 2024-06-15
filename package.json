@@ -25,6 +25,7 @@
   "dependencies": {
     "@codesandbox/sandpack-react": "2.13.10",
     "@codesandbox/sandpack-themes": "2.0.21",
+    "@next/bundle-analyzer": "^14.2.4",
     "@sentry/nextjs": "^8.4.0",
     "@svgr/webpack": "8.1.0",
     "@types/rss": "^0.0.29",
@@ -61,7 +62,6 @@
     "rss": "1.2.2"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "14.2.3",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.0",
     "@semantic-release/exec": "6.0.3",
