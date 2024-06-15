@@ -5,9 +5,24 @@
   margin-top: 48px;
 }
 
+.feedback__comment-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+@media (width <= 768px) {
+  .feedback__comment-title-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
 .feedback__comment-title {
-  margin-top: 3rem !important;
-  margin-bottom: 2rem !important;
+  margin: 0 !important;
 }
 
 .feedback__actions__comments {

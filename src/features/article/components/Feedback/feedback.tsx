@@ -108,9 +108,20 @@ export function Feedback({ slug }: FeedbackProps) {
         </div>
       </section>
       <section>
-        <h2 className={styles['feedback__comment-title']}>
-          {t('comments-title')}
-        </h2>
+        <div className={styles['feedback__comment-title-wrapper']}>
+          <h2 className={styles['feedback__comment-title']}>
+            {t('comments-title')}
+          </h2>
+          {!currentUser && (
+            <Button
+              variant="ghost"
+              onClick={() => openModal(SIGN_IN_MODAL_KEY)}
+            >
+              Faça o login para deixar um comentário
+            </Button>
+          )}
+        </div>
+        {currentUser && <AddComment slug={slug} />}
         {comments.length ? (
           comments.map(({ id, userName, date, message, uid }) => (
             <div key={id} className={styles.feedback__comment}>
@@ -148,7 +159,6 @@ export function Feedback({ slug }: FeedbackProps) {
         ) : (
           <p>{t('no-comments')}</p>
         )}
-        {currentUser && <AddComment slug={slug} />}
       </section>
     </>
   );
