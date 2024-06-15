@@ -5,10 +5,10 @@ import { NextSeo } from 'next-seo';
 import { allBlogs, type Blog as BlogType } from 'contentlayer/generated';
 
 import nextI18nextConfig from 'next-i18next.config';
-import { BlogFeature } from 'src/features/blog';
+import { BlogFeature } from 'src/features/blog/blog-feature';
 import { getI18nPaths, getI18nProps } from 'src/utils/getI18n';
 import { SITE_BASE_URL } from 'src/constants';
-import { BaseLayout } from 'src/layouts';
+import { BaseLayout } from 'src/layouts/base/base';
 
 import type { NextPageWithLayout } from '../../_app';
 
@@ -45,11 +45,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const locale = context.params?.locale || nextI18nextConfig.i18n.defaultLocale;
   const posts = allBlogs
     .filter((post) => post.locale === locale)
-    .reduce((acc, post) => {
-      acc[post.category] = [...(acc[post.category] || []), post];
+    .reduce(
+      (acc, post) => {
+        acc[post.category] = [...(acc[post.category] || []), post];
 
-      return acc;
-    }, {} as Record<string, BlogType[]>);
+        return acc;
+      },
+      {} as Record<string, BlogType[]>,
+    );
 
   const i18nProps = await getI18nProps(context, [
     'common',

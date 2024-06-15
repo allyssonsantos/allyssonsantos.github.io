@@ -1,6 +1,6 @@
 import type { Blog } from 'contentlayer/generated';
 import { useTranslation } from 'next-i18next';
-import { Link } from '../link';
+import { LinkComponent as Link } from '../link/link';
 import styles from './post-preview.module.css';
 
 interface IPostPreview extends Pick<Blog, 'title' | 'slug' | 'description'> {

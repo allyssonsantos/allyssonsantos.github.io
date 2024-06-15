@@ -1,6 +1,9 @@
 import { useTranslation } from 'next-i18next';
 
-import { Projects, Skills, Companies } from './components';
+import { Projects } from './components/projects/projects';
+import { Skills } from './components/skills/skills';
+import { Companies } from './components/companies/companies';
+
 import styles from './about.module.css';
 
 export function AboutFeature() {

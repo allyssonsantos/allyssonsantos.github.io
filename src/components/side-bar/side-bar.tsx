@@ -18,13 +18,16 @@ import {
 } from 'react-feather';
 import Xlogo from './x-logo.svg';
 
-import { useIsLowerResolution } from 'src/hooks';
+import { useIsLowerResolution } from 'src/hooks/useIsLowerResolution';
 import { useAuth, logout } from 'src/contexts/auth';
 import {
   SIGN_IN_MODAL_KEY,
   DELETE_ACCOUNT_MODAL_KEY,
 } from 'src/constants/modals';
-import { ActiveLink, Button, useModals, Link } from '..';
+import { ActiveLink } from '../active-link/active-link';
+import { Button } from '../button/button';
+import { LinkComponent as Link } from '../link/link';
+import { useModals } from '../modal/modal-context';
 
 import styles from './side-bar.module.css';
 

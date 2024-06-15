@@ -7,7 +7,9 @@ import { SIGN_IN_MODAL_KEY } from 'src/constants/modals';
 import { login } from 'src/contexts/auth';
 
 import styles from './sign-in-modal.module.css';
-import { Modal, GoogleButton, useModals } from '..';
+import { Modal } from '../modal/modal';
+import { GoogleButton } from '../google-button/google-button';
+import { useModals } from '../modal/modal-context';
 
 const POPUP_CLOSED_ERROR = 'auth/popup-closed-by-user';
 

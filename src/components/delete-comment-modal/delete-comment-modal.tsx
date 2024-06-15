@@ -2,8 +2,9 @@ import { useTranslation } from 'next-i18next';
 
 import { DELETE_COMMENT_MODAL_KEY } from 'src/constants/modals';
 import { deleteComment } from 'src/services/comments';
-
-import { Button, Modal, useModals } from '../';
+import { Button } from '../button/button';
+import { Modal } from '../modal/modal';
+import { useModals } from '../modal/modal-context';
 import styles from './delete-comment-modal.module.css';
 
 type DeleteCommentModalProps = {

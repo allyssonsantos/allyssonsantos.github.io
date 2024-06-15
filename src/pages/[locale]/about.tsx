@@ -4,9 +4,9 @@ import { NextSeo } from 'next-seo';
 import { useTranslation } from 'next-i18next';
 
 import { getI18nProps, getI18nPaths } from 'src/utils/getI18n';
-import { AboutFeature } from 'src/features/about';
+import { AboutFeature } from 'src/features/about/about-feature';
 import { SITE_BASE_URL } from 'src/constants';
-import { BaseLayout } from 'src/layouts';
+import { BaseLayout } from 'src/layouts/base/base';
 
 import type { NextPageWithLayout } from '../_app';
 
@@ -32,11 +32,7 @@ const About: NextPageWithLayout = () => {
 };
 
 About.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <BaseLayout centralize={false}>
-      {page}
-    </BaseLayout>
-  );
+  return <BaseLayout centralize={false}>{page}</BaseLayout>;
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {

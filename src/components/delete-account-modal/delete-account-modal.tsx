@@ -2,7 +2,9 @@ import { useTranslation } from 'next-i18next';
 
 import { DELETE_ACCOUNT_MODAL_KEY } from 'src/constants/modals';
 import { deleteAccount } from 'src/contexts/auth';
-import { Button, Modal, useModals } from '../';
+import { Button } from '../button/button';
+import { Modal } from '../modal/modal';
+import { useModals } from '../modal/modal-context';
 
 import styles from './delete-account-modal.module.css';
 

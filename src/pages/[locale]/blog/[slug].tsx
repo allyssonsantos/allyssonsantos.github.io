@@ -4,9 +4,10 @@ import { NextSeo, ArticleJsonLd } from 'next-seo';
 import { allBlogs, type Blog } from 'contentlayer/generated';
 
 import { SITE_BASE_URL } from 'src/constants';
-import { ArticleFeature } from 'src/features/article';
-import { ArticleLayout } from 'src/layouts/article';
-import { BaseLayout } from 'src/layouts/base';
+import { ArticleFeature } from 'src/features/article/article-feature';
+import { ArticleLayout } from 'src/layouts/article/article';
+import { BaseLayout } from 'src/layouts/base/base';
+
 import { getI18nProps } from 'src/utils/getI18n';
 
 import type { NextPageWithLayout } from '../../_app';

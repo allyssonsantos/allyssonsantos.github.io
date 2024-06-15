@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 
 import type { Blog } from 'contentlayer/generated';
-import { PostPreview } from 'src/components';
+import { PostPreview } from 'src/components/post-preview/post-preview';
 
 import styles from './blog.module.css';
 import Image from 'next/image';

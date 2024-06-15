@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 
-import { Modal } from 'src/components';
+import { Modal } from 'src/components/modal/modal';
 import type { ProjectsType } from '../../../data/projects';
 
 import styles from './project-modal.module.css';

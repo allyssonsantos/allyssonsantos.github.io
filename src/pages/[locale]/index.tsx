@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo';
 import { useTranslation } from 'next-i18next';
 
 import nextI18nextConfig from 'next-i18next.config';
-import { HomeFeature } from 'src/features/home';
+import { HomeFeature } from 'src/features/home/home-feature';
 import { getI18nProps, getI18nPaths } from 'src/utils/getI18n';
 
 const POSTS_TO_SHOW_ON_HOME_PAGE = 3;

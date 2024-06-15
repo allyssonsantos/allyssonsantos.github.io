@@ -6,9 +6,9 @@ import { Source_Sans_3 } from 'next/font/google';
 import { DefaultSeo } from 'next-seo';
 
 import { AuthProvider } from 'src/contexts/auth';
-import { ModalProvider } from 'src/components';
+import { ModalProvider } from 'src/components/modal/modal-provider';
 import { SITE_BASE_URL, SITE_NAME, TWITTER_HANDLE } from 'src/constants';
-import { BaseLayout } from 'src/layouts';
+import { BaseLayout } from 'src/layouts/base/base';
 
 import '../../styles/theme.css';
 import '../../styles/highlight.css';

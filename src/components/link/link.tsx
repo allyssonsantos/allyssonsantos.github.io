@@ -2,8 +2,6 @@ import React from 'react';
 import Link, { type LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 
-import nextI18nextConfig from 'next-i18next.config';
-
 type LinkComponentProps = LinkProps &
   Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
     className?: string;

@@ -11,7 +11,9 @@ import { ThumbsUp, MessageCircle, X } from 'react-feather';
 import { cva } from 'class-variance-authority';
 import { useTranslation } from 'next-i18next';
 
-import { Button, DeleteCommentModal, useModals } from 'src/components';
+import { Button } from 'src/components/button/button';
+import { DeleteCommentModal } from 'src/components/delete-comment-modal/delete-comment-modal';
+import { useModals } from 'src/components/modal/modal-context';
 import {
   DELETE_COMMENT_MODAL_KEY,
   SIGN_IN_MODAL_KEY,
@@ -21,7 +23,7 @@ import { db } from 'src/services/firebase';
 import { useAuth } from 'src/contexts/auth';
 
 import styles from './feedback.module.css';
-import { AddComment } from '../AddComment';
+import { AddComment } from '../AddComment/add-comment';
 
 const likeButton = cva(styles['like-button'], {
   variants: {

@@ -5,7 +5,8 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { Menu } from 'react-feather';
 import { useTranslation } from 'next-i18next';
 
-import { Button, SideBar } from 'src/components';
+import { Button } from 'src/components/button/button';
+import { SideBar } from 'src/components/side-bar/side-bar';
 
 import styles from './base.module.css';
 

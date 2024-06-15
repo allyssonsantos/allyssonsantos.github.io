@@ -11,7 +11,7 @@ import { cva } from 'class-variance-authority';
 import { X } from 'react-feather';
 import { useTranslation } from 'next-i18next';
 
-import { Button } from '../button';
+import { Button } from '../button/button';
 import styles from './modal.module.css';
 
 const modal = cva(styles.modal, {

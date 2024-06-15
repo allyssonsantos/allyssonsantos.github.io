@@ -1,6 +1,6 @@
 import { html, css, javascript } from '../../data/skills';
 
-import { SkillDetails } from './skill-details';
+import { SkillDetails } from './skill-details/skill-details';
 
 export function Skills() {
   return (

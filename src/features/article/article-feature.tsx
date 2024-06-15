@@ -7,10 +7,10 @@ import type { Blog } from 'contentlayer/generated';
 import styles from './article.module.css';
 
 const Feedback = dynamic(() =>
-  import('./components').then((mod) => mod.Feedback),
+  import('./components/Feedback/feedback').then((mod) => mod.Feedback),
 );
 const PostBody = dynamic(() =>
-  import('./components').then((mod) => mod.PostBody),
+  import('./components/PostBody').then((mod) => mod.PostBody),
 );
 
 export function ArticleFeature({ post }: { post: Blog }) {

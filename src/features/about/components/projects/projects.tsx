@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 import { type ProjectsType, projects } from '../../data/projects';
-import { ProjectModal } from './project-modal';
+import { ProjectModal } from './project-modal/project-modal';
 import styles from './projects.module.css';
 
 export function Projects() {

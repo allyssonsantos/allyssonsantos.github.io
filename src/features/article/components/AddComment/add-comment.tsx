@@ -1,7 +1,9 @@
 import { useReducer } from 'react';
 import { useTranslation } from 'next-i18next';
 
-import { Button, Textarea, Alert } from 'src/components';
+import { Button } from 'src/components/button/button';
+import { Textarea } from 'src/components/textarea/textarea';
+import { Alert } from 'src/components/alert/alert';
 import { createComment } from 'src/services/comments';
 
 import styles from './add-comment.module.css';

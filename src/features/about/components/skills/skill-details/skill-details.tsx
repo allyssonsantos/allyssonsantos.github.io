@@ -1,5 +1,5 @@
 import type { ISkills } from '../../../data/skills';
-import { SkillsList } from '../skills-list';
+import { SkillsList } from '../skills-list/skills-list';
 
 import styles from './skill-details.module.css';
 
