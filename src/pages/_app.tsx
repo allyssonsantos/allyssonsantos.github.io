@@ -17,7 +17,8 @@ import '../../styles/animations.css';
 import '../../styles/code-editor.css';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: () => ReactNode;
+  // eslint-disable-next-line no-unused-vars
+  getLayout?: (page: ReactElement) => ReactNode;
 };
 
 type AppPropsWithLayout = AppProps & {
