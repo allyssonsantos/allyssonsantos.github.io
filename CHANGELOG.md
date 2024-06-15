@@ -1,3 +1,10 @@
+## [1.12.5](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.4...v1.12.5) (2024-06-15)
+
+
+### Performance Improvements
+
+* **files:** remove barrel files ([24a8dec](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/24a8dec28f83b80c49917e697155f1f4d0fd768f))
+
 ## [1.12.4](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.3...v1.12.4) (2024-06-15)
 
 
