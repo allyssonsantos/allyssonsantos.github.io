@@ -1,3 +1,10 @@
+## [1.12.4](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.3...v1.12.4) (2024-06-15)
+
+
+### Performance Improvements
+
+* **next:** add dynamic imports ([78fee64](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/78fee64f1cb835b8ea7874172a1d2ce6d0766495))
+
 ## [1.12.3](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.12.2...v1.12.3) (2024-06-14)
 
 
