@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://_N_E/src/components/delete-account-modal/delete-account-modal.module.css"],"names":[],"mappings":"AAAA,2CACE,YAAa,CACb,6BACF","file":"static/css/1f9e27dcae203378.css","sourcesContent":[".modal__footer {\n  display: flex;\n  justify-content: space-between;\n}\n"],"sourceRoot":""}
