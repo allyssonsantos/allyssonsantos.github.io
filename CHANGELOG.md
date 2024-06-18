@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.13.2...v1.14.0) (2024-06-18)
+
+
+### Features
+
+* **share:** add share button and fix comment message and button styles ([e933919](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/e933919f9969780aa0a199b6bc0944d985e9b53b))
+
 ## [1.13.2](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.13.1...v1.13.2) (2024-06-15)
 
 
