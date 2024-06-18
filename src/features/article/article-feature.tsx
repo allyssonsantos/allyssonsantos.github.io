@@ -43,7 +43,11 @@ export function ArticleFeature({ post }: { post: Blog }) {
       <article>
         <PostBody code={post.body.code} />
       </article>
-      <Feedback slug={post.slug} />
+      <Feedback
+        title={post.title}
+        description={post.description}
+        slug={post.slug}
+      />
     </div>
   );
 }

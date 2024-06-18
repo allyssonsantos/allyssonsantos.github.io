@@ -62,6 +62,8 @@ export function AddComment({ slug }: { slug: string }) {
     value: '',
   });
 
+  const trimmedValue = state.value?.trim();
+
   function handleCommentChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     dispatch({ type: actions.CHANGE, value: event.target.value });
   }
@@ -69,7 +71,7 @@ export function AddComment({ slug }: { slug: string }) {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!currentUser || !state.value) {
+    if (!currentUser || !trimmedValue) {
       return;
     }
 
@@ -89,11 +91,13 @@ export function AddComment({ slug }: { slug: string }) {
         value={state.value}
         rows={5}
         name="comment"
+        required
       />
       <Button
         variant="inverted"
         type="submit"
         className={styles.comment__button}
+        disabled={!trimmedValue}
       >
         {t('comment-button')}
       </Button>

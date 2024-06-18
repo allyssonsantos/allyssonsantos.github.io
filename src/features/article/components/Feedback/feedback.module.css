@@ -35,8 +35,9 @@
   margin-right: 8px;
 }
 
-.like-button {
-  font-size: 1rem;
+.like-button svg {
+  fill: transparent;
+  transition: fill var(--transition);
 }
 
 .like-button--liked svg {
@@ -74,4 +75,10 @@
   margin-top: 0;
   margin-bottom: 0;
   font-size: 1rem;
+}
+
+.feedback__share {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

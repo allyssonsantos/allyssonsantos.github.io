@@ -7,7 +7,7 @@ import {
   type DocumentData,
 } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
-import { ThumbsUp, MessageCircle, X } from 'react-feather';
+import { Share, ThumbsUp, X } from 'react-feather';
 import { cva } from 'class-variance-authority';
 import { useTranslation } from 'next-i18next';
 
@@ -18,6 +18,7 @@ import {
   DELETE_COMMENT_MODAL_KEY,
   SIGN_IN_MODAL_KEY,
 } from 'src/constants/modals';
+import { SITE_BASE_URL } from 'src/constants';
 import { listenLikes, like } from 'src/services/likes';
 import { db } from 'src/services/firebase';
 import { useAuth } from 'src/contexts/auth';
@@ -35,6 +36,8 @@ const likeButton = cva(styles['like-button'], {
 
 type FeedbackProps = {
   slug: string;
+  title: string;
+  description: string;
 };
 
 type Comments = {
@@ -49,7 +52,23 @@ type Comments = {
   userName: string;
 };
 
-export function Feedback({ slug }: FeedbackProps) {
+type ShareData = {
+  title: string;
+  description: string;
+  slug: string;
+};
+
+function shareFn({ title, description, slug }: ShareData) {
+  if (navigator.share) {
+    navigator.share({
+      title,
+      text: description,
+      url: `${SITE_BASE_URL}/blog/${slug}`,
+    });
+  }
+}
+
+export function Feedback({ slug, title, description }: FeedbackProps) {
   const { t, i18n } = useTranslation('article');
   const locale = i18n.resolvedLanguage;
 
@@ -100,21 +119,34 @@ export function Feedback({ slug }: FeedbackProps) {
         <Button
           className={likeButton({ liked: isPostLiked })}
           onClick={handleLike}
+          variant="ghost"
         >
-          <ThumbsUp aria-hidden /> {t('like', { count: likes?.count || 0 })}
+          <ThumbsUp aria-hidden size={14} />{' '}
+          {t('like', { count: likes?.count || 0 })}
         </Button>
-        <div className={styles.feedback__actions__comments}>
-          <MessageCircle /> {t('comment', { count: comments.length || 0 })}
-        </div>
+        <Button
+          className={styles.feedback__share}
+          variant="inverted"
+          onClick={() =>
+            shareFn({
+              title,
+              description,
+              slug,
+            })
+          }
+        >
+          Compartilhar
+          <Share size={14} />
+        </Button>
       </section>
       <section>
         <div className={styles['feedback__comment-title-wrapper']}>
           <h2 className={styles['feedback__comment-title']}>
-            {t('comments-title')}
+            {t('comments-title')} {comments.length && comments.length}
           </h2>
           {!currentUser && (
             <Button
-              variant="ghost"
+              variant="inverted"
               onClick={() => openModal(SIGN_IN_MODAL_KEY)}
             >
               Faça o login para deixar um comentário
