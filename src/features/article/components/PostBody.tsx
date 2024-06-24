@@ -1,4 +1,4 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 import { CodeEditor, GoToFile } from 'src/components/code-editor/code-editor';
 
 export function PostBody({ code }: { code: string }) {
