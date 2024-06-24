@@ -1,19 +1,13 @@
-import dynamic from 'next/dynamic';
-
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import type { Blog } from 'contentlayer/generated';
 
 import styles from './article.module.css';
 
-const Feedback = dynamic(() =>
-  import('./components/Feedback/feedback').then((mod) => mod.Feedback),
-);
-const PostBody = dynamic(() =>
-  import('./components/PostBody').then((mod) => mod.PostBody),
-);
+import { Feedback } from './components/Feedback/feedback';
+import { PostBody } from './components/PostBody';
 
-export function ArticleFeature({ post }: { post: Blog }) {
+export function ArticleFeature({ post }: Readonly<{ post: Blog }>) {
   const { t } = useTranslation('article');
   const readingTime = Math.floor(post.readingTime.minutes);
 

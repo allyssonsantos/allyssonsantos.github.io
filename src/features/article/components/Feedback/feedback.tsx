@@ -79,6 +79,9 @@ export function Feedback({ slug, title, description }: FeedbackProps) {
   const { currentUser } = useAuth();
   const isPostLiked = likes?.userIds.includes(currentUser?.uid);
 
+  const supportNavigatorShare =
+    typeof navigator !== 'undefined' && navigator.share;
+
   useEffect(() => {
     async function getComments() {
       const q = query(
@@ -124,20 +127,22 @@ export function Feedback({ slug, title, description }: FeedbackProps) {
           <ThumbsUp aria-hidden size={14} />{' '}
           {t('like', { count: likes?.count || 0 })}
         </Button>
-        <Button
-          className={styles.feedback__share}
-          variant="inverted"
-          onClick={() =>
-            shareFn({
-              title,
-              description,
-              slug,
-            })
-          }
-        >
-          Compartilhar
-          <Share size={14} />
-        </Button>
+        {supportNavigatorShare && (
+          <Button
+            className={styles.feedback__share}
+            variant="inverted"
+            onClick={() =>
+              shareFn({
+                title,
+                description,
+                slug,
+              })
+            }
+          >
+            Compartilhar
+            <Share size={14} />
+          </Button>
+        )}
       </section>
       <section>
         <div className={styles['feedback__comment-title-wrapper']}>
