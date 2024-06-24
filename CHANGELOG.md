@@ -1,3 +1,10 @@
+## [1.14.2](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.14.1...v1.14.2) (2024-06-24)
+
+
+### Bug Fixes
+
+* **contentlayer:** use contentlayer2 in build npm script ([f82d9e0](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/f82d9e09833c44e03f3c6a8693052fbb1356b4d2))
+
 ## [1.14.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.14.0...v1.14.1) (2024-06-24)
 
 
