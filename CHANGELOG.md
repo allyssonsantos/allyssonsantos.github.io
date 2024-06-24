@@ -1,3 +1,11 @@
+## [1.14.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.14.0...v1.14.1) (2024-06-24)
+
+
+### Bug Fixes
+
+* **article:** remove dynamic component and check navigator share before using it ([bfb69c0](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/bfb69c038aa414b18eb2579978fa31be41c45ebe))
+* **contentlayer:** change to contentlayer2 ([28c4b4b](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/28c4b4b706b9c599c6e832ddce80a1ba326d9fbe))
+
 # [1.14.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.13.2...v1.14.0) (2024-06-18)
 
 
