@@ -16,11 +16,7 @@ export function ArticleFeature({ post }: Readonly<{ post: Blog }>) {
       <div className={styles.article__header}>
         <h1 className={styles.article__title}>{post.title}</h1>
         <small className={styles['article__reading-time']}>
-          <abbr
-            title={
-              t('estimated-time-to-read', { count: readingTime }) as string
-            }
-          >
+          <abbr title={t('estimated-time-to-read', { count: readingTime })}>
             {readingTime} min
           </abbr>
         </small>
