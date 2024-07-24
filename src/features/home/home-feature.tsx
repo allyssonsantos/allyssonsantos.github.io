@@ -9,11 +9,11 @@ type HomeFeatureProps = {
   posts: Blog[];
 };
 
-export function HomeFeature({ posts }: HomeFeatureProps) {
+export function HomeFeature({ posts }: Readonly<HomeFeatureProps>) {
   const { t } = useTranslation(['common', 'home']);
 
   return (
-    <section className={styles.home}>
+    <section>
       <div className={styles.home__container}>
         <div>
           <h1 className={styles.home__name}>Allysson Santos</h1>
