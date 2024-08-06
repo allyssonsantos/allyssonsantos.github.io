@@ -10,68 +10,68 @@
   }
 }
 
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.projects__project {
-  position: relative;
-  z-index: 0;
-  display: flex;
-  flex-basis: 230px;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px;
-  border: none;
-  border-radius: 16px;
-  background-color: transparent;
-  color: inherit;
-  cursor: pointer;
-  font-family: inherit;
-  transition: background-color var(--transition);
-}
-
-.projects__project:hover {
-  background-color: var(--neutral-200);
-}
-
-.projects__project::before {
-  position: absolute;
-  z-index: -1;
-  padding: 1px;
-  border-radius: 16px;
-  animation: border-animation 4s infinite linear;
-  background: linear-gradient(
-    var(--gradient-angle),
-    var(--color-primary),
-    var(--color-secondary)
-  );
-  content: '';
-  inset: 0;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-}
-
-.projects__project-logo {
-  width: 50px;
-  height: 50px;
-  transition: filter var(--transition);
-}
-
 :global(.dark) .projects__project-logo {
   filter: invert(1) grayscale(1);
 }
 
-.projects__project-title {
+.projects {
   display: flex;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  font-weight: 700;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .projects__project {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-basis: 230px;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color var(--transition);
+
+    &:hover {
+      background-color: var(--neutral-200);
+    }
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      padding: 1px;
+      border-radius: 16px;
+      animation: border-animation 4s infinite linear;
+      background: linear-gradient(
+        var(--gradient-angle),
+        var(--color-primary),
+        var(--color-secondary)
+      );
+      content: '';
+      inset: 0;
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+    }
+
+    .projects__project-logo {
+      width: 50px;
+      height: 50px;
+      transition: filter var(--transition);
+    }
+
+    .projects__project-title {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+  }
 }

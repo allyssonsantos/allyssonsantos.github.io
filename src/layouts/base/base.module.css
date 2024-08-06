@@ -3,12 +3,12 @@
   height: 100%;
   grid-template-areas: 'content';
   grid-template-columns: 1fr;
-}
 
-@media (width >= 48rem) {
-  .base {
-    grid-template-areas: 'sidebar content';
-    grid-template-columns: 240px 1fr;
+  @media (width >= 48rem) {
+    & {
+      grid-template-areas: 'sidebar content';
+      grid-template-columns: 240px 1fr;
+    }
   }
 }
 
@@ -34,10 +34,10 @@
   border: 1px solid var(--neutral-200);
   backdrop-filter: blur(2px);
   background-color: var(--blur-backdrop-color);
-}
 
-@media (width >= 768px) {
-  .main__menu-button {
-    display: none;
+  @media (width >= 768px) {
+    & {
+      display: none;
+    }
   }
 }

@@ -6,7 +6,7 @@ interface IProps {
   skills: Array<ISkills>;
 }
 
-export function SkillsList({ skills }: IProps) {
+export function SkillsList({ skills }: Readonly<IProps>) {
   return (
     <ul className={styles.skills__list}>
       {skills.map((skill) => {

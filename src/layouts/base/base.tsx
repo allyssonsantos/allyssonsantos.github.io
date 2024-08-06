@@ -48,7 +48,7 @@ function BaseLayout({
             onClick={handleSideBar}
             variant="icon"
             className={styles['main__menu-button']}
-            aria-label={t('sidebar:open-menu') as string}
+            aria-label={t('sidebar:open-menu')}
           >
             <Menu />
           </Button>
