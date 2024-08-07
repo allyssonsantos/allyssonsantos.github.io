@@ -19,9 +19,9 @@ export default defineConfig({
         __dirname,
         './node_modules/contentlayer/dist/client',
       ),
-      'next-contentlayer/hooks': path.resolve(
+      'next-contentlayer2/hooks': path.resolve(
         __dirname,
-        './node_modules/next-contentlayer/dist/hooks',
+        './node_modules/next-contentlayer2/dist/hooks',
       ),
       'next-i18next.config': path.resolve(
         __dirname,
