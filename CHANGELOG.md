@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.14.2...v1.15.0) (2024-08-07)
+
+
+### Features
+
+* **styles:** change color based on theme using light-dark css function ([de6bdc4](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/de6bdc46170bea04c1833a1af0fc02112672d81f))
+
 ## [1.14.2](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.14.1...v1.14.2) (2024-06-24)
 
 
