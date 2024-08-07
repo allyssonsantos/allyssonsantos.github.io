@@ -55,12 +55,12 @@ a {
     color var(--transition),
     text-decoration-color var(--transition),
     text-underline-offset var(--transition);
-}
 
-a:hover {
-  color: var(--primary-200);
-  text-decoration-color: inherit;
-  text-underline-offset: 8px;
+  &:hover {
+    color: var(--primary-200);
+    text-decoration-color: inherit;
+    text-underline-offset: 8px;
+  }
 }
 
 code:not(.code-highlight) {

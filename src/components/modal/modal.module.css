@@ -3,40 +3,40 @@
   border: none;
   border-radius: 8px;
   color: inherit;
-}
 
-.modal__wrapper {
-  padding: 16px;
-  background-color: var(--neutral-100);
-}
+  &::backdrop {
+    background-color: var(--backdrop-color);
+    opacity: 0.8;
+  }
 
-.modal::backdrop {
-  background-color: var(--backdrop-color);
-  opacity: 0.8;
-}
+  @media (width <= 768px) {
+    .modal {
+      width: 100%;
+      max-width: 100%;
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-left: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
 
-.modal__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  gap: 32px;
-}
+  .modal__wrapper {
+    padding: 16px;
+    background-color: var(--neutral-100);
 
-.modal__title {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  font-size: 1.5rem;
-}
+    .modal__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      gap: 32px;
 
-@media (width <= 768px) {
-  .modal {
-    width: 100%;
-    max-width: 100%;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+      .modal__title {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        font-size: 1.5rem;
+      }
+    }
   }
 }

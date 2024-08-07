@@ -8,7 +8,7 @@ interface IProps {
   skills: Array<ISkills>;
 }
 
-export function SkillDetails({ name, skills }: IProps) {
+export function SkillDetails({ name, skills }: Readonly<IProps>) {
   return (
     <details className={styles.skill__details}>
       <summary className={styles['skill__details-summary']}>{name}</summary>

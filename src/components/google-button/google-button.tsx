@@ -17,7 +17,7 @@ export function GoogleButton(props: GoogleButtonProps) {
   return (
     <button
       {...props}
-      aria-label={t('sign-in-with-google-label') as string}
+      aria-label={t('sign-in-with-google-label')}
       className={googleButton({ className: props.className })}
     >
       <div className={styles['google-button__logo']}>

@@ -20,7 +20,7 @@ export function Companies() {
                 {name}{' '}
                 <small>
                   <em>
-                    {startYear} - {endYear || t('common:present')}
+                    {startYear} - {endYear ?? t('common:present')}
                   </em>
                 </small>
               </div>

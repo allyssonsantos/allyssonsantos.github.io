@@ -8,7 +8,7 @@ describe('Home', () => {
     render(<Home posts={[mockedPost]} />);
 
     const heading = screen.getByRole('heading', {
-      name: `${mockedPost.title} - ${mockedPost.readingTime.text}`,
+      name: mockedPost.title,
     });
 
     expect(heading).toBeVisible();

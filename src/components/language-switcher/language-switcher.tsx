@@ -40,7 +40,6 @@ export function LanguageSwitcher() {
 
     if (!currentLocale) {
       router.push(`/${choosedLocale}${router.asPath}`);
-      return;
     }
   }
 

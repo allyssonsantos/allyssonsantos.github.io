@@ -10,7 +10,7 @@ type BlogFeatureProps = {
   posts: Record<string, Blog[]>;
 };
 
-export function BlogFeature({ posts }: BlogFeatureProps) {
+export function BlogFeature({ posts }: Readonly<BlogFeatureProps>) {
   const { t } = useTranslation('common');
 
   return (

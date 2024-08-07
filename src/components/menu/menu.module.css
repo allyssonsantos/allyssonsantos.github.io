@@ -6,21 +6,21 @@
   border-radius: 4px;
   box-shadow: rgba(0 0 0 / 30%) 1px 1px 3px;
   transform: translateY(25%);
-}
 
-.menu__list {
-  list-style: none;
-}
+  .menu__list {
+    list-style: none;
 
-.menu__item {
-  width: 100%;
-  padding: 8px;
-  border: none;
-  background-color: var(--white);
-  color: var(--neutral-400);
-  text-align: left;
-}
+    .menu__item {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      background-color: var(--white);
+      color: var(--neutral-400);
+      text-align: left;
 
-.menu__item:hover {
-  background-color: var(--neutral-200);
+      &:hover {
+        background-color: var(--neutral-200);
+      }
+    }
+  }
 }

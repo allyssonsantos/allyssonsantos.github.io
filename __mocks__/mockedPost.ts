@@ -1,6 +1,7 @@
 export const mockedPost = {
   title: 'Blog One🚀',
   publishedAt: '2021-12-24',
+  localizedPublishedAt: '24 de dezembro de 2021',
   description: 'Learn how to build a Next.js blog with MDX and Contentlayer!',
   cover: 'github_captions.jpeg',
   altCover: 'Antiga interface da página inicial do github',
