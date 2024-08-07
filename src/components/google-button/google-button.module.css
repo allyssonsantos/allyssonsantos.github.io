@@ -12,32 +12,32 @@
   font-size: 1rem;
   line-height: 48px;
   transition: box-shadow 0.218s;
-}
 
-.google-button:hover {
-  box-shadow: 0 0 3px 3px rgb(66 133 244 / 30%);
-}
+  &:hover {
+    box-shadow: 0 0 3px 3px rgb(66 133 244 / 30%);
+  }
 
-.google-button__logo {
-  display: flex;
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border-radius: 1px;
-  background-color: white;
-  text-align: center;
-  white-space: nowrap;
-}
+  .google-button__logo {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1px;
+    background-color: white;
+    text-align: center;
+    white-space: nowrap;
 
-.google-button__logo svg {
-  stroke: none;
-}
+    & svg {
+      stroke: none;
+    }
+  }
 
-.google-button__label {
-  display: block;
-  width: 100%;
-  color: white;
-  text-align: center;
+  .google-button__label {
+    display: block;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
 }

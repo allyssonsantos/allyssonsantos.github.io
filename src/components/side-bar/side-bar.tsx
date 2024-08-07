@@ -103,7 +103,7 @@ const socialLinks: Array<ILinks> = [
   },
 ];
 
-function SideBarLink({ title, href, external, icon: Icon }: ILinks) {
+function SideBarLink({ title, href, external, icon: Icon }: Readonly<ILinks>) {
   return (
     <ActiveLink
       href={href}
@@ -119,7 +119,7 @@ function SideBarLink({ title, href, external, icon: Icon }: ILinks) {
   );
 }
 
-function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
+function SideBar({ isOpen, onSideBarClose }: Readonly<ISideBarProps>) {
   const { t } = useTranslation(['common', 'sidebar']);
   const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -162,7 +162,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
         })}
       >
         <Button
-          aria-label={t('sidebar:close-menu') as string}
+          aria-label={t('sidebar:close-menu')}
           onClick={onSideBarClose}
           variant="icon"
           className={styles['sidebar__close-button']}
@@ -241,7 +241,7 @@ function SideBar({ isOpen, onSideBarClose }: ISideBarProps) {
               [styles['sidebar__theme-button--active']]: !isDarkTheme,
             })}
             type="button"
-            aria-label={t('sidebar:change-theme') as string}
+            aria-label={t('sidebar:change-theme')}
             onClick={handleThemeChange}
           >
             <Sun />

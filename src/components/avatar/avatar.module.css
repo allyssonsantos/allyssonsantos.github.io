@@ -8,12 +8,12 @@
   background-color: transparent;
   color: inherit;
   gap: 12px;
-}
 
-.avatar:hover {
-  background-color: var(--neutral-200);
-}
+  &:hover {
+    background-color: var(--neutral-200);
+  }
 
-.avatar img {
-  border-radius: 50px;
+  & img {
+    border-radius: 50px;
+  }
 }

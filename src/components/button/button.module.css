@@ -10,44 +10,44 @@
   font-family: inherit;
   font-size: 0.875rem;
   transition: background-color var(--transition);
-}
 
-.button:disabled {
-  background-color: var(--neutral-200);
-}
+  &:disabled {
+    background-color: var(--neutral-200);
+  }
 
-.button-icon.button--small {
-  width: calc(var(--icon-size) / 1.5);
-  height: calc(var(--icon-size) / 1.5);
+  &:not(:disabled):hover {
+    background-color: var(--neutral-100);
+  }
+
+  &:not(:disabled):active {
+    background-color: var(--neutral-200);
+  }
 }
 
 .button-icon {
   width: var(--icon-size);
   height: var(--icon-size);
   border-radius: 50%;
+
+  &.button--small {
+    width: calc(var(--icon-size) / 1.5);
+    height: calc(var(--icon-size) / 1.5);
+  }
 }
 
 .button-inverted {
   background-color: var(--neutral-400);
   color: var(--white);
+
+  &:not(:disabled):hover {
+    background-color: var(--neutral-300);
+  }
+
+  &:not(:disabled):active {
+    background-color: var(--primary-300);
+  }
 }
 
 .button-ghost {
   border: 1px solid var(--neutral-400);
-}
-
-.button:not(:disabled):hover {
-  background-color: var(--neutral-100);
-}
-
-.button:not(:disabled):active {
-  background-color: var(--neutral-200);
-}
-
-.button-inverted:not(:disabled):hover {
-  background-color: var(--neutral-300);
-}
-
-.button-inverted:not(:disabled):active {
-  background-color: var(--primary-300);
 }

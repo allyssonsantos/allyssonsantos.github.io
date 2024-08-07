@@ -1,7 +1,7 @@
 import { type PropsWithChildren, useState, useMemo, useCallback } from 'react';
 import { ModalContext } from './modal-context';
 
-export function ModalProvider({ children }: PropsWithChildren<{}>) {
+export function ModalProvider({ children }: Readonly<PropsWithChildren<{}>>) {
   const [openedModals, setOpenedModals] = useState<string[]>([]);
 
   const openModal = useCallback((modalKey: string) => {

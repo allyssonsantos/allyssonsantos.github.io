@@ -16,8 +16,8 @@ export function LinkComponent({
   const router = useRouter();
   const locale = rest.locale || router.query.locale || '';
 
-  let href = (rest.href as string) || (router.asPath as string);
-  if (href.indexOf('http') === 0) skipLocaleHandling = true;
+  let href = (rest.href as string) || router.asPath;
+  if (href.startsWith('http')) skipLocaleHandling = true;
 
   if (locale && !skipLocaleHandling) {
     href = href
@@ -26,10 +26,8 @@ export function LinkComponent({
   }
 
   return (
-    <>
-      <Link {...rest} href={href}>
-        {children}
-      </Link>
-    </>
+    <Link {...rest} href={href}>
+      {children}
+    </Link>
   );
 }

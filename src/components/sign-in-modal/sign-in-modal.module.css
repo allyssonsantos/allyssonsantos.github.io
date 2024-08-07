@@ -2,13 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .sign-in-modal__button {
+    margin-top: 24px;
+    margin-bottom: 42px;
+  }
 }
 
-.sign-in-modal__disclaimer small {
-  display: block;
-}
-
-.sign-in-modal__button {
-  margin-top: 24px;
-  margin-bottom: 42px;
+.sign-in-modal__disclaimer {
+  & small {
+    display: block;
+  }
 }

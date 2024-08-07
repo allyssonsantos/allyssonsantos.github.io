@@ -14,7 +14,7 @@ export function PostPreview({
   readingTime,
   description,
   publishedAt,
-}: IPostPreview) {
+}: Readonly<IPostPreview>) {
   const { t } = useTranslation(['common']);
   const readingTimeText = `${Math.floor(readingTime)} ${t('common:reading-time')}`;
 
