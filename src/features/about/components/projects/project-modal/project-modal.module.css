@@ -13,7 +13,7 @@
     to bottom,
     var(--color-primary),
     var(--color-secondary)
-    );
+  );
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -27,29 +27,29 @@
   margin-top: 32px;
   margin-bottom: 32px;
   gap: 16px;
-}
 
-@media (width <= 768px) {
-  .modal__content {
-    flex-direction: column;
+  @media (width <= 768px) {
+    & {
+      flex-direction: column;
+    }
   }
 }
 
 .modal__info {
   padding-right: 16px;
   border-right: 1px solid var(--neutral-200);
-}
 
-@media (width <= 768px) {
-  .modal__info {
-    padding-right: 0;
-    border-right: none;
+  & img {
+    margin-right: 16px;
+    float: left;
   }
-}
 
-.modal__info img {
-  margin-right: 16px;
-  float: left;
+  @media (width <= 768px) {
+    & {
+      padding-right: 0;
+      border-right: none;
+    }
+  }
 }
 
 :global(.dark) .modal__info img {
