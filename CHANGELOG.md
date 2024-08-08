@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.15.0...v1.15.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* **css:** fix some css nestings ([59c8f39](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/59c8f39c15bd7d850f65dd3b1df5b3bc3639caaf))
+
 # [1.15.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.14.2...v1.15.0) (2024-08-07)
 
 
