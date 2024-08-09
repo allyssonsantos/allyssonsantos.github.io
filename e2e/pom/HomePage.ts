@@ -1,8 +1,9 @@
 import type { Page, Locator } from '@playwright/test';
 
 export class HomePage {
-  private readonly title: Locator;
-  private readonly role: Locator;
+  public readonly title: Locator;
+  public readonly role: Locator;
+  public readonly posts: Locator;
 
   constructor(public readonly page: Page) {
     this.page = page;
@@ -14,6 +15,8 @@ export class HomePage {
       name: 'Trabalhando no O Boticário',
       level: 2,
     });
+
+    this.posts = this.page.getByRole('main').getByRole('listitem');
   }
 
   public async goto() {
@@ -23,5 +26,6 @@ export class HomePage {
   public async isReady() {
     await this.title.isVisible();
     await this.role.isVisible();
+    await this.posts.isVisible();
   }
 }

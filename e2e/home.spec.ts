@@ -1,6 +1,6 @@
 import { test, expect } from './base';
 
-test('blog link', async ({ homePage }) => {
+test('Home page', async ({ homePage }) => {
   await homePage.isReady();
 
   await expect(
@@ -9,4 +9,5 @@ test('blog link', async ({ homePage }) => {
       level: 2,
     }),
   ).toBeVisible();
+  await expect(homePage.posts).toHaveCount(1);
 });

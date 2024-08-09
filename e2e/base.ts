@@ -1,8 +1,10 @@
 import { test as base } from '@playwright/test';
 import { HomePage } from './pom/HomePage';
+import { ArticlePage } from './pom/ArticlePage';
 
 type Fixtures = {
   homePage: HomePage;
+  articlePage: ArticlePage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -11,6 +13,12 @@ export const test = base.extend<Fixtures>({
     await homePage.goto();
     await homePage.isReady();
     await use(homePage);
+  },
+  articlePage: async ({ page }, use) => {
+    const articlePage = new ArticlePage(page);
+    await articlePage.goto();
+    await articlePage.isReady();
+    await use(articlePage);
   },
 });
 
