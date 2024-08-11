@@ -1,66 +1,24 @@
+import type { Locator } from '@playwright/test';
 import { test, expect } from './base';
 
-test('Article page - skills', async ({ articlePage }) => {
-  await articlePage.isReady();
-
-  for (const skill of await articlePage.skills.all()) {
-    await expect(skill).toBeVisible();
-  }
-  await expect(articlePage.skills).toHaveCount(3);
-});
-
-test('Article page - projects', async ({ articlePage }) => {
-  await articlePage.isReady();
-
-  await expect(articlePage.projects).toHaveCount(3);
-
-  const firstProject = articlePage.projects.first();
-  const secondProject = articlePage.projects.nth(1);
-  const lastProject = articlePage.projects.last();
-
-  await articlePage.clickOnProject(firstProject);
-
-  const modal = await articlePage.getModal();
-
-  await expect(modal).toBeVisible();
+async function checkLoginModal(loginModal: Locator) {
+  await expect(loginModal).toBeVisible();
   await expect(
-    await articlePage.getModalTitle(
-      (await firstProject.textContent()) as string,
-    ),
+    loginModal.getByText('Escolha uma forma de login:'),
   ).toBeVisible();
-  await articlePage.closeModal();
-  await expect(modal).not.toBeVisible();
-
-  await articlePage.clickOnProject(secondProject);
-  const modal2 = await articlePage.getModal();
-  await expect(modal2).toBeVisible();
   await expect(
-    await articlePage.getModalTitle(
-      (await secondProject.textContent()) as string,
-    ),
+    loginModal.getByRole('button', { name: 'Entre com sua conta do google' }),
   ).toBeVisible();
+}
 
+test('Article page', async ({ articlePage }) => {
+  await articlePage.clickLikeButton();
+  const likeLoginModal = await articlePage.getModal();
+  await checkLoginModal(likeLoginModal);
   await articlePage.closeModal();
-  await expect(modal2).not.toBeVisible();
 
-  await articlePage.clickOnProject(lastProject);
-  const modal3 = await articlePage.getModal();
-  await expect(modal3).toBeVisible();
-  await expect(
-    await articlePage.getModalTitle(
-      (await lastProject.textContent()) as string,
-    ),
-  ).toBeVisible();
-
+  await articlePage.clickLoginButton();
+  const loginModal = await articlePage.getModal();
+  await checkLoginModal(loginModal);
   await articlePage.closeModal();
-  await expect(modal3).not.toBeVisible();
-});
-
-test('Article page - companies', async ({ articlePage }) => {
-  await articlePage.isReady();
-
-  for (const company of await articlePage.companies.all()) {
-    await expect(company).toBeVisible();
-  }
-  await expect(articlePage.companies).toHaveCount(5);
 });
