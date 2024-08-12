@@ -16,9 +16,11 @@ test('Article page', async ({ articlePage }) => {
   const likeLoginModal = await articlePage.getModal();
   await checkLoginModal(likeLoginModal);
   await articlePage.closeModal();
+  await expect(likeLoginModal).not.toBeVisible();
 
   await articlePage.clickLoginButton();
   const loginModal = await articlePage.getModal();
   await checkLoginModal(loginModal);
   await articlePage.closeModal();
+  await expect(loginModal).not.toBeVisible();
 });
