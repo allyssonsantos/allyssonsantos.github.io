@@ -11,6 +11,10 @@ My personal website/blog to share some front-end ideas with everyone!
 - Content: [Contentlayer + MDX](https://www.contentlayer.dev/)
 - Auth: [Firebase](https://firebase.google.com/docs/auth)
 - Error Tracking: [Sentry](https://sentry.io/)
+- Testing:
+  - [Jest](https://jestjs.io/)
+  - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+  - [Playwright](https://playwright.dev/)
 
 ## Running
 

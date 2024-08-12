@@ -8,6 +8,7 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   test: {
+    include: ['./__tests__/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
     globals: true,
     environment: 'jsdom',
     alias: {
