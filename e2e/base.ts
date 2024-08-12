@@ -32,6 +32,7 @@ export const test = base.extend<Fixtures>({
   },
   sideBar: async ({ page }, use) => {
     const sideBar = new SideBar(page);
+    await sideBar.goto();
     await sideBar.isReady();
     await use(sideBar);
   },

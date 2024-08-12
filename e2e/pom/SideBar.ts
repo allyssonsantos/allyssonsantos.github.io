@@ -8,6 +8,10 @@ export class SideBar {
     this.sidebar = this.page.getByRole('navigation');
   }
 
+  public async goto() {
+    await this.page.goto('/');
+  }
+
   public async isReady() {
     await this.sidebar.isVisible();
   }
@@ -15,5 +19,10 @@ export class SideBar {
   public async changeTheme() {
     const themeSwitch = this.page.getByLabel('Trocar tema');
     await themeSwitch.click();
+  }
+
+  public async getLinkLists() {
+    const links = await this.sidebar.getByRole('list').all();
+    return links;
   }
 }
