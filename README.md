@@ -14,7 +14,8 @@ My personal website/blog to share some front-end ideas with everyone!
 - Testing:
   - [Jest](https://jestjs.io/)
   - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-  - [Playwright](https://playwright.dev/)
+  - [Playwright](https://playwright.dev/) - Runs every time a pull-request is opened, a push is made to the main
+    branch and, every day at 05:15 and 11:15 UTC
 
 ## Running
 
