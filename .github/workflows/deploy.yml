@@ -17,7 +17,7 @@ jobs:
           git config --global user.name Allysson Santos
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
