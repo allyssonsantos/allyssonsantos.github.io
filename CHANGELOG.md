@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.15.1...v1.16.0) (2025-10-22)
+
+
+### Features
+
+* **about:** adding new company info ([a3db405](https://github.com/allyssonsantos/allyssonsantos.github.io/commit/a3db405991cb090e58b420e824881806453ffad9))
+
 ## [1.15.1](https://github.com/allyssonsantos/allyssonsantos.github.io/compare/v1.15.0...v1.15.1) (2024-08-08)
 
 
