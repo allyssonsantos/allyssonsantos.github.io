@@ -20,11 +20,11 @@ export function HomeFeature({ posts }: Readonly<HomeFeatureProps>) {
           <h2 className={styles.home__role}>
             {t('home:role')}
             <a
-              href="https://www.boticario.com.br/"
+              href="https://www.brex.com/"
               target="_blank"
               rel="noreferrer"
             >
-              O Boticário
+              Brex
             </a>
           </h2>
           <p className={styles.home__description}>{t('home:description')}</p>
